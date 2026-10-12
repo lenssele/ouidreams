@@ -291,6 +291,9 @@ footer{border-top-color:var(--line)}
 .top{display:flex;align-items:center;justify-content:space-between}
 .back{font-size:.9rem;color:var(--ink2);text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--line2,rgba(241,236,228,.18))}
 .back:hover{color:var(--ink)}
+.lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(241,236,228,.92);color:#1b1917;font:600 1rem "Geist",system-ui,sans-serif;cursor:pointer}
+.tip{margin:0;padding:10px 20px;font-size:.82rem;line-height:1.4;text-align:center;color:#1b1917;background:#a1d193}
+.inapp .snd{display:none}
 </style>
 </head>
 <body>
@@ -315,7 +318,7 @@ footer{border-top-color:var(--line)}
     </div>
     <div class="stage">
       <div class="phone"><div class="frame" style="background-image:url(v/clients/oretvaleurs.jpg)">
-        <video src="v/clients/oretvaleurs.mp4" poster="v/clients/oretvaleurs.jpg" muted loop playsinline preload="metadata" aria-label="Extrait de la promo Or et Valeurs"></video>
+        <video src="v/clients/oretvaleurs.mp4" poster="v/clients/oretvaleurs.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Extrait de la promo Or et Valeurs"></video>
       </div></div>
     </div>
   </div>
@@ -334,7 +337,7 @@ footer{border-top-color:var(--line)}
         <p>Faire comprendre en 30 secondes un service qu'on ne connaît pas encore : la visite d'un logement depuis son téléphone ou son ordinateur.</p>
       </div>
       <div class="frame" style="background-image:url(v/clients/vistoria_l.jpg)">
-        <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline preload="metadata" aria-label="Promo Vistoria"></video>
+        <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Vistoria"></video>
         <button class="snd" type="button" aria-pressed="false">Activer le son</button>
       </div>
       <figure class="quote">
@@ -351,7 +354,7 @@ footer{border-top-color:var(--line)}
         <p>Donner envie de pousser la porte d'une boutique de quartier : ce qu'on peut y apporter, et pourquoi y aller.</p>
       </div>
       <div class="frame" style="background-image:url(v/clients/oretvaleurs_l.jpg)">
-        <video src="v/clients/oretvaleurs_l.mp4" poster="v/clients/oretvaleurs_l.jpg" muted loop playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video>
+        <video src="v/clients/oretvaleurs_l.mp4" poster="v/clients/oretvaleurs_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video>
         <button class="snd" type="button" aria-pressed="false">Activer le son</button>
       </div>
       <figure class="quote">
@@ -489,7 +492,23 @@ footer{border-top-color:var(--line)}
 // Vidéos : lecture seulement quand elles sont visibles (batterie, data mobile), jamais si l'utilisateur réduit les animations.
 // Révélations : la classe .in déclenche la transition CSS une seule fois.
 (function(){
-  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Navigateurs integres (TikTok, Instagram, Facebook) : ils ouvrent les videos en plein ecran des qu'elles se lancent.
+// La-bas : aucune lecture automatique ; un bouton « Lire » sur chaque video, et un conseil pour ouvrir le site dans le vrai navigateur (Hugo, 13/10).
+var INAPP = /TikTok|musical_ly|Bytedance|BytedanceWebview|Instagram|FBAN|FBAV/i.test(navigator.userAgent);
+if (INAPP) {
+  document.documentElement.classList.add('inapp');
+  document.querySelectorAll('video').forEach(function(v){
+    v.removeAttribute('autoplay'); v.pause();
+    var f = v.parentNode, b = document.createElement('button');
+    b.type = 'button'; b.className = 'lire'; b.textContent = '▶ Lire';
+    b.addEventListener('click', function(){ v.controls = true; var p = v.play(); if (p) p.catch(function(){}); b.remove(); });
+    f.appendChild(b);
+  });
+  var tip = document.createElement('p'); tip.className = 'tip';
+  tip.textContent = 'Astuce : touche « … » en haut à droite puis « Ouvrir dans le navigateur » pour voir les vidéos directement dans la page.';
+  document.body.insertBefore(tip, document.body.firstChild);
+}
+  var calm = INAPP || matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!('IntersectionObserver' in window)) { document.documentElement.classList.remove('js'); return; }
   var vio = new IntersectionObserver(function(es){
     es.forEach(function(e){
