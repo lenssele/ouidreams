@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oui Dreams Motion · vidéos courtes en motion design pour Reels et TikTok</title>
+<meta name="description" content="Vidéos en motion design, en vertical et en paysage, livrées sous 48 h, avec musique et effets sonores. 179 € la vidéo ou 390 € par mois pour 3 vidéos. Par le créateur de Oui Dreams.">
+<meta name="theme-color" content="#1b1917">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Oui Dreams Motion">
+<meta property="og:description" content="Vidéos courtes en motion design pour ta marque. En vertical et en paysage, livrées sous 48 h. 179 € la vidéo.">
+<meta property="og:image" content="v/md09.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Geist";src:url(fonts/Geist-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#010101;--neon:#52FA52;--neon2:#47DB47;--mid:#3DAC3C;--forest:#1B7A2B;--night:#06210F;--deep:#0D270C;--mint:#B8FFC9;--txt:#FFFFFF;--dim:#7F847E;
+  --r:18px;
+  --glow-text:0 0 6px rgba(82,250,82,.55),0 0 22px rgba(82,250,82,.35),0 0 60px rgba(71,219,71,.25);
+  --glow-box:0 0 0 1px rgba(82,250,82,.55),0 0 18px rgba(82,250,82,.35),0 0 48px rgba(61,172,60,.25),0 24px 80px -20px rgba(27,122,43,.55);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--txt);font:400 17px/1.55 "Geist",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{min-height:100dvh;overflow-x:hidden;isolation:isolate;background:radial-gradient(70rem 46rem at 88% -8%,rgba(27,122,43,.30),transparent 62%),radial-gradient(56rem 44rem at -12% 38%,rgba(13,39,12,.75),transparent 62%),radial-gradient(64rem 52rem at 105% 92%,rgba(6,33,15,.9),transparent 60%),linear-gradient(180deg,#050b07,#020503 60%,#040a05);background-attachment:fixed}
+/* grain léger : casse l'aplat noir */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(2rem,5.4vw,3.4rem)}
+p{max-width:62ch}
+.lit{color:var(--neon);text-shadow:var(--glow-text)}
+.dim{color:var(--dim)}
+.soft{opacity:.8}
+
+/* Bouton : un seul libellé par intention sur toute la page */
+.cta{display:inline-flex;align-items:center;gap:.6em;white-space:nowrap;padding:16px 28px;border-radius:999px;background:var(--neon);color:var(--bg);font-weight:650;font-size:1.02rem;text-decoration:none;box-shadow:0 0 0 1px var(--mint) inset,0 0 20px rgba(82,250,82,.5),0 0 60px rgba(71,219,71,.3);transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease)}
+.cta:hover{background:var(--mint);box-shadow:0 0 0 1px var(--mint) inset,0 0 28px rgba(82,250,82,.7),0 0 90px rgba(71,219,71,.45)}
+.cta:active{transform:scale(.98)}
+.link{color:var(--mint);font-weight:550;text-underline-offset:5px;text-decoration-color:var(--forest);text-decoration-thickness:2px}
+.link:hover{text-decoration-color:var(--neon)}
+
+/* En-tête */
+.top{display:flex;align-items:center;height:68px}
+.top img{width:132px;height:auto;filter:drop-shadow(0 0 10px rgba(82,250,82,.35))}
+
+/* Hero : split texte / vidéo */
+.hero{position:relative;padding:28px 0 72px}
+.hero::before{content:"";position:absolute;inset:-120px 0 auto;height:720px;background:radial-gradient(42rem 30rem at 78% 30%,rgba(27,122,43,.35),transparent 70%),radial-gradient(30rem 22rem at 10% 0%,rgba(13,39,12,.9),transparent 70%);pointer-events:none;z-index:-1}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mid)}
+.hero h1{margin-top:14px;font-size:clamp(2.6rem,9.5vw,5rem);letter-spacing:-.045em;line-height:1}
+.hero p{margin-top:20px;font-size:1.12rem;color:var(--txt);opacity:.86;max-width:30ch}
+.actions{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.stage{position:relative;justify-self:center;width:min(78vw,360px)}
+.stage::after{content:"";position:absolute;left:8%;right:8%;bottom:-46px;height:60px;background:radial-gradient(closest-side,rgba(82,250,82,.4),transparent);filter:blur(18px);pointer-events:none}
+.frame{position:relative;aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;background:var(--night) center/cover no-repeat;box-shadow:var(--glow-box)}
+.frame video{width:100%;height:100%;object-fit:cover}
+
+/* Vitrine clients : une carte façon profil de réseau social par client (logo encadré, nom, type de business), la promo à côté */
+.show{padding:30px 0 110px}
+.show .lede{margin-top:14px}
+.cases{margin-top:44px;display:grid;gap:28px}
+.case{display:grid;gap:22px;padding:22px;border-radius:24px;background:linear-gradient(180deg,rgba(13,39,12,.55),rgba(1,1,1,.9));box-shadow:0 0 0 1px rgba(61,172,60,.35)}
+.acct{display:flex;flex-direction:column;gap:16px}
+.kind{align-self:flex-start;padding:6px 13px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--bg);background:var(--mint)}
+.who{display:flex;align-items:center;gap:16px}
+.ava{flex:none;display:grid;place-items:center;width:84px;height:84px;border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+.ava span{display:grid;place-items:center;width:100%;height:100%}
+.ava img{width:84%;height:auto}
+.who h3{font-size:1.5rem;letter-spacing:-.02em}
+.who p{color:var(--dim);font-size:.95rem;margin-top:2px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts li{list-style:none;padding:6px 12px;border-radius:999px;font-size:.88rem;box-shadow:0 0 0 1px rgba(61,172,60,.4);color:var(--txt)}
+.acct>p{color:var(--txt);opacity:.86}
+.case .frame{width:min(100%,320px);justify-self:center;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 24px 60px -24px rgba(0,0,0,.9)}
+.snd{position:absolute;right:12px;bottom:12px;padding:9px 14px;border:0;border-radius:999px;background:rgba(1,1,1,.72);color:var(--txt);font:600 .85rem "Geist",system-ui,sans-serif;cursor:pointer;backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(184,255,201,.35)}
+.snd[aria-pressed="true"]{background:var(--neon);color:var(--bg)}
+.case.soon{background:none;box-shadow:0 0 0 1px rgba(61,172,60,.35) inset;border:1px dashed rgba(61,172,60,.55)}
+.case.soon .frame{display:grid;place-items:center;background:var(--night);box-shadow:none;border:1px dashed rgba(61,172,60,.5);color:var(--dim);font-size:.95rem;text-align:center;padding:20px}
+.case.soon .ava{background:rgba(61,172,60,.25);box-shadow:none}
+.case.soon .ava span{background:var(--night);color:var(--mint);font-size:1.6rem;font-weight:700}
+
+/* Preuve : bandeau chiffre */
+.proof{padding:56px 0;background:linear-gradient(180deg,transparent,rgba(6,33,15,.55) 30%,rgba(6,33,15,.55) 70%,transparent)}
+.proof .wrap{display:grid;gap:12px 40px;align-items:end}
+.big{font-size:clamp(4.2rem,17vw,10rem);font-weight:800;letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+.proof p:not(.big){font-size:1.1rem;max-width:40ch}
+.proof .link{display:inline-block;margin-top:10px}
+
+/* Problème : colonne éditoriale décalée */
+.pain{padding:110px 0 90px}
+.pain .wrap>div{max-width:760px}
+.pain p{margin-top:24px;font-size:1.15rem;color:var(--dim)}
+.pain p strong{color:var(--txt);font-weight:550}
+
+/* Prix : deux colonnes asymétriques */
+.price{padding:100px 0;position:relative}
+.price::before{content:"";position:absolute;inset:0;background:radial-gradient(36rem 26rem at 70% 55%,rgba(13,39,12,.95),transparent 70%);z-index:-1;pointer-events:none}
+.plans{margin-top:44px;display:grid;gap:20px}
+.plan{border-radius:var(--r);padding:28px 26px;background:rgba(1,1,1,.55);box-shadow:0 0 0 1px rgba(61,172,60,.35)}
+.plan.main{background:linear-gradient(180deg,var(--deep),var(--bg) 62%);box-shadow:var(--glow-box)}
+.plan h3{font-size:1.25rem;letter-spacing:-.02em}
+.tag{display:inline-block;margin-bottom:14px;padding:5px 12px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--bg);background:var(--mint)}
+.amount{margin-top:10px;font-size:3.4rem;font-weight:750;letter-spacing:-.05em;line-height:1}
+.amount small{font-size:1rem;font-weight:500;letter-spacing:0;color:var(--txt);opacity:.8}
+.plan>p{margin-top:12px}
+.plan ul{margin-top:22px;list-style:none;display:grid;gap:10px;border-top:1px solid rgba(61,172,60,.35);padding-top:20px}
+.plan li{position:relative;padding-left:26px}
+.plan li::before{content:"";position:absolute;left:2px;top:.62em;width:12px;height:2px;background:var(--neon);box-shadow:0 0 8px var(--neon)}
+.after{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+
+/* Déroulé : liste verticale, le verbe sert de titre */
+.steps{padding:100px 0}
+.steps ol{margin-top:50px;list-style:none;display:grid;gap:0;max-width:820px}
+.steps li{position:relative;padding:0 0 44px 46px}
+.steps li::before{content:"";position:absolute;left:7px;top:14px;bottom:-6px;width:2px;background:linear-gradient(var(--forest),transparent)}
+.steps li:last-child::before{display:none}
+.steps li::after{content:"";position:absolute;left:0;top:13px;width:16px;height:2px;background:var(--neon);box-shadow:0 0 8px var(--neon),0 0 22px rgba(82,250,82,.6)}
+.steps h3{font-size:clamp(1.6rem,4vw,2.3rem)}
+.steps p{margin-top:8px;color:var(--dim);font-size:1.08rem}
+
+/* Questions : accordéon natif */
+.faq{padding:80px 0 100px}
+.faq .list{margin-top:40px;max-width:820px}
+.faq details{border-top:1px solid rgba(61,172,60,.35)}
+.faq details:last-child{border-bottom:1px solid rgba(61,172,60,.35)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-size:1.12rem;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--neon);font-size:1.5rem;line-height:1;transition:transform .35s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--dim)}
+
+/* Dernier appel : affiche centrée */
+.final{padding:120px 0 130px;text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:50%;width:900px;height:520px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(27,122,43,.5),rgba(6,33,15,.6) 55%,transparent);pointer-events:none;z-index:-1}
+.final h2{font-size:clamp(2.4rem,7vw,4.6rem)}
+.final p{margin:20px auto 0;font-size:1.12rem;opacity:.86;max-width:40ch}
+.final .cta{margin-top:34px}
+.final small{display:block;margin-top:16px;opacity:.75;font-size:.92rem}
+
+footer{padding:40px 0 56px;border-top:1px solid rgba(27,122,43,.5);color:var(--dim);font-size:.88rem}
+footer .wrap{display:grid;gap:14px}
+footer img{width:110px;height:auto;opacity:.9}
+
+/* Grand écran : layouts asymétriques. En dessous de 768 px, tout reste en une colonne. */
+@media (min-width:768px){
+  .wrap{padding:0 40px}
+  .hero{padding:40px 0 110px}
+  .hero .wrap{grid-template-columns:1.15fr .85fr;gap:60px}
+  .hero h1{font-size:clamp(3.4rem,6vw,5.4rem)}
+  .stage{width:min(100%,380px);transform:perspective(1400px) rotateY(-7deg) rotateX(2deg)}
+  .proof .wrap{grid-template-columns:auto 1fr}
+  .case{grid-template-columns:1fr 320px;align-items:center;padding:34px 38px;gap:40px}
+  .case:nth-child(even){grid-template-columns:320px 1fr}
+  .case:nth-child(even) .acct{order:2}
+  .pain .wrap>div{margin-left:12%}
+  .plans{grid-template-columns:.85fr 1.15fr;align-items:start}
+  .plan{padding:34px 32px}
+  .plan.main{padding:44px 40px;margin-top:-24px}
+  .plan.main .amount{font-size:4.6rem}
+}
+
+/* Mouvement : entrée du hero et révélations au défilement, seulement si l'utilisateur l'accepte */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .hero .copy>*{animation:up .9s var(--ease) both}
+  .hero .copy>*:nth-child(2){animation-delay:.08s}
+  .hero .copy>*:nth-child(3){animation-delay:.16s}
+  .hero .copy>*:nth-child(4){animation-delay:.24s}
+  .stage{animation:up 1.1s var(--ease) .2s both}
+  .js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .js .rv.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* ===== Studio (Hugo, 12/10 soir) : gris chaud profond eclaire par un projecteur, titres en serif editoriale,
+   un seul accent (sauge, le vert Oui Dreams desature), boutons blanc casse. Plus de neon ni de halo. ===== */
+:root{--ink:#f1ece4;--ink2:#b9b2a8;--ink3:#857f77;--sage:#a1d193;--base:#1b1917;--line:rgba(241,236,228,.10);--line2:rgba(241,236,228,.18);--card:rgba(241,236,228,.035);--serif:"Instrument Serif",Georgia,"Times New Roman",serif}
+html{background:var(--base);color:var(--ink)}
+body{background:radial-gradient(48rem 34rem at 50% -14rem,rgba(255,236,210,.13),transparent 70%),radial-gradient(60rem 40rem at 100% 40%,rgba(255,236,210,.035),transparent 70%),linear-gradient(180deg,#22201d,#1b1917 40%,#181614);background-attachment:fixed}
+body::before{opacity:.06}
+.hero::before,.price::before,.final::before,.stage::after{display:none}
+h1,h2,h3{color:var(--ink)}
+h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.02}
+.hero h1{font-size:clamp(3.2rem,11vw,6.4rem);letter-spacing:-.015em}
+h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+.final h2{font-size:clamp(2.8rem,8vw,5.4rem)}
+.lit{color:var(--sage);text-shadow:none;font-style:italic}
+.dim,.pain p,.steps p,.faq details p,.reel figcaption,footer{color:var(--ink3)}
+.pain p strong{color:var(--ink)}
+.eyebrow{display:none}
+.hero p,.final p{color:var(--ink2);opacity:1}
+.top img,footer img{filter:grayscale(1) brightness(1.6);opacity:.85}
+.cta{background:var(--ink);color:#1b1917;box-shadow:none;font-weight:600}
+.cta:hover{background:#fff;box-shadow:none}
+.link{color:var(--ink);text-decoration-color:var(--line2)}
+.link:hover{text-decoration-color:var(--ink)}
+/* hero : la video dans un vrai telephone, posee sous le projecteur */
+.stage{width:min(72vw,330px)}
+.phone{position:relative;padding:11px;border-radius:52px;background:linear-gradient(160deg,#3a3633,#141210 45%,#2a2724);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px #000}
+.phone::before{content:"";position:absolute;top:22px;left:50%;width:30%;height:24px;transform:translateX(-50%);border-radius:20px;background:#000;z-index:2}
+.phone .frame{border-radius:42px;box-shadow:none;background-color:#000}
+.frame{background-color:#100f0e;box-shadow:0 0 0 1px var(--line2),0 30px 70px -30px rgba(0,0,0,.85)}
+/* preuve */
+.proof{background:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.big{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;color:var(--ink)}
+.proof .big.lit{color:var(--ink);font-style:normal}
+/* vitrine */
+.case{background:var(--card);box-shadow:0 0 0 1px var(--line);border-radius:28px}
+.kind{color:var(--ink2);background:none;padding:0;font-weight:500;letter-spacing:.01em}
+.kind::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sage);margin-right:9px;vertical-align:1px}
+.who h3{font-family:var(--serif);font-weight:400;font-size:2.2rem;letter-spacing:0}
+.who p{color:var(--ink3)}
+.ava{box-shadow:0 0 0 1px var(--line2)}
+.facts li{box-shadow:0 0 0 1px var(--line2);color:var(--ink2)}
+.acct>p{color:var(--ink2);opacity:1}
+.snd{background:rgba(20,18,16,.72);box-shadow:0 0 0 1px var(--line2);color:var(--ink)}
+.snd[aria-pressed="true"]{background:var(--ink);color:#1b1917}
+.case.soon{background:none;border:1px dashed var(--line2);box-shadow:none}
+.case.soon .frame{background:rgba(0,0,0,.18);border:1px dashed var(--line2);box-shadow:none;color:var(--ink3)}
+.case.soon .ava{background:none}
+.case.soon .ava span{background:rgba(0,0,0,.2);color:var(--ink3);font-family:var(--serif);font-size:2rem;font-weight:400}
+/* prix */
+.plan{background:var(--card);box-shadow:0 0 0 1px var(--line);border-radius:24px}
+.plan.main{background:rgba(241,236,228,.06);box-shadow:0 0 0 1px var(--line2)}
+.plan h3{font-family:inherit;font-weight:600}
+.amount{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+.amount.lit{color:var(--ink);font-style:normal}
+.amount small{color:var(--ink3)}
+.tag{background:none;color:var(--sage);padding:0;font-weight:600}
+.plan ul{border-top-color:var(--line)}
+.plan li{color:var(--ink2)}
+.plan li b{color:var(--ink);font-weight:600}
+.plan li::before{background:var(--sage);box-shadow:none;width:6px;height:6px;border-radius:50%;top:.6em}
+.after .soft{color:var(--ink3);opacity:1}
+/* etapes, questions, fin */
+.steps h3{font-family:var(--serif);font-weight:400;letter-spacing:0;font-size:clamp(1.9rem,4.4vw,2.6rem)}
+.steps li::before{background:linear-gradient(var(--line2),transparent)}
+.steps li::after{background:var(--sage);box-shadow:none;width:8px;height:8px;border-radius:50%;left:4px;top:16px}
+.faq details,.faq details:last-child{border-color:var(--line)}
+.faq summary{color:var(--ink);font-weight:500}
+.faq summary::after{color:var(--ink3)}
+.final small{color:var(--ink3);opacity:1}
+footer{border-top-color:var(--line)}
+/* vitrine en paysage (Hugo, 12/10) : infos sur une ligne en haut, la promo 16:9 sur toute la largeur de la carte */
+.case,.case:nth-child(even){grid-template-columns:1fr;align-items:start;gap:24px}
+.case:nth-child(even) .acct{order:0}
+.case .frame{width:100%;aspect-ratio:16/9;justify-self:stretch;border-radius:18px}
+@media (min-width:768px){
+  .case,.case:nth-child(even){grid-template-columns:1fr;padding:30px}
+  .acct{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"kind kind" "who text" "facts text";gap:14px 40px;align-items:start}
+  .acct .kind{grid-area:kind}.acct .who{grid-area:who}.acct .facts{grid-area:facts}.acct>p{grid-area:text;align-self:center;max-width:46ch}
+}
+/* equipe d'agents : liste lisible, le poste en serif */
+.crew{list-style:none;margin-top:30px;display:grid;gap:0;border-top:1px solid var(--line)}
+.crew li{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
+.crew b{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.1;color:var(--ink)}
+.crew span{color:var(--ink2);font-size:1.05rem}
+@media (min-width:768px){.crew li{grid-template-columns:220px 1fr;align-items:baseline;gap:24px}}
+.trust{margin-top:22px;font-size:.95rem;color:var(--ink3)}
+.trust a{color:var(--ink2);text-underline-offset:4px;text-decoration-color:var(--line2)}
+/* temoignage dans la carte client : photo ronde, citation en serif, nom */
+.quote{margin-top:6px;padding:18px 20px;border-radius:18px;background:rgba(241,236,228,.05);box-shadow:0 0 0 1px var(--line);position:relative}
+.quote blockquote{font-family:var(--serif);font-size:1.45rem;line-height:1.25;color:var(--ink)}
+.quote figcaption{margin-top:14px;display:flex;align-items:center;gap:12px}
+.quote .pic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;overflow:hidden;background:rgba(241,236,228,.12);color:var(--ink2);font-weight:600;font-size:.85rem;flex:none}
+.quote .pic img{width:100%;height:100%;object-fit:cover}
+.quote b{display:block;font-weight:600;color:var(--ink)}
+.quote small{color:var(--ink3);font-size:.88rem}
+.quote .draft{position:absolute;top:-10px;right:14px;padding:3px 10px;border-radius:999px;background:#c9a24a;color:#1b1917;font-size:.75rem;font-weight:600}
+.case>.quote{margin-top:0}
+/* temoignages facon tweet, version sombre (Hugo 12/10 : la carte claire etait trop claire) */
+.case .quote{display:flex;flex-direction:column;gap:9px;max-width:560px;padding:15px 18px;border-radius:20px;background:#2b2724;color:var(--ink);box-shadow:0 0 0 1px var(--line2),0 24px 60px -24px rgba(0,0,0,.85)}
+.case .quote figcaption{order:-1;margin-top:0}
+.case .quote .pic{width:36px;height:36px;background:#3d3833;color:var(--ink)}
+.case .quote b{color:var(--ink);font-size:.92rem}
+.case .quote small{color:var(--ink3)}
+.case .quote blockquote{font-family:"Geist",system-ui,sans-serif;font-size:1rem;line-height:1.5;color:var(--ink)}
+.case .quote .tw-meta{font-size:.8rem;color:var(--ink3);border-top:1px solid var(--line);padding-top:10px}
+.case .quote .draft{top:-11px}
+.case .quote b .verif{display:inline-block;width:15px;height:15px;margin-left:4px;vertical-align:-3px}
+.case .quote small{font-size:.8rem}
+.case .quote figcaption{gap:10px}
+.legal summary{cursor:pointer;color:var(--ink2)}
+.legal p{margin-top:10px;line-height:1.7;color:var(--ink3);font-size:.85rem}
+.legal a{color:var(--ink2)}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="wrap top">
+  <img src="logo.png" alt="Oui Dreams" width="560" height="126">
+</header>
+
+<main>
+<section class="hero" aria-labelledby="t-hero">
+  <div class="wrap">
+    <div class="copy">
+      <p class="eyebrow">Motion design pour Reels et TikTok</p>
+      <h1 id="t-hero">Ta marque, en <span class="lit">motion&nbsp;design</span>.</h1>
+      <p>Des vidéos courtes qui font arrêter le scroll, pour ton produit, ton service ou ton commerce. Tu me donnes ton idée, je la livre en vertical et en paysage, avec musique et effets sonores, sous 48 h.</p>
+      <div class="actions">
+        <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
+        <a class="link" href="#prix">Voir les prix</a>
+      </div>
+      <p class="trust">Ils m'ont déjà confié leur promo : <a href="#vitrine">Vistoria</a> et <a href="#vitrine">Or et Valeurs</a>.</p>
+    </div>
+    <div class="stage">
+      <div class="phone"><div class="frame" style="background-image:url(v/clients/oretvaleurs.jpg)">
+        <video src="v/clients/oretvaleurs.mp4" poster="v/clients/oretvaleurs.jpg" muted loop playsinline preload="metadata" aria-label="Extrait de la promo Or et Valeurs"></video>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="show" id="vitrine" aria-labelledby="t-show">
+  <div class="wrap">
+    <h2 id="t-show" class="rv">Nos clients.</h2>
+    <p class="dim lede rv">Une vidéo par type de business. Active le son : voix off, musique et effets compris.</p>
+    <div class="cases">
+    <article class="case rv">
+      <div class="acct">
+        <span class="kind">Prestation de service</span>
+        <div class="who"><span class="ava"><span style="background:#0a0a0a"><img src="v/clients/vistoria-logo.svg" alt="Logo Vistoria" loading="lazy"></span></span><div><h3>Vistoria</h3><p>Visites virtuelles 360° de biens immobiliers</p></div></div>
+        <ul class="facts"><li>30 s</li><li>Voix off</li><li>Vertical et paysage</li></ul>
+        <p>Faire comprendre en 30 secondes un service qu'on ne connaît pas encore : la visite d'un logement depuis son téléphone ou son ordinateur.</p>
+      </div>
+      <div class="frame" style="background-image:url(v/clients/vistoria_l.jpg)">
+        <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline preload="metadata" aria-label="Promo Vistoria"></video>
+        <button class="snd" type="button" aria-pressed="false">Activer le son</button>
+      </div>
+      <figure class="quote">
+          <blockquote>« Franchement, je suis super satisfait du produit. Il répond à mes attentes. Livré en temps et en heure, je recommande. »</blockquote>
+          <figcaption><span class="pic"><img src="v/clients/tom.jpg" alt="Tom Villez" loading="lazy"></span><span><b>Tom Villez<svg class="verif" viewBox="0 0 22 22" role="img" aria-label="Client vérifié"><title>Client vérifié</title><path fill="#1d9bf0" d="M20.4 11c0-.65-.2-1.28-.57-1.82a3.3 3.3 0 0 0-1.44-1.24c.22-.6.27-1.27.14-1.9a3.3 3.3 0 0 0-.88-1.69 3.3 3.3 0 0 0-1.69-.88c-.63-.13-1.29-.08-1.9.14A3.3 3.3 0 0 0 12.82 2.17 3.3 3.3 0 0 0 11 1.6c-.65.02-1.27.21-1.81.57-.54.35-.97.85-1.24 1.44a3.3 3.3 0 0 0-1.9-.14c-.64.13-1.22.44-1.69.88-.45.47-.75 1.06-.88 1.69-.13.63-.08 1.29.14 1.9-.59.27-1.09.7-1.44 1.24A3.3 3.3 0 0 0 1.6 11c.02.65.22 1.28.58 1.82.36.54.86.97 1.44 1.24-.22.61-.27 1.26-.14 1.9.13.63.43 1.22.88 1.69.47.44 1.05.75 1.69.88.63.13 1.29.08 1.9-.14.27.59.7 1.08 1.24 1.44.54.35 1.17.55 1.81.57.65-.02 1.28-.21 1.82-.57.54-.35.97-.85 1.24-1.44.6.24 1.27.3 1.9.16a3.3 3.3 0 0 0 1.68-.9c.46-.46.78-1.05.91-1.68.13-.64.08-1.3-.17-1.9.59-.28 1.08-.71 1.44-1.25.35-.54.55-1.17.57-1.82z"/><path fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.4 11.2l2.5 2.5 4.8-5"/></svg></b><small>Fondateur de Vistoria</small></span></figcaption>
+        <p class="tw-meta">Avis client · 12 oct. 2026</p>
+        </figure>
+    </article>
+    <article class="case rv">
+      <div class="acct">
+        <span class="kind">Commerce de proximité</span>
+        <div class="who"><span class="ava"><span style="background:#f5f2ec"><img src="v/clients/ov-logo.png" alt="Logo Or et Valeurs" loading="lazy"></span></span><div><h3>Or et Valeurs</h3><p>Rachat et vente d'or et d'argent à Béthune</p></div></div>
+        <ul class="facts"><li>22 s</li><li>Voix off</li><li>Vertical et paysage</li></ul>
+        <p>Donner envie de pousser la porte d'une boutique de quartier : ce qu'on peut y apporter, et pourquoi y aller.</p>
+      </div>
+      <div class="frame" style="background-image:url(v/clients/oretvaleurs_l.jpg)">
+        <video src="v/clients/oretvaleurs_l.mp4" poster="v/clients/oretvaleurs_l.jpg" muted loop playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video>
+        <button class="snd" type="button" aria-pressed="false">Activer le son</button>
+      </div>
+      <figure class="quote">
+          <blockquote>« Super sérieux, un montage de qualité, exactement le résultat attendu. »</blockquote>
+          <figcaption><span class="pic"><img src="v/clients/ov-facade.jpg" alt="Façade de la boutique Or et Valeurs" loading="lazy"></span><span><b>Michel François<svg class="verif" viewBox="0 0 22 22" role="img" aria-label="Client vérifié"><title>Client vérifié</title><path fill="#1d9bf0" d="M20.4 11c0-.65-.2-1.28-.57-1.82a3.3 3.3 0 0 0-1.44-1.24c.22-.6.27-1.27.14-1.9a3.3 3.3 0 0 0-.88-1.69 3.3 3.3 0 0 0-1.69-.88c-.63-.13-1.29-.08-1.9.14A3.3 3.3 0 0 0 12.82 2.17 3.3 3.3 0 0 0 11 1.6c-.65.02-1.27.21-1.81.57-.54.35-.97.85-1.24 1.44a3.3 3.3 0 0 0-1.9-.14c-.64.13-1.22.44-1.69.88-.45.47-.75 1.06-.88 1.69-.13.63-.08 1.29.14 1.9-.59.27-1.09.7-1.44 1.24A3.3 3.3 0 0 0 1.6 11c.02.65.22 1.28.58 1.82.36.54.86.97 1.44 1.24-.22.61-.27 1.26-.14 1.9.13.63.43 1.22.88 1.69.47.44 1.05.75 1.69.88.63.13 1.29.08 1.9-.14.27.59.7 1.08 1.24 1.44.54.35 1.17.55 1.81.57.65-.02 1.28-.21 1.82-.57.54-.35.97-.85 1.24-1.44.6.24 1.27.3 1.9.16a3.3 3.3 0 0 0 1.68-.9c.46-.46.78-1.05.91-1.68.13-.64.08-1.3-.17-1.9.59-.28 1.08-.71 1.44-1.25.35-.54.55-1.17.57-1.82z"/><path fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.4 11.2l2.5 2.5 4.8-5"/></svg></b><small>Gérant d'Or et Valeurs, Béthune</small></span></figcaption>
+        <p class="tw-meta">Avis client · 11 oct. 2026</p>
+        </figure>
+    </article>
+    <article class="case soon rv">
+      <div class="acct">
+        <span class="kind">Produit en ligne</span>
+        <div class="who"><span class="ava"><span>?</span></span><div><h3>Bientôt</h3><p>Site de révision pour les études d'infirmière</p></div></div>
+        <p>La promo est en préparation. Elle arrive ici dès qu'elle est validée.</p>
+      </div>
+      <div class="frame">En préparation</div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section class="proof" aria-label="Oui Dreams en chiffres">
+  <div class="wrap">
+    <p class="big lit rv">410&nbsp;000</p>
+    <div class="rv">
+      <p>abonnés cumulés sur TikTok et Instagram pour Oui Dreams, la page motivation que j'ai créée.</p>
+      <a class="link" href="https://www.instagram.com/oui.dreams/">Voir @oui.dreams</a>
+    </div>
+  </div>
+</section>
+
+<section class="pain" aria-labelledby="t-pain">
+  <div class="wrap">
+    <div class="rv">
+      <h2 id="t-pain">Une équipe d'agents IA, et quelqu'un qui la dirige.</h2>
+      <p>Derrière chaque vidéo travaille un système d'agents et de sous-agents IA que j'ai construit et que je supervise. Ils écrivent, animent, posent le son, se relisent et se corrigent entre eux, avant que je valide moi-même.</p>
+      <p>Une IA seule donne des animations bancales et des voix qui butent. Ce système, je l'ai réglé vidéo après vidéo, et je relis tout avant que ça parte chez toi. <strong>Toi, tu donnes l'idée. Je dirige le reste.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="prix" aria-labelledby="t-price">
+  <div class="wrap">
+    <h2 id="t-price" class="rv">179 € la vidéo, ou 130 € en pack.</h2>
+    <div class="plans">
+      <article class="plan rv">
+        <h3>Une vidéo</h3>
+        <p class="amount">179 € <small>la vidéo</small></p>
+        <p>Pour une vidéo précise : un lancement, une offre, une annonce.</p>
+        <ul>
+          <li>Jusqu'à 1 minute</li>
+          <li>Vertical 9:16 et paysage 16:9</li>
+          <li>Tu donnes ton idée, je m'occupe du reste</li>
+          <li>Voix off IA incluse, voix au choix</li>
+          <li>Musique et effets sonores</li>
+          <li>2 révisions</li>
+          <li>Livrée sous 48 h</li>
+        </ul>
+      </article>
+      <article class="plan main rv">
+        <span class="tag">Revient à 130 € la vidéo</span>
+        <h3>Pack mensuel</h3>
+        <p class="amount lit">390 € <small>par mois</small></p>
+        <p>Pour poster chaque mois avec un style qu'on reconnaît.</p>
+        <ul>
+          <li>3 vidéos par mois, jusqu'à 1 minute, dans un style cohérent</li>
+          <li><b>Le clonage de ta propre voix</b> pour tes voix off</li>
+          <li><b>Je te propose les idées du mois</b></li>
+          <li><b>Une version courte de 15 s en plus de chaque vidéo</b></li>
+          <li><b>3 révisions par vidéo</b></li>
+          <li>Vertical 9:16 et paysage 16:9, livrées sous 48 h</li>
+          <li>Sans engagement</li>
+        </ul>
+      </article>
+    </div>
+    <div class="after rv">
+      <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
+      <p class="soft">Vidéo de plus d'1 minute : écris-moi, on fixe le prix ensemble.</p>
+    </div>
+    </div>
+</section>
+
+<section class="steps" aria-labelledby="t-steps">
+  <div class="wrap">
+    <h2 id="t-steps" class="rv">De ton message à ta vidéo, en 48 h.</h2>
+    <ol>
+      <li class="rv"><h3>Tu m'écris</h3><p>Sur Instagram, en quelques lignes : ce que tu vends, à qui tu parles, le ton que tu veux.</p></li>
+      <li class="rv"><h3>Je m'occupe de tout</h3><p>Le texte, le montage, la musique, les effets sonores. Pas d'allers-retours inutiles.</p></li>
+      <li class="rv"><h3>Tu reçois ta vidéo</h3><p>En vertical 9:16 et en paysage 16:9, prête à poster. Tu as 2 révisions si un détail ne te va pas.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="t-faq">
+  <div class="wrap">
+    <h2 id="t-faq" class="rv">Tes questions avant de m'écrire.</h2>
+    <div class="list rv">
+      <details><summary>Je n'ai pas de script. C'est un problème ?</summary><p>Non. Dis-moi ce que tu vends et à qui tu parles, j'écris le texte.</p></details>
+      <details><summary>C'est pour qui ?</summary><p>Les commerces, les prestataires de services et les produits en ligne qui veulent une vidéo pour Instagram, TikTok, leur site ou leurs publicités.</p></details>
+      <details><summary>C'est fait avec l'IA. Ça se voit ?</summary><p>Les vidéos sont faites avec mes agents IA, et je l'assume. Une IA seule se repère tout de suite. Ce qui fait la différence, c'est le réglage et la relecture : regarde les promos plus haut et juge sur pièce.</p></details>
+      <details><summary>Combien de modifications je peux demander ?</summary><p>Deux révisions par vidéo, dans les deux formules.</p></details>
+      <details><summary>Le pack mensuel m'engage combien de temps ?</summary><p>Il est sans engagement. Chaque mois, tu choisis de continuer ou d'arrêter.</p></details>
+      <details><summary>Il me faut une voix off ?</summary><p>Elle est incluse : une voix IA au choix. Avec le pack mensuel, ce peut être ta propre voix, clonée par IA avec ton accord. Tu peux aussi t'en passer : le message passe alors par le texte à l'écran et la musique.</p></details>
+      <details><summary>Tu as déjà fait des vidéos pour des entreprises ?</summary><p>Oui : Vistoria et Or et Valeurs, plus haut sur la page. Les avis de mes clients arrivent ici dès qu'ils me les envoient.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="t-final">
+  <div class="wrap rv">
+    <h2 id="t-final">Envoie-moi ton idée de <span class="lit">vidéo</span>.</h2>
+    <p>Dis-moi ce que tu vends et à qui tu parles. On voit ensemble quelle formule te va.</p>
+    <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
+    <small>À partir de 179 €. Pack mensuel sans engagement.</small>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="Oui Dreams" width="560" height="126" loading="lazy">
+    <p>Oui Dreams Motion · <a class="link" href="https://www.instagram.com/oui.dreams/">Voir @oui.dreams</a></p>
+    <details class="legal">
+      <summary>Mentions légales</summary>
+      <p>Oui Dreams Motion est une marque de <b>Lyciara</b>, entreprise individuelle de Hugo Lancel (micro-entreprise).<br>
+      SIRET 131 397 523 00013 · RNE · code APE 59.11B<br>
+      1 rue Paul Verlaine, 62660 Beuvry, France<br>
+      Contact : <a href="mailto:lancelhugo@gmail.com">lancelhugo@gmail.com</a> · directeur de la publication : Hugo Lancel<br>
+      TVA non applicable, art. 293 B du CGI.<br>
+      Hébergement : GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (GitHub Pages).</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+// Vidéos : lecture seulement quand elles sont visibles (batterie, data mobile), jamais si l'utilisateur réduit les animations.
+// Révélations : la classe .in déclenche la transition CSS une seule fois.
+(function(){
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window)) { document.documentElement.classList.remove('js'); return; }
+  var vio = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function(){}); } else v.pause();
+    });
+  }, {threshold: .25});
+  if (!calm) document.querySelectorAll('video').forEach(function(v){ vio.observe(v); });
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ rio.observe(el); });
+  // Son des promos clients : un seul bouton actif à la fois
+  document.querySelectorAll('.snd').forEach(function(b){
+    b.addEventListener('click', function(){
+      var on = b.getAttribute('aria-pressed') !== 'true';
+      document.querySelectorAll('.snd').forEach(function(o){ o.setAttribute('aria-pressed','false'); o.textContent = 'Activer le son'; o.parentNode.querySelector('video').muted = true; });
+      var v = b.parentNode.querySelector('video'); v.muted = !on;
+      if (on) { b.setAttribute('aria-pressed','true'); b.textContent = 'Couper le son'; var p = v.play(); if (p) p.catch(function(){}); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
