@@ -92,6 +92,9 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);fo
 .top img{width:132px;height:auto;filter:grayscale(1) brightness(1.6);opacity:.85}
 .hero{padding-top:28px}
 .rgpd{margin-top:14px;max-width:46ch;font-size:.78rem;line-height:1.5;color:var(--ink3)}
+.dl{display:inline-flex;align-items:center;height:56px;padding:0 28px;border-radius:999px;background:var(--ink);color:#1b1917;font-weight:600;text-decoration:none}
+.dl:hover{background:#fff}
+.go{margin-top:22px}
 </style>
 </head>
 <body>
@@ -103,10 +106,7 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);fo
       <p class="free">100 % gratuit</p>
       <h1>Les 10 détails qui font qu'une vidéo IA a l'air <em>pro</em>.</h1>
       <p class="lead">Le guide, gratuit, dans ta boîte mail.</p>
-      <form class="wait" action="#" novalidate>
-        <input id="e1" type="email" name="email" placeholder="Ton e-mail" autocomplete="email" required aria-label="Ton e-mail">
-        <button type="submit">Recevoir le guide gratuit</button>
-      </form>
+      <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
       <p class="note">Par le créateur de Oui Dreams · 410 000 abonnés</p>
       <p class="rgpd">Ton e-mail sert uniquement à t'envoyer le guide et les nouveautés de la masterclass. Désinscription sur simple demande. Responsable : Lyciara, EI Hugo Lancel.</p>
     </div>
@@ -181,25 +181,11 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);fo
   <div class="wrap">
     <h2>Commence par le guide.</h2>
     <p>Gratuit, par e-mail. Et tu seras le premier prévenu pour la masterclass, avec un tarif de lancement réservé aux inscrits.</p>
-    <form class="wait" action="#" novalidate>
-      <input type="email" name="email" placeholder="Ton e-mail" autocomplete="email" required aria-label="Ton e-mail">
-      <button type="submit">Recevoir le guide gratuit</button>
-    </form>
+    <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
   </div>
 </section>
 </main>
 <footer><div class="wrap">Masterclass par Hugo · créateur de Oui Dreams. Mentions légales à compléter avant la vente.</div></footer>
-<script>
-// En attendant Systeme.io : l'inscription ouvre un e-mail pre-rempli vers Hugo, qui envoie le guide a la main.
-document.querySelectorAll('form.wait').forEach(function(f){
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var i = f.querySelector('input'); if (!i.value || !i.checkValidity()) { i.focus(); return; }
-    location.href = 'mailto:lancelhugo@gmail.com?subject=' + encodeURIComponent('Je veux le guide gratuit') + '&body=' + encodeURIComponent('Bonjour Hugo, envoie-moi le guide « Les 10 détails qui font qu'une vidéo IA a l'air pro » à cette adresse : ' + i.value);
-    var p = document.createElement('p'); p.className = 'ok'; p.textContent = "Ton application e-mail s'ouvre : envoie le message, et je t'envoie le guide.";
-    f.replaceWith(p);
-  });
-});
-</script>
+
 </body>
 </html>
