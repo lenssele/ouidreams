@@ -99,7 +99,6 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);fo
 .back{font-size:.9rem;color:var(--ink2);text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--line2,rgba(241,236,228,.18))}
 .back:hover{color:var(--ink)}
 .lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(241,236,228,.92);color:#1b1917;font:600 1rem "Geist",system-ui,sans-serif;cursor:pointer}
-.tip{margin:0;padding:10px 20px;font-size:.82rem;line-height:1.4;text-align:center;color:#1b1917;background:#a1d193}
 .inapp .snd{display:none}
 </style>
 </head>
@@ -206,9 +205,6 @@ if (INAPP) {
     b.addEventListener('click', function(){ v.controls = true; var p = v.play(); if (p) p.catch(function(){}); b.remove(); });
     f.appendChild(b);
   });
-  var tip = document.createElement('p'); tip.className = 'tip';
-  tip.textContent = 'Astuce : touche « … » en haut à droite puis « Ouvrir dans le navigateur » pour voir les vidéos directement dans la page.';
-  document.body.insertBefore(tip, document.body.firstChild);
 }
 </script>
 </body>
