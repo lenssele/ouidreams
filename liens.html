@@ -60,10 +60,12 @@ h1 span{color:var(--g)}
 .sh .aide.on{display:block}
 .sh .row{display:flex;gap:10px;margin-top:12px}
 .sh .row button,.sh .row a{flex:1;padding:12px;border-radius:14px;border:0;background:rgba(255,255,255,.06);color:var(--ink2);font:inherit;font-size:.92rem;text-decoration:none}
-.fl{position:fixed;top:4px;right:10px;z-index:10;display:none;font-size:3.2rem;line-height:1;font-weight:700;color:var(--s);text-shadow:0 0 18px rgba(161,209,147,.6)}
+.fl{position:fixed;top:4px;right:10px;z-index:10;display:none;align-items:flex-start;gap:8px;color:var(--s)}
+.fl b{font-size:3.2rem;line-height:1;text-shadow:0 0 18px rgba(161,209,147,.6)}
+.fl span{margin-top:12px;padding:8px 14px;border-radius:999px;background:var(--s);color:#1b1917;font-weight:700;font-size:1rem;white-space:nowrap}
+.fl.on{display:flex}
 .sh .ios{display:none;margin-top:16px;padding:14px;border-radius:16px;background:rgba(161,209,147,.1);box-shadow:0 0 0 1.5px var(--s);text-align:left;font-size:1rem;line-height:1.6}
 .sh.i .ios{display:block}.sh.i .go,.sh.i .aide{display:none!important}
-.fl.on{display:block}
 @media (prefers-reduced-motion:no-preference){.sh.on>div{animation:up .35s var(--ease) both}.fl.on{animation:bob 1s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}}
 </style>
 </head>
@@ -86,7 +88,7 @@ h1 span{color:var(--g)}
     </a>
   </nav>
 </main>
-<div class="fl" aria-hidden="true">↑</div>
+<div class="fl" role="status"><span>Ouvrez dans le navigateur</span><b aria-hidden="true">↑</b></div>
 <div class="sh" role="dialog" aria-modal="true" aria-labelledby="shT">
   <div>
     <h2 id="shT">Ouvre dans ton navigateur</h2>
@@ -107,7 +109,7 @@ h1 span{color:var(--g)}
     go.href=ios?"x-safari-https://"+sans:"intent://"+sans+"#Intent;scheme=https;S.browser_fallback_url="+encodeURIComponent(u)+";end";
     ici.href=u;cp.textContent="Copier le lien";aide.classList.remove("on");sh.classList.toggle("i",ios);fl.classList.toggle("on",ios);sh.classList.add("on");
   }
-  document.querySelectorAll(".lk").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();ouvrir(a.href)})});
+  document.querySelectorAll(".lk").forEach(function(a){a.addEventListener("click",function(e){if(ios){if(fl.classList.contains("on"))return;e.preventDefault();fl.classList.add("on");return}e.preventDefault();ouvrir(a.href)})});
   go.addEventListener("click",function(){setTimeout(function(){if(!document.hidden){aide.classList.add("on");fl.classList.add("on")}},1200)});
   cp.addEventListener("click",function(){var t=function(){cp.textContent="Lien copié"};if(navigator.clipboard)navigator.clipboard.writeText(url).then(t,function(){prompt("Copie ce lien :",url)});else prompt("Copie ce lien :",url)});
   sh.addEventListener("click",function(e){if(e.target===sh){sh.classList.remove("on");fl.classList.remove("on")}});
