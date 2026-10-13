@@ -49,6 +49,20 @@ h1 span{color:var(--g)}
 }
 .lk b.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.65rem;line-height:1.05;letter-spacing:-.005em}
 .lk b.serif em{font-style:italic;color:var(--s)}
+/* navigateur integre TikTok/Instagram : feuille « ouvrir dans le navigateur » */
+.sh{position:fixed;inset:0;z-index:9;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:16px}
+.sh.on{display:flex}
+.sh>div{width:100%;max-width:420px;padding:24px 20px 20px;border-radius:22px;background:#24211e;box-shadow:0 0 0 1px var(--line),0 30px 60px -20px #000;text-align:center}
+.sh h2{font-size:1.15rem;font-weight:650}
+.sh p{margin-top:6px;color:var(--ink2);font-size:.92rem}
+.sh .go{display:block;margin-top:18px;padding:16px;border-radius:16px;background:var(--s);color:#1b1917;font-weight:700;font-size:1.05rem;text-decoration:none}
+.sh .aide{display:none;margin-top:14px;padding:12px;border-radius:14px;background:rgba(255,255,255,.05);font-size:.9rem;color:var(--ink)}
+.sh .aide.on{display:block}
+.sh .row{display:flex;gap:10px;margin-top:12px}
+.sh .row button,.sh .row a{flex:1;padding:12px;border-radius:14px;border:0;background:rgba(255,255,255,.06);color:var(--ink2);font:inherit;font-size:.92rem;text-decoration:none}
+.fl{position:fixed;top:6px;right:14px;z-index:10;display:none;font-size:2rem;color:var(--s)}
+.fl.on{display:block}
+@media (prefers-reduced-motion:no-preference){.sh.on>div{animation:up .35s var(--ease) both}.fl.on{animation:bob 1s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}}
 </style>
 </head>
 <body>
@@ -70,5 +84,31 @@ h1 span{color:var(--g)}
     </a>
   </nav>
 </main>
+<div class="fl" aria-hidden="true">↑</div>
+<div class="sh" role="dialog" aria-modal="true" aria-labelledby="shT">
+  <div>
+    <h2 id="shT">Ouvre dans ton navigateur</h2>
+    <p>Le navigateur de l'appli bloque une partie de la page.</p>
+    <a class="go" href="#">Ouvrir dans le navigateur</a>
+    <div class="aide">Rien ne s'est ouvert ? Touche <b>···</b> en haut à droite, puis <b>Ouvrir dans le navigateur</b>.</div>
+    <div class="row"><button type="button" class="cp">Copier le lien</button><a class="ici" href="#">Rester ici</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var ua=navigator.userAgent||"";
+  if(!/TikTok|musical_ly|Bytedance|trill|Instagram|FBAN|FBAV|FB_IAB|Snapchat|Line\//i.test(ua))return;
+  var ios=/iPhone|iPad|iPod/i.test(ua),sh=document.querySelector(".sh"),fl=document.querySelector(".fl"),aide=sh.querySelector(".aide"),go=sh.querySelector(".go"),cp=sh.querySelector(".cp"),ici=sh.querySelector(".ici"),url="";
+  function ouvrir(u){
+    url=u;var sans=u.replace(/^https?:\/\//,"");
+    go.href=ios?"x-safari-https://"+sans:"intent://"+sans+"#Intent;scheme=https;S.browser_fallback_url="+encodeURIComponent(u)+";end";
+    ici.href=u;cp.textContent="Copier le lien";aide.classList.remove("on");fl.classList.remove("on");sh.classList.add("on");
+  }
+  document.querySelectorAll(".lk").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();ouvrir(a.href)})});
+  go.addEventListener("click",function(){setTimeout(function(){if(!document.hidden){aide.classList.add("on");fl.classList.add("on")}},1200)});
+  cp.addEventListener("click",function(){var t=function(){cp.textContent="Lien copié"};if(navigator.clipboard)navigator.clipboard.writeText(url).then(t,function(){prompt("Copie ce lien :",url)});else prompt("Copie ce lien :",url)});
+  sh.addEventListener("click",function(e){if(e.target===sh){sh.classList.remove("on");fl.classList.remove("on")}});
+})();
+</script>
 </body>
 </html>
