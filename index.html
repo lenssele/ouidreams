@@ -298,6 +298,14 @@ footer{border-top-color:var(--line)}
 /* prix : 3 formules (Hugo 13/10) */
 @media (min-width:1000px){.plans{grid-template-columns:.9fr .9fr 1.15fr}.plan.main{padding:40px 34px}.plan.main .amount{font-size:3.6rem}}
 @media (min-width:768px) and (max-width:999px){.plans{grid-template-columns:1fr 1fr}.plan.main{grid-column:1 / -1;margin-top:0}}
+.buy{display:flex;justify-content:center;align-items:center;margin-top:24px;height:52px;border-radius:999px;box-shadow:0 0 0 1px rgba(241,236,228,.25) inset;color:#f1ece4;font-weight:600;text-decoration:none;transition:background .25s}
+.buy:hover{background:rgba(241,236,228,.08)}
+.plan.main .buy{background:#f1ece4;color:#1b1917;box-shadow:none}
+.plan.main .buy:hover{background:#fff}
+/* toute la carte de la formule est cliquable : le lien du bouton la couvre (Hugo, 14/10) */
+.plan{position:relative;cursor:pointer;transition:transform .25s}
+.plan:hover{transform:translateY(-2px)}
+.buy::after{content:"";position:absolute;inset:0;border-radius:inherit}
 </style>
 </head>
 <body>
@@ -413,6 +421,7 @@ footer{border-top-color:var(--line)}
           <li>1 révision</li>
           <li>Livrée sous 48 h</li>
         </ul>
+        <a class="buy" href="https://buy.stripe.com/9B628q5Wj8iQ5WE8M5gIo03">Commander · 147 €</a>
       </article>
       <article class="plan rv">
         <h3>Complète</h3>
@@ -427,6 +436,7 @@ footer{border-top-color:var(--line)}
           <li>2 révisions</li>
           <li>Livrée sous 48 h</li>
         </ul>
+        <a class="buy" href="https://buy.stripe.com/aFadR884r6aIbgY1jDgIo04">Commander · 397 €</a>
       </article>
       <article class="plan main rv">
         <span class="tag">Revient à moins de 335 € la vidéo</span>
@@ -442,9 +452,11 @@ footer{border-top-color:var(--line)}
           <li>Vertical 9:16 et paysage 16:9, livrées sous 48 h</li>
           <li>Sans engagement</li>
         </ul>
+        <a class="buy" href="https://buy.stripe.com/dRmfZg84reHebgY7I1gIo05">S'abonner · 997 €/mois</a>
       </article>
     </div>
     <div class="after rv">
+      <p class="soft" style="margin-bottom:22px">Paiement sécurisé par Stripe. En commandant, tu acceptes les <a class="link" href="cgv.html">conditions générales de vente</a>.</p>
       <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
       <p class="soft">Vidéo de plus d'1 minute : écris-moi, on fixe le prix ensemble.</p>
     </div>
