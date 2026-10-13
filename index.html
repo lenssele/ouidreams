@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Oui Dreams Motion · vidéos courtes en motion design pour Reels et TikTok</title>
-<meta name="description" content="Vidéos en motion design, en vertical et en paysage, livrées sous 48 h, avec musique et effets sonores. 179 € la vidéo ou 390 € par mois pour 3 vidéos. Par le créateur de Oui Dreams.">
+<meta name="description" content="Vidéos en motion design, en vertical et en paysage, livrées sous 48 h, avec musique et effets sonores. À partir de 190 € la vidéo, 490 € avec voix off, ou 1 190 € par mois pour 3 vidéos. Par le créateur de Oui Dreams.">
 <meta name="theme-color" content="#1b1917">
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="Oui Dreams Motion">
-<meta property="og:description" content="Vidéos courtes en motion design pour ta marque. En vertical et en paysage, livrées sous 48 h. 179 € la vidéo.">
+<meta property="og:description" content="Vidéos courtes en motion design pour ta marque. En vertical et en paysage, livrées sous 48 h. À partir de 190 € la vidéo.">
 <meta property="og:image" content="v/md09.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -296,6 +296,9 @@ footer{border-top-color:var(--line)}
 .inapp .snd{display:none}
 /* vitrine : phrase d'objectif en gras, Instrument Sans (Hugo 13/10) */
 #vitrine .acct>p{font-family:"Instrument Sans","Geist",system-ui,sans-serif;font-weight:600;color:var(--ink);opacity:1;letter-spacing:0;word-spacing:.04em}
+/* prix : 3 formules (Hugo 13/10) */
+@media (min-width:1000px){.plans{grid-template-columns:.9fr .9fr 1.15fr}.plan.main{padding:40px 34px}.plan.main .amount{font-size:3.6rem}}
+@media (min-width:768px) and (max-width:999px){.plans{grid-template-columns:1fr 1fr}.plan.main{grid-column:1 / -1;margin-top:0}}
 </style>
 </head>
 <body>
@@ -397,16 +400,29 @@ footer{border-top-color:var(--line)}
 
 <section class="price" id="prix" aria-labelledby="t-price">
   <div class="wrap">
-    <h2 id="t-price" class="rv">179 € la vidéo, ou 130 € en pack.</h2>
+    <h2 id="t-price" class="rv">Trois formules, sous les prix du marché.</h2>
     <div class="plans">
       <article class="plan rv">
-        <h3>Une vidéo</h3>
-        <p class="amount">179 € <small>la vidéo</small></p>
+        <h3>Essentielle</h3>
+        <p class="amount">190 € <small>la vidéo</small></p>
+        <p>Pour tester le format ou annoncer une offre simplement.</p>
+        <ul>
+          <li>Jusqu'à 20 secondes</li>
+          <li>Vertical 9:16</li>
+          <li>Sans voix off : le message passe par le texte à l'écran</li>
+          <li>Musique et effets sonores</li>
+          <li>1 révision</li>
+          <li>Livrée sous 48 h</li>
+        </ul>
+      </article>
+      <article class="plan rv">
+        <h3>Complète</h3>
+        <p class="amount">490 € <small>la vidéo</small></p>
         <p>Pour une vidéo précise : un lancement, une offre, une annonce.</p>
         <ul>
           <li>Jusqu'à 1 minute</li>
           <li>Vertical 9:16 et paysage 16:9</li>
-          <li>Tu donnes ton idée, je m'occupe du reste</li>
+          <li>Tu donnes ton idée, j'écris le texte et je m'occupe du reste</li>
           <li>Voix off IA incluse, voix au choix</li>
           <li>Musique et effets sonores</li>
           <li>2 révisions</li>
@@ -414,12 +430,12 @@ footer{border-top-color:var(--line)}
         </ul>
       </article>
       <article class="plan main rv">
-        <span class="tag">Revient à 130 € la vidéo</span>
+        <span class="tag">Revient à moins de 400 € la vidéo</span>
         <h3>Pack mensuel</h3>
-        <p class="amount lit">390 € <small>par mois</small></p>
+        <p class="amount lit">1 190 € <small>par mois</small></p>
         <p>Pour poster chaque mois avec un style qu'on reconnaît.</p>
         <ul>
-          <li>3 vidéos par mois, jusqu'à 1 minute, dans un style cohérent</li>
+          <li>3 vidéos Complètes par mois, dans un style cohérent</li>
           <li><b>Le clonage de ta propre voix</b> pour tes voix off</li>
           <li><b>Je te propose les idées du mois</b></li>
           <li><b>Une version courte de 15 s en plus de chaque vidéo</b></li>
@@ -442,7 +458,7 @@ footer{border-top-color:var(--line)}
     <ol>
       <li class="rv"><h3>Tu m'écris</h3><p>Sur Instagram, en quelques lignes : ce que tu vends, à qui tu parles, le ton que tu veux.</p></li>
       <li class="rv"><h3>Je m'occupe de tout</h3><p>Le texte, le montage, la musique, les effets sonores. Pas d'allers-retours inutiles.</p></li>
-      <li class="rv"><h3>Tu reçois ta vidéo</h3><p>En vertical 9:16 et en paysage 16:9, prête à poster. Tu as 2 révisions si un détail ne te va pas.</p></li>
+      <li class="rv"><h3>Tu reçois ta vidéo</h3><p>Prête à poster, dans les formats de ta formule. Tu as des révisions si un détail ne te va pas.</p></li>
     </ol>
   </div>
 </section>
@@ -454,9 +470,9 @@ footer{border-top-color:var(--line)}
       <details><summary>Je n'ai pas de script. C'est un problème ?</summary><p>Non. Dis-moi ce que tu vends et à qui tu parles, j'écris le texte.</p></details>
       <details><summary>C'est pour qui ?</summary><p>Les commerces, les prestataires de services et les produits en ligne qui veulent une vidéo pour Instagram, TikTok, leur site ou leurs publicités.</p></details>
       <details><summary>C'est fait avec l'IA. Ça se voit ?</summary><p>Les vidéos sont faites avec mes agents IA, et je l'assume. Une IA seule se repère tout de suite. Ce qui fait la différence, c'est le réglage et la relecture : regarde les promos plus haut et juge sur pièce.</p></details>
-      <details><summary>Combien de modifications je peux demander ?</summary><p>Deux révisions par vidéo, dans les deux formules.</p></details>
+      <details><summary>Combien de modifications je peux demander ?</summary><p>Une révision avec l'Essentielle, deux avec la Complète, trois par vidéo avec le pack mensuel.</p></details>
       <details><summary>Le pack mensuel m'engage combien de temps ?</summary><p>Il est sans engagement. Chaque mois, tu choisis de continuer ou d'arrêter.</p></details>
-      <details><summary>Il me faut une voix off ?</summary><p>Elle est incluse : une voix IA au choix. Avec le pack mensuel, ce peut être ta propre voix, clonée par IA avec ton accord. Tu peux aussi t'en passer : le message passe alors par le texte à l'écran et la musique.</p></details>
+      <details><summary>Il me faut une voix off ?</summary><p>Elle est incluse dans la Complète et le pack : une voix IA au choix. Avec le pack mensuel, ce peut être ta propre voix, clonée par IA avec ton accord. Tu peux aussi t'en passer : le message passe alors par le texte à l'écran et la musique.</p></details>
       <details><summary>Tu as déjà fait des vidéos pour des entreprises ?</summary><p>Oui : Vistoria et Or et Valeurs, plus haut sur la page. Les avis de mes clients arrivent ici dès qu'ils me les envoient.</p></details>
     </div>
   </div>
@@ -467,7 +483,7 @@ footer{border-top-color:var(--line)}
     <h2 id="t-final">Envoie-moi ton idée de <span class="lit">vidéo</span>.</h2>
     <p>Dis-moi ce que tu vends et à qui tu parles. On voit ensemble quelle formule te va.</p>
     <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
-    <small>À partir de 179 €. Pack mensuel sans engagement.</small>
+    <small>À partir de 190 €. Pack mensuel sans engagement.</small>
   </div>
 </section>
 </main>
