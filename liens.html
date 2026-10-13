@@ -64,6 +64,8 @@ h1 span{color:var(--g)}
 .fl b{font-size:3.2rem;line-height:1;text-shadow:0 0 18px rgba(161,209,147,.6)}
 .fl span{margin-top:12px;padding:8px 14px;border-radius:999px;background:var(--s);color:#1b1917;font-weight:700;font-size:1rem;white-space:nowrap}
 .fl.on{display:flex}
+.bk{position:fixed;inset:0;z-index:9;display:none;background:rgba(10,9,8,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.bk.on{display:block}
 .sh .ios{display:none;margin-top:16px;padding:14px;border-radius:16px;background:rgba(161,209,147,.1);box-shadow:0 0 0 1.5px var(--s);text-align:left;font-size:1rem;line-height:1.6}
 .sh.i .ios{display:block}.sh.i .go,.sh.i .aide{display:none!important}
 @media (prefers-reduced-motion:no-preference){.sh.on>div{animation:up .35s var(--ease) both}.fl.on{animation:bob 1s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-6px)}}}
@@ -88,6 +90,7 @@ h1 span{color:var(--g)}
     </a>
   </nav>
 </main>
+<div class="bk"></div>
 <div class="fl" role="status"><span>Ouvrez dans le navigateur</span><b aria-hidden="true">↑</b></div>
 <div class="sh" role="dialog" aria-modal="true" aria-labelledby="shT">
   <div>
@@ -103,15 +106,17 @@ h1 span{color:var(--g)}
 (function(){
   var ua=navigator.userAgent||"";
   if(!/TikTok|musical_ly|Bytedance|trill|Instagram|FBAN|FBAV|FB_IAB|Snapchat|Line\//i.test(ua))return;
-  var ios=/iPhone|iPad|iPod/i.test(ua),sh=document.querySelector(".sh"),fl=document.querySelector(".fl"),aide=sh.querySelector(".aide"),go=sh.querySelector(".go"),cp=sh.querySelector(".cp"),ici=sh.querySelector(".ici"),url="";
+  var vu=false,bk=document.querySelector(".bk"),ios=/iPhone|iPad|iPod/i.test(ua),sh=document.querySelector(".sh"),fl=document.querySelector(".fl"),aide=sh.querySelector(".aide"),go=sh.querySelector(".go"),cp=sh.querySelector(".cp"),ici=sh.querySelector(".ici"),url="";
   function ouvrir(u){
     url=u;var sans=u.replace(/^https?:\/\//,"");
     go.href=ios?"x-safari-https://"+sans:"intent://"+sans+"#Intent;scheme=https;S.browser_fallback_url="+encodeURIComponent(u)+";end";
     ici.href=u;cp.textContent="Copier le lien";aide.classList.remove("on");sh.classList.toggle("i",ios);fl.classList.toggle("on",ios);sh.classList.add("on");
   }
-  document.querySelectorAll(".lk").forEach(function(a){a.addEventListener("click",function(e){if(ios){if(fl.classList.contains("on"))return;e.preventDefault();fl.classList.add("on");return}e.preventDefault();ouvrir(a.href)})});
+  document.querySelectorAll(".lk").forEach(function(a){a.addEventListener("click",function(e){if(ios){if(vu)return;e.preventDefault();fl.classList.add("on");bk.classList.add("on");return}e.preventDefault();ouvrir(a.href)})});
   go.addEventListener("click",function(){setTimeout(function(){if(!document.hidden){aide.classList.add("on");fl.classList.add("on")}},1200)});
   cp.addEventListener("click",function(){var t=function(){cp.textContent="Lien copié"};if(navigator.clipboard)navigator.clipboard.writeText(url).then(t,function(){prompt("Copie ce lien :",url)});else prompt("Copie ce lien :",url)});
+  function ferme(){vu=true;bk.classList.remove("on");fl.classList.remove("on")}
+  bk.addEventListener("click",ferme);fl.addEventListener("click",ferme);
   sh.addEventListener("click",function(e){if(e.target===sh){sh.classList.remove("on");fl.classList.remove("on")}});
 })();
 </script>
