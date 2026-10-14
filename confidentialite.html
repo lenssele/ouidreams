@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Politique de confidentialité · Oui Dreams Motion</title>
+<meta name="description" content="Comment Oui Dreams Motion utilise tes données.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1b1917">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Geist";src:url(fonts/Geist-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#f1ece4;--ink2:#b9b2a8;--ink3:#857f77;--sage:#a1d193;--line:rgba(241,236,228,.10);--line2:rgba(241,236,228,.18);--card:rgba(241,236,228,.04);--serif:"Instrument Serif",Georgia,serif;--ease:cubic-bezier(.16,1,.3,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:#1b1917;color:var(--ink);font:400 17px/1.55 "Geist",system-ui,sans-serif;scroll-behavior:smooth}
+body{background:radial-gradient(48rem 34rem at 50% -14rem,rgba(255,236,210,.13),transparent 70%),linear-gradient(180deg,#22201d,#1b1917 40%,#181614);background-attachment:fixed}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(3rem,10vw,5.8rem)}
+h2{font-size:clamp(2.2rem,6vw,3.8rem)}
+h3{font-weight:600;font-size:1.1rem}
+p{max-width:60ch}
+em{font-style:italic;color:var(--sage)}
+.dim{color:var(--ink3)}
+.test{position:sticky;top:0;z-index:5;padding:8px 20px;text-align:center;font-size:.85rem;font-weight:600;background:#c9a24a;color:#1b1917}
+section{padding:90px 0}
+.hero{padding:70px 0 80px}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+.hero p.lead{margin-top:22px;font-size:1.15rem;color:var(--ink2)}
+.by{margin-top:18px;font-size:.95rem;color:var(--ink3)}
+.price{display:flex;align-items:baseline;gap:12px;margin-top:28px}
+.price b{font-family:var(--serif);font-weight:400;font-size:3.4rem;line-height:1}
+.price span{color:var(--ink3)}
+form{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;max-width:480px}
+input[type=email]{flex:1 1 220px;height:52px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:rgba(241,236,228,.06);color:var(--ink);font:inherit}
+input[type=email]::placeholder{color:var(--ink3)}
+button{height:52px;padding:0 24px;border:0;border-radius:999px;background:var(--ink);color:#1b1917;font:600 1rem "Geist",system-ui,sans-serif;cursor:pointer}
+button:hover{background:#fff}
+.price-soon{margin-top:26px;color:var(--ink2);font-weight:500}
+.free{display:inline-block;margin-bottom:18px;padding:8px 16px;border-radius:999px;background:var(--sage);color:#1b1917;font-weight:700;font-size:1rem}
+.mc{position:relative;margin-top:30px;background:rgba(0,0,0,.18);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.mc-band{padding:26px 0;border-bottom:1px solid var(--line)}
+.mc-band .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.mc-band p{color:var(--ink2);max-width:70ch}
+.mc-band b{color:var(--ink);font-weight:600}
+.mc-pill{padding:6px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--sage);color:var(--sage);font-weight:600;font-size:.9rem;white-space:nowrap}
+.kicker{font-size:.95rem;font-weight:600;color:var(--sage);margin-bottom:14px}
+.note{margin-top:10px;font-size:.88rem;color:var(--ink3)}
+.ok{margin-top:10px;font-size:.92rem;color:var(--sage)}
+.frame{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0f0e0d center/cover;box-shadow:0 0 0 1px var(--line2),0 40px 90px -30px rgba(0,0,0,.9)}
+.frame video{width:100%;height:100%;object-fit:cover}
+.cap{margin-top:12px;font-size:.9rem;color:var(--ink3)}
+/* parcours : vraie suite d'etapes, donc numerotee */
+.path{margin-top:44px;list-style:none;counter-reset:m;border-top:1px solid var(--line)}
+.path li{counter-increment:m;display:grid;gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
+.path li::before{content:"Module " counter(m);font-size:.85rem;color:var(--ink3)}
+.path li:first-child::before{content:"Introduction"}
+.path li:first-child{counter-increment:none}
+.path h3{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.1}
+.path p{color:var(--ink2)}
+.path small{color:var(--sage);font-size:.92rem}
+.two{margin-top:40px;display:grid;gap:18px}
+.box{padding:26px;border-radius:22px;background:var(--card);box-shadow:0 0 0 1px var(--line)}
+.box ul{margin-top:14px;list-style:none;display:grid;gap:10px}
+.box li{position:relative;padding-left:20px;color:var(--ink2)}
+.box li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--sage)}
+.box.no li::before{background:var(--ink3)}
+.faq{max-width:780px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-weight:500;font-size:1.08rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--ink3);font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 20px;color:var(--ink2)}
+.final{text-align:center}
+.final p{margin:16px auto 0;color:var(--ink2)}
+.final form{margin:28px auto 0;justify-content:center}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);font-size:.88rem}
+@media (min-width:860px){
+  .wrap{padding:0 40px}
+  .hero .wrap{grid-template-columns:1fr 1fr;gap:60px}
+  .two{grid-template-columns:1fr 1fr}
+  .path li{grid-template-columns:200px 1fr;column-gap:30px}
+  .path li::before{grid-row:span 3;padding-top:10px}
+}
+@media (prefers-reduced-motion:no-preference){@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}.hero .wrap>*{animation:up .9s var(--ease) both}.hero .wrap>*:nth-child(2){animation-delay:.12s}}
+.top{display:flex;align-items:center;height:68px}
+.top img{width:132px;height:auto;filter:grayscale(1) brightness(1.6);opacity:.85}
+.hero{padding-top:28px}
+.rgpd{margin-top:14px;max-width:46ch;font-size:.78rem;line-height:1.5;color:var(--ink3)}
+.dl{display:inline-flex;align-items:center;height:56px;padding:0 28px;border-radius:999px;background:var(--ink);color:#1b1917;font-weight:600;text-decoration:none}
+.dl:hover{background:#fff}
+
+.doc{max-width:760px}
+.doc h2{font-size:clamp(1.6rem,4vw,2.1rem);margin:44px 0 12px}
+.doc p,.doc li{color:var(--ink2);max-width:70ch}
+.doc p+p{margin-top:12px}
+.doc ul{margin:12px 0 0 20px;display:grid;gap:8px}
+.doc b{color:var(--ink);font-weight:600}
+.back{display:inline-block;margin-top:40px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<header class="wrap top"><a href="index.html"><img src="logo.png?v=20261014" alt="Oui Dreams" width="560" height="126"></a></header>
+<main>
+<section>
+  <div class="wrap doc">
+    <h1>Politique de confidentialité</h1>
+    <p class="note" style="margin-top:14px">En vigueur au 14 octobre 2026.</p>
+
+    <h2>Qui est responsable</h2>
+    <p><b>Lyciara</b>, entreprise individuelle de Hugo Lancel (micro-entreprise), SIRET 131 397 523 00013, 1 rue Paul Verlaine, 62660 Beuvry, France. Contact : <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a>.</p>
+
+    <h2>Ce qui est collecté, et pourquoi</h2>
+    <ul>
+      <li><b>Le guide gratuit</b> : ton e-mail (et ton prénom si tu le donnes), pour t'envoyer le guide et les nouveautés de la masterclass. Base : ton consentement, que tu peux retirer à tout moment.</li>
+      <li><b>Une commande</b> : nom, e-mail, téléphone, entreprise, pour réaliser la vidéo et établir la facture. Base : le contrat, puis l'obligation légale de garder les factures.</li>
+      <li><b>Un message</b> (Instagram, e-mail) : ce que tu écris, pour te répondre.</li>
+    </ul>
+    <p>Rien n'est vendu ni loué à qui que ce soit. Aucune publicité ciblée, aucun outil de mesure d'audience sur ce site.</p>
+
+    <h2>Qui d'autre y a accès</h2>
+    <ul>
+      <li><b>Stripe</b> traite les paiements. Oui Dreams Motion ne voit jamais les numéros de carte.</li>
+      <li><b>Systeme.io</b> héberge la liste des inscrits au guide et envoie les e-mails.</li>
+      <li><b>GitHub Pages</b> héberge ce site, et <b>Google Fonts</b> fournit une des polices : comme tout serveur, ils reçoivent ton adresse IP quand tu ouvres une page.</li>
+    </ul>
+    <p>Certains de ces services peuvent traiter des données hors de l'Union européenne, avec les garanties prévues par le RGPD (clauses contractuelles types).</p>
+
+    <h2>Combien de temps</h2>
+    <ul>
+      <li>Inscription au guide : jusqu'à ta désinscription, ou 3 ans sans aucune ouverture de nos e-mails.</li>
+      <li>Commandes et factures : 10 ans, comme l'exige la loi.</li>
+      <li>Messages sans suite : 3 ans au plus.</li>
+    </ul>
+
+    <h2>Cookies</h2>
+    <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience. La page de paiement Stripe utilise ses propres cookies, nécessaires au paiement et à la lutte contre la fraude.</p>
+
+    <h2>Tes droits</h2>
+    <p>Tu peux demander l'accès à tes données, leur correction, leur suppression, leur portabilité, ou t'opposer à leur utilisation. Chaque e-mail contient un lien de désinscription. Écris à <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a> : réponse sous un mois au plus.</p>
+    <p>Si la réponse ne te convient pas, tu peux saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
+
+    <a class="back" href="index.html">Retour au site</a>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
