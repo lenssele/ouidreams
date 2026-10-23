@@ -36,6 +36,9 @@ h1{margin-top:18px;font-family:"Instrument Serif",Georgia,serif;font-weight:400;
 .lk b{display:block;font-weight:650;font-size:1.06rem;line-height:1.3}
 .lk small{display:block;margin-top:3px;font-size:.88rem;color:var(--ink2)}
 .lk i{font-style:normal;font-size:1.2rem;opacity:.7}
+.sep{display:flex;align-items:center;gap:10px;margin:22px 4px 4px;color:var(--ink2);font-size:.82rem;font-weight:600;letter-spacing:.06em}
+.sep::before,.sep::after{content:"";flex:1;height:1px;background:var(--line)}
+.sep i{font-style:normal;color:var(--s)}
 .lk small.by{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:.8rem;color:var(--ink2)}
 .lk small.by img{height:15px;width:auto;display:block}
 .lk small.by span{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--ink)}
@@ -75,12 +78,13 @@ h1{margin-top:18px;font-family:"Instrument Serif",Georgia,serif;font-weight:400;
       <span><span class="tag">Appel gratuit</span><b>Réserve ton appel découverte</b><small class="by">by <img src="logo.png?v=20261014" alt="Oui Dreams" width="80" height="18"> <span>MOTION</span></small></span>
       <i aria-hidden="true">›</i>
     </a>
-    <a class="lk main" href="guide.html">
-      <span><span class="tag">Gratuit</span><b>Apprends le motion design avec l'IA</b><small>Le guide offert pour commencer.</small></span>
-      <i aria-hidden="true">›</i>
-    </a>
     <a class="lk alt" href="index.html">
       <span><b class="serif">Ta marque, en <em>motion design</em></b><small class="by">by <img src="logo.png?v=20261014" alt="Oui Dreams" width="80" height="18"> <span>MOTION</span></small></span>
+      <i aria-hidden="true">›</i>
+    </a>
+    <p class="sep"><span>Guide gratuit</span> <i aria-hidden="true">↓</i></p>
+    <a class="lk main" href="guide.html">
+      <span><span class="tag">Gratuit</span><b>Apprends le motion design avec l'IA</b><small>Le guide offert pour commencer.</small></span>
       <i aria-hidden="true">›</i>
     </a>
   </nav>
