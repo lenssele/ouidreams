@@ -81,8 +81,8 @@ footer a{color:var(--ink2)}
 .booking{padding:8px 0 40px;text-align:center}
 .booking h1{font-size:clamp(2.4rem,7vw,4rem)}
 .booking p.sub{margin:14px auto 0;color:var(--ink2)}
-.calendly-inline-widget{min-width:320px;height:720px;margin:8px auto 0;max-width:1000px;border-radius:22px;overflow:hidden;border:1px solid var(--line2)}
-@media (max-width:640px){.calendly-inline-widget{height:1000px}}
+.calendly-inline-widget{min-width:320px;min-height:700px;margin:8px auto 0;max-width:1000px;border-radius:22px;overflow:hidden;border:1px solid var(--line2)}
+.calendly-inline-widget iframe{display:block}
 </style>
 </head>
 <body>
@@ -90,8 +90,16 @@ footer a{color:var(--ink2)}
 <main>
 <section class="booking">
   <div class="wrap">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=1b1917&text_color=f1ece4&primary_color=a1d193"></div>
+    <div class="calendly-inline-widget" data-resize="true" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=1b1917&text_color=f1ece4&primary_color=a1d193"></div>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script>
+    // Le calendrier prend la hauteur de son contenu : un seul scroll, celui de la page.
+    addEventListener("message", function (e) {
+      if (e.origin !== "https://calendly.com" || !e.data || e.data.event !== "calendly.page_height") return;
+      var f = document.querySelector(".calendly-inline-widget iframe"), h = parseInt(e.data.payload && e.data.payload.height, 10);
+      if (f && h > 0) f.style.height = h + "px";
+    });
+    </script>
   </div>
 </section>
 </main>
