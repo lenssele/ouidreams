@@ -71,9 +71,12 @@ section{padding:96px 0}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .trust{margin-top:22px;font-size:.92rem;color:var(--ink3)}
 .trust b{color:var(--ink);font-weight:600}
-.gbtn{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:6px 14px 6px 6px;border-radius:999px;background:var(--surf);box-shadow:0 0 0 1px var(--line);font-size:.86rem;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s,box-shadow .2s}
-.gbtn:hover{color:var(--ink);box-shadow:0 0 0 1px rgba(241,236,228,.3)}
-.gbtn .free{padding:3px 9px;border-radius:999px;background:var(--g);color:#1b1917;font-size:.72rem;font-weight:700}
+/* sticker guide gratuit : fixe en haut a droite, sous le menu (Hugo 23/10) */
+.gsticker{position:fixed;top:80px;right:14px;z-index:19;display:flex;flex-direction:column;align-items:center;gap:3px;width:74px;padding:9px 6px 8px;border-radius:14px;background:#24211e;box-shadow:0 0 0 1.5px var(--g),0 10px 24px -8px rgba(0,0,0,.7);color:var(--ink);text-decoration:none;font-size:.66rem;font-weight:700;line-height:1.15;text-align:center;transform:rotate(4deg);transition:transform .25s var(--ease)}
+.gsticker:hover{transform:rotate(0) scale(1.05)}
+.gsticker svg{width:30px;height:30px}
+.gsticker b{color:var(--g);font-weight:800}
+@media (max-width:760px){.gsticker{top:76px;right:10px;width:60px;padding:6px 4px 6px;border-radius:12px;font-size:.58rem;gap:1px}.gsticker svg{width:22px;height:22px}.hero{padding-top:80px}}
 
 /* carrousel de telephones */
 .deck{position:relative;height:560px;display:flex;flex-direction:column;align-items:center}
@@ -246,6 +249,8 @@ footer a{color:var(--ink2)}
   </div>
 </header>
 
+<a class="gsticker" href="guide.html" aria-label="Guide gratuit : comment je crée mes vidéos"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6.5c3.5-1.2 7-1 10 1.2v18c-3-2.2-6.5-2.4-10-1.2z" fill="#a1d193"/><path d="M26 6.5c-3.5-1.2-7-1-10 1.2v18c3-2.2 6.5-2.4 10-1.2z" fill="#f1ece4"/><path d="M16 7.7v18" stroke="#1b1917" stroke-width="1.2"/></svg><span><b>Guide</b><br>gratuit</span></a>
+
 <main id="top">
 <section class="hero" aria-labelledby="t-hero">
   <div class="wrap">
@@ -258,7 +263,6 @@ footer a{color:var(--ink2)}
         <a class="btn ghost" href="#prix">Voir les prix</a>
       </div>
       <p class="trust">Ils m'ont déjà confié leur promo : <b>Vistoria</b>, <b>Or et Valeurs</b> et <b>Petits sourires en blouse</b>.</p>
-      <a class="gbtn" href="guide.html"><span class="free">Gratuit</span>Comment je crée mes vidéos <span class="arr">→</span></a>
     </div>
     <div class="deck" aria-label="Exemples de vidéos">
       <p class="badge">Fait par <b>Oui Dreams Motion</b></p>
