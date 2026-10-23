@@ -78,10 +78,10 @@ footer a{color:var(--ink2)}
   .pages{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:no-preference){@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}.hero .wrap>*{animation:up .9s var(--ease) both}.hero .wrap>*:nth-child(2){animation-delay:.12s}}
-.booking{padding:24px 0 60px;text-align:center}
+.booking{padding:8px 0 40px;text-align:center}
 .booking h1{font-size:clamp(2.4rem,7vw,4rem)}
 .booking p.sub{margin:14px auto 0;color:var(--ink2)}
-.calendly-inline-widget{min-width:320px;height:720px;margin:30px auto 0;max-width:1000px;border-radius:22px;overflow:hidden;border:1px solid var(--line2)}
+.calendly-inline-widget{min-width:320px;height:720px;margin:8px auto 0;max-width:1000px;border-radius:22px;overflow:hidden;border:1px solid var(--line2)}
 @media (max-width:640px){.calendly-inline-widget{height:1000px}}
 </style>
 </head>
@@ -90,8 +90,6 @@ footer a{color:var(--ink2)}
 <main>
 <section class="booking">
   <div class="wrap">
-    <h1>Réserve ton <em>appel découverte</em>.</h1>
-    <p class="sub">30 minutes, gratuit, sans engagement.</p>
     <div class="calendly-inline-widget" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=1b1917&text_color=f1ece4&primary_color=a1d193"></div>
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
