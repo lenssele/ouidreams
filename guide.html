@@ -38,7 +38,11 @@ section{padding:80px 0}
 .top img{width:132px;height:auto;filter:grayscale(1) brightness(1.6);opacity:.85}
 .back{font-size:.9rem;color:var(--ink2);text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--line2)}
 .back:hover{color:var(--ink)}
-.hero{padding:28px 0 70px}
+.hero{padding:20px 0 70px}
+.hero .wrap.solo{display:flex;gap:0;flex-direction:column;align-items:center;text-align:center}
+.solo .cover{width:100%;max-width:380px;transform:none}
+.solo .proof{margin-top:22px}
+.solo .rgpd{margin:14px auto 0}
 .hero .wrap{display:grid;gap:44px;align-items:center}
 .free{display:inline-block;margin-bottom:18px;padding:8px 16px;border-radius:999px;background:var(--sage);color:#1b1917;font-weight:700;font-size:1rem}
 .proof{margin-top:18px;font-size:1rem;color:var(--ink)}
@@ -80,54 +84,14 @@ footer a{color:var(--ink2)}
 <header class="wrap top"><img src="logo.png?v=20261014" alt="Oui Dreams" width="560" height="126"><a class="back" href="liens.html" aria-label="Retour à tous les liens Oui Dreams">← Tous les liens</a></header>
 <main>
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="free">100 % gratuit</p>
-      <h1>Comment je crée mes vidéos <em>Oui&nbsp;Dreams</em>.</h1>
-      <p class="proof">Par Hugo, créateur de Oui Dreams · <b>410&nbsp;000 abonnés</b></p>
-      <p class="lead">Les coulisses en 8 étapes, de l'idée à la vidéo publiée, avec de vraies images. Sans caméra, sans acteur, sans logiciel de montage.</p>
-      <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
-      <p class="note">PDF de 12 pages, envoyé dans ta boîte mail.</p>
-      <p class="rgpd">Ton e-mail sert uniquement à t'envoyer le guide et les nouveautés de Oui Dreams. Désinscription sur simple demande. Responsable : Lyciara, EI Hugo Lancel. <a href="confidentialite.html">Confidentialité</a></p>
-    </div>
-    <div>
-      <div class="cover"><img src="v/guide/page1.jpg?v=20261023" alt="Couverture du guide : Comment je crée mes vidéos Oui Dreams" width="720" height="900"></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:20px">
-  <div class="wrap">
-    <p class="kicker">Ce que tu vas découvrir</p>
-    <h2>Les 8 étapes de <em>chaque vidéo</em>.</h2>
-    <ol class="steps">
-      <li><b>L'idée</b><span>Pourquoi tout part d'une seule phrase.</span></li>
-      <li><b>La première seconde</b><span>Ce qui te fait rester au lieu de scroller.</span></li>
-      <li><b>Le découpage</b><span>Le vrai plan de construction d'une vidéo, plan par plan.</span></li>
-      <li><b>Le dessin</b><span>Zéro caméra : 60 images dessinées pour chaque seconde.</span></li>
-      <li><b>L'IA</b><span>Ce que je lui demande, et ce qu'elle écrit vraiment.</span></li>
-      <li><b>Le son</b><span>Les petits bruits que tu n'entends pas, mais qui font tout.</span></li>
-      <li><b>Le contrôle</b><span>La même vidéo, de la version 1 à la version publiée.</span></li>
-      <li><b>La publication</b><span>Ce que je regarde une fois la vidéo en ligne.</span></li>
-    </ol>
-    <div class="pages">
-      <figure><img src="v/guide/page5.jpg?v=20261023" alt="Page du guide : le découpage d'une vidéo" width="720" height="900" loading="lazy"><figcaption>Le vrai découpage d'une vidéo</figcaption></figure>
-      <figure><img src="v/guide/page6.jpg?v=20261023" alt="Page du guide : tout est dessiné" width="720" height="900" loading="lazy"><figcaption>Tout est dessiné, image par image</figcaption></figure>
-      <figure><img src="v/guide/page9.jpg?v=20261023" alt="Page du guide : version 1 et version publiée" width="720" height="900" loading="lazy"><figcaption>De la version 1 à la version publiée</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<div class="mc"><div class="wrap"><span class="pill">Bientôt</span><p><b>Ensuite : la masterclass.</b> Pour apprendre à créer ces vidéos toi-même. Les inscrits au guide seront prévenus en premier.</p></div></div>
-
-<section class="final">
-  <div class="wrap">
-    <h2>Passe dans les <em>coulisses</em>.</h2>
-    <p>Gratuit, dans ta boîte mail.</p>
+  <div class="wrap solo">
+    <div class="cover"><img src="v/guide/page1.jpg?v=20261023" alt="Guide gratuit : Comment je crée mes vidéos Oui Dreams" width="720" height="900"></div>
+    <p class="proof">Par Hugo, créateur de Oui Dreams · <b>410&nbsp;000 abonnés</b></p>
     <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
+    <p class="rgpd">Responsable : Lyciara, EI Hugo Lancel. <a href="confidentialite.html">Confidentialité</a></p>
   </div>
 </section>
 </main>
-<footer><div class="wrap">Oui Dreams · Lyciara, EI Hugo Lancel · <a href="confidentialite.html">Confidentialité</a></div></footer>
+<footer><div class="wrap">Oui Dreams</div></footer>
 </body>
 </html>
