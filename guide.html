@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Guide gratuit · Les 10 détails qui font qu'une vidéo IA a l'air pro</title>
-<meta name="description" content="Apprends à produire seul une vidéo en motion design avec Claude Code et Remotion : brief, animation, voix, musique, export. Liste d'attente ouverte.">
+<title>Guide gratuit · Comment je crée mes vidéos Oui Dreams</title>
+<meta name="description" content="Guide gratuit : les coulisses des vidéos Oui Dreams en 8 étapes, de l'idée à la vidéo publiée. Sans caméra, sans acteur, sans logiciel de montage.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Oui Dreams Motion">
+<meta property="og:site_name" content="Oui Dreams">
 <meta property="og:url" content="https://ouidreams.fr/guide">
-<meta property="og:title" content="Guide gratuit · Oui Dreams">
-<meta property="og:description" content="Les 10 détails qui font qu'une vidéo IA a l'air pro.">
+<meta property="og:title" content="Guide gratuit · Comment je crée mes vidéos Oui Dreams">
+<meta property="og:description" content="Les coulisses en 8 étapes, avec de vraies images.">
 <meta property="og:image" content="https://ouidreams.fr/og.png?v=20261019">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Oui Dreams Motion : ta marque, en motion design.">
+<meta property="og:image:alt" content="Oui Dreams : comment je crée mes vidéos.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1b1917">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,92 +24,56 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{background:#1b1917;color:var(--ink);font:400 17px/1.55 "Geist",system-ui,sans-serif;scroll-behavior:smooth}
 body{background:radial-gradient(48rem 34rem at 50% -14rem,rgba(255,236,210,.13),transparent 70%),linear-gradient(180deg,#22201d,#1b1917 40%,#181614);background-attachment:fixed}
-img,video{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 h1,h2{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
-h1{font-size:clamp(3rem,10vw,5.8rem)}
-h2{font-size:clamp(2.2rem,6vw,3.8rem)}
-h3{font-weight:600;font-size:1.1rem}
+h1{font-size:clamp(2.8rem,9vw,5.2rem)}
+h2{font-size:clamp(2.1rem,5.5vw,3.4rem)}
 p{max-width:60ch}
 em{font-style:italic;color:var(--sage)}
-.dim{color:var(--ink3)}
-.test{position:sticky;top:0;z-index:5;padding:8px 20px;text-align:center;font-size:.85rem;font-weight:600;background:#c9a24a;color:#1b1917}
-section{padding:90px 0}
-.hero{padding:70px 0 80px}
-.hero .wrap{display:grid;gap:44px;align-items:center}
-.hero p.lead{margin-top:22px;font-size:1.15rem;color:var(--ink2)}
-.by{margin-top:18px;font-size:.95rem;color:var(--ink3)}
-.price{display:flex;align-items:baseline;gap:12px;margin-top:28px}
-.price b{font-family:var(--serif);font-weight:400;font-size:3.4rem;line-height:1}
-.price span{color:var(--ink3)}
-form{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;max-width:480px}
-input[type=email]{flex:1 1 220px;height:52px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:rgba(241,236,228,.06);color:var(--ink);font:inherit}
-input[type=email]::placeholder{color:var(--ink3)}
-button{height:52px;padding:0 24px;border:0;border-radius:999px;background:var(--ink);color:#1b1917;font:600 1rem "Geist",system-ui,sans-serif;cursor:pointer}
-button:hover{background:#fff}
-.price-soon{margin-top:26px;color:var(--ink2);font-weight:500}
-.free{display:inline-block;margin-bottom:18px;padding:8px 16px;border-radius:999px;background:var(--sage);color:#1b1917;font-weight:700;font-size:1rem}
-.mc{position:relative;margin-top:30px;background:rgba(0,0,0,.18);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
-.mc-band{padding:26px 0;border-bottom:1px solid var(--line)}
-.mc-band .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
-.mc-band p{color:var(--ink2);max-width:70ch}
-.mc-band b{color:var(--ink);font-weight:600}
-.mc-pill{padding:6px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--sage);color:var(--sage);font-weight:600;font-size:.9rem;white-space:nowrap}
-.kicker{font-size:.95rem;font-weight:600;color:var(--sage);margin-bottom:14px}
-.note{margin-top:10px;font-size:.88rem;color:var(--ink3)}
-.ok{margin-top:10px;font-size:.92rem;color:var(--sage)}
-.frame{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0f0e0d center/cover;box-shadow:0 0 0 1px var(--line2),0 40px 90px -30px rgba(0,0,0,.9)}
-.frame video{width:100%;height:100%;object-fit:cover}
-.cap{margin-top:12px;font-size:.9rem;color:var(--ink3)}
-/* parcours : vraie suite d'etapes, donc numerotee */
-.path{margin-top:44px;list-style:none;counter-reset:m;border-top:1px solid var(--line)}
-.path li{counter-increment:m;display:grid;gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
-.path li::before{content:"Module " counter(m);font-size:.85rem;color:var(--ink3)}
-.path li:first-child::before{content:"Introduction"}
-.path li:first-child{counter-increment:none}
-.path h3{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.1}
-.path p{color:var(--ink2)}
-.path small{color:var(--sage);font-size:.92rem}
-.two{margin-top:40px;display:grid;gap:18px}
-.box{padding:26px;border-radius:22px;background:var(--card);box-shadow:0 0 0 1px var(--line)}
-.box ul{margin-top:14px;list-style:none;display:grid;gap:10px}
-.box li{position:relative;padding-left:20px;color:var(--ink2)}
-.box li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--sage)}
-.box.no li::before{background:var(--ink3)}
-.faq{max-width:780px}
-.faq details{border-top:1px solid var(--line)}
-.faq details:last-child{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-weight:500;font-size:1.08rem}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--ink3);font-size:1.4rem;line-height:1}
-.faq details[open] summary::after{content:"−"}
-.faq details p{padding:0 0 20px;color:var(--ink2)}
-.final{text-align:center}
-.final p{margin:16px auto 0;color:var(--ink2)}
-.final form{margin:28px auto 0;justify-content:center}
-footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);font-size:.88rem}
-@media (min-width:860px){
-  .wrap{padding:0 40px}
-  .hero .wrap{grid-template-columns:1fr 1fr;gap:60px}
-  .two{grid-template-columns:1fr 1fr}
-  .path li{grid-template-columns:200px 1fr;column-gap:30px}
-  .path li::before{grid-row:span 3;padding-top:10px}
-}
-@media (prefers-reduced-motion:no-preference){@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}.hero .wrap>*{animation:up .9s var(--ease) both}.hero .wrap>*:nth-child(2){animation-delay:.12s}}
-.top{display:flex;align-items:center;height:68px}
+section{padding:80px 0}
+.top{display:flex;align-items:center;justify-content:space-between;height:68px}
 .top img{width:132px;height:auto;filter:grayscale(1) brightness(1.6);opacity:.85}
-.hero{padding-top:28px}
-.rgpd{margin-top:14px;max-width:46ch;font-size:.78rem;line-height:1.5;color:var(--ink3)}
+.back{font-size:.9rem;color:var(--ink2);text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--line2)}
+.back:hover{color:var(--ink)}
+.hero{padding:28px 0 70px}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+.free{display:inline-block;margin-bottom:18px;padding:8px 16px;border-radius:999px;background:var(--sage);color:#1b1917;font-weight:700;font-size:1rem}
+.proof{margin-top:18px;font-size:1rem;color:var(--ink)}
+.proof b{font-weight:700}
+.lead{margin-top:14px;font-size:1.15rem;color:var(--ink2)}
 .dl{display:inline-flex;align-items:center;height:56px;padding:0 28px;border-radius:999px;background:var(--ink);color:#1b1917;font-weight:600;text-decoration:none}
 .dl:hover{background:#fff}
-.go{margin-top:22px}
-.top{display:flex;align-items:center;justify-content:space-between}
-.back{font-size:.9rem;color:var(--ink2);text-decoration:none;padding:8px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--line2,rgba(241,236,228,.18))}
-.back:hover{color:var(--ink)}
-.lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(241,236,228,.92);color:#1b1917;font:600 1rem "Geist",system-ui,sans-serif;cursor:pointer}
-.inapp .snd{display:none}
+.go{margin-top:26px}
+.note{margin-top:10px;font-size:.88rem;color:var(--ink3)}
+.rgpd{margin-top:14px;max-width:46ch;font-size:.78rem;line-height:1.5;color:var(--ink3)}
+.cover{max-width:400px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px var(--line2),0 40px 90px -30px rgba(0,0,0,.9);transform:rotate(-1.5deg)}
+.kicker{font-size:.95rem;font-weight:600;color:var(--sage);margin-bottom:14px}
+.steps{margin-top:40px;list-style:none;display:grid;gap:0;border-top:1px solid var(--line);counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);grid-row:span 2;font-family:var(--serif);font-size:1.9rem;line-height:1;color:var(--sage)}
+.steps b{font-weight:600}
+.steps span{color:var(--ink2)}
+.pages{margin-top:44px;display:grid;gap:18px;grid-template-columns:1fr 1fr}
+.pages img{border-radius:14px;box-shadow:0 0 0 1px var(--line2)}
+.pages figcaption{margin-top:10px;font-size:.88rem;color:var(--ink3)}
+.mc{margin-top:0;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(0,0,0,.18)}
+.mc .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.mc p{color:var(--ink2);max-width:70ch}
+.mc b{color:var(--ink);font-weight:600}
+.pill{padding:6px 14px;border-radius:999px;box-shadow:0 0 0 1px var(--sage);color:var(--sage);font-weight:600;font-size:.9rem;white-space:nowrap}
+.final{text-align:center}
+.final p{margin:16px auto 0;color:var(--ink2)}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);font-size:.88rem}
+footer a{color:var(--ink2)}
+@media (min-width:860px){
+  .wrap{padding:0 40px}
+  .hero .wrap{grid-template-columns:1.1fr .9fr;gap:60px}
+  .pages{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}.hero .wrap>*{animation:up .9s var(--ease) both}.hero .wrap>*:nth-child(2){animation-delay:.12s}}
 </style>
 </head>
 <body>
@@ -119,103 +83,51 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink3);fo
   <div class="wrap">
     <div>
       <p class="free">100 % gratuit</p>
-      <h1>Les 10 détails qui font qu'une vidéo IA a l'air <em>pro</em>.</h1>
-      <p class="lead">Le guide, gratuit, dans ta boîte mail.</p>
+      <h1>Comment je crée mes vidéos <em>Oui&nbsp;Dreams</em>.</h1>
+      <p class="proof">Par Hugo, créateur de Oui Dreams · <b>410&nbsp;000 abonnés</b></p>
+      <p class="lead">Les coulisses en 8 étapes, de l'idée à la vidéo publiée, avec de vraies images. Sans caméra, sans acteur, sans logiciel de montage.</p>
       <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
-      <p class="note">Par le créateur de Oui Dreams · 410 000 abonnés</p>
-      <p class="rgpd">Ton e-mail sert uniquement à t'envoyer le guide et les nouveautés de la masterclass. Désinscription sur simple demande. Responsable : Lyciara, EI Hugo Lancel. <a href="confidentialite.html">Confidentialité</a></p>
+      <p class="note">PDF de 12 pages, envoyé dans ta boîte mail.</p>
+      <p class="rgpd">Ton e-mail sert uniquement à t'envoyer le guide et les nouveautés de Oui Dreams. Désinscription sur simple demande. Responsable : Lyciara, EI Hugo Lancel. <a href="confidentialite.html">Confidentialité</a></p>
     </div>
     <div>
-      <div class="frame" style="background-image:url(v/clients/vistoria_l.jpg)">
-        <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline autoplay preload="metadata" aria-label="Exemple de vidéo en motion design faite avec l'IA"></video>
-      </div>
-      <p class="cap">Une vidéo faite avec l'IA pour une vraie entreprise.</p>
+      <div class="cover"><img src="v/guide/page1.jpg?v=20261023" alt="Couverture du guide : Comment je crée mes vidéos Oui Dreams" width="720" height="900"></div>
     </div>
   </div>
 </section>
 
-<div class="mc">
-<div class="mc-band"><div class="wrap"><span class="mc-pill">Payante · bientôt</span><p><b>Le guide gratuit, c'est le début.</b> Ce qui suit présente la masterclass, l'étape d'après. Elle n'est pas encore sortie et sera payante. Les inscrits au guide la découvrent en premier, avec un tarif de lancement.</p></div></div>
-<section>
+<section style="padding-top:20px">
   <div class="wrap">
-    <p class="kicker">La masterclass</p>
-    <h2>Crée tes vidéos en <em>motion design</em> avec l'IA.</h2>
-    <p class="dim" style="margin-top:14px">De ton idée à la vidéo finale, avec Claude Code et Remotion, sans After Effects et sans savoir coder. Tu suis un seul projet du début à la fin : la vidéo d'un commerce que tu choisis. Chaque module se termine par un exercice. Environ 2 h 30 de vidéo.</p>
-    <ol class="path">
-      <li><h3>Bienvenue</h3><p>Ce qu'on fabrique, les coûts réels à prévoir, le commerce que tu prends comme fil rouge.</p></li>
-      <li><h3>Installer l'atelier</h3><p>Claude Code, Remotion, ton premier échange avec l'IA dans un projet vidéo.</p><small>Tu repars avec : un titre animé de 5 s.</small></li>
-      <li><h3>Écrire un bon brief</h3><p>Pourquoi un brief flou donne une vidéo molle, et comment découper ton idée en scènes.</p><small>Tu repars avec : le brief de ta vidéo de 30 s.</small></li>
-      <li><h3>Animer avec l'IA</h3><p>Lire ce que l'IA produit sans être développeur, corriger par petites demandes, rendre un texte lisible sur téléphone.</p><small>Tu repars avec : ta vidéo complète, animée, en muet.</small></li>
-      <li><h3>Le hook et le rythme</h3><p>Ce qui fait rester dans les deux premières secondes, et la durée juste pour chaque plan.</p><small>Tu repars avec : deux débuts testés, le meilleur gardé.</small></li>
-      <li><h3>Le son</h3><p>Voix off, musique libre de droits, effets sonores, niveaux : tout caler sur l'image.</p><small>Tu repars avec : ta vidéo avec voix, musique et effets.</small></li>
-      <li><h3>Exporter sans erreur</h3><p>Vertical et paysage depuis le même projet, et les erreurs de débutant à éviter.</p><small>Tu repars avec : ta vidéo finale, prête à publier.</small></li>
+    <p class="kicker">Ce que tu vas découvrir</p>
+    <h2>Les 8 étapes de <em>chaque vidéo</em>.</h2>
+    <ol class="steps">
+      <li><b>L'idée</b><span>Pourquoi tout part d'une seule phrase.</span></li>
+      <li><b>La première seconde</b><span>Ce qui te fait rester au lieu de scroller.</span></li>
+      <li><b>Le découpage</b><span>Le vrai plan de construction d'une vidéo, plan par plan.</span></li>
+      <li><b>Le dessin</b><span>Zéro caméra : 60 images dessinées pour chaque seconde.</span></li>
+      <li><b>L'IA</b><span>Ce que je lui demande, et ce qu'elle écrit vraiment.</span></li>
+      <li><b>Le son</b><span>Les petits bruits que tu n'entends pas, mais qui font tout.</span></li>
+      <li><b>Le contrôle</b><span>La même vidéo, de la version 1 à la version publiée.</span></li>
+      <li><b>La publication</b><span>Ce que je regarde une fois la vidéo en ligne.</span></li>
     </ol>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>La masterclass est pour toi si…</h2>
-    <div class="two">
-      <div class="box">
-        <h3>Pour toi</h3>
-        <ul>
-          <li>Tu crées du contenu et tu veux des vidéos animées sans After Effects.</li>
-          <li>Tu es freelance et tu veux proposer de la vidéo à tes clients.</li>
-          <li>Tu as un commerce et tu veux faire tes propres promos.</li>
-          <li>Tu as vu passer des vidéos faites avec Claude et tu veux la méthode.</li>
-        </ul>
-      </div>
-      <div class="box no">
-        <h3>Pas pour toi</h3>
-        <ul>
-          <li>Tu cherches un bouton magique sans jamais ouvrir un terminal.</li>
-          <li>Tu veux un système qui produit des vidéos à ta place, tout seul.</li>
-          <li>Tu attends une promesse de clients ou de revenus.</li>
-        </ul>
-      </div>
+    <div class="pages">
+      <figure><img src="v/guide/page5.jpg?v=20261023" alt="Page du guide : le découpage d'une vidéo" width="720" height="900" loading="lazy"><figcaption>Le vrai découpage d'une vidéo</figcaption></figure>
+      <figure><img src="v/guide/page6.jpg?v=20261023" alt="Page du guide : tout est dessiné" width="720" height="900" loading="lazy"><figcaption>Tout est dessiné, image par image</figcaption></figure>
+      <figure><img src="v/guide/page9.jpg?v=20261023" alt="Page du guide : version 1 et version publiée" width="720" height="900" loading="lazy"><figcaption>De la version 1 à la version publiée</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>Questions sur la masterclass.</h2>
-    <div class="faq" style="margin-top:34px">
-      <details><summary>Il faut savoir coder ?</summary><p>Non. Il faut savoir installer un logiciel et copier une commande. L'IA écrit le code, tu apprends à le lire et à le corriger avec des mots simples.</p></details>
-      <details><summary>Qu'est-ce que je dois payer en plus ?</summary><p>Un abonnement Claude qui donne accès à Claude Code. Le reste est gratuit. Une voix ElevenLabs est en option, tu peux aussi enregistrer ta propre voix.</p></details>
-      <details><summary>Quel ordinateur ?</summary><p>Windows, Mac ou Linux, plutôt récent : le rendu vidéo demande de la mémoire.</p></details>
-      <details><summary>Je vais faire des vidéos aussi belles que les tiennes ?</summary><p>Ta première sera correcte, les suivantes meilleures. La masterclass t'apprend à faire une bonne vidéo de A à Z. Le niveau vient avec la pratique.</p></details>
-      <details><summary>C'est quand ?</summary><p>La date n'est pas encore fixée. Laisse ton e-mail : tu es prévenu le jour de la sortie.</p></details>
-    </div>
-  </div>
-</section>
+<div class="mc"><div class="wrap"><span class="pill">Bientôt</span><p><b>Ensuite : la masterclass.</b> Pour apprendre à créer ces vidéos toi-même. Les inscrits au guide seront prévenus en premier.</p></div></div>
 
-</div>
 <section class="final">
   <div class="wrap">
-    <h2>Commence par le guide.</h2>
-    <p>Gratuit, par e-mail. Et tu seras le premier prévenu pour la masterclass, avec un tarif de lancement réservé aux inscrits.</p>
+    <h2>Passe dans les <em>coulisses</em>.</h2>
+    <p>Gratuit, dans ta boîte mail.</p>
     <p class="go"><a class="dl" href="https://contact-ouidreams.systeme.io/guide">Recevoir le guide gratuit</a></p>
   </div>
 </section>
 </main>
-<footer><div class="wrap">Masterclass par Hugo · créateur de Oui Dreams. Mentions légales à compléter avant la vente.</div></footer>
-
-<script>
-// Navigateurs integres (TikTok, Instagram, Facebook) : ils ouvrent les videos en plein ecran des qu'elles se lancent.
-// La-bas : aucune lecture automatique ; un bouton « Lire » sur chaque video, et un conseil pour ouvrir le site dans le vrai navigateur (Hugo, 13/10).
-var INAPP = /TikTok|musical_ly|Bytedance|BytedanceWebview|Instagram|FBAN|FBAV/i.test(navigator.userAgent);
-if (INAPP) {
-  document.documentElement.classList.add('inapp');
-  document.querySelectorAll('video').forEach(function(v){
-    v.removeAttribute('autoplay'); v.pause();
-    var f = v.parentNode, b = document.createElement('button');
-    b.type = 'button'; b.className = 'lire'; b.textContent = '▶ Lire';
-    b.addEventListener('click', function(){ v.controls = true; var p = v.play(); if (p) p.catch(function(){}); b.remove(); });
-    f.appendChild(b);
-  });
-}
-</script>
+<footer><div class="wrap">Oui Dreams · Lyciara, EI Hugo Lancel · <a href="confidentialite.html">Confidentialité</a></div></footer>
 </body>
 </html>
