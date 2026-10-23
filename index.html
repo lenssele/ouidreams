@@ -72,9 +72,10 @@ section{padding:96px 0}
 .trust{margin-top:22px;font-size:.92rem;color:var(--ink3)}
 .trust b{color:var(--ink);font-weight:600}
 /* onglet guide gratuit : accroche sous la barre du menu, la suit (Hugo 23/10) */
-.gtab{position:absolute;top:100%;right:max(16px,calc((100vw - 1180px) / 2 + 32px));display:inline-flex;align-items:center;gap:6px;padding:5px 11px 6px 9px;border-radius:0 0 12px 12px;background:rgba(27,25,23,.92);box-shadow:0 1px 0 0 var(--line) inset,0 0 0 1px var(--line);border-top:0;font-size:.74rem;font-weight:600;color:var(--ink2);text-decoration:none;transition:color .2s}
-.gtab:hover{color:var(--ink)}
-.gtab svg{width:15px;height:15px}
+.gtab{position:absolute;top:calc(100% + 8px);right:max(14px,calc((100vw - 1180px) / 2 + 32px));display:flex;flex-direction:column;align-items:center;gap:2px;width:58px;padding:7px 4px 6px;border-radius:12px;background:#24211e;box-shadow:0 0 0 1px var(--line),0 8px 18px -8px rgba(0,0,0,.6);font-size:.58rem;font-weight:600;line-height:1.15;text-align:center;color:var(--ink2);text-decoration:none;transform:rotate(3deg);transition:transform .25s var(--ease),color .2s}
+.gtab:hover{color:var(--ink);transform:rotate(0)}
+.gtab svg{width:20px;height:20px}
+.gtab b{color:var(--g);font-weight:700}
 
 /* carrousel de telephones */
 .deck{position:relative;height:560px;display:flex;flex-direction:column;align-items:center}
@@ -245,7 +246,7 @@ footer a{color:var(--ink2)}
     </nav>
     <a class="btn main" href="#appel">Réserver un appel</a>
   </div>
-  <a class="gtab" href="guide.html" aria-label="Guide gratuit : comment je crée mes vidéos"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6.5c3.5-1.2 7-1 10 1.2v18c-3-2.2-6.5-2.4-10-1.2z" fill="#a1d193"/><path d="M26 6.5c-3.5-1.2-7-1-10 1.2v18c3-2.2 6.5-2.4 10-1.2z" fill="#f1ece4"/></svg>Guide gratuit</a>
+  <a class="gtab" href="guide.html" aria-label="Guide gratuit : comment je crée mes vidéos"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6.5c3.5-1.2 7-1 10 1.2v18c-3-2.2-6.5-2.4-10-1.2z" fill="#a1d193"/><path d="M26 6.5c-3.5-1.2-7-1-10 1.2v18c3-2.2 6.5-2.4 10-1.2z" fill="#f1ece4"/></svg><span><b>Guide</b><br>gratuit</span></a>
 </header>
 
 
