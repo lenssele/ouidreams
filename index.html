@@ -85,6 +85,7 @@ section{padding:96px 0}
 .ph[data-pos="1"]{transform:translateX(62%) scale(.84) rotate(6deg);z-index:2;filter:brightness(.8)}
 .ph[data-pos="hide"]{transform:scale(.7);opacity:0;z-index:1}
 .deck .nb{position:absolute;top:calc(50% + 10px);width:42px;height:42px;border-radius:50%;border:0;background:#2a2724;color:var(--ink);box-shadow:0 6px 18px -6px rgba(0,0,0,.25),0 0 0 1px var(--line);font-size:1.2rem;cursor:pointer;z-index:4}
+.snd-deck{position:absolute;left:50%;bottom:20px;right:auto;transform:translateX(-50%);z-index:5}
 .deck .prev{left:4px}.deck .next{right:4px}
 .deck .who{margin-top:16px;font-size:.9rem;color:var(--ink3)}
 .deck .who b{color:var(--ink);font-weight:600}
@@ -263,6 +264,7 @@ footer a{color:var(--ink2)}
         <div class="ph" data-name="Petits sourires en blouse" data-kind="Produit en ligne"><video src="v/clients/sourires.mp4" poster="v/clients/sourires.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Petits sourires en blouse"></video></div>
         <div class="ph" data-name="L'Arrangeuse" data-kind="Démo"><video src="v/clients/larrangeuse.mp4" poster="v/clients/larrangeuse.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Démo pour L'Arrangeuse"></video></div>
         <div class="ph" data-name="Apolline Patterns" data-kind="Démo"><video src="v/clients/apolline.mp4" poster="v/clients/apolline.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Démo pour Apolline Patterns"></video></div>
+        <button class="snd snd-deck" type="button" aria-pressed="false">Activer le son</button>
         <button class="nb prev" type="button" aria-label="Vidéo précédente">‹</button>
         <button class="nb next" type="button" aria-label="Vidéo suivante">›</button>
       </div>
@@ -501,9 +503,10 @@ function show(i){
   ph.forEach(function(p, k){
     var d = (k - cur + ph.length) % ph.length; if (d === ph.length - 1) d = -1;
     p.dataset.pos = d === 0 ? '0' : d === 1 ? '1' : d === -1 ? '-1' : 'hide';
-    var v = p.querySelector('video'); if (d !== 0) v.pause(); else if (!INAPP && !calm) { var q = v.play(); if (q) q.catch(function(){}); }
+    var v = p.querySelector('video'); v.muted = true; if (d !== 0) v.pause(); else if (!INAPP && !calm) { var q = v.play(); if (q) q.catch(function(){}); }
   });
   dots.forEach(function(o, k){ o.classList.toggle('on', k === cur); });
+  var sd = document.querySelector('.snd-deck'); if (sd) { sd.setAttribute('aria-pressed','false'); sd.textContent = 'Activer le son'; }
   who.innerHTML = '<b>' + ph[cur].dataset.name + '</b> · ' + ph[cur].dataset.kind;
 }
 var calm = INAPP || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -531,8 +534,9 @@ document.querySelectorAll('.rv').forEach(function(el){ rio.observe(el); });
 document.querySelectorAll('.snd').forEach(function(b){
   b.addEventListener('click', function(){
     var on = b.getAttribute('aria-pressed') !== 'true';
-    document.querySelectorAll('.snd').forEach(function(o){ o.setAttribute('aria-pressed','false'); o.textContent = 'Activer le son'; o.parentNode.querySelector('video').muted = true; });
-    var v = b.parentNode.querySelector('video'); v.muted = !on;
+    var vb = b.classList.contains('snd-deck') ? ph[cur].querySelector('video') : b.parentNode.querySelector('video');
+    document.querySelectorAll('.snd').forEach(function(o){ o.setAttribute('aria-pressed','false'); o.textContent = 'Activer le son'; if (!o.classList.contains('snd-deck')) o.parentNode.querySelector('video').muted = true; }); ph.forEach(function(p){ p.querySelector('video').muted = true; });
+    var v = vb; v.muted = !on;
     if (on) { b.setAttribute('aria-pressed','true'); b.textContent = 'Couper le son'; var p = v.play(); if (p) p.catch(function(){}); }
   });
 });
