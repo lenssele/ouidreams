@@ -14,18 +14,18 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#f5f5f2">
+<meta name="theme-color" content="#1b1917">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f5f5f2;--card:#fff;--ink:#16150f;--ink2:#4d4b45;--ink3:#8a877f;--line:#e4e2db;
-  --g:#3fd157;--gpale:#d4f5cc;--gdark:#1e7a30;--dark:#0d0c09;
+  --bg:#1b1917;--card:rgba(241,236,228,.045);--surf:rgba(241,236,228,.07);--ink:#f1ece4;--ink2:#b9b2a8;--ink3:#857f77;--line:rgba(241,236,228,.12);
+  --g:#a1d193;--gpale:rgba(161,209,147,.18);--gdark:#a1d193;--dark:#0f0e0d;
   --f:'Switzer',ui-sans-serif,-apple-system,'Helvetica Neue',Arial,sans-serif;--ease:cubic-bezier(.16,1,.3,1)
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);scroll-behavior:smooth;scroll-padding-top:84px;-webkit-font-smoothing:antialiased}
-body{background:var(--bg)}
+body{background:radial-gradient(48rem 34rem at 50% -14rem,rgba(255,236,210,.13),transparent 70%),linear-gradient(180deg,#22201d,#1b1917 40%,#181614);background-attachment:fixed}
 img,video{display:block;max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gdark);outline-offset:3px;border-radius:6px}
@@ -45,23 +45,24 @@ section{padding:96px 0}
 /* boutons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;transition:transform .2s var(--ease),background .2s,box-shadow .2s}
 .btn:active{transform:scale(.98)}
-.btn.main{background:var(--gpale);color:var(--ink);box-shadow:0 0 0 1.5px #b5e8aa inset}
-.btn.main:hover{background:#c4f0b9}
-.btn.ghost{background:#fff;box-shadow:0 0 0 1px var(--line) inset}
-.btn.ghost:hover{box-shadow:0 0 0 1px #cfccc3 inset}
+.btn.main{background:var(--g);color:#1b1917}
+.btn.main:hover{background:#b6dfa9}
+.btn.ghost{background:var(--surf);box-shadow:0 0 0 1px var(--line) inset}
+.btn.ghost:hover{box-shadow:0 0 0 1px rgba(241,236,228,.3) inset}
 .btn.dark{background:var(--ink);color:#fff}
 .btn.dark:hover{background:#2b2a24}
 .arr{font-size:1.1em;line-height:1}
 
 /* menu */
-.nav{position:sticky;top:0;z-index:20;background:rgba(245,245,242,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:20;background:rgba(27,25,23,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;letter-spacing:-.03em}
 .brand span{font-size:.62rem;font-weight:700;letter-spacing:.14em;padding:4px 9px;border-radius:6px;background:var(--gpale);color:var(--gdark)}
 .tabs{display:none;gap:4px}
 .tabs a{padding:8px 14px;border-radius:999px;font-size:.92rem;font-weight:500;color:var(--ink2);text-decoration:none}
-.tabs a:hover{background:#ebeae5;color:var(--ink)}
+.tabs a:hover{background:var(--surf);color:var(--ink)}
 .nav .btn{height:42px;padding:0 18px;font-size:.92rem}
+@media (max-width:520px){.nav .wrap{gap:10px}.brand{font-size:.98rem;gap:7px}.brand span{font-size:.52rem;padding:3px 6px;letter-spacing:.1em}.nav .btn{height:36px;padding:0 13px;font-size:.8rem}}
 
 /* hero */
 .hero{padding:64px 0 40px;overflow-x:clip}
@@ -73,7 +74,7 @@ section{padding:96px 0}
 
 /* carrousel de telephones */
 .deck{position:relative;height:560px;display:flex;flex-direction:column;align-items:center}
-.deck .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px var(--line);font-size:.82rem;color:var(--ink2);margin-bottom:22px}
+.deck .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--surf);box-shadow:0 0 0 1px var(--line);font-size:.82rem;color:var(--ink2);margin-bottom:22px}
 .deck .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--g)}
 .deck .badge b{color:var(--ink)}
 .phones{position:relative;width:100%;height:440px}
@@ -83,26 +84,26 @@ section{padding:96px 0}
 .ph[data-pos="-1"]{transform:translateX(-62%) scale(.84) rotate(-6deg);z-index:2;filter:brightness(.8)}
 .ph[data-pos="1"]{transform:translateX(62%) scale(.84) rotate(6deg);z-index:2;filter:brightness(.8)}
 .ph[data-pos="hide"]{transform:scale(.7);opacity:0;z-index:1}
-.deck .nb{position:absolute;top:calc(50% + 10px);width:42px;height:42px;border-radius:50%;border:0;background:#fff;box-shadow:0 6px 18px -6px rgba(0,0,0,.25),0 0 0 1px var(--line);font-size:1.2rem;cursor:pointer;z-index:4}
+.deck .nb{position:absolute;top:calc(50% + 10px);width:42px;height:42px;border-radius:50%;border:0;background:#2a2724;color:var(--ink);box-shadow:0 6px 18px -6px rgba(0,0,0,.25),0 0 0 1px var(--line);font-size:1.2rem;cursor:pointer;z-index:4}
 .deck .prev{left:4px}.deck .next{right:4px}
 .deck .who{margin-top:16px;font-size:.9rem;color:var(--ink3)}
 .deck .who b{color:var(--ink);font-weight:600}
 .dots{display:flex;gap:6px;margin-top:10px}
-.dots i{width:6px;height:6px;border-radius:99px;background:#d6d4cc;transition:width .3s}
+.dots i{width:6px;height:6px;border-radius:99px;background:rgba(241,236,228,.25);transition:width .3s}
 .dots i.on{width:22px;background:var(--ink)}
 
 /* video de presentation */
 .pres{padding:40px 0 0}
 .pres .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
 .pres .head .kick{margin:0}
-.time{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px var(--line);font-size:.85rem;font-weight:600}
-.screen{position:relative;border-radius:28px;background:var(--dark);padding:28px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);display:grid;gap:28px;align-items:center;overflow:hidden}
-.screen::before{content:"";position:absolute;inset:0;background:radial-gradient(40rem 26rem at 30% 50%,rgba(63,209,87,.18),transparent 70%);pointer-events:none}
+.time{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--surf);box-shadow:0 0 0 1px var(--line);font-size:.85rem;font-weight:600}
+.screen{position:relative;border-radius:28px;background:var(--dark);padding:28px;box-shadow:0 0 0 1px var(--line),0 40px 80px -40px rgba(0,0,0,.6);display:grid;gap:28px;align-items:center;overflow:hidden}
+.screen::before{content:"";position:absolute;inset:0;background:radial-gradient(40rem 26rem at 30% 50%,rgba(161,209,147,.14),transparent 70%);pointer-events:none}
 .player{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#000 center/cover;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
 .player video{width:100%;height:100%;object-fit:cover}
 .play{position:absolute;inset:0;display:grid;place-items:center;border:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.55));cursor:pointer;color:#fff}
-.play span{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--ink);font:600 1rem var(--f);box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
-.play span::before{content:"";width:0;height:0;border-left:12px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.play span{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:rgba(255,255,255,.95);color:#1b1917;font:600 1rem var(--f);box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+.play span::before{content:"";width:0;height:0;border-left:12px solid #1b1917;border-top:7px solid transparent;border-bottom:7px solid transparent}
 .screen .txt{position:relative;color:#fff}
 .screen .txt h2{color:#fff}
 .screen .txt p{color:rgba(255,255,255,.72);margin-top:18px}
@@ -111,7 +112,7 @@ section{padding:96px 0}
 .screen .txt li b{flex:none;font-size:.78rem;font-weight:700;color:var(--g);font-variant-numeric:tabular-nums;width:38px}
 
 /* bandeau */
-.strip{margin-top:72px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#efeee9}
+.strip{margin-top:72px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(0,0,0,.18)}
 .strip .wrap{display:grid;padding:0}
 .strip div div{padding:26px 20px;text-align:center;border-bottom:1px solid var(--line)}
 .strip div div:last-child{border-bottom:0}
@@ -121,17 +122,18 @@ section{padding:96px 0}
 /* clients */
 .cases{margin-top:48px;display:grid;gap:22px}
 .case{background:var(--card);border-radius:24px;padding:22px;box-shadow:0 0 0 1px var(--line);display:grid;gap:22px}
-.case .tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#f0efea;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2)}
+.case .tag{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--surf);font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2)}
 .case .id{display:flex;gap:14px;align-items:center;margin-top:14px}
 .case .ava{flex:none;width:52px;height:52px;border-radius:14px;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line)}
 .case .ava img{width:72%;height:72%;object-fit:contain}
 .case h3{font-size:1.5rem}
 .case .id p{font-size:.92rem;color:var(--ink3)}
 .case .goal{margin-top:16px;font-weight:600;color:var(--ink)}
+.case .media .quote{margin-top:14px}
 .case .vid{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000 center/cover}
 .case .vid video{width:100%;height:100%;object-fit:cover}
-.snd{position:absolute;right:12px;bottom:12px;z-index:2;padding:9px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font:600 .85rem var(--f);cursor:pointer}
-.quote{margin-top:16px;padding:16px 18px;border-radius:16px;background:#f7f7f4;box-shadow:0 0 0 1px var(--line)}
+.snd{position:absolute;right:12px;bottom:12px;z-index:2;padding:9px 14px;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#1b1917;font:600 .85rem var(--f);cursor:pointer}
+.quote{margin-top:16px;padding:16px 18px;border-radius:16px;background:var(--surf);box-shadow:0 0 0 1px var(--line)}
 .quote blockquote{font-size:.98rem;color:var(--ink);font-weight:500}
 .quote figcaption{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:.88rem}
 .quote figcaption img{width:34px;height:34px;border-radius:50%;object-fit:cover}
@@ -154,15 +156,15 @@ section{padding:96px 0}
 .plan>p{margin-top:12px;font-size:.95rem}
 .plan ul{list-style:none;margin:20px 0 26px;display:grid;gap:10px;flex:1}
 .plan li{position:relative;padding-left:26px;font-size:.95rem;color:var(--ink2)}
-.plan li::before{content:"";position:absolute;left:0;top:.3em;width:16px;height:16px;border-radius:50%;background:var(--gpale) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.9' fill='none' stroke='%231e7a30' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.plan li::before{content:"";position:absolute;left:0;top:.3em;width:16px;height:16px;border-radius:50%;background:var(--gpale) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.9' fill='none' stroke='%23a1d193' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 .plan li b{color:var(--ink);font-weight:600}
 .plan .btn{width:100%}
 .plan .btn::after{content:"";position:absolute;inset:0;border-radius:24px}
-.plan.main{background:var(--ink);color:#fff;box-shadow:none}
+.plan.main{background:rgba(161,209,147,.08);box-shadow:0 0 0 1.5px var(--g)}
 .plan.main h3,.plan.main .amount{color:#fff}
 .plan.main .amount small,.plan.main>p,.plan.main li{color:rgba(255,255,255,.72)}
 .plan.main li b{color:#fff}
-.plan.main .pill{background:var(--g);color:var(--ink)}
+.plan.main .pill{background:var(--g);color:#1b1917}
 .after{margin-top:26px;display:grid;gap:8px;justify-items:center;text-align:center;font-size:.9rem;color:var(--ink3)}
 .after p{color:var(--ink3)}
 
@@ -177,7 +179,7 @@ section{padding:96px 0}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-weight:600;font-size:1.08rem;letter-spacing:-.01em}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line);font-weight:500}
+.faq summary::after{content:"+";flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--surf);box-shadow:0 0 0 1px var(--line);font-weight:500}
 .faq details[open] summary::after{content:"−"}
 .faq details p{padding:0 0 22px}
 
@@ -185,7 +187,7 @@ section{padding:96px 0}
 .booking{text-align:center}
 .booking h2{margin:0 auto}
 .booking .lede{margin:18px auto 0}
-.calendly-inline-widget{min-width:320px;min-height:700px;margin:36px auto 0;max-width:1000px;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.calendly-inline-widget{min-width:320px;min-height:700px;margin:36px auto 0;max-width:1000px;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .calendly-inline-widget iframe{display:block}
 .booking .alt{margin-top:22px;font-size:.95rem;color:var(--ink3)}
 
@@ -196,7 +198,7 @@ footer a{color:var(--ink2)}
 .legal summary{cursor:pointer;color:var(--ink2)}
 .legal p{margin-top:10px;line-height:1.7;font-size:.85rem}
 
-.lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font:600 1rem var(--f);cursor:pointer}
+.lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#1b1917;font:600 1rem var(--f);cursor:pointer}
 .inapp .snd{display:none}
 
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -258,12 +260,14 @@ footer a{color:var(--ink2)}
       <div class="phones">
         <div class="ph" data-name="Vistoria" data-kind="Prestation de service"><video src="v/clients/vistoria.mp4" poster="v/clients/vistoria.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Vistoria"></video></div>
         <div class="ph" data-name="Or et Valeurs" data-kind="Commerce de proximité"><video src="v/clients/oretvaleurs.mp4" poster="v/clients/oretvaleurs.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video></div>
-        <div class="ph" data-name="Oui Dreams" data-kind="410 000 abonnés"><video src="v/md09.mp4" poster="v/md09.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Vidéo Oui Dreams"></video></div>
+        <div class="ph" data-name="Petits sourires en blouse" data-kind="Produit en ligne"><video src="v/clients/sourires.mp4" poster="v/clients/sourires.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Petits sourires en blouse"></video></div>
+        <div class="ph" data-name="L'Arrangeuse" data-kind="Démo"><video src="v/clients/larrangeuse.mp4" poster="v/clients/larrangeuse.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Démo pour L'Arrangeuse"></video></div>
+        <div class="ph" data-name="Apolline Patterns" data-kind="Démo"><video src="v/clients/apolline.mp4" poster="v/clients/apolline.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Démo pour Apolline Patterns"></video></div>
         <button class="nb prev" type="button" aria-label="Vidéo précédente">‹</button>
         <button class="nb next" type="button" aria-label="Vidéo suivante">›</button>
       </div>
       <p class="who"><b>Vistoria</b> · Prestation de service</p>
-      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     </div>
   </div>
 </section>
@@ -307,14 +311,16 @@ footer a{color:var(--ink2)}
           <span class="tag">Prestation de service</span>
           <div class="id"><span class="ava" style="background:#0a0a0a"><img src="v/clients/vistoria-logo.svg" alt="Logo Vistoria" loading="lazy"></span><div><h3>Vistoria</h3><p>Visites virtuelles 360° de biens immobiliers</p></div></div>
           <p class="goal">Faire comprendre en 30 secondes un service qu'on ne connaît pas encore.</p>
+        </div>
+        <div class="media">
+        <div class="vid" style="background-image:url(v/clients/vistoria_l.jpg)">
+          <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Vistoria"></video>
+          <button class="snd" type="button" aria-pressed="false">Activer le son</button>
+        </div>
           <figure class="quote">
             <blockquote>« Franchement, je suis super satisfait du produit. Il répond à mes attentes. Livré en temps et en heure, je recommande. »</blockquote>
             <figcaption><img src="v/clients/tom.jpg" alt="Tom Villez" loading="lazy"><span><b>Tom Villez <svg class="verif" viewBox="0 0 22 22" role="img" aria-label="Client vérifié"><circle cx="11" cy="11" r="10" fill="#1d9bf0"/><path fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.4 11.2l2.5 2.5 4.8-5"/></svg></b><small>Fondateur de Vistoria · avis du 12 oct. 2026</small></span></figcaption>
           </figure>
-        </div>
-        <div class="vid" style="background-image:url(v/clients/vistoria_l.jpg)">
-          <video src="v/clients/vistoria_l.mp4" poster="v/clients/vistoria_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Vistoria"></video>
-          <button class="snd" type="button" aria-pressed="false">Activer le son</button>
         </div>
       </article>
       <article class="case rv">
@@ -322,14 +328,16 @@ footer a{color:var(--ink2)}
           <span class="tag">Commerce de proximité</span>
           <div class="id"><span class="ava" style="background:#f5f2ec"><img src="v/clients/ov-logo.png" alt="Logo Or et Valeurs" loading="lazy"></span><div><h3>Or et Valeurs</h3><p>Rachat et vente d'or et d'argent à Béthune</p></div></div>
           <p class="goal">Donner envie de pousser la porte d'une boutique de quartier.</p>
+        </div>
+        <div class="media">
+        <div class="vid" style="background-image:url(v/clients/oretvaleurs_l.jpg)">
+          <video src="v/clients/oretvaleurs_l.mp4" poster="v/clients/oretvaleurs_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video>
+          <button class="snd" type="button" aria-pressed="false">Activer le son</button>
+        </div>
           <figure class="quote">
             <blockquote>« Super sérieux, un montage de qualité, exactement le résultat attendu. »</blockquote>
             <figcaption><img src="v/clients/ov-facade.jpg" alt="Façade de la boutique Or et Valeurs" loading="lazy"><span><b>Michel François <svg class="verif" viewBox="0 0 22 22" role="img" aria-label="Client vérifié"><circle cx="11" cy="11" r="10" fill="#1d9bf0"/><path fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7.4 11.2l2.5 2.5 4.8-5"/></svg></b><small>Gérant d'Or et Valeurs, Béthune · avis du 11 oct. 2026</small></span></figcaption>
           </figure>
-        </div>
-        <div class="vid" style="background-image:url(v/clients/oretvaleurs_l.jpg)">
-          <video src="v/clients/oretvaleurs_l.mp4" poster="v/clients/oretvaleurs_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Or et Valeurs"></video>
-          <button class="snd" type="button" aria-pressed="false">Activer le son</button>
         </div>
       </article>
       <article class="case rv">
@@ -338,9 +346,11 @@ footer a{color:var(--ink2)}
           <div class="id"><span class="ava" style="background:#F7E3E6;color:#C4455E;font-size:1.5rem">♥</span><div><h3>Petits sourires en blouse</h3><p>Révisions IFSI et aide-soignant, en ligne</p></div></div>
           <p class="goal">Montrer à des étudiantes stressées qu'un site peut vraiment les aider, en 20 secondes.</p>
         </div>
+        <div class="media">
         <div class="vid" style="background-image:url(v/clients/sourires_v4_l.jpg)">
           <video src="v/clients/sourires_v4_l.mp4" poster="v/clients/sourires_v4_l.jpg" muted loop playsinline webkit-playsinline x5-playsinline preload="metadata" aria-label="Promo Petits sourires en blouse"></video>
           <button class="snd" type="button" aria-pressed="false">Activer le son</button>
+        </div>
         </div>
       </article>
     </div>
@@ -442,7 +452,7 @@ footer a{color:var(--ink2)}
     <p class="kick rv">Appel découverte</p>
     <h2 id="t-appel" class="rv">La prochaine vidéo, <span class="mark">c'est la tienne&nbsp;?</span></h2>
     <p class="lede rv">30 minutes, gratuit, sans engagement. Choisis ton créneau.</p>
-    <div class="calendly-inline-widget" data-resize="true" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=16150f&primary_color=1e7a30"></div>
+    <div class="calendly-inline-widget" data-resize="true" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=1b1917&text_color=f1ece4&primary_color=a1d193"></div>
     <p class="alt">Tu préfères écrire&nbsp;? <a href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>.</p>
   </div>
 </section>
