@@ -208,7 +208,6 @@ footer a{color:var(--ink2)}
 .legal p{margin-top:10px;line-height:1.7;font-size:.85rem}
 
 .lire{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);z-index:3;padding:12px 22px;border:0;border-radius:999px;background:rgba(255,255,255,.94);color:#1b1917;font:600 1rem var(--f);cursor:pointer}
-.inapp .snd{display:none}
 
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
@@ -488,23 +487,14 @@ footer a{color:var(--ink2)}
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
 (function(){
-// Navigateurs integres (TikTok, Instagram, Facebook) : pas de lecture auto, un bouton « Lire » sur chaque video (Hugo, 13/10).
+// Navigateurs integres (TikTok, Instagram, Facebook) : memes videos muettes en lecture auto DANS la page (Hugo 23/10 : le bouton « Lire » + controles les ouvrait en plein ecran).
+// Jamais de controles natifs dans ces navigateurs : ce sont eux qui declenchent le plein ecran.
 var INAPP = /TikTok|musical_ly|Bytedance|BytedanceWebview|Instagram|FBAN|FBAV/i.test(navigator.userAgent);
 var pres = document.querySelector('.player video');
-if (INAPP) {
-  document.documentElement.classList.add('inapp');
-  document.querySelectorAll('video').forEach(function(v){
-    if (v === pres) return;
-    v.removeAttribute('autoplay'); v.pause();
-    var f = v.parentNode, b = document.createElement('button');
-    b.type = 'button'; b.className = 'lire'; b.textContent = '▶ Lire';
-    b.addEventListener('click', function(){ v.controls = true; var p = v.play(); if (p) p.catch(function(){}); b.remove(); });
-    f.appendChild(b);
-  });
-}
-// Video de presentation : lecture avec le son au clic, controles ensuite
+// Video de presentation : lecture avec le son au clic ; un toucher la met en pause / la relance
 document.querySelector('.play').addEventListener('click', function(){
-  this.remove(); pres.controls = true; pres.muted = false; var p = pres.play(); if (p) p.catch(function(){});
+  this.remove(); if (!INAPP) pres.controls = true; pres.muted = false; var p = pres.play(); if (p) p.catch(function(){});
+  if (INAPP) pres.addEventListener('click', function(){ if (pres.paused) pres.play(); else pres.pause(); });
 });
 // Carrousel de telephones
 var ph = [].slice.call(document.querySelectorAll('.ph')), dots = document.querySelectorAll('.dots i'), who = document.querySelector('.deck .who'), cur = 0;
@@ -513,13 +503,13 @@ function show(i){
   ph.forEach(function(p, k){
     var d = (k - cur + ph.length) % ph.length; if (d === ph.length - 1) d = -1;
     p.dataset.pos = d === 0 ? '0' : d === 1 ? '1' : d === -1 ? '-1' : 'hide';
-    var v = p.querySelector('video'); v.muted = true; if (d !== 0) v.pause(); else if (!INAPP && !calm) { var q = v.play(); if (q) q.catch(function(){}); }
+    var v = p.querySelector('video'); v.muted = true; if (d !== 0) v.pause(); else if (!calm) { var q = v.play(); if (q) q.catch(function(){}); }
   });
   dots.forEach(function(o, k){ o.classList.toggle('on', k === cur); });
   var sd = document.querySelector('.snd-deck'); if (sd) { sd.setAttribute('aria-pressed','false'); sd.textContent = 'Activer le son'; }
   who.innerHTML = '<b>' + ph[cur].dataset.name + '</b> · ' + ph[cur].dataset.kind;
 }
-var calm = INAPP || matchMedia('(prefers-reduced-motion: reduce)').matches;
+var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.querySelector('.deck .prev').addEventListener('click', function(){ show(cur - 1); });
 document.querySelector('.deck .next').addEventListener('click', function(){ show(cur + 1); });
 ph.forEach(function(p, k){ p.addEventListener('click', function(){ if (k !== cur) show(k); }); });
