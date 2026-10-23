@@ -149,6 +149,12 @@ p{max-width:62ch}
 .final p{margin:20px auto 0;font-size:1.12rem;opacity:.86;max-width:40ch}
 .final .cta{margin-top:34px}
 .final small{display:block;margin-top:16px;opacity:.75;font-size:.92rem}
+.final .alt{margin:18px auto 0}
+.booking{padding:110px 0 40px;text-align:center}
+.booking h2{font-size:clamp(2.2rem,6vw,4rem)}
+.booking p{margin:18px auto 0;max-width:46ch;font-size:1.08rem;color:var(--ink2,#cfcfcf)}
+.booking .calendly-inline-widget{min-width:320px;height:720px;margin:36px auto 0;max-width:1000px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line,rgba(255,255,255,.1))}
+@media (max-width:640px){.booking .calendly-inline-widget{height:1000px}}
 
 footer{padding:40px 0 56px;border-top:1px solid rgba(27,122,43,.5);color:var(--dim);font-size:.88rem}
 footer .wrap{display:grid;gap:14px}
@@ -331,7 +337,7 @@ footer{border-top-color:var(--line)}
       <p>Des vidéos courtes qui font arrêter le scroll, pour ton produit, ton service ou ton commerce. Tu me donnes ton idée, je la livre en vertical et en paysage, avec musique et effets sonores, sous 48 h.</p>
       <div class="actions">
         <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
-        <a class="link" href="#prix">Voir les prix</a>
+        <a class="link" href="#appel">Réserver un appel</a>
       </div>
       <p class="trust">Ils m'ont déjà confié leur promo : <a href="#vitrine">Vistoria</a> et <a href="#vitrine">Or et Valeurs</a>.</p>
     </div>
@@ -491,11 +497,21 @@ footer{border-top-color:var(--line)}
   </div>
 </section>
 
+<section class="booking" id="appel" aria-labelledby="t-appel">
+  <div class="wrap rv">
+    <h2 id="t-appel">Réserve un appel de 30&nbsp;minutes.</h2>
+    <p>On regarde ton offre ensemble : je te montre des exemples, on cale l'idée, la durée et le format, et tu repars avec un devis clair. Gratuit, sans engagement.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/oui-dreams-doavr/30min?hide_gdpr_banner=1&background_color=1b1917&text_color=f1ece4&primary_color=a1d193"></div>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</section>
+
 <section class="final" aria-labelledby="t-final">
   <div class="wrap rv">
     <h2 id="t-final">Envoie-moi ton idée de <span class="lit">vidéo</span>.</h2>
     <p>Dis-moi ce que tu vends et à qui tu parles. On voit ensemble quelle formule te va.</p>
     <a class="cta" href="https://ig.me/m/oui.dreams">Envoie ton idée sur Instagram</a>
+    <p class="alt"><a class="link" href="#appel">ou réserve un appel</a></p>
     <small>À partir de 147 €. Pack mensuel sans engagement.</small>
   </div>
 </section>
