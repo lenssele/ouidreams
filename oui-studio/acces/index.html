@@ -372,7 +372,7 @@ footer b{color:var(--ink2);font-weight:600}
 
 <header class="nav"><div class="wrap">
   <a class="brand" href="#haut" aria-label="Oui Studio, espace élève, haut de page">Oui Studio <span>ÉLÈVE</span></a>
-  <nav class="tabs" aria-label="Sections"><a href="#kit">Le kit</a><a href="#etapes">Les étapes</a><a href="#prompt">Le prompt</a><a href="#aide">Si ça coince</a></nav>
+  <nav class="tabs" aria-label="Sections"><a href="#kit">Le kit</a><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
   <a class="prog" href="#etapes" aria-label="Avancement de l'installation"><svg viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="9"/><circle class="fg" id="ring" cx="11" cy="11" r="9"/></svg><span><b id="navDone">0</b>/5<span class="lg"> étapes</span></span></a>
 </div></header>
 
@@ -382,7 +382,7 @@ footer b{color:var(--ink2);font-weight:600}
   <div>
     <p class="kick">Espace élève · Oui Studio</p>
     <h1><b>C'est fait.</b><span class="thin">Ton kit est prêt.</span></h1>
-    <p class="lede">Merci pour ta confiance. Tu installes deux outils, tu colles un prompt, et <b>ton agent se construit sous tes yeux</b>. Garde cette page ouverte : elle te suit étape par étape.</p>
+    <p class="lede">Merci pour ta confiance. Tu décompresses le kit, tu double-cliques sur un fichier, et <b>ton agent est prêt</b>. Garde cette page ouverte : elle te suit étape par étape.</p>
     <div class="actions">
       <a class="btn main" href="#kit">Télécharger le kit <span aria-hidden="true">↓</span></a>
       <a class="btn ghost" href="#etapes">Voir les 5 étapes</a>
@@ -393,9 +393,9 @@ footer b{color:var(--ink2);font-weight:600}
     <p class="t">L'heure qui vient</p>
     <h2>Trois temps.</h2>
     <ol>
-      <li><span>01</span><div><b>Tu installes</b><small>Node.js et l'application Claude, puis tu te connectes.</small></div><em>quelques min</em></li>
-      <li><span>02</span><div><b>Ton agent se crée</b><small>Il te pose ses questions, installe le reste et écrit ses règles.</small></div><em>≈ 2 min*</em></li>
-      <li><span>03</span><div><b>Sa première vidéo</b><small>Une vidéo courte de test, avec toutes ses passes de qualité.</small></div><em>≈ 40 min*</em></li>
+      <li><span>01</span><div><b>Tu double-cliques</b><small>Tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
+      <li><span>02</span><div><b>Ton agent est là</b><small>Il s'ouvre dans ton navigateur, prêt à travailler, et se règle en discutant avec toi.</small></div><em>tout de suite</em></li>
+      <li><span>03</span><div><b>Sa première vidéo</b><small>Une idée, un lien de site, et il fabrique avec toutes ses passes de qualité.</small></div><em>≈ 40 min*</em></li>
     </ol>
     <p class="foot">* Mesuré dans notre test sur un serveur, sans compter le temps de tes réponses. Ton ordinateur peut être plus lent.</p>
   </aside>
@@ -408,13 +408,13 @@ footer b{color:var(--ink2);font-weight:600}
   <div class="sh">
     <span class="no">01 — Le kit</span>
     <h2>Télécharge <span class="thin">ton kit.</span></h2>
-    <p>Un seul fichier. Tout ce qu'il faut pour que l'application Claude construise ton agent.</p>
+    <p>Un seul fichier. Tout ce qu'il faut pour avoir ton agent, sans rien coller ni configurer.</p>
   </div>
   <div>
     <div class="dl edge spot">
       <div class="file">
         <div class="zip" aria-hidden="true"></div>
-        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.0.9</span><span>≈ 83 Ko</span><span>Windows et Mac</span></small></div>
+        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.1.0</span><span>≈ 8 Mo</span><span>Windows et Mac</span></small></div>
       </div>
       <div class="row">
         <a class="btn main" id="dlBtn" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger le kit</a>
@@ -426,7 +426,7 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="tip"><i>2</i><p><b>Évite OneDrive et iCloud.</b> Dans un dossier synchronisé, le rendu vidéo est plus lent.</p></div>
     </div>
     <dl class="need">
-      <dt>Abonnement</dt><dd><b>Un abonnement Claude payant</b> (Pro ou plus). Le plan gratuit n'inclut pas Claude Code.</dd>
+      <dt>Abonnement</dt><dd><b>Un abonnement Claude payant</b> (Pro ou plus) : c'est lui qui fait tourner ton agent. Le plan gratuit ne suffit pas.</dd>
       <dt>Ordinateur</dt><dd>Windows 10 (version 1809 ou plus récente) ou 11, ou un Mac sous macOS 13 ou plus récent.</dd>
       <dt>Machine</dt><dd>4 Go de mémoire minimum (8 Go ou plus conseillé pour le rendu vidéo), environ 3 Go d'espace libre, une connexion internet.</dd>
     </dl>
@@ -437,7 +437,7 @@ footer b{color:var(--ink2);font-weight:600}
 <section class="sec" id="etapes"><div class="wrap split">
   <div class="sh">
     <span class="no">02 — L'installation</span>
-    <h2>Cinq étapes, <span class="thin">à cocher.</span></h2>
+    <h2>Cinq étapes, <span class="thin">à cocher.</h2>
     <p>Ouvre chaque étape, fais-la, coche-la. Cette page se souvient de où tu en es sur cet appareil.</p>
     <div class="bar" aria-hidden="true"><div class="tr"><i id="barFill"></i></div><span><b id="barDone">0</b> / 5</span></div>
     <p class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
@@ -449,15 +449,11 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="1">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 1 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Installe Node.js</b><small>Le moteur qui fait tourner le kit.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Décompresse le kit</b><small>Un dossier, dans tes Documents.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b1">
-        <p>Va sur <a class="tl" href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>, télécharge la version <b>LTS</b> et installe-la (suivant, suivant, terminer).</p>
-        <div class="win">
-          <p class="lbl">Windows, autre possibilité : dans PowerShell</p>
-          <div class="cmd ps"><code>winget install OpenJS.NodeJS.LTS</code><button class="cp" type="button">Copier</button></div>
-        </div>
-        <p class="note">Si tu ne le fais pas maintenant, Claude te le proposera à l'étape 4.</p>
+        <p>Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout » (Windows), ou double-clic (Mac). Mets le dossier dans <b>Documents</b>.</p>
+        <p class="note">Évite OneDrive et iCloud : dans un dossier synchronisé, le rendu vidéo est plus lent.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -465,20 +461,14 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="2">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 2 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Installe l'application Claude</b><small>Claude Code, avec la commande officielle d'Anthropic.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Double-clique sur Demarrer</b><small>Tout le reste se fait tout seul.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b2">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
-        <div class="win">
-          <p>Menu Démarrer, tape « PowerShell », ouvre <b>Windows PowerShell</b> (pas la version « x86 »). Colle :</p>
-          <div class="cmd ps" style="margin-top:12px"><code>irm https://claude.ai/install.ps1 | iex</code><button class="cp" type="button">Copier</button></div>
-        </div>
-        <div class="mac">
-          <p>Ouvre l'application <b>Terminal</b> (Applications &gt; Utilitaires). Colle :</p>
-          <div class="cmd" style="margin-top:12px"><code>curl -fsSL https://claude.ai/install.sh | bash</code><button class="cp" type="button">Copier</button></div>
-        </div>
-        <p>Pas besoin d'être administrateur. <b>Ferme ensuite le terminal et rouvre-le.</b></p>
-        <p class="note">Source et autres méthodes (WinGet, Homebrew) : <a class="tl" href="https://code.claude.com/docs/en/setup" target="_blank" rel="noopener">code.claude.com/docs/en/setup</a></p>
+        <p>Dans le dossier du kit, double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>.</p>
+        <p>Une fenêtre noire s'ouvre et t'explique chaque étape. La première fois, elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. <b>Garde cette fenêtre ouverte</b> tant que tu utilises ton agent.</p>
+        <p class="note win">Windows peut afficher « Windows a protégé votre ordinateur » : clique sur « Informations complémentaires » puis « Exécuter quand même ».</p>
+        <p class="note mac">Sur Mac, la première fois : clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -486,13 +476,11 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="3">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 3 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b3"><span class="n">03</span><span class="tt"><b>Connecte ton abonnement</b><small>Une seule fois, dans le navigateur.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b3"><span class="n">03</span><span class="tt"><b>Connecte ton compte Claude</b><small>Une seule fois, dans le navigateur.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b3">
-        <p>Dans le terminal, tape :</p>
-        <div class="cmd"><code>claude</code><button class="cp" type="button">Copier</button></div>
-        <p>puis Entrée. Ton navigateur s'ouvre : connecte-toi avec ton compte Claude (celui de ton abonnement) et accepte. Reviens au terminal : Claude Code est prêt.</p>
-        <p>Tape <code class="i">/exit</code> pour quitter. Tu ne fais cette connexion qu'une fois.</p>
+        <p>Quand la fenêtre le demande, ton navigateur s'ouvre : connecte-toi avec le compte Claude de ton abonnement et accepte. Reviens à la fenêtre noire : elle continue toute seule.</p>
+        <p>Tu ne fais cette connexion qu'une fois. Ton mot de passe n'est jamais lu ni gardé par le kit.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -500,79 +488,44 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="4">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 4 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Colle le prompt de démarrage</b><small>Dans le dossier du kit. Ton agent se construit.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Parle à ton agent</b><small>Il s'ouvre tout seul, et se règle en discutant.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b4">
-        <ol>
-          <li>Dans le terminal, va dans le dossier du kit : tape <code class="i">cd&nbsp;</code> (avec l'espace), glisse le dossier du kit dans la fenêtre<span class="mac"> du Terminal</span>, Entrée.</li>
-          <li>Tape <code class="i">claude</code> puis Entrée. S'il demande si tu fais confiance à ce dossier : oui.</li>
-          <li>Copie le prompt de démarrage <a class="tl" href="#prompt">juste en dessous</a> (c'est le texte entre les deux lignes de <code class="i">PROMPT-DEMARRAGE.md</code>), colle-le dans Claude Code, Entrée.</li>
-          <li>Réponds à ses questions. Il installe le reste (Remotion, ffmpeg, le navigateur de rendu), crée ton agent, ouvre ton interface et fabrique une première vidéo.</li>
-        </ol>
-        <p class="note">Quand il demande l'autorisation de lancer une commande, lis la phrase qui l'explique et accepte si elle concerne le kit.</p>
-        <div class="next"><a class="btn main" href="#prompt">Aller au prompt <span aria-hidden="true">↓</span></a><button class="btn ghost" type="button" data-done>C'est fait</button></div>
+        <p>Quand tout est prêt, ton interface s'ouvre dans le navigateur. Tu y vois ton agent à gauche, la discussion au milieu, tes vidéos à droite.</p>
+        <p>Tu peux lui demander <b>une vidéo tout de suite</b>, ou lui dire ce que tu fais (ton activité, ton style, tes couleurs) : il se règle sur toi au fil de la conversation, une ou deux questions à la fois.</p>
+        <div class="cmd url"><code>http://127.0.0.1:4321</code><button class="cp" type="button">Copier</button></div>
+        <p class="note">Si la page ne s'ouvre pas toute seule, copie cette adresse dans ton navigateur.</p>
+        <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
 
     <li class="st" data-i="5">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 5 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Ouvre ton interface, chaque jour</b><small>Le geste du quotidien, une fois l'agent créé.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small>Double-clique sur Demarrer, c'est tout.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b5">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
-        <p>Dans le dossier du kit, double-clique <b class="win">Lancer-interface.cmd</b><b class="mac">Lancer-interface.command</b>, puis ouvre :</p>
-        <div class="cmd url"><code>http://127.0.0.1:4321</code><button class="cp" type="button">Copier</button></div>
-        <p class="note mac">Si le Mac refuse de l'ouvrir : clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir.</p>
+        <p>Pour retrouver ton agent : double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>. Les fois suivantes, c'est rapide : il ne réinstalle rien.</p>
+        <p>Sur ton téléphone (même Wi-Fi) : double-clique <b class="win">Demarrer-telephone.cmd</b><b class="mac">Demarrer-telephone.command</b>, le lien s'affiche dans la fenêtre.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait</button></div>
       </div>
     </li>
-  </ol>
-</div></section>
-
-<!-- 3. le prompt -->
-<section class="band" id="prompt"><div class="wrap">
-  <div class="top">
-    <div>
-      <p class="kick">03 — Le prompt de démarrage</p>
-      <h2>Copie-le. <span class="thin" style="white-space:nowrap">Colle-le.</span> <span class="mark">C'est tout.</span></h2>
-    </div>
-    <p>Dans Claude Code, ouvert dans le dossier du kit (étape 4). C'est exactement le texte de <span class="mono" style="font-size:.9em;color:var(--ink)">PROMPT-DEMARRAGE.md</span>.</p>
-  </div>
-  <div class="doc edge">
-    <div class="hd"><span class="fn"><b>oui-studio</b> / PROMPT-DEMARRAGE.md</span><button class="btn main" type="button" id="cpPrompt"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>Copier le prompt</span></button></div>
-    <div class="bd"><pre id="promptText">Bonjour ! Je viens d'acheter le kit « Oui Studio » et je veux créer mon propre agent de motion design, avec son interface, sur cet ordinateur.
-
-Ce dossier contient tout le kit. Lis d'abord BOOTSTRAP.md en entier, puis suis ses étapes dans l'ordre :
-1. pose-moi tes questions (le nom et l'apparence de mon agent, mon activité, ma langue, mon style, mes comptes, la voix et la musique) ;
-2. vérifie et installe ce qu'il faut (Node, Remotion, ffmpeg, le navigateur de rendu), en m'expliquant chaque étape simplement, sans rien casser ;
-3. crée mon agent (ses règles CLAUDE.md, ma charte, ses sous-agents et ses skills) à partir de mes réponses ;
-4. installe et lance l'interface locale (mon agent et ses étapes, la discussion, mes vidéos) ;
-5. fabrique une première vidéo courte de test en me montrant comment l'agent travaille ;
-6. écris-moi un mode d'emploi pour demain.
-
-Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la fois. Si la session s'arrête en route, reprends là où on en était (marque/demarrage.md).</pre></div>
-    <div class="ft"><span>Colle-le tel quel, puis Entrée.</span><span>Si la session s'arrête, relance-le : il reprend où il en était.</span></div>
-  </div>
-  <div class="after">
-    <div><b>Il te questionne</b><p>Ton activité, le mode (ton compte de contenu ou des pubs pour des entreprises), ta langue, ton style, tes comptes, la voix et la musique.</p></div>
-    <div><b>Il installe et construit</b><p>Remotion, ffmpeg, le navigateur de rendu, puis ton agent, sa charte, ses sous-agents et ton interface.</p></div>
-    <div><b>Il te montre</b><p>Une première vidéo courte de test, puis un mode d'emploi pour demain.</p></div>
-  </div>
+</ol>
 </div></section>
 
 <!-- 4. premier jour -->
 <section class="sec" id="jour"><div class="wrap">
   <div class="split" style="align-items:end">
     <div class="sh" style="position:static">
-      <span class="no">04 — Ton premier jour</span>
+      <span class="no">03 — Ton premier jour</span>
       <h2>À quoi <span class="thin">t'attendre.</span></h2>
     </div>
     <p style="color:var(--ink2);max-width:58ch">Les chiffres ci-dessous viennent de <b style="color:var(--ink);font-weight:600">notre test du kit</b>, sur un serveur, le 5 novembre 2026. Ce sont des ordres de grandeur, pas des promesses : ton ordinateur, ton abonnement et ta vidéo changeront les durées.</p>
   </div>
   <div class="stats" style="margin-top:44px">
-    <div class="stat"><strong>44 <small>s</small></strong><b>Installation du kit</b><p>Plus quelques minutes pour Node.js et l'application Claude.</p></div>
-    <div class="stat"><strong>≈ 2 <small>min</small></strong><b>Création de l'agent</b><p>98 s de travail dans notre test, sans compter tes réponses.</p></div>
+    <div class="stat"><strong>5-20 <small>min</small></strong><b>Première installation</b><p>Surtout du téléchargement. Les fois suivantes, quelques secondes.</p></div>
+    <div class="stat"><strong>0 <small>min</small></strong><b>Création de l'agent</b><p>Il est prêt dès le premier démarrage.</p></div>
     <div class="stat"><strong>≈ 40 <small>min</small></strong><b>Première vidéo</b><p>Une vidéo courte de test : 38 min dans notre test.</p></div>
     <div class="stat"><strong>≈ 20 <small>%</small></strong><b>D'une session Claude</b><p>Pour cette première vidéo, dans notre test.</p></div>
   </div>
@@ -604,16 +557,15 @@ Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la
 <!-- 5. si ça coince -->
 <section class="sec" id="aide"><div class="wrap split">
   <div class="sh">
-    <span class="no">05 — Si ça coince</span>
+    <span class="no">04 — Si ça coince</span>
     <h2>Vérifie tout <span class="thin">en une commande.</span></h2>
     <p>Et les erreurs les plus courantes, avec leur solution.</p>
   </div>
   <div>
     <div class="verif edge">
       <h3>Le vérificateur du kit</h3>
-      <p>Dans le terminal, ouvert dans le dossier du kit. Chaque ligne ÉCHEC donne sa solution.</p>
+      <p>La fenêtre noire de Demarrer s'en charge à chaque démarrage. Si tu veux la relancer à la main, dans un terminal ouvert dans le dossier du kit : chaque ligne ÉCHEC donne sa solution.</p>
       <div class="cmd"><code>node scripts/verifier-installation.mjs</code><button class="cp" type="button">Copier</button></div>
-      <p style="margin:16px 0 0;font-size:14.5px;color:var(--ink3)">Tu peux aussi copier le message d'erreur dans Claude Code et lui demander de t'aider.</p>
     </div>
 
     <div class="qs">
@@ -632,10 +584,10 @@ Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la
         <p>Relance <code class="i">claude</code>, puis tape <code class="i">/login</code>. Vérifie que ton abonnement est bien actif (le plan gratuit ne marche pas). Diagnostic :</p>
         <div class="cmd"><code>claude doctor</code><button class="cp" type="button">Copier</button></div>
       </div></details>
-      <details><summary>« node » n'est pas reconnu<i aria-hidden="true"></i></summary><div class="ans"><p>Installe Node.js (étape 1), puis ferme et rouvre le terminal <b style="color:var(--ink)">et</b> Claude Code.</p></div></details>
-      <details><summary>Mac : « Lancer-interface.command ne peut pas être ouvert »<i aria-hidden="true"></i></summary><div class="ans">
+      <details><summary>« node » n'est pas reconnu<i aria-hidden="true"></i></summary><div class="ans"><p>Demarrer te propose de l'installer (Windows : réponds O). Sinon installe la version LTS sur <a class="tl" href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>, puis relance Demarrer.</p></div></details>
+      <details><summary>Mac : « Demarrer.command ne peut pas être ouvert »<i aria-hidden="true"></i></summary><div class="ans">
         <p>Clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir. Ou, dans le Terminal du dossier du kit :</p>
-        <div class="cmd"><code>chmod +x Lancer-interface.command</code><button class="cp" type="button">Copier</button></div>
+        <div class="cmd"><code>chmod +x Demarrer.command</code><button class="cp" type="button">Copier</button></div>
       </div></details>
       <details><summary>L'interface ne s'ouvre pas, ou « port déjà pris »<i aria-hidden="true"></i></summary><div class="ans">
         <p>Elle tourne peut-être déjà : ouvre <code class="i">http://127.0.0.1:4321</code>. Sinon, dans le dossier du kit :</p>
@@ -658,7 +610,7 @@ Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la
 <!-- 6. licence et mises à jour -->
 <section class="sec" id="licence"><div class="wrap split">
   <div class="sh">
-    <span class="no">06 — Licence et mises à jour</span>
+    <span class="no">05 — Licence et mises à jour</span>
     <h2>Ce kit <span class="thin">est à toi.</span></h2>
     <p>Pour ton usage. Les vidéos qu'il fabrique aussi. Le détail est dans <span class="mono" style="font-size:.9em">LICENCE.txt</span> et <span class="mono" style="font-size:.9em">NOTICES.md</span>.</p>
   </div>
@@ -681,9 +633,9 @@ Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la
     </div>
 
     <div class="ver">
-      <div><p class="v">Ta version<strong>1.0.9</strong>publiée le 6 novembre 2026</p><p class="vn">Le fichier <code class="i">VERSION</code>, dans ton dossier du kit, indique toujours la version que tu as.</p></div>
+      <div><p class="v">Ta version<strong>1.1.0</strong>publiée le 7 novembre 2026</p><p class="vn">Le fichier <code class="i">VERSION</code>, dans ton dossier du kit, indique toujours la version que tu as.</p></div>
       <div><h3>Dans cette version</h3><ul>
-        <li>Le prompt de démarrage et l'entretien qui crée ton agent.</li>
+        <li>Un démarrage en un double-clic : installation, connexion à Claude et agent prêt, sans prompt à coller.</li>
         <li>Un agent avec 6 sous-agents (créatif, critique, spectateur, recherche, rendu, son) et 5 skills.</li>
         <li>Deux modes : ton compte de contenu, ou des pubs pour des entreprises à partir d'un lien de site.</li>
         <li>L'interface locale : ton agent et ses étapes, la discussion avec lui, tes vidéos.</li>
@@ -701,7 +653,7 @@ Je ne suis pas développeur : parle-moi simplement, tutoie-moi, une étape à la
 </div></section>
 </main>
 
-<footer><div class="wrap"><span><b>Oui Dreams</b> · Espace élève · Oui Studio</span><span>Kit version 1.0.9</span></div></footer>
+<footer><div class="wrap"><span><b>Oui Dreams</b> · Espace élève · Oui Studio</span><span>Kit version 1.1.0</span></div></footer>
 
 <script>
 /* À remplir par Hugo. Vide = élément masqué (ou bouton désactivé pour kitUrl).
@@ -758,8 +710,6 @@ var CONFIG={kitUrl:"https://gist.githubusercontent.com/lenssele/efd30f5442e0854d
     function fallback(){selectEl(el);var done=false;try{done=d.execCommand("copy")}catch(e){}ok(done?"Copié":"Sélectionné : "+(os==="mac"?"Cmd":"Ctrl")+"+C")}
     if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){ok("Copié")},fallback)}else fallback()}
   d.addEventListener("click",function(e){var b=e.target.closest(".cp");if(!b)return;var el=b.parentNode.querySelector("code");if(el)copy(el,b,"Copier")});
-  var pt=d.getElementById("promptText");
-  d.getElementById("cpPrompt").addEventListener("click",function(){copy(pt,this,"Copier le prompt")});
 
   /* reflet qui suit le curseur */
   if(matchMedia("(hover: hover) and (min-width: 1024px)").matches)d.querySelectorAll(".spot").forEach(function(s){s.addEventListener("pointermove",function(e){var r=s.getBoundingClientRect();s.style.setProperty("--mx",(e.clientX-r.left)+"px");s.style.setProperty("--my",(e.clientY-r.top)+"px")})});
