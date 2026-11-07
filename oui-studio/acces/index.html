@@ -414,7 +414,7 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="dl edge spot">
       <div class="file">
         <div class="zip" aria-hidden="true"></div>
-        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.1.1</span><span>≈ 8 Mo</span><span>Windows et Mac</span></small></div>
+        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.3.0</span><span>≈ 26 Mo</span><span>Windows et Mac</span></small></div>
       </div>
       <div class="row">
         <a class="btn main" id="dlBtn" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger le kit</a>
@@ -658,7 +658,7 @@ footer b{color:var(--ink2);font-weight:600}
 <script>
 /* À remplir par Hugo. Vide = élément masqué (ou bouton désactivé pour kitUrl).
    kitUrl : lien du zip · contact : e-mail ou lien de support · majInfo : comment l'élève est prévenu des mises à jour · videoInstall : lien d'une vidéo .mp4 */
-var CONFIG={kitUrl:"https://gist.githubusercontent.com/lenssele/efd30f5442e0854d654c84c67aaf2faf/raw/oui-studio.zip",contact:"contact@ouidreams.fr",majInfo:"",videoInstall:""};
+var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio",contact:"contact@ouidreams.fr",majInfo:"",videoInstall:""};
 (function(){
   var d=document,root=d.documentElement,KEY="sizimi-eleve-v1",S={done:[],os:""};
   try{var raw=localStorage.getItem(KEY);if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
@@ -668,6 +668,23 @@ var CONFIG={kitUrl:"https://gist.githubusercontent.com/lenssele/efd30f5442e0854d
   var dl=d.getElementById("dlBtn");
   if(CONFIG.kitUrl){dl.href=CONFIG.kitUrl;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");d.getElementById("dlPend").textContent="Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous »."}
   else dl.addEventListener("click",function(e){e.preventDefault()});
+  /* Licence : la clé de CET achat, créée par le paiement. Le téléchargement contient déjà ta clé. */
+  (function(){
+    var pend=d.getElementById("dlPend"),sid=new URLSearchParams(location.search).get("s");
+    if(CONFIG.kitUrl||!CONFIG.api)return;
+    if(!sid){pend.textContent="Ouvre cette page depuis le lien reçu après ton paiement (ou dans l'e-mail de confirmation). Un souci : écris-nous.";return}
+    pend.textContent="Je prépare ton kit et ta clé…";
+    var essais=0;
+    (function tente(){
+      fetch(CONFIG.api+"/licence?s="+encodeURIComponent(sid)).then(function(r){return r.json()}).then(function(j){
+        if(j.statut==="pret"){dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
+          pend.textContent="Ta clé de licence : "+j.cle+" (déjà dans le kit, garde-la au cas où). Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous ».";
+        }else if(j.statut==="revoque"){pend.textContent="Cet achat a été remboursé : l'accès est retiré."}
+        else if(++essais<20)setTimeout(tente,3000);
+        else pend.textContent="Ton paiement n'est pas encore confirmé. Recharge cette page dans une minute, ou écris-nous."
+      }).catch(function(){if(++essais<20)setTimeout(tente,3000);else pend.textContent="Le serveur ne répond pas. Recharge la page dans un instant."})
+    })()
+  })();
   if(CONFIG.contact){var c=CONFIG.contact.trim(),box=d.getElementById("contactAddr"),isMail=/^[^\s@]+@[^\s@]+$/.test(c);
     var code=d.createElement("code");code.textContent=c;box.appendChild(code);
     var b=d.createElement("button");b.type="button";b.className="cp";b.textContent="Copier";box.appendChild(b);
