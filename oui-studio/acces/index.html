@@ -414,7 +414,7 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="dl edge spot">
       <div class="file">
         <div class="zip" aria-hidden="true"></div>
-        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.3.0</span><span>≈ 26 Mo</span><span>Windows et Mac</span></small></div>
+        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.3.1</span><span>≈ 26 Mo</span><span>Windows et Mac</span></small></div>
       </div>
       <div class="row">
         <a class="btn main" id="dlBtn" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger le kit</a>
@@ -466,7 +466,7 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="stb" id="b2">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
         <p>Dans le dossier du kit, double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>.</p>
-        <p>Une fenêtre noire s'ouvre et t'explique chaque étape. La première fois, elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. <b>Garde cette fenêtre ouverte</b> tant que tu utilises ton agent.</p>
+        <p>Une fenêtre noire s'ouvre et t'explique chaque étape. La première fois, elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. À la fin de l'installation, <b class="win">l'icône « Oui Studio » se crée toute seule sur ton Bureau</b><b class="mac">ton studio s'ouvre</b>.</p>
         <p class="note win">Windows peut afficher « Windows a protégé votre ordinateur » : clique sur « Informations complémentaires » puis « Exécuter quand même ».</p>
         <p class="note mac">Sur Mac, la première fois : clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
@@ -502,11 +502,13 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="5">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 5 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small>Double-clique sur Demarrer, c'est tout.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Double-clique sur l'icône du Bureau.</small><small class="mac">Double-clique sur Demarrer, c'est tout.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b5">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
-        <p>Pour retrouver ton agent : double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>. Les fois suivantes, c'est rapide : il ne réinstalle rien.</p>
+        <p class="win">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si l'icône ne s'est pas créée</b> : double-clique sur <b>Demarrer.cmd</b> dans le dossier du kit.</p>
+        <p class="mac">Pour retrouver ton agent : double-clique <b>Demarrer.command</b>.</p>
+        <p>Les fois suivantes, c'est rapide : il ne réinstalle rien.</p>
         <p>Sur ton téléphone (même Wi-Fi) : double-clique <b class="win">Demarrer-telephone.cmd</b><b class="mac">Demarrer-telephone.command</b>, le lien s'affiche dans la fenêtre.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait</button></div>
       </div>
