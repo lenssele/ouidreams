@@ -393,8 +393,8 @@ footer b{color:var(--ink2);font-weight:600}
     <p class="t">L'heure qui vient</p>
     <h2>Trois temps.</h2>
     <ol>
-      <li><span>01</span><div><b>Tu double-cliques</b><small>Tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
-      <li><span>02</span><div><b>Ton agent est là</b><small>Il s'ouvre dans ton navigateur, prêt à travailler, et se règle en discutant avec toi.</small></div><em>tout de suite</em></li>
+      <li><span>01</span><div><b>Tu lances l'installation</b><small>Un double-clic : tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
+      <li><span>02</span><div><b>Ton agent est là</b><small>Ton studio s'ouvre dans sa propre fenêtre, prêt à travailler, et se règle en discutant avec toi.</small></div><em>tout de suite</em></li>
       <li><span>03</span><div><b>Sa première vidéo</b><small>Une idée, un lien de site, et il fabrique avec toutes ses passes de qualité.</small></div><em>≈ 40 min*</em></li>
     </ol>
     <p class="foot">* Mesuré dans notre test sur un serveur, sans compter le temps de tes réponses. Ton ordinateur peut être plus lent.</p>
@@ -466,7 +466,7 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="stb" id="b2">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
         <p>La toute première fois, il faut bien lancer l'installation : dans le dossier du kit, double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>. Tu n'auras plus à le refaire ensuite.</p>
-        <p>Une fenêtre noire s'ouvre et t'explique chaque étape. La première fois, elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. À la fin de l'installation, <b class="win">l'icône « Oui Studio » se crée toute seule sur ton Bureau</b><b class="mac">ton studio s'ouvre</b>.</p>
+        <p>Une fenêtre noire s'ouvre et t'explique chaque étape. Elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Une fois ton studio ouvert, tu peux la fermer : il tourne en arrière-plan. À la fin de l'installation, <b class="win">l'icône « Oui Studio » se crée toute seule sur ton Bureau</b><b class="mac">ton studio s'ouvre</b>.</p>
         <p class="note win">Windows peut afficher « Windows a protégé votre ordinateur » : clique sur « Informations complémentaires » puis « Exécuter quand même ».</p>
         <p class="note mac">Sur Mac, la première fois : clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
@@ -488,13 +488,14 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="4">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 4 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Parle à ton agent</b><small>Il s'ouvre tout seul, et se règle en discutant.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Ton studio s'ouvre</b><small>Parle à ton agent : il se règle en discutant.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b4">
-        <p>Quand tout est prêt, ton interface s'ouvre dans le navigateur. Tu y vois ton agent à gauche, la discussion au milieu, tes vidéos à droite.</p>
+        <p>Quand tout est prêt, ton studio s'ouvre dans sa propre fenêtre (sans barre d'adresse). Tu y vois ton agent et ses étapes à gauche, la discussion au milieu, tes vidéos à droite. La version du studio est écrite en haut à gauche, à côté du nom.</p>
+        <p>Sous la zone de saisie, quatre boutons : <b>Image ou lien</b> (donne-lui tes images et liens de référence : logo, produits, exemples que tu aimes, il s'en inspire), <b>Style</b> (choisis l'allure de tes vidéos, et retire-la quand tu veux), <b>Voix</b> (dicte ton message) et <b>Envoyer</b>.</p>
         <p>Tu peux lui demander <b>une vidéo tout de suite</b>, ou lui dire ce que tu fais (ton activité, ton style, tes couleurs) : il se règle sur toi au fil de la conversation, une ou deux questions à la fois.</p>
         <div class="cmd url"><code>http://127.0.0.1:4321</code><button class="cp" type="button">Copier</button></div>
-        <p class="note">Si la page ne s'ouvre pas toute seule, copie cette adresse dans ton navigateur.</p>
+        <p class="note">Si la fenêtre ne s'ouvre pas toute seule, copie cette adresse dans ton navigateur.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -508,7 +509,8 @@ footer b{color:var(--ink2);font-weight:600}
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
         <p class="win">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si l'icône ne s'est pas créée</b> : double-clique sur <b>Demarrer.cmd</b> dans le dossier du kit.</p>
         <p class="mac">Pour retrouver ton agent : double-clique <b>Demarrer.command</b>.</p>
-        <p>Les fois suivantes, c'est rapide : il ne réinstalle rien.</p>
+        <p>Les fois suivantes, c'est rapide : il ne réinstalle rien. Pour l'arrêter, double-clique <b class="win">Arreter.cmd</b><b class="mac">Arreter.command</b>.</p>
+        <p><b>Mises à jour :</b> elles sont automatiques. Quand une nouvelle version sort, un bouton <b>« Mettre à jour »</b> apparaît en bas à droite de ton studio : un clic, et le studio se met à jour puis redémarre. Tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
         <p>Sur ton téléphone (même Wi-Fi) : double-clique <b class="win">Demarrer-telephone.cmd</b><b class="mac">Demarrer-telephone.command</b>, le lien s'affiche dans la fenêtre.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait</button></div>
       </div>
@@ -635,27 +637,27 @@ footer b{color:var(--ink2);font-weight:600}
     </div>
 
     <div class="ver">
-      <div><p class="v">Ta version<strong>1.1.1</strong>publiée le 7 novembre 2026</p><p class="vn">Le fichier <code class="i">VERSION</code>, dans ton dossier du kit, indique toujours la version que tu as.</p></div>
-      <div><h3>Dans cette version</h3><ul>
+      <div><p class="v">Dernière version<strong id="verNum">1.3.3</strong><span id="verDate"></span></p><p class="vn">La version de ton studio est écrite en haut à gauche, à côté du nom (et dans le fichier <code class="i">VERSION</code> de ton dossier).</p></div>
+      <div><h3>Ce que contient le studio</h3><ul>
         <li>Un démarrage en un double-clic : installation, connexion à Claude et agent prêt, sans prompt à coller.</li>
         <li>Un agent avec 6 sous-agents (créatif, critique, spectateur, recherche, rendu, son) et 5 skills.</li>
         <li>Deux modes : ton compte de contenu, ou des pubs pour des entreprises à partir d'un lien de site.</li>
-        <li>L'interface locale : ton agent et ses étapes, la discussion avec lui, tes vidéos.</li>
+        <li>Ton studio : ton agent et ses étapes, la discussion avec lui, tes vidéos, 41 styles au choix, tes images et liens de référence, la dictée vocale.</li>
         <li>Sons de synthèse, mixage et contrôle vidéo, sans rien d'autre à installer que Node.js.</li>
+        <li>Une clé de licence personnelle (déjà dans ton kit) et des mises à jour automatiques.</li>
       </ul></div>
     </div>
     <div class="upd">
       <h3>Les mises à jour</h3>
       <div class="maj" id="maj" hidden></div>
-      <p>Pour installer une nouvelle version : remplace les fichiers du kit <b style="color:var(--ink)">sauf les tiens</b> (<code class="i">CLAUDE.md</code>, <code class="i">marque/</code>, <code class="i">projets/</code>, <code class="i">out/</code>, <code class="i">reserve/</code>, <code class="i">file/</code>, tes sons et <code class="i">.env</code> ; la liste complète est dans <code class="i">CHANGELOG.md</code>). Puis lance :</p>
-      <div class="cmd"><code>node scripts/installer.mjs</code><button class="cp" type="button">Copier</button></div>
-      <div class="cmd"><code>node scripts/verifier-installation.mjs</code><button class="cp" type="button">Copier</button></div>
+      <p>Elles sont <b style="color:var(--ink)">automatiques</b>. Quand une nouvelle version sort, un bouton <b style="color:var(--ink)">« Mettre à jour »</b> apparaît en bas à droite de ton studio : un clic, il télécharge, remplace les fichiers du kit et redémarre dès que ton agent est au repos. Tes vidéos, ton agent, tes réglages, tes images de référence et tes sons ne sont jamais touchés. Au prochain lancement, une version en attente s'installe d'elle-même.</p>
+      <p>Si ton studio ne se met pas à jour, ferme-le (<span class="mono">Arreter</span>), rouvre-le, ou retélécharge le kit depuis le lien de ton e-mail d'achat.</p>
     </div>
   </div>
 </div></section>
 </main>
 
-<footer><div class="wrap"><span><b>Oui Dreams</b> · Espace élève · Oui Studio</span><span>Kit version 1.1.1</span></div></footer>
+<footer><div class="wrap"><span><b>Oui Dreams</b> · Espace élève · Oui Studio</span><span>Kit version <span id="verFoot">1.3.3</span></span></div></footer>
 
 <script>
 /* À remplir par Hugo. Vide = élément masqué (ou bouton désactivé pour kitUrl).
@@ -670,6 +672,14 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
   var dl=d.getElementById("dlBtn");
   if(CONFIG.kitUrl){dl.href=CONFIG.kitUrl;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");d.getElementById("dlPend").textContent="Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous »."}
   else dl.addEventListener("click",function(e){e.preventDefault()});
+  /* Version en vigueur, lue sur le serveur (jamais en dur) */
+  if(CONFIG.api)fetch(CONFIG.api+"/maj/manifest").then(function(r){return r.json()}).then(function(m){
+    if(!m||!m.version)return;
+    var n=d.getElementById("verNum"),f=d.getElementById("verFoot"),dt=d.getElementById("verDate");
+    if(n)n.textContent=m.version;if(f)f.textContent=m.version;
+    var b=d.querySelector(".dl .nm small span");if(b)b.textContent="version "+m.version;
+    if(dt&&m.date)dt.textContent="publiée le "+new Date(m.date).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})
+  }).catch(function(){});
   /* Licence : la clé de CET achat, créée par le paiement. Le téléchargement contient déjà ta clé. */
   (function(){
     var pend=d.getElementById("dlPend"),sid=new URLSearchParams(location.search).get("s");
