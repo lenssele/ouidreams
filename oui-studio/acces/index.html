@@ -172,8 +172,6 @@ kbd,code.i{font:500 .86em var(--mono);padding:2px 7px;border-radius:6px;backgrou
 .os button{height:34px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink3);transition:background .25s,color .25s}
 .os button[aria-selected="true"]{background:rgba(241,236,228,.1);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 html[data-os="mac"] .win, html:not([data-os="mac"]) .mac{display:none!important}
-html[data-os="mac"] #dlBtn{display:none}
-.macl{margin-top:22px}.macl p{margin:0 0 12px;font-size:15px;line-height:1.55;color:var(--ink2)}.macl[hidden]{display:none!important}
 
 /* commande */
 .cmd{position:relative;display:flex;align-items:flex-start;gap:12px;padding:14px 12px 14px 18px;border-radius:14px;background:var(--deep);box-shadow:inset 0 0 0 1px var(--line2)}
@@ -423,12 +421,8 @@ footer b{color:var(--ink2);font-weight:600}
         <p class="pend" id="dlPend">Le lien de téléchargement s'affiche ici.</p>
       </div>
     </div>
-    <div class="mac macl" id="macLigne" hidden>
-      <p><b>Sur Mac, une seule ligne.</b> Ouvre l'app <b>Terminal</b> (touches ⌘ + Espace, tape « Terminal », Entrée), colle cette ligne, appuie sur Entrée. Elle télécharge le kit, le décompresse dans ton dossier personnel et lance l'installation. macOS ne bloque rien.</p>
-      <div class="cmd"><code id="macCmd"></code><button class="cp" type="button">Copier</button></div>
-    </div>
     <div class="tips">
-      <div class="tip"><i>1</i><p><span class="win"><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire tout ».</span><span class="mac"><b>Colle la ligne dans le Terminal.</b> Elle télécharge et décompresse le kit toute seule.</span></p></div>
+      <div class="tip"><i>1</i><p><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire tout » (Windows), ou double-clic (Mac).</p></div>
       <div class="tip"><i>2</i><p><b>Évite OneDrive et iCloud.</b> Dans un dossier synchronisé, le rendu vidéo est plus lent.</p></div>
     </div>
     <dl class="need">
@@ -458,7 +452,7 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Décompresse le kit</b><small>Un dossier, dans tes Documents.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b1">
-        <p><span class="win">Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout ». Mets le dossier dans <b>Documents</b>.</span><span class="mac">Colle la ligne du bloc « Télécharge ton kit » dans le Terminal, puis Entrée : le kit est téléchargé et décompressé dans ton dossier personnel (dossier <b>oui-studio</b>), puis l'installation démarre.</span></p>
+        <p>Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout » (Windows), ou double-clic (Mac). Mets le dossier dans <b>Documents</b>.</p>
         <p class="note">Évite OneDrive et iCloud : dans un dossier synchronisé, le rendu vidéo est plus lent.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
@@ -471,11 +465,10 @@ footer b{color:var(--ink2);font-weight:600}
       </div>
       <div class="stb" id="b2">
         <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
-        <p><span class="win">La toute première fois, il faut bien lancer l'installation : dans le dossier du kit, double-clique <b>Demarrer.cmd</b>. Tu n'auras plus à le refaire ensuite.</span><span class="mac">La ligne de l'étape 1 a déjà lancé l'installation dans le Terminal : rien à double-cliquer.</span></p>
+        <p>La toute première fois, il faut bien lancer l'installation : dans le dossier du kit, double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>. Tu n'auras plus à le refaire ensuite.</p>
         <p>Une fenêtre noire s'ouvre et t'explique chaque étape. Elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Une fois ton studio ouvert, tu peux la fermer : il tourne en arrière-plan. À la fin de l'installation, <b class="win">l'icône « Oui Studio » se crée toute seule sur ton Bureau</b><b class="mac">ton studio s'ouvre</b>.</p>
         <p class="note win">Windows peut afficher « Windows a protégé votre ordinateur » : clique sur « Informations complémentaires » puis « Exécuter quand même ».</p>
-        <p class="note mac">Tu as déjà téléchargé le zip avec ton navigateur et macOS bloque Demarrer.command (« Apple n'a pas pu confirmer… ») ? Colle cette ligne dans le Terminal, puis double-clique de nouveau sur Demarrer.command :</p>
-        <div class="cmd mac"><code>xattr -cr "$(dirname "$(find ~ -maxdepth 4 -name Demarrer.command | head -1)")"</code><button class="cp" type="button">Copier</button></div>
+        <p class="note mac">Sur Mac, la toute première ouverture est bloquée par macOS (« Apple n'a pas pu confirmer… »). C'est normal, 3 clics, une seule fois : <b>1.</b> clique sur « Terminé ». <b>2.</b> Ouvre <b>Réglages Système &gt; Confidentialité et sécurité</b>, descends jusqu'à « Demarrer.command a été bloqué » et clique sur <b>Ouvrir quand même</b>. <b>3.</b> Confirme avec ton mot de passe ou Touch ID, puis « Ouvrir ». Ensuite, ton studio a son icône sur le Bureau : plus aucun blocage.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -696,7 +689,7 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
     var essais=0;
     (function tente(){
       fetch(CONFIG.api+"/licence?s="+encodeURIComponent(sid)).then(function(r){return r.json()}).then(function(j){
-        if(j.statut==="pret"){var mc=d.getElementById("macCmd");if(mc){mc.textContent='cd ~ && curl -fL -o oui-studio.zip "'+j.telechargement+'" && unzip -oq oui-studio.zip && chmod +x oui-studio/*.command && bash oui-studio/Demarrer.command';d.getElementById("macLigne").hidden=false}dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
+        if(j.statut==="pret"){dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
           pend.textContent="Ta clé de licence : "+j.cle+" (déjà dans le kit, garde-la au cas où). Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous ».";
         }else if(j.statut==="revoque"){pend.textContent="Cet achat a été remboursé : l'accès est retiré."}
         else if(++essais<20)setTimeout(tente,3000);
