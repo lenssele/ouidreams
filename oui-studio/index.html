@@ -13,8 +13,8 @@
 <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="img/studio-1600.webp" imagesrcset="img/studio-1600.webp 1600w, img/studio-2400.webp 2400w" imagesizes="(min-width:1264px) 1200px, 100vw" media="(min-width:768px)">
-<link rel="preload" as="image" href="img/studio-mobile.webp" media="(max-width:767px)">
+<link rel="preload" as="image" href="v/studio.webp" media="(min-width:768px)">
+<link rel="preload" as="image" href="v/studio-tel.webp" media="(max-width:767px)">
 <style>
 /* Oui Studio. Même maison que ouidreams.fr : noir chaud, un seul vert pâle, Geist en contrastes 800 / 300.
    Système : grille de 8 px ; rayons : conteneurs 20, images 14, éléments interactifs en pastille. */
@@ -85,13 +85,23 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .prix small{font-size:13.5px;font-weight:600;color:var(--g)}
 .shot{position:relative;margin-top:56px}
 .shot:focus-visible{outline-offset:6px}
-.shot img{width:100%;border-radius:var(--rc);box-shadow:var(--sh);background:#161412}
+.shot video{display:block;width:100%;height:auto;aspect-ratio:1440/876;border-radius:var(--rc);box-shadow:var(--sh);background:#161412;object-fit:cover}
+.demo-bas{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.demo-bas p{font-size:15px;line-height:1.5;color:var(--ink2);max-width:72ch}
+.demo-btns{display:flex;gap:8px;flex:none}
+.btn-l{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border:0;border-radius:999px;background:rgba(241,236,228,.06);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);font:600 14.5px/1 var(--f);cursor:pointer;white-space:nowrap;transition:background-color .2s,transform .2s var(--ease)}
+.btn-l svg{width:18px;height:18px;color:var(--g)}
+.btn-l:hover{background:rgba(241,236,228,.12)}
+.btn-l:active{transform:scale(.96)}
+.btn-l .i-lec{display:none}
+.btn-l[aria-pressed="true"] .i-lec{display:block}.btn-l[aria-pressed="true"] .i-pau{display:none}
+.zoomb{display:none}
 .shot::after{content:"";position:absolute;left:8%;right:8%;bottom:-40px;height:120px;background:radial-gradient(closest-side,rgba(161,209,147,.10),transparent);z-index:-1;pointer-events:none}
 
 /* présentation vidéo (affichée seulement si le fichier existe) */
 #video{display:none}
 #video.on{display:block}
-#video video{width:100%;border-radius:var(--rc);box-shadow:var(--sh);background:var(--deep)}
+#video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--rc);box-shadow:var(--sh);background:var(--deep)}
 
 /* trois gestes */
 .gestes{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center;margin-top:72px}
@@ -131,12 +141,10 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .reprise b{color:var(--g);font-weight:650}
 
 /* agrandir l'interface */
-button.shot{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:var(--rc);text-align:left;color:inherit;font:inherit}
-.agr{display:none}
 dialog{margin:auto;max-width:none;max-height:none;width:100vw;height:100dvh;border:0;padding:0;background:rgba(12,11,10,.96);color:var(--ink)}
 dialog::backdrop{background:rgba(12,11,10,.8)}
 dialog .defile{width:100%;height:100%;overflow:auto;display:grid;place-items:center;padding:72px 16px 24px;overscroll-behavior:contain}
-dialog img{width:min(1600px,100%);border-radius:var(--ri)}
+dialog video{display:block;width:min(1600px,100%);height:auto;border-radius:var(--ri)}
 dialog .fermer{position:fixed;top:12px;right:12px;display:grid;place-items:center;width:48px;height:48px;border-radius:999px;background:rgba(241,236,228,.12);color:var(--ink);border:0;cursor:pointer;transition:background-color .2s}
 dialog .fermer:hover{background:rgba(241,236,228,.2)}
 dialog .fermer svg{width:22px;height:22px}
@@ -181,14 +189,17 @@ dialog .fermer svg{width:22px;height:22px}
 .lab .ico{margin:0}
 .gros{margin-top:40px;color:var(--ink);font-size:clamp(48px,5.6vw,84px);font-weight:800;letter-spacing:-.055em;line-height:.92}
 .gros .l{display:block}
-.prixc{margin-top:16px;font-size:19px}
-.prixc b{color:var(--ink);font-weight:650}
-.plans{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
-.plan{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px 0 16px;border-radius:999px;font-size:17px;font-weight:650}
-.plan svg{width:24px;height:24px}
-.plan.oui{background:var(--g);color:var(--gink)}
-.plan.non{color:var(--ink3);box-shadow:inset 0 0 0 1px var(--line)}
-.plan.non b{text-decoration:line-through;text-decoration-thickness:1.5px;font-weight:500}
+.offres{margin-top:32px}
+.offres li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:16px 0}
+.offres li+li{border-top:1px solid var(--line)}
+.offres b{display:block;font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.offres small{display:block;margin-top:2px;font-size:15px;color:var(--ink2)}
+.offres .nb{text-align:right}
+.offres strong{display:block;font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--g);white-space:nowrap}
+.offres .nb span{display:block;margin-top:4px;font-size:14px;color:var(--ink2)}
+.gratuit{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:16px;border-top:1px solid var(--line);font-size:15.5px;color:var(--ink3)}
+.gratuit svg{width:20px;height:20px}
+.gratuit s{text-decoration-thickness:1.5px;color:var(--ink2)}
 .pre .note{margin-top:24px;font-size:15.5px;max-width:40ch}
 .os{display:grid;gap:16px;margin-top:40px}
 .os div{display:flex;align-items:center;gap:16px;font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
@@ -253,8 +264,6 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   .hero .sub{max-width:44ch}
 }
 @media (max-width:1023px){
-  .agr{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:var(--ink2)}
-  .agr svg{width:16px;height:16px;color:var(--g)}
   .nav .liens{display:none}
   .nav .btn{margin-left:auto}
   .gestes{grid-template-columns:minmax(0,1fr);gap:56px}
@@ -281,8 +290,13 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   .hero .sub{font-size:17.5px}
   .cta .btn{flex:1 1 auto}
   .cta{gap:16px}
-  .shot{margin-top:40px}
-  .shot img{border-radius:var(--ri)}
+  .shot{margin-top:28px}
+  .shot video{aspect-ratio:780/538;border-radius:var(--ri)}
+  .demo-bas{flex-direction:column;align-items:stretch;gap:12px;margin-top:12px}
+  .demo-bas p{font-size:14px}
+  .demo-btns .btn-l{height:44px;font-size:14px}
+  .zoomb{display:inline-flex}
+  .demo-btns .btn-l{flex:1;justify-content:center}
   .gestes{margin-top:48px}
   .gestes ol{gap:32px}
   .gestes li{grid-template-columns:48px minmax(0,1fr)}
@@ -302,14 +316,12 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   .t-atelier{padding:32px 24px}
   .t .reprise{font-size:16.5px}
   dialog .defile{place-items:start;padding:72px 12px 24px}
-  dialog img{width:1100px;max-width:none}
+  dialog video{width:1100px;max-width:none}
   .duo{gap:10px}
   .n{font-size:88px;margin-bottom:16px}
   .pre>div{padding:32px 20px}
   .gros{margin-top:32px}
-  .plan{height:44px;padding:0 14px 0 10px;gap:8px;font-size:15.5px}
-  .plan svg{width:20px;height:20px}
-  .plans{gap:6px}
+  .offres strong{font-size:26px}
   .specs{gap:16px}
   .offre{padding:32px 0 48px}
   .offre .bot{width:150px}
@@ -346,14 +358,21 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
       </div>
     </div>
   </div>
-  <button class="shot" type="button" data-zoom aria-label="Agrandir l'interface du studio">
-    <picture>
-      <source media="(max-width:767px)" srcset="img/studio-mobile.webp" width="1100" height="760">
-      <source media="(max-width:1023px)" srcset="img/studio-1600.webp" width="1600" height="972">
-      <img src="img/studio-1600.webp" srcset="img/studio-1600.webp 1600w, img/studio-2400.webp 2400w" sizes="(min-width:1264px) 1200px, 100vw" width="1600" height="972" fetchpriority="high" alt="Le studio ouvert : l'agent à gauche, la discussion avec une proposition de vidéo au centre, les vidéos terminées à droite">
-    </picture>
-  </button>
-  <p class="agr" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Touche l'image pour l'agrandir</p>
+  <figure class="shot">
+    <video id="demo" muted loop playsinline preload="metadata" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la galerie de styles, la limite Claude, puis une vidéo fabriquée étape par étape"></video>
+    <figcaption class="demo-bas">
+      <p>Le vrai studio : tu choisis parmi 41 styles, tu vois ta limite Claude, tu lances. Chiffres d'exemple.</p>
+      <div class="demo-btns">
+        <button class="btn-l zoomb" type="button" data-zoom><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Agrandir</button>
+        <button class="btn-l" id="pause" type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
+      </div>
+    </figcaption>
+  </figure>
+</div></section>
+
+<section class="sec" id="video" style="padding-bottom:0"><div class="wrap">
+  <div class="tete"><h2>Regarde comment <span class="l">ça marche.</span></h2></div>
+  <video id="vid" controls preload="none" playsinline width="1920" height="1080"></video>
 </div></section>
 
 <section class="sec" id="prerequis"><div class="wrap">
@@ -362,13 +381,13 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
     <div class="claude">
       <p class="lab"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span>Un abonnement Claude</p>
       <p class="gros"><span>Claude Pro</span><span class="l">ou plus.</span></p>
-      <p class="prixc"><b>20 $ par mois</b>, chez Anthropic.</p>
-      <ul class="plans" aria-label="Formules Claude compatibles">
-        <li class="plan non"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><b>Gratuit</b><span class="sr">, ne suffit pas</span></li>
-        <li class="plan oui"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><b>Pro</b></li>
-        <li class="plan oui"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><b>Max</b></li>
+      <ul class="offres" aria-label="Abonnements Claude et nombre de vidéos par jour">
+        <li><span><b>Pro</b><small>20&nbsp;$ par mois</small></span><span class="nb"><strong>2 à 3</strong><span>vidéos par jour, environ</span></span></li>
+        <li><span><b>Max</b><small>100&nbsp;$ par mois</small></span><span class="nb"><strong>plus de 10</strong><span>vidéos par jour</span></span></li>
+        <li><span><b>Max</b><small>200&nbsp;$ par mois</small></span><span class="nb"><strong>plus de 20</strong><span>vidéos par jour</span></span></li>
       </ul>
-      <p class="note">C'est ton abonnement qui fait travailler l'agent. Le plan gratuit ne suffit pas.</p>
+      <p class="gratuit"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span><s>Gratuit</s> : ne suffit pas.</span></p>
+      <p class="note">Estimations selon la longueur des vidéos. La consommation réelle s'affiche dans le studio.</p>
     </div>
     <div>
       <p class="lab"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232,168h-8V72a24,24,0,0,0-24-24H56A24,24,0,0,0,32,72v96H24a8,8,0,0,0-8,8v16a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V176A8,8,0,0,0,232,168ZM48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8v96H48ZM224,192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8v-8H224ZM152,88a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,88Z"/></svg></span>Un ordinateur</p>
@@ -390,10 +409,6 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   <ul class="rang" id="rang" aria-label="Démos fabriquées par l'agent"></ul>
   <p class="legende rv">Démos fabriquées par l'agent Oui Dreams, dont Oui Studio reprend le fonctionnement.</p>
   <template id="tpl-son"><span class="off"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L73.55,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V175.09l42.08,46.29a8,8,0,1,0,11.84-10.76ZM32,96H72v64H32ZM144,207.64,88,164.09V95.89l56,61.6Zm42-63.77a24,24,0,0,0,0-31.72,8,8,0,1,1,12-10.57,40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.59Zm-80.16-76a8,8,0,0,1,1.4-11.23l39.85-31A8,8,0,0,1,160,32v74.83a8,8,0,0,1-16,0V48.36l-26.94,21A8,8,0,0,1,105.84,67.91ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span><span class="on"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span></template>
-</div></section>
-
-<section class="sec" id="video" style="padding-bottom:0"><div class="wrap">
-  <video id="vid" controls preload="metadata" playsinline></video>
 </div></section>
 
 <section class="sec" id="fonctionnement" style="padding-top:0"><div class="wrap">
@@ -485,7 +500,7 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 <footer><div class="wrap"><span><b>Oui Dreams</b> · Oui Studio</span><div class="liens"><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div></div></footer>
 
 <dialog id="loupe" aria-label="Interface du studio agrandie">
-  <div class="defile"><img src="img/studio-zoom.webp" width="2200" height="1520" loading="lazy" decoding="async" alt="Le studio ouvert, agrandi : l'agent, la discussion et les vidéos"></div>
+  <div class="defile"><video id="demoGrand" muted loop playsinline preload="none" width="1440" height="876" aria-label="Démonstration du studio, en grand"></video></div>
   <button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
 </dialog>
 
@@ -500,13 +515,14 @@ var FILMS=[
   {fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
 ];
 /* Prix et lien de paiement : à remplir ici. Lien vide = les boutons mènent à la section prix. */
-var CONFIG={prix:"97 €",ancien:"197 €",lien:"",video:"presentation.mp4"};
+var CONFIG={prix:"97 €",ancien:"197 €",lien:"",video:"presentation.mp4",affiche:"presentation.webp"};
 (function(){
   var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   d.querySelectorAll("[data-val]").forEach(function(e){e.textContent=CONFIG.prix});
   d.querySelectorAll("[data-ancien]").forEach(function(e){e.textContent=CONFIG.ancien});
   if(CONFIG.lien)d.querySelectorAll("[data-cta]").forEach(function(a){a.href=CONFIG.lien;a.target="_blank";a.rel="noopener"});
-  if(CONFIG.video)fetch(CONFIG.video,{method:"HEAD"}).then(function(r){if(r.ok&&/video/.test(r.headers.get("content-type")||"")){d.getElementById("vid").src=CONFIG.video;d.getElementById("video").classList.add("on")}}).catch(function(){});
+  /* présentation de Hugo : la section n'apparaît que si le fichier existe */
+  if(CONFIG.video)fetch(CONFIG.video,{method:"HEAD"}).then(function(r){if(r.ok&&/video/.test(r.headers.get("content-type")||"")){var v=d.getElementById("vid");if(CONFIG.affiche)v.poster=CONFIG.affiche;v.src=CONFIG.video;d.getElementById("video").classList.add("on")}}).catch(function(){});
   var IO="IntersectionObserver" in window;
 
   /* films : muets en boucle seulement à l'écran ; un geste active ou coupe le son, un seul film sonore à la fois */
@@ -534,10 +550,18 @@ var CONFIG={prix:"97 €",ancien:"197 €",lien:"",video:"presentation.mp4"};
     clips.forEach(function(v){vo.observe(v)});
   }
 
-  /* agrandir l'interface */
-  var dlg=d.getElementById("loupe");
-  d.querySelector("[data-zoom]").addEventListener("click",function(){if(dlg.showModal)dlg.showModal()});
+  /* le studio filmé : muet, en boucle, seulement à l'écran ; bouton pause ; mouvement réduit = affiche fixe et lecture au bouton */
+  var demo=d.getElementById("demo"),pb=d.getElementById("pause"),tel=matchMedia("(max-width:767px)").matches,stop=reduce;
+  demo.poster=tel?"v/studio-tel.webp":"v/studio.webp";demo.src=tel?"v/studio-tel.mp4":"v/studio.mp4";
+  function majPause(){var arr=demo.paused;pb.setAttribute("aria-pressed",arr?"true":"false");pb.setAttribute("aria-label",arr?"Lire la démonstration":"Mettre la démonstration en pause");pb.querySelector(".lib").textContent=arr?"Lecture":"Pause"}
+  demo.addEventListener("play",majPause);demo.addEventListener("pause",majPause);majPause();
+  pb.addEventListener("click",function(){if(demo.paused){stop=false;joue(demo)}else{stop=true;demo.pause()}});
+  if(!reduce&&IO)new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&!stop)joue(demo);else if(!x.isIntersecting)demo.pause()})},{threshold:.25}).observe(demo);
+  /* agrandir (téléphone) : la version ordinateur, en grand */
+  var dlg=d.getElementById("loupe"),grand=d.getElementById("demoGrand");
+  d.querySelector("[data-zoom]").addEventListener("click",function(){if(!dlg.showModal)return;demo.pause();if(!grand.src)grand.src="v/studio.mp4";grand.poster="v/studio.webp";dlg.showModal();if(!reduce)joue(grand)});
   d.querySelector("[data-fermer]").addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("close",function(){grand.pause();if(!stop&&!reduce)joue(demo)});
   dlg.addEventListener("click",function(e){if(e.target===dlg||e.target.classList.contains("defile"))dlg.close()});
 
   if(reduce||!IO)return;
