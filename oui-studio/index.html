@@ -508,7 +508,7 @@ var FILMS=[
   {fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
 ];
 /* Prix et lien de paiement : à remplir ici. Lien vide = les boutons mènent à la section prix. */
-var CONFIG={prix:"97 €",ancien:"197 €",lien:"",video:"presentation.mp4",affiche:"presentation.webp"};
+var CONFIG={prix:"97 €",ancien:"197 €",lien:"https://buy.stripe.com/00w00iesPeHe84M2nHgIo0d",video:"presentation.mp4",affiche:"presentation.webp"};
 (function(){
   var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   d.querySelectorAll("[data-val]").forEach(function(e){e.textContent=CONFIG.prix});
