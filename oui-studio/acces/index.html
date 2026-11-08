@@ -181,6 +181,10 @@ html.locked body>*:not(#verrou):not(script){display:none!important}
 .osbig svg{width:44px;height:44px;margin-bottom:4px}.osbig b{font-size:19px;font-weight:800;letter-spacing:-.02em}.osbig small{font-size:12.5px;line-height:1.3;text-align:center}
 .osbig em{display:none;margin-top:4px;padding:3px 10px;border-radius:99px;background:var(--g);color:#10200b;font-style:normal;font-size:12px;font-weight:800}
 .osbig button[aria-selected="true"]{background:rgba(161,209,147,.14);box-shadow:inset 0 0 0 2px var(--g);color:var(--ink)}.osbig button[aria-selected="true"] svg{color:var(--g)}.osbig button[aria-selected="true"] em{display:inline-block}
+@keyframes osIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+#list.swap .st,.osnow.swap{animation:osIn .55s cubic-bezier(.2,.8,.2,1) both}
+#list.swap .st:nth-child(2){animation-delay:.07s}#list.swap .st:nth-child(3){animation-delay:.14s}#list.swap .st:nth-child(4){animation-delay:.21s}#list.swap .st:nth-child(5){animation-delay:.28s}
+.osbig button:active{transform:scale(.97)}
 .osnote{margin:10px 0 22px;font-size:13.5px;color:var(--ink3)}
 .osnow{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin:0 0 14px;padding:12px 16px;border-radius:14px;background:rgba(161,209,147,.1);box-shadow:inset 0 0 0 1px var(--gline)}.osnow span{display:inline-flex;align-items:center;gap:10px;font-size:17px;color:var(--ink)}.osnow svg{width:22px;height:22px;color:var(--g)}.osnow a{margin-left:auto;font-size:13.5px;color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
 .osq{margin:26px 0 8px;font-size:15px;font-weight:700;color:var(--ink)}
@@ -385,7 +389,7 @@ footer b{color:var(--ink2);font-weight:600}
 
 <header class="nav"><div class="wrap">
   <a class="brand" href="#haut" aria-label="Oui Studio, ton accès, haut de page">Oui Studio <span>ACCÈS</span></a>
-  <nav class="tabs" aria-label="Sections"><a href="#kit">Le kit</a><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
+  <nav class="tabs" aria-label="Sections"><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
   <a class="prog" href="#etapes" aria-label="Avancement de l'installation"><svg viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="9"/><circle class="fg" id="ring" cx="11" cy="11" r="9"/></svg><span><b id="navDone">0</b>/5<span class="lg"> étapes</span></span></a>
 </div></header>
 
@@ -397,8 +401,7 @@ footer b{color:var(--ink2);font-weight:600}
     <h1><b>C'est fait.</b><span class="thin">Ton kit est prêt.</span></h1>
     <p class="lede">Merci pour ta confiance. Tu décompresses le kit, tu double-cliques sur un fichier, et <b>ton agent est prêt</b>. Garde cette page ouverte : elle te suit étape par étape.</p>
     <p class="osq">1. Choisis ton ordinateur</p><div class="osbig" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Windows</b><small>Windows 10 ou 11</small><em>Sélectionné</em></button><button type="button" role="tab" data-os="mac" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Mac</b><small>macOS 13 ou plus récent</small><em>Sélectionné</em></button><button type="button" role="tab" data-os="linux" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3M12.5 15H17"/></svg><b>Linux</b><small>Ubuntu, Debian et équivalents</small><em>Sélectionné</em></button></div><p class="osnote">Toute la page s'adapte : tu ne vois que les étapes de ton ordinateur.</p><div class="actions">
-      <a class="btn main" href="#kit">Télécharger le kit <span aria-hidden="true">↓</span></a>
-      <a class="btn ghost" href="#etapes">Voir les 5 étapes</a>
+      <a class="btn main" href="#etapes">Commencer : les 5 étapes <span aria-hidden="true">↓</span></a>
     </div>
   </div>
   <aside class="hour edge" aria-label="Ce qui t'attend">
@@ -417,41 +420,18 @@ footer b{color:var(--ink2);font-weight:600}
 <hr class="rule">
 
 <!-- 1. télécharger -->
-<section class="sec" id="kit"><div class="wrap split">
-  <div class="sh">
-    <span class="no">01 — Le kit</span>
-    <h2>Télécharge <span class="thin">ton kit.</span></h2>
-    <p>Un seul fichier. Tout ce qu'il faut pour avoir ton agent, sans rien coller ni configurer.</p>
-  </div>
-  <div>
-    <div class="dl edge spot">
-      <div class="file">
-        <div class="zip" aria-hidden="true"></div>
-        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.3.3</span><span>≈ 26 Mo</span><span class="win">Pour Windows</span><span class="mac">Pour Mac</span><span class="linux">Pour Linux</span></small></div>
-      </div>
-      <div class="row">
-        <a class="btn main" id="dlBtn" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger le kit</a>
-        <p class="pend" id="dlPend">Le lien de téléchargement s'affiche ici.</p>
-      </div>
-    </div>
-    <div class="tips">
-      <div class="tip"><i>1</i><p class="win"><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire tout ».</p><p class="mac"><b>Décompresse-le dans Documents.</b> Double-clique sur le fichier : un dossier « oui-studio » apparaît, glisse-le dans Documents.</p><p class="linux"><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire ici », et déplace le dossier « oui-studio » dans Documents.</p></div>
-      <div class="tip"><i>2</i><p><b>Évite OneDrive et iCloud.</b> Dans un dossier synchronisé, le rendu vidéo est plus lent.</p></div>
-    </div>
-    <dl class="need">
+<section class="sec" id="avant" style="padding-bottom:0"><div class="wrap"><div class="sh" style="position:static;margin-bottom:18px"><span class="no">Avant de commencer</span><h2 style="font-size:clamp(26px,3vw,36px)">Ce qu'il <span class="thin">te faut.</span></h2></div><dl class="need">
       <dt>Abonnement</dt><dd><b>Un abonnement Claude payant</b> (Pro ou plus) : c'est lui qui fait tourner ton agent. Le plan gratuit ne suffit pas.</dd>
       <dt>Ordinateur</dt><dd>Windows 10 (version 1809 ou plus récente) ou 11, un Mac sous macOS 13 ou plus récent, ou Linux (Ubuntu 22.04 ou plus récent, ou équivalent).</dd>
       <dt>Machine</dt><dd>4 Go de mémoire minimum (8 Go ou plus conseillé pour le rendu vidéo), environ 3 Go d'espace libre, une connexion internet.</dd>
-    </dl>
-  </div>
-</div></section>
+    </dl></div></section>
 
 <!-- 2. étapes -->
 <section class="sec" id="etapes"><div class="wrap split">
   <div class="sh">
-    <span class="no">02 — L'installation</span>
+    <span class="no">01 — L'installation</span>
     <h2>Cinq étapes, <span class="thin">à cocher.</h2>
-    <p class="osnow"><span class="win"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Étapes pour Windows</b></span><span class="mac"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Étapes pour Mac</b></span><span class="linux"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3M12.5 15H17"/></svg><b>Étapes pour Linux</b></span><a href="#kit">Changer d'ordinateur</a></p>
+    <p class="osnow"><span class="win"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Étapes pour Windows</b></span><span class="mac"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Étapes pour Mac</b></span><span class="linux"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3M12.5 15H17"/></svg><b>Étapes pour Linux</b></span><a href="#haut">Changer d'ordinateur</a></p>
     <p>Ouvre chaque étape, fais-la, coche-la. Cette page se souvient de où tu en es sur cet appareil.</p>
     <div class="bar" aria-hidden="true"><div class="tr"><i id="barFill"></i></div><span><b id="barDone">0</b> / 5</span></div>
     <p class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
@@ -463,10 +443,22 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="1">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 1 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Décompresse le kit</b><small>Un dossier, dans tes Documents.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Télécharge et décompresse le kit</b><small>Un fichier, puis un dossier dans tes Documents.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b1">
-        <p class="win">Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout ». Mets le dossier dans <b>Documents</b>.</p><p class="mac">Double-clique sur <b>oui-studio.zip</b> : un dossier « oui-studio » apparaît. Glisse-le dans <b>Documents</b>.</p><p class="linux">Clic droit sur <b>oui-studio.zip</b> puis « Extraire ici ». Mets le dossier « oui-studio » dans <b>Documents</b>.</p>
+        <div class="dl edge spot">
+      <div class="file">
+        <div class="zip" aria-hidden="true"></div>
+        <div class="nm"><b>oui-studio.zip</b><small><span>version 1.3.3</span><span>≈ 26 Mo</span><span class="win">Pour Windows</span><span class="mac">Pour Mac</span><span class="linux">Pour Linux</span></small></div>
+      </div>
+      <div class="row">
+        <a class="btn main" id="dlBtn" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger le kit</a>
+        <p class="pend" id="dlPend">Le lien de téléchargement s'affiche ici.</p>
+      </div>
+    </div>
+        <p class="win">Quand le fichier est là : clic droit sur <b>oui-studio.zip</b> puis « Extraire tout ». Mets le dossier dans <b>Documents</b>.</p>
+        <p class="mac">Quand le fichier est là : double-clique sur <b>oui-studio.zip</b>, un dossier « oui-studio » apparaît. Glisse-le dans <b>Documents</b>.</p>
+        <p class="linux">Quand le fichier est là : clic droit sur <b>oui-studio.zip</b> puis « Extraire ici ». Mets le dossier « oui-studio » dans <b>Documents</b>.</p>
         <p class="note">Évite OneDrive et iCloud : dans un dossier synchronisé, le rendu vidéo est plus lent.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
@@ -494,8 +486,8 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b3"><span class="n">03</span><span class="tt"><b>Connecte ton compte Claude</b><small>Une seule fois, dans le navigateur.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b3">
-        <p>Quand la fenêtre le demande, ton navigateur s'ouvre : connecte-toi avec le compte Claude de ton abonnement et accepte. Reviens à la fenêtre noire : elle continue toute seule.</p>
-        <p>Tu ne fais cette connexion qu'une fois. Ton mot de passe n'est jamais lu ni gardé par le kit.</p>
+        <p>Pendant l'installation, ton navigateur s'ouvre : connecte-toi avec le compte Claude de ton abonnement et accepte. Reviens à la fenêtre de l'installation : elle continue toute seule.</p>
+        <p>Tu ne fais cette connexion qu'une fois. Ton mot de passe n'est jamais lu ni gardé par le kit. Si elle se perd un jour, le studio l'affiche en rouge en haut de la page et te dit comment la refaire (Paramètres &gt; Compte).</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -506,9 +498,10 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Ton studio s'ouvre</b><small>Parle à ton agent : il se règle en discutant.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b4">
-        <p>Quand tout est prêt, ton studio s'ouvre dans sa propre fenêtre (sans barre d'adresse). Tu y vois ton agent et ses étapes à gauche, la discussion au milieu, tes vidéos à droite. La version du studio est écrite en haut à gauche, à côté du nom.</p>
-        <p>Sous la zone de saisie, quatre boutons : <b>Image ou lien</b> (donne-lui tes images et liens de référence : logo, produits, exemples que tu aimes, il s'en inspire), <b>Style</b> (choisis l'allure de tes vidéos, et retire-la quand tu veux), <b>Voix</b> (dicte ton message) et <b>Envoyer</b>.</p>
-        <p>Tu peux lui demander <b>une vidéo tout de suite</b>, ou lui dire ce que tu fais (ton activité, ton style, tes couleurs) : il se règle sur toi au fil de la conversation, une ou deux questions à la fois.</p>
+        <p>Quand l'installation est finie, ton studio s'ouvre dans sa propre fenêtre. <b>À gauche</b> : ton agent et ses étapes de fabrication, tes limites Claude, la voix utilisée (un clic pour en changer) et un petit bouton pause. <b>Au milieu</b> : la discussion avec ton agent. <b>À droite</b> : tes vidéos, avec une carte « Contrôle qualité » sous chacune.</p>
+        <p><b>Au début, un message vert « Installation en cours » peut s'afficher</b> : les sons, les musiques et les outils de contrôle s'installent en arrière-plan (quelques minutes). Attends qu'il disparaisse avant ta première vidéo, sinon elle n'aura ni la musique ni le contrôle qualité.</p>
+        <p>Demande une vidéo avec tes mots : une idée, le lien d'un site, des consignes. Ton agent te <b>propose</b> la vidéo, et c'est toi qui cliques sur <b>« Lancer la vidéo »</b> : il ne lance jamais rien tout seul. Sous la zone de saisie : le trombone (images et liens de référence), le micro (pour dicter), <b>Style</b> (facultatif : l'allure de tes vidéos) et Envoyer.</p>
+        <p>Les <b>Paramètres</b> (en haut à gauche) : Apparence, Voix (ElevenLabs, facultatif), Agent (mode économe), Compte (connexion à Claude, version, mise à jour, clé de licence) et Aide.</p>
         <div class="cmd url"><code>http://127.0.0.1:4321</code><button class="cp" type="button">Copier</button></div>
         <p class="note">Si la fenêtre ne s'ouvre pas toute seule, copie cette adresse dans ton navigateur.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
@@ -518,15 +511,15 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="5">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 5 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Double-clique sur l'icône du Bureau.</small><small class="mac">Double-clique sur Demarrer, c'est tout.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Double-clique sur l'icône du Bureau.</small><small class="mac">Double-clique sur l'icône « Oui Studio » du Bureau.</small><small class="linux">Ouvre « Oui Studio » dans ton menu ou sur ton Bureau.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b5">
-        <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
         <p class="win">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si l'icône ne s'est pas créée</b> : double-clique sur <b>Demarrer.cmd</b> dans le dossier du kit.</p>
-        <p class="mac">Pour retrouver ton agent : double-clique <b>Demarrer.command</b>.</p>
-        <p>Les fois suivantes, c'est rapide : il ne réinstalle rien. Pour l'arrêter, double-clique <b class="win">Arreter.cmd</b><b class="mac">Arreter.command</b>.</p>
-        <p><b>Mises à jour :</b> elles sont automatiques. Quand une nouvelle version sort, un bouton <b>« Mettre à jour »</b> apparaît en bas à droite de ton studio : un clic, et le studio se met à jour puis redémarre. Tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
-        <p>Sur ton téléphone (même Wi-Fi) : double-clique <b class="win">Demarrer-telephone.cmd</b><b class="mac">Demarrer-telephone.command</b>, le lien s'affiche dans la fenêtre.</p>
+        <p class="mac">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si elle n'est pas là</b> : double-clique sur <b>Demarrer.command</b> dans le dossier du kit.</p>
+        <p class="linux">Pour retrouver ton agent : ouvre <b>Oui Studio</b> dans ton menu d'applications ou sur ton Bureau, posé à la fin de l'installation. <b>Seulement s'il n'est pas là</b> : dans le dossier du kit, ouvre un terminal et tape <b>bash Demarrer.sh</b>.</p>
+        <p>Les fois suivantes, c'est rapide : il ne réinstalle rien. Pour l'arrêter : <b class="win">Arreter.cmd</b><b class="mac">Arreter.command</b><b class="linux">bash Arreter.sh</b>, dans le dossier du kit.</p>
+        <p><b>Mises à jour :</b> elles sont automatiques. Quand une nouvelle version sort, un bouton <b>« Mettre à jour »</b> apparaît en haut à gauche de ton studio, à côté du numéro de version : un clic, et le studio se met à jour puis redémarre. Tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
+        <p>Sur ton téléphone (même Wi-Fi) : <b class="win">double-clique Demarrer-telephone.cmd</b><b class="mac">double-clique Demarrer-telephone.command</b><b class="linux">tape bash Demarrer.sh --telephone</b>, le lien s'affiche dans la fenêtre.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait</button></div>
       </div>
     </li>
@@ -537,7 +530,7 @@ footer b{color:var(--ink2);font-weight:600}
 <section class="sec" id="jour"><div class="wrap">
   <div class="split" style="align-items:end">
     <div class="sh" style="position:static">
-      <span class="no">03 — Ton premier jour</span>
+      <span class="no">02 — Ton premier jour</span>
       <h2>À quoi <span class="thin">t'attendre.</span></h2>
     </div>
     <p style="color:var(--ink2);max-width:58ch">Les chiffres ci-dessous viennent de <b style="color:var(--ink);font-weight:600">notre test du kit</b>, sur un serveur, le 5 novembre 2026. Ce sont des ordres de grandeur, pas des promesses : ton ordinateur, ton abonnement et ta vidéo changeront les durées.</p>
@@ -576,7 +569,7 @@ footer b{color:var(--ink2);font-weight:600}
 <!-- 5. si ça coince -->
 <section class="sec" id="aide"><div class="wrap split">
   <div class="sh">
-    <span class="no">04 — Si ça coince</span>
+    <span class="no">03 — Si ça coince</span>
     <h2>Vérifie tout <span class="thin">en une commande.</span></h2>
     <p>Et les erreurs les plus courantes, avec leur solution.</p>
   </div>
@@ -629,7 +622,7 @@ footer b{color:var(--ink2);font-weight:600}
 <!-- 6. licence et mises à jour -->
 <section class="sec" id="licence"><div class="wrap split">
   <div class="sh">
-    <span class="no">05 — Licence et mises à jour</span>
+    <span class="no">04 — Licence et mises à jour</span>
     <h2>Ce kit <span class="thin">est à toi.</span></h2>
     <p>Pour ton usage. Les vidéos qu'il fabrique aussi. Le détail est dans <span class="mono" style="font-size:.9em">LICENCE.txt</span> et <span class="mono" style="font-size:.9em">NOTICES.md</span>.</p>
   </div>
@@ -717,7 +710,11 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
   var pf=(navigator.platform||"")+" "+(navigator.userAgent||""),os=S.os||(/Mac|iPhone|iPad/.test(pf)?"mac":(/Linux|X11/.test(pf)&&!/Android/.test(pf)?"linux":"win"));
   function setOS(v){os=v;root.setAttribute("data-os",v);d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.setAttribute("aria-selected",t.dataset.os===v?"true":"false")})}
   setOS(os);
-  d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.addEventListener("click",function(){setOS(t.dataset.os);S.os=t.dataset.os;save()})});
+  d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.addEventListener("click",function(){setOS(t.dataset.os);S.os=t.dataset.os;save();
+    /* tout change : animation des étapes, puis la page descend directement aux 5 étapes à cocher */
+    var lst=d.getElementById("list"),on=d.querySelector(".osnow"),calme=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(!calme){[lst,on].forEach(function(e){if(e){e.classList.remove("swap");void e.offsetWidth;e.classList.add("swap")}});setTimeout(function(){[lst,on].forEach(function(e){if(e)e.classList.remove("swap")})},1000)}
+    var cible=d.getElementById("etapes");if(cible)cible.scrollIntoView({behavior:calme?"auto":"smooth",block:"start"})})});
 
   /* check-list */
   var items=[].slice.call(d.querySelectorAll(".st")),N=items.length;
