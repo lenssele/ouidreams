@@ -172,6 +172,8 @@ kbd,code.i{font:500 .86em var(--mono);padding:2px 7px;border-radius:6px;backgrou
 .os button{height:34px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink3);transition:background .25s,color .25s}
 .os button[aria-selected="true"]{background:rgba(241,236,228,.1);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 html[data-os="mac"] .win, html:not([data-os="mac"]) .mac{display:none!important}
+.osq{margin:22px 0 8px;font-size:14px;font-weight:600;color:var(--ink2)}
+.macsteps{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;counter-reset:m}.macsteps li{counter-increment:m;position:relative;padding:10px 12px 10px 42px;border-radius:12px;background:rgba(241,236,228,.05);font-size:15px;line-height:1.5;color:var(--ink2)}.macsteps li:before{content:counter(m);position:absolute;left:12px;top:10px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--g);color:#10200b}.macsteps b{color:var(--ink)}
 
 /* commande */
 .cmd{position:relative;display:flex;align-items:flex-start;gap:12px;padding:14px 12px 14px 18px;border-radius:14px;background:var(--deep);box-shadow:inset 0 0 0 1px var(--line2)}
@@ -409,6 +411,8 @@ footer b{color:var(--ink2);font-weight:600}
     <span class="no">01 — Le kit</span>
     <h2>Télécharge <span class="thin">ton kit.</span></h2>
     <p>Un seul fichier. Tout ce qu'il faut pour avoir ton agent, sans rien coller ni configurer.</p>
+    <p class="osq">Sur quel ordinateur es-tu ?</p>
+    <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
   </div>
   <div>
     <div class="dl edge spot">
@@ -422,7 +426,7 @@ footer b{color:var(--ink2);font-weight:600}
       </div>
     </div>
     <div class="tips">
-      <div class="tip"><i>1</i><p><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire tout » (Windows), ou double-clic (Mac).</p></div>
+      <div class="tip"><i>1</i><p class="win"><b>Décompresse-le dans Documents.</b> Clic droit sur le fichier puis « Extraire tout ».</p><p class="mac"><b>Décompresse-le dans Documents.</b> Double-clique sur le fichier : un dossier « oui-studio » apparaît, glisse-le dans Documents.</p></div>
       <div class="tip"><i>2</i><p><b>Évite OneDrive et iCloud.</b> Dans un dossier synchronisé, le rendu vidéo est plus lent.</p></div>
     </div>
     <dl class="need">
@@ -452,7 +456,7 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b>Décompresse le kit</b><small>Un dossier, dans tes Documents.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b1">
-        <p>Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout » (Windows), ou double-clic (Mac). Mets le dossier dans <b>Documents</b>.</p>
+        <p class="win">Clic droit sur <b>oui-studio.zip</b> puis « Extraire tout ». Mets le dossier dans <b>Documents</b>.</p><p class="mac">Double-clique sur <b>oui-studio.zip</b> : un dossier « oui-studio » apparaît. Glisse-le dans <b>Documents</b>.</p>
         <p class="note">Évite OneDrive et iCloud : dans un dossier synchronisé, le rendu vidéo est plus lent.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
@@ -464,11 +468,10 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Lance l'installation</b><small>Un seul double-clic, la première fois. Tout le reste se fait tout seul.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b2">
-        <div class="os" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true">Windows</button><button type="button" role="tab" data-os="mac" aria-selected="false">Mac</button></div>
-        <p>La toute première fois, il faut bien lancer l'installation : dans le dossier du kit, double-clique <b class="win">Demarrer.cmd</b><b class="mac">Demarrer.command</b>. Tu n'auras plus à le refaire ensuite.</p>
+        <p class="win">Dans le dossier du kit, double-clique sur <b>Demarrer.cmd</b>. Tu n'auras plus à le refaire ensuite.</p><p class="mac">Dans le dossier du kit, double-clique sur <b>Demarrer.command</b>. macOS le bloque la toute première fois, c'est normal : voici les 3 clics, une seule fois.</p>
+        <ol class="macsteps mac"><li>Clique sur <b>Terminé</b> dans la fenêtre « Apple n'a pas pu confirmer… ».</li><li>Ouvre <b>Réglages Système</b> &gt; <b>Confidentialité et sécurité</b>, descends jusqu'à « Demarrer.command a été bloqué » et clique sur <b>Ouvrir quand même</b>.</li><li>Confirme avec ton mot de passe ou Touch ID, puis clique sur <b>Ouvrir</b>.</li></ol>
         <p>Une fenêtre noire s'ouvre et t'explique chaque étape. Elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Une fois ton studio ouvert, tu peux la fermer : il tourne en arrière-plan. À la fin de l'installation, <b class="win">l'icône « Oui Studio » se crée toute seule sur ton Bureau</b><b class="mac">ton studio s'ouvre</b>.</p>
         <p class="note win">Windows peut afficher « Windows a protégé votre ordinateur » : clique sur « Informations complémentaires » puis « Exécuter quand même ».</p>
-        <p class="note mac">Sur Mac, la toute première ouverture est bloquée par macOS (« Apple n'a pas pu confirmer… »). C'est normal, 3 clics, une seule fois : <b>1.</b> clique sur « Terminé ». <b>2.</b> Ouvre <b>Réglages Système &gt; Confidentialité et sécurité</b>, descends jusqu'à « Demarrer.command a été bloqué » et clique sur <b>Ouvrir quand même</b>. <b>3.</b> Confirme avec ton mot de passe ou Touch ID, puis « Ouvrir ». Ensuite, ton studio a son icône sur le Bureau : plus aucun blocage.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
