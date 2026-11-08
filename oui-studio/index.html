@@ -234,6 +234,21 @@ details p{color:var(--ink2);padding:0 52px 26px 0;max-width:60ch}
 .price{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:36px}
 .price b{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1}
 .price small{color:var(--ink3);font-size:15px}
+/* Ce qui rend l'agent puissant */
+.puiss .sh{margin-bottom:8px}
+.pstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.pstats>div{padding:26px 22px 24px;border-radius:18px;background:rgba(255,255,255,.025);box-shadow:inset 0 0 0 1px var(--line)}
+.pstats b{display:block;font-size:clamp(44px,5vw,64px);font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--g)}
+.pstats h3{margin-top:14px;font-size:17px;font-weight:700}
+.pstats p{margin-top:8px;font-size:14.5px;line-height:1.5;color:var(--ink2)}
+.porigine{margin-top:26px;font-size:15px;color:var(--ink3);max-width:70ch}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-top:40px}
+.pgrid>div{padding:20px 0;border-top:1px solid var(--line)}
+.pgrid h3{font-size:17px;font-weight:700}
+.pgrid p{margin-top:6px;font-size:15px;color:var(--ink2);line-height:1.55}
+@media(max-width:860px){.pstats{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:1fr}}
+@media(max-width:480px){.pstats{grid-template-columns:1fr}}
+
 .price s{font-size:26px;font-weight:600;color:var(--ink3);text-decoration-thickness:2px}
 .offre{text-align:center;margin-top:12px;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--ink2)}
 .final .btn{margin-top:36px;height:62px;padding:0 34px;font-size:17px}
@@ -410,6 +425,29 @@ footer b{color:var(--ink2);font-weight:600}
       <div class="v"><strong>20 $</strong><span>/ mois</span></div>
       <p><b>Il te faut un abonnement Claude et un ordinateur.</b> Les agents visent la qualité maximale, donc ils consomment : c'est normal. Le nombre de vidéos dépend de ton quota.</p>
     </div>
+  </div>
+</div></section>
+
+<section class="sec puiss" id="puissance"><div class="wrap">
+  <div class="sh">
+    <p class="kick rv">Ce qui le rend puissant</p>
+    <h2 class="rv d1">Pas un simple prompt. <span class="thin">Un agent construit sur un vrai atelier.</span></h2>
+    <p class="rv d2">Ton agent vient d'un atelier qui fabrique des vidéos de motion design tous les jours : plus de 150 films, plus de 540 fichiers de composition, 269 scripts d'outils. Voilà ce que ton studio contient, au chiffre près.</p>
+  </div>
+  <div class="pstats">
+    <div class="rv"><b>26</b><h3>modèles de scènes</h3><p>Compteurs, graphiques, comparaisons, listes, étapes, chronologie, sous-titres mot à mot, transitions, fins qui se referment. Ton agent les réutilise au lieu de repartir de zéro.</p></div>
+    <div class="rv d1"><b>8</b><h3>outils d'analyse</h3><p>Niveau sonore, synchro sur les mots, effets, spectre, cadrage et zones sûres, images noires ou figées. Installés tout seuls en arrière-plan.</p></div>
+    <div class="rv d2"><b>29</b><h3>skills de métier</h3><p>Hooks viraux, sous-titres animés, typographie cinétique, direction artistique, couleurs, principes d'animation, publicités, bonnes pratiques Remotion.</p></div>
+    <div class="rv d3"><b>7</b><h3>agents spécialisés</h3><p>Créatif, critique, spectateur, recherche, rendu, son, et un agent d'écoute qui réécoute ta voix pour vérifier qu'elle dit bien ce que prévoit le script.</p></div>
+  </div>
+  <p class="porigine rv">Le studio garde ce qui sert à tout le monde et laisse de côté ce qui est propre à un client ou à une marque : c'est pour ça que les chiffres du studio sont plus petits que ceux de l'atelier.</p>
+  <div class="pgrid">
+    <div class="rv"><h3>Les règles d'un film qui marche</h3><p>Un hook obligatoire, un cadrage dézoomé pour les recadrages Instagram et TikTok, un script viral, une écriture en binôme avec le critique et une livraison sans fichier brut. Ces règles ont été façonnées par des retours réels, pas écrites dans le vide.</p></div>
+    <div class="rv d1"><h3>Un agent qui apprend de toi</h3><p>Chaque critique ou validation devient une leçon datée que ton agent relit avant chaque vidéo. Plus tu l'utilises, plus il fait comme toi.</p></div>
+    <div class="rv"><h3>Une voix qui joue</h3><p>Avec ta voix ElevenLabs, ton agent écrit des intonations ([curious], [short pause], [excited]) pour une voix vivante. Elles ne s'affichent jamais dans les sous-titres.</p></div>
+    <div class="rv d1"><h3>Du vrai son</h3><p>De vrais effets sonores et des musiques gratuites se téléchargent tout seuls, avec des bruitages posés sur l'image.</p></div>
+    <div class="rv"><h3>Ton goût, ta charte</h3><p>Une charte unique que ton agent relit à chaque film, et un goût d'écriture et de motion design intégré. Tu peux choisir un style en un clic, ou ne rien choisir.</p></div>
+    <div class="rv d1"><h3>Toujours à jour</h3><p>Chaque amélioration arrive d'un clic avec le bouton « Mettre à jour ». Rien à retélécharger, ni dossier à déplacer.</p></div>
   </div>
 </div></section>
 
