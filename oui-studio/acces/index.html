@@ -1,4 +1,4 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow,noarchive"><title>Espace élève Oui Studio</title>
+<!doctype html><html lang="fr" class="locked"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow,noarchive"><title>Ton accès Oui Studio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,6 +172,8 @@ kbd,code.i{font:500 .86em var(--mono);padding:2px 7px;border-radius:6px;backgrou
 .os button{height:34px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink3);transition:background .25s,color .25s}
 .os button[aria-selected="true"]{background:rgba(241,236,228,.1);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 html[data-os="mac"] .win, html:not([data-os="mac"]) .mac{display:none!important}
+html.locked body>*:not(#verrou):not(script){display:none!important}
+#verrou{min-height:100vh;display:grid;place-items:center;padding:32px;text-align:center}#verrou[hidden]{display:none!important}#verrou div{max-width:460px}#verrou svg{width:44px;height:44px;color:var(--g);margin-bottom:14px}#verrou h1{font-size:28px;line-height:1.15;margin:0 0 12px}#verrou p{margin:0 0 10px;color:var(--ink2);font-size:16px;line-height:1.55}#verrou a{color:var(--g)}
 .osbig{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 0;max-width:480px}
 .osbig button{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:22px 10px 18px;border-radius:20px;background:rgba(241,236,228,.04);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink3);cursor:pointer;transition:background .25s,box-shadow .25s,color .25s}
 .osbig button:hover{background:rgba(241,236,228,.08);color:var(--ink2)}
@@ -380,8 +382,8 @@ footer b{color:var(--ink2);font-weight:600}
 }
 </style>
 
-<header class="nav"><div class="wrap">
-  <a class="brand" href="#haut" aria-label="Oui Studio, espace élève, haut de page">Oui Studio <span>ÉLÈVE</span></a>
+<div id="verrou"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><h1 id="vrT">Page privée</h1><p id="vrP">Je vérifie ton lien…</p></div></div><header class="nav"><div class="wrap">
+  <a class="brand" href="#haut" aria-label="Oui Studio, ton accès, haut de page">Oui Studio <span>ACCÈS</span></a>
   <nav class="tabs" aria-label="Sections"><a href="#kit">Le kit</a><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
   <a class="prog" href="#etapes" aria-label="Avancement de l'installation"><svg viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="9"/><circle class="fg" id="ring" cx="11" cy="11" r="9"/></svg><span><b id="navDone">0</b>/5<span class="lg"> étapes</span></span></a>
 </div></header>
@@ -390,7 +392,7 @@ footer b{color:var(--ink2);font-weight:600}
 
 <section class="hero"><div class="wrap">
   <div>
-    <p class="kick">Espace élève · Oui Studio</p>
+    <p class="kick">Ton accès · Oui Studio</p>
     <h1><b>C'est fait.</b><span class="thin">Ton kit est prêt.</span></h1>
     <p class="lede">Merci pour ta confiance. Tu décompresses le kit, tu double-cliques sur un fichier, et <b>ton agent est prêt</b>. Garde cette page ouverte : elle te suit étape par étape.</p>
     <p class="osq">1. Choisis ton ordinateur</p><div class="osbig" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Windows</b><small>Windows 10 ou 11</small><em>Sélectionné</em></button><button type="button" role="tab" data-os="mac" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Mac</b><small>macOS 13 ou plus récent</small><em>Sélectionné</em></button></div><p class="osnote">Toute la page s'adapte : tu ne vois que les étapes de ton ordinateur.</p><div class="actions">
@@ -667,7 +669,7 @@ footer b{color:var(--ink2);font-weight:600}
 </div></section>
 </main>
 
-<footer><div class="wrap"><span><b>Oui Dreams</b> · Espace élève · Oui Studio</span><span>Kit version <span id="verFoot">1.3.3</span></span></div></footer>
+<footer><div class="wrap"><span><b>Oui Dreams</b> · Ton accès · Oui Studio</span><span>Kit version <span id="verFoot">1.3.3</span></span></div></footer>
 
 <script>
 /* À remplir par Hugo. Vide = élément masqué (ou bouton désactivé pour kitUrl).
@@ -690,21 +692,29 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
     var b=d.querySelector(".dl .nm small span");if(b)b.textContent="version "+m.version;
     if(dt&&m.date)dt.textContent="publiée le "+new Date(m.date).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})
   }).catch(function(){});
-  /* Licence : la clé de CET achat, créée par le paiement. Le téléchargement contient déjà ta clé. */
+  /* Accès : la page ne s'ouvre qu'avec le lien personnel (?t=, 32 lettres et chiffres) ; le retour de paiement (?s=) donne ce lien à garder. */
   (function(){
-    var pend=d.getElementById("dlPend"),sid=new URLSearchParams(location.search).get("s");
-    if(CONFIG.kitUrl||!CONFIG.api)return;
-    if(!sid){pend.textContent="Ouvre cette page depuis le lien reçu après ton paiement (ou dans l'e-mail de confirmation). Un souci : écris-nous.";return}
-    pend.textContent="Je prépare ton kit et ta clé…";
-    var essais=0;
+    var pend=d.getElementById("dlPend"),qs=new URLSearchParams(location.search),tok=qs.get("t"),sid=qs.get("s"),vrT=d.getElementById("vrT"),vrP=d.getElementById("vrP");
+    function ferme(t,p){vrT.textContent=t;vrP.innerHTML=p}
+    function ouvre(j){
+      root.classList.remove("locked");
+      if(j.lien&&tok!==(j.lien.split("t=")[1]||"")){try{history.replaceState(null,"",j.lien)}catch(e){}}
+      dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
+      pend.innerHTML="Ta clé de licence : <b>"+j.cle+"</b> (déjà dans le kit). Garde le lien de cette page : c'est ton lien personnel, il te permet de revenir télécharger le kit.";
+      if(typeof window.__macLigne==="function")window.__macLigne(j)
+    }
+    if(CONFIG.kitUrl||!CONFIG.api){root.classList.remove("locked");return}
+    if(!tok&&!sid){ferme("Page privée","Cette page s'ouvre avec ton <b>lien personnel</b>, reçu après ton achat. Ouvre-la depuis ce lien. Lien perdu ? Écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.");return}
+    ferme("Page privée","Je vérifie ton lien…");
+    var essais=0,url=CONFIG.api+"/licence?"+(tok?"t="+encodeURIComponent(tok):"s="+encodeURIComponent(sid));
     (function tente(){
-      fetch(CONFIG.api+"/licence?s="+encodeURIComponent(sid)).then(function(r){return r.json()}).then(function(j){
-        if(j.statut==="pret"){dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
-          pend.textContent="Ta clé de licence : "+j.cle+" (déjà dans le kit, garde-la au cas où). Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous ».";
-        }else if(j.statut==="revoque"){pend.textContent="Cet achat a été remboursé : l'accès est retiré."}
-        else if(++essais<20)setTimeout(tente,3000);
-        else pend.textContent="Ton paiement n'est pas encore confirmé. Recharge cette page dans une minute, ou écris-nous."
-      }).catch(function(){if(++essais<20)setTimeout(tente,3000);else pend.textContent="Le serveur ne répond pas. Recharge la page dans un instant."})
+      fetch(url).then(function(r){return r.json()}).then(function(j){
+        if(j.statut==="pret")ouvre(j);
+        else if(j.statut==="revoque")ferme("Accès retiré","Cet achat a été remboursé : l'accès à ce kit n'est plus actif.");
+        else if(j.statut==="inconnu")ferme("Lien non reconnu","Ce lien ne correspond à aucun achat. Vérifie que tu as copié le lien en entier, ou écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.");
+        else if(++essais<20){ferme("Paiement en cours de confirmation","Je confirme ton paiement, ça prend quelques secondes…");setTimeout(tente,3000)}
+        else ferme("Paiement pas encore confirmé","Recharge cette page dans une minute, ou écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.")
+      }).catch(function(){if(++essais<20)setTimeout(tente,3000);else ferme("Serveur injoignable","Recharge la page dans un instant.")})
     })()
   })();
   if(CONFIG.contact){var c=CONFIG.contact.trim(),box=d.getElementById("contactAddr"),isMail=/^[^\s@]+@[^\s@]+$/.test(c);
