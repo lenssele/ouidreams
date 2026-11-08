@@ -1,4 +1,4 @@
-<!doctype html><html lang="fr" class="locked"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow,noarchive"><title>Ton accès Oui Studio</title>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="robots" content="noindex,nofollow,noarchive"><title>Ton accès Oui Studio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -383,16 +383,6 @@ footer b{color:var(--ink2);font-weight:600}
 }
 </style>
 
-<div id="verrou"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><h1 id="vrT">Page privée</h1><p id="vrP">Je vérifie ton lien…</p></div></div><script>
-/* Filet de sécurité indépendant du reste de la page : si au bout de 15 s on en est encore à « Je vérifie ton lien… » (navigateur qui bloque la vérification, erreur), on propose le téléchargement direct avec le lien personnel. */
-setTimeout(function(){try{
-  if(!document.documentElement.classList.contains("locked"))return;
-  var p=document.getElementById("vrP");if(!p||p.textContent.indexOf("Je vérifie ton lien")!==0)return;
-  var t=new URLSearchParams(location.search).get("t");
-  if(t&&/^[A-Za-z0-9]{32}$/.test(t))p.innerHTML='La vérification est lente. Tu peux quand même <a href="https://agents-hostinger.tail8e8b06.ts.net/oui-studio/telecharger?t='+t+'"><b>télécharger ton kit ici</b></a> (ta clé est dedans). Un souci : <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a>.';
-  else p.innerHTML='Je n\'arrive pas à vérifier ton lien. Recharge la page, ou écris-nous : <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a>.'
-}catch(e){}},15000);
-</script>
 <header class="nav"><div class="wrap">
   <a class="brand" href="#haut" aria-label="Oui Studio, ton accès, haut de page">Oui Studio <span>ACCÈS</span></a>
   <nav class="tabs" aria-label="Sections"><a href="#kit">Le kit</a><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
@@ -696,7 +686,7 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
   /* CONFIG */
   var dl=d.getElementById("dlBtn");
   if(CONFIG.kitUrl){dl.href=CONFIG.kitUrl;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");d.getElementById("dlPend").textContent="Si le téléchargement ne démarre pas : clic droit sur le bouton, puis « Enregistrer le lien sous »."}
-  else dl.addEventListener("click",function(e){e.preventDefault()});
+  else dl.addEventListener("click",function(e){if(dl.getAttribute("aria-disabled")==="true")e.preventDefault()});
   /* Version en vigueur, lue sur le serveur (jamais en dur) */
   if(CONFIG.api)fetch(CONFIG.api+"/maj/manifest").then(function(r){return r.json()}).then(function(m){
     if(!m||!m.version)return;
@@ -705,39 +695,15 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
     var b=d.querySelector(".dl .nm small span");if(b)b.textContent="version "+m.version;
     if(dt&&m.date)dt.textContent="publiée le "+new Date(m.date).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})
   }).catch(function(){});
-  /* Accès : la page ne s'ouvre qu'avec le lien personnel (?t=, 32 lettres et chiffres) ; le retour de paiement (?s=) donne ce lien à garder. */
+  /* Téléchargement : le bouton est un simple lien vers le serveur, avec ton lien personnel (?t=) ou le retour de paiement (?s=). Aucune vérification à attendre. */
   (function(){
-    var pend=d.getElementById("dlPend"),qs=new URLSearchParams(location.search),tok=qs.get("t"),sid=qs.get("s"),vrT=d.getElementById("vrT"),vrP=d.getElementById("vrP");
-    function ferme(t,p){vrT.textContent=t;vrP.innerHTML=p}
-    function ouvre(j){
-      root.classList.remove("locked");
-      if(j.lien&&tok!==(j.lien.split("t=")[1]||"")){try{history.replaceState(null,"",j.lien)}catch(e){}}
-      dl.href=j.telechargement;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
-      pend.innerHTML="Ta clé de licence : <b>"+j.cle+"</b> (déjà dans le kit). Garde le lien de cette page : c'est ton lien personnel, il te permet de revenir télécharger le kit.";
-      if(typeof window.__macLigne==="function")window.__macLigne(j)
-    }
-    if(CONFIG.kitUrl||!CONFIG.api){root.classList.remove("locked");return}
-    if(!tok&&!sid){ferme("Page privée","Cette page s'ouvre avec ton <b>lien personnel</b>, reçu après ton achat. Ouvre-la depuis ce lien. Lien perdu ? Écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.");return}
-    ferme("Page privée","Je vérifie ton lien…");
-    var essais=0,url=CONFIG.api+"/licence?"+(tok?"t="+encodeURIComponent(tok):"s="+encodeURIComponent(sid));
-    var fini=false;
-    function secours(raison){ /* la vérification n'aboutit pas (réseau, navigateur) : si on a un lien personnel, on ouvre quand même la page avec le téléchargement direct ; le serveur refusera un faux lien au téléchargement */
-      if(fini)return;fini=true;
-      if(tok&&/^[A-Za-z0-9]{32}$/.test(tok)){root.classList.remove("locked");dl.href=CONFIG.api+"/telecharger?t="+encodeURIComponent(tok);dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");pend.textContent="Ton kit est prêt : clique sur « Télécharger le kit ». Ta clé de licence est déjà dans le fichier."}
-      else ferme("Serveur injoignable","Je n'arrive pas à vérifier ton lien ("+raison+"). Recharge la page dans un instant, ou écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.")
-    }
-    (function tente(){
-      if(fini)return;
-      var minuteur=setTimeout(function(){if(++essais<3)tente();else secours("délai dépassé")},8000);
-      fetch(url).then(function(r){return r.json()}).then(function(j){
-        clearTimeout(minuteur);if(fini)return;
-        if(j.statut==="pret"){fini=true;ouvre(j)}
-        else if(j.statut==="revoque")ferme("Accès retiré","Cet achat a été remboursé : l'accès à ce kit n'est plus actif.");
-        else if(j.statut==="inconnu")ferme("Lien non reconnu","Ce lien ne correspond à aucun achat. Vérifie que tu as copié le lien en entier, ou écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.");
-        else if(++essais<20){ferme("Paiement en cours de confirmation","Je confirme ton paiement, ça prend quelques secondes…");setTimeout(tente,3000)}
-        else ferme("Paiement pas encore confirmé","Recharge cette page dans une minute, ou écris-nous : <a href=\"mailto:contact@ouidreams.fr\">contact@ouidreams.fr</a>.")
-      }).catch(function(e){clearTimeout(minuteur);if(fini)return;if(++essais<3)setTimeout(tente,1500);else secours(String(e&&e.message||e).slice(0,60))})
-    })()
+    var pend=d.getElementById("dlPend"),qs=new URLSearchParams(location.search),tok=qs.get("t"),sid=qs.get("s"),q=null;
+    if(tok&&/^[A-Za-z0-9]{32}$/.test(tok))q="t="+encodeURIComponent(tok);
+    else if(sid&&/^cs_(live|test)_[A-Za-z0-9]{10,200}$/.test(sid))q="s="+encodeURIComponent(sid);
+    if(CONFIG.kitUrl||!CONFIG.api)return;
+    if(!q){pend.textContent="Ouvre cette page depuis ton lien personnel, reçu après ton achat. Un souci : écris-nous.";return}
+    dl.href=CONFIG.api+"/telecharger?"+q;dl.setAttribute("download","oui-studio.zip");dl.removeAttribute("aria-disabled");
+    pend.textContent="Ton kit est prêt : clique sur « Télécharger le kit ». Ta clé de licence est déjà dans le fichier."
   })();
   if(CONFIG.contact){var c=CONFIG.contact.trim(),box=d.getElementById("contactAddr"),isMail=/^[^\s@]+@[^\s@]+$/.test(c);
     var code=d.createElement("code");code.textContent=c;box.appendChild(code);
