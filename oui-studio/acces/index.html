@@ -229,7 +229,7 @@ html.locked body>*:not(#verrou):not(script){display:none!important}
 .after p{color:var(--ink2);font-size:15.5px;line-height:1.5}
 
 /* premier jour */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:8px}
 .stat{padding:28px 24px 26px 0}
 .stat+.stat{padding-left:24px;border-left:1px solid var(--line2)}
 .stat strong{display:block;font-size:clamp(40px,4.4vw,60px);font-weight:800;letter-spacing:-.055em;line-height:.9;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,#f6f2eb 30%,#a9a298);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
@@ -416,9 +416,9 @@ footer b{color:var(--ink2);font-weight:600}
     <ol>
       <li><span>01</span><div><b>Tu lances l'installation</b><small>Un double-clic : tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
       <li><span>02</span><div><b>Ton agent est là</b><small>Ton studio s'ouvre dans sa propre fenêtre, prêt à travailler, et se règle en discutant avec toi.</small></div><em>tout de suite</em></li>
-      <li><span>03</span><div><b>Sa première vidéo</b><small>Une idée, un lien de site, et il fabrique avec toutes ses passes de qualité.</small></div><em>≈ 40 min*</em></li>
+      <li><span>03</span><div><b>Sa première vidéo</b><small>Une idée, un lien de site, et il fabrique avec toutes ses passes de qualité.</small></div><em>≈ 1 h 15*</em></li>
     </ol>
-    <p class="foot">* Mesuré dans notre test sur un serveur, sans compter le temps de tes réponses. Ton ordinateur peut être plus lent.</p>
+    <p class="foot">* Sans compter le temps de tes réponses. Selon ton ordinateur et ta vidéo, ça peut varier.</p>
   </aside>
 </div></section>
 
@@ -540,30 +540,13 @@ footer b{color:var(--ink2);font-weight:600}
       <span class="no">02 — Ton premier jour</span>
       <h2>À quoi <span class="thin">t'attendre.</span></h2>
     </div>
-    <p style="color:var(--ink2);max-width:58ch">Les chiffres ci-dessous viennent de <b style="color:var(--ink);font-weight:600">notre test du kit</b>, sur un serveur, le 5 novembre 2026. Ce sont des ordres de grandeur, pas des promesses : ton ordinateur, ton abonnement et ta vidéo changeront les durées.</p>
+    <p style="color:var(--ink2);max-width:58ch">Ce sont des ordres de grandeur, pas des promesses : ton ordinateur, ton abonnement et ta vidéo changeront les durées.</p>
   </div>
   <div class="stats" style="margin-top:44px">
     <div class="stat"><strong>5-20 <small>min</small></strong><b>Première installation</b><p>Surtout du téléchargement. Les fois suivantes, quelques secondes.</p></div>
     <div class="stat"><strong>0 <small>min</small></strong><b>Création de l'agent</b><p>Il est prêt dès le premier démarrage.</p></div>
-    <div class="stat"><strong>≈ 40 <small>min</small></strong><b>Première vidéo</b><p>Une vidéo courte de test : 38 min dans notre test.</p></div>
-    <div class="stat"><strong>≈ 20 <small>%</small></strong><b>D'une session Claude</b><p>Pour cette première vidéo, dans notre test, avec un abonnement Max 100 $. En Pro, compte nettement plus.</p></div>
-  </div>
-  <p class="src">Test du 5/11/2026 · serveur Linux · Windows et Mac réels pas encore chronométrés</p>
-
-  <div class="why">
-    <div>
-      <h3>Pourquoi <span class="thin">ça consomme.</span></h3>
-      <p>Ton agent travaille avec <b>ton</b> abonnement Claude. Une vidéo de qualité demande plusieurs passes : idées, critique, code, rendu, contrôle. Elle consomme une bonne partie d'une session. Le mode économe (Paramètres, onglet Agent) en consomme moins.</p>
-      <p>Si tu vois « limite atteinte », ta session est épuisée : attends l’heure indiquée, puis relance-le : il reprendra où il en était.</p>
+    <div class="stat"><strong>≈ 1 h 15</strong><b>Première vidéo</b><p>Une vidéo courte. Tu peux faire autre chose pendant ce temps.</p></div>
     </div>
-    <div>
-      <p style="margin-top:0;font:500 12.5px var(--mono);color:var(--ink3)">Les passes d'une vidéo, dans notre test</p>
-      <div class="passes" style="margin-top:14px">
-        <span>Hooks <em>×8</em></span><span>Textes <em>×5</em></span><span>Spectateur <em>×3</em></span><span>Créatif</span><span>Rendu</span><span>Son</span><span class="on">Critique</span><span>Corrections <em>×3</em></span>
-      </div>
-    </div>
-  </div>
-
   <figure class="app edge">
     <div class="tb"><i></i><i></i><i></i><span class="ttl">Oui Studio</span></div>
     <img src="img/studio.webp" width="1440" height="876" decoding="async" loading="lazy" alt="L\'interface d\'Oui Studio : à gauche ton agent et ses étapes, au centre la discussion, à droite tes vidéos">
