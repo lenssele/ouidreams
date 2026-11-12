@@ -372,6 +372,22 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 .pr h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-bottom:24px}
 .pinc{list-style:none;display:grid;gap:18px}.pinc li{display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.35;color:var(--ink)}.pinc .chk{width:24px;height:24px;flex:none;color:var(--g);margin-top:1px}
 @media(max-width:860px){.pcard{grid-template-columns:minmax(0,1fr)}.pl{padding:32px 26px 30px}.pr{padding:30px 26px;border-left:0;border-top:1px solid var(--line)}.pinc li{font-size:17px}.prixh{padding-top:48px}}
+.qs2{display:grid;gap:12px}.qs2>details{padding:0!important;border:0!important}
+.qd{border-radius:18px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .25s}.qd:hover{box-shadow:inset 0 0 0 1px rgba(241,236,228,.2)}.qd[open]{box-shadow:inset 0 0 0 1px var(--gline)}
+.qd summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-size:19px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.qd summary::-webkit-details-marker{display:none}.qd summary::after{content:"+";flex:none;font-size:30px;font-weight:300;line-height:1;color:var(--g);transition:transform .25s var(--ease)}.qd[open] summary::after{transform:rotate(45deg)}
+.qd summary:focus-visible{outline:2px solid var(--g);outline-offset:-2px;border-radius:18px}
+.qa{padding:0 26px 24px;max-width:64ch;font-size:17px;line-height:1.55;color:var(--ink2)}
+.pre .claude.cl2{background:#f3efe6;color:#141413;box-shadow:none;position:relative}
+.cl2 .clh{display:flex;align-items:center;gap:18px}.cl2 .clm{display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:#faf9f5;box-shadow:0 0 0 1px #e4dfd2}.cl2 .clsp{width:36px;height:36px;fill:#d97757}
+.cl2 .clw{display:block;font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:clamp(36px,4vw,50px);font-weight:500;letter-spacing:-.02em;line-height:1;color:#141413}.cl2 .clh small{display:block;margin-top:8px;font-size:15px;color:#6b6a63}
+.cl2 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px}
+.cl2 .plan{padding:20px 18px 18px;border-radius:16px;background:#faf9f5;box-shadow:0 0 0 1px #e4dfd2,0 8px 18px -14px rgba(20,20,19,.35)}
+.cl2 .pn{display:block;font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:26px;font-weight:500;color:#141413}
+.cl2 .pp{margin-top:14px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.cl2 .pp b{font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:36px;font-weight:500;letter-spacing:-.02em;color:#141413}.cl2 .pp i{font-style:normal;font-size:13px;color:#6b6a63}
+.cl2 .pv{margin-top:14px;padding-top:14px;border-top:1px solid #e4dfd2;font-size:14px;line-height:1.35;color:#6b6a63}.cl2 .pv strong{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;color:#c4623f}
+.cl2 .gr{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:15px;color:#6b6a63}.cl2 .gr svg{width:20px;height:20px}
+@media(max-width:767px){.cl2 .plans{grid-template-columns:minmax(0,1fr)}.cl2 .plan{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:16px}.cl2 .pn{grid-row:span 2}.cl2 .pp{margin-top:0}.cl2 .pv{margin:8px 0 0;padding:8px 0 0}}
 </style>
 </head>
 <body>
@@ -463,16 +479,7 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 <section class="sec" id="prerequis"><div class="wrap">
   <div class="tete rv"><h2>Ce qu'il <span class="l">te faut.</span></h2></div>
   <div class="pre rv">
-    <div class="claude">
-      <p class="lab"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></svg></span>Un abonnement Claude</p>
-      <p class="gros"><span>Claude Pro</span><span class="l">ou plus.</span></p>
-      <ul class="offres" aria-label="Abonnements Claude et nombre de vidéos par jour">
-        <li><span><b>Pro</b><small>20&nbsp;$ par mois</small></span><span class="nb"><strong>2 à 3</strong><span>vidéos par jour, environ</span></span></li>
-        <li><span><b>Max</b><small>100&nbsp;$ par mois</small></span><span class="nb"><strong>plus de 10</strong><span>vidéos par jour</span></span></li>
-        <li><span><b>Max</b><small>200&nbsp;$ par mois</small></span><span class="nb"><strong>plus de 20</strong><span>vidéos par jour</span></span></li>
-      </ul>
-      <p class="gratuit"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M165.66,101.66,139.31,128l26.35,26.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span><s>Gratuit</s> : ne suffit pas.</span></p>
-    </div>
+    <div class="claude cl2"><div class="clh"><span class="clm"><svg class="clsp" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></span><div><b class="clw">Claude</b><small>Ton agent travaille avec ton propre abonnement.</small></div></div><div class="plans" role="list"><div class="plan" role="listitem"><span class="pn">Pro</span><p class="pp"><b>20 $</b><i>par mois</i></p><p class="pv"><strong>2 à 3</strong>vidéos par jour</p></div><div class="plan" role="listitem"><span class="pn">Max</span><p class="pp"><b>100 $</b><i>par mois</i></p><p class="pv"><strong>plus de 10</strong>vidéos par jour</p></div><div class="plan" role="listitem"><span class="pn">Max</span><p class="pp"><b>200 $</b><i>par mois</i></p><p class="pv"><strong>plus de 20</strong>vidéos par jour</p></div></div><p class="gr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Le plan gratuit ne suffit pas.</p></div>
     <div>
       <p class="lab"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232,168h-8V72a24,24,0,0,0-24-24H56A24,24,0,0,0,32,72v96H24a8,8,0,0,0-8,8v16a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V176A8,8,0,0,0,232,168ZM48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8v96H48ZM224,192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8v-8H224ZM152,88a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,88Z"/></svg></span>Un ordinateur</p>
       <div class="os">
@@ -485,13 +492,13 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 
 <section class="sec" id="faq"><div class="wrap faq">
   <h2 class="rv">Questions.</h2>
-  <dl class="qs rv">
-    <div><dt>Faut-il savoir coder ?</dt><dd>Non. Tu écris ce que tu veux, ton agent s'occupe du reste.</dd></div>
-    <div><dt>Combien de temps prend une vidéo ?</dt><dd>Environ 40 minutes sur notre test, sur un serveur. Sur un portable, compte plus. Tu peux faire autre chose pendant ce temps.</dd></div>
-    <div><dt>Quelles vidéos peut-il faire ?</dt><dd>Des vidéos de motion design verticales, pour Reels, TikTok et Shorts : des idées pour ton compte, ou des publicités à partir du lien d'un site.</dd></div>
-    <div><dt>Les vidéos m'appartiennent ?</dt><dd>Oui. Tu peux les publier et les vendre, selon les licences des sons, musiques et polices que tu y mets.</dd></div>
-    <div><dt>Y a-t-il d'autres frais ?</dt><dd>Ton abonnement Claude. La voix ElevenLabs est facultative : une voix gratuite est incluse.</dd></div>
-  <div><dt>Et si la vidéo ne me plaît pas ?</dt><dd>Tu valides la proposition avant le lancement, et tu peux demander une correction ou relancer.</dd></div><div><dt>Ce sera à mes couleurs, avec mon logo ?</dt><dd>Oui. Donne ton lien ou ton logo, ton agent reprend ta charte.</dd></div><div><dt>Je n'ai pas de compte Claude.</dt><dd>Claude est l'IA qui fait travailler ton agent. Tu crées le compte en quelques minutes, et l'installation te guide.</dd></div><div><dt>Mon ordinateur est-il assez puissant ?</dt><dd>Windows 10 ou 11, 8 Go de mémoire minimum (16 Go conseillés). Sur un portable, compte plus de temps.</dd></div><div><dt>Qui m'aide si je bloque ?</dt><dd>Écris à <a href="mailto:contact@ouidreams.fr" style="color:var(--g);text-decoration:underline;text-underline-offset:3px">contact@ouidreams.fr</a>.</dd></div><div><dt>Je suis sur Mac.</dt><dd>Le Mac arrive bientôt.</dd></div></dl>
+  <div class="qs qs2 rv">
+    <details class="qd"><summary>Faut-il savoir coder ?</summary><div class="qa">Non. Tu écris ce que tu veux, ton agent s'occupe du reste.</div></details>
+    <details class="qd"><summary>Combien de temps prend une vidéo ?</summary><div class="qa">Environ 40 minutes sur notre test, sur un serveur. Sur un portable, compte plus. Tu peux faire autre chose pendant ce temps.</div></details>
+    <details class="qd"><summary>Quelles vidéos peut-il faire ?</summary><div class="qa">Des vidéos de motion design verticales, pour Reels, TikTok et Shorts : des idées pour ton compte, ou des publicités à partir du lien d'un site.</div></details>
+    <details class="qd"><summary>Les vidéos m'appartiennent ?</summary><div class="qa">Oui. Tu peux les publier et les vendre, selon les licences des sons, musiques et polices que tu y mets.</div></details>
+    <details class="qd"><summary>Y a-t-il d'autres frais ?</summary><div class="qa">Ton abonnement Claude. La voix ElevenLabs est facultative : une voix gratuite est incluse.</div></details>
+  <details class="qd"><summary>Et si la vidéo ne me plaît pas ?</summary><div class="qa">Tu valides la proposition avant le lancement, et tu peux demander une correction ou relancer.</div></details><details class="qd"><summary>Ce sera à mes couleurs, avec mon logo ?</summary><div class="qa">Oui. Donne ton lien ou ton logo, ton agent reprend ta charte.</div></details><details class="qd"><summary>Je n'ai pas de compte Claude.</summary><div class="qa">Claude est l'IA qui fait travailler ton agent. Tu crées le compte en quelques minutes, et l'installation te guide.</div></details><details class="qd"><summary>Mon ordinateur est-il assez puissant ?</summary><div class="qa">Windows 10 ou 11, 8 Go de mémoire minimum (16 Go conseillés). Sur un portable, compte plus de temps.</div></details><details class="qd"><summary>Qui m'aide si je bloque ?</summary><div class="qa">Écris à <a href="mailto:contact@ouidreams.fr" style="color:var(--g);text-decoration:underline;text-underline-offset:3px">contact@ouidreams.fr</a>.</div></details><details class="qd"><summary>Je suis sur Mac.</summary><div class="qa">Le Mac arrive bientôt.</div></details></div>
 </div></section>
 
 
