@@ -338,39 +338,38 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   .qs dd{font-size:16.5px}
   footer .liens{margin-left:-12px}
 }
+.qui{display:flex;align-items:center;gap:20px;max-width:640px}.qui img{width:72px;height:72px;border-radius:50%;flex:none;object-fit:cover}.qui p{color:var(--ink2);font-size:17px;line-height:1.5}.qui b{color:var(--ink);font-weight:700}.qui a{color:var(--g);text-decoration:underline;text-underline-offset:3px}
+.logo{display:inline-flex;align-items:center;gap:10px}.logoic{width:28px;height:28px;border-radius:7px;flex:none}.clg{display:inline-block;width:17px;height:17px;vertical-align:-3px;margin-left:4px;fill:#d97757}
+.v1g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center}
+.v1id{display:flex;align-items:center;gap:22px}.v1ic{width:124px;height:124px;flex:none;object-fit:contain}
+.v1g h1{font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.05em;font-weight:800}.v1tag{margin-top:8px;font-size:17px;color:var(--ink2);font-weight:400;letter-spacing:0}
+.v1btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.v1btns .btn{display:inline-flex;align-items:center;gap:10px}.v1btns .btn svg{width:22px;height:22px;flex:none}
+.btn.ghost{background:var(--raise);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.v1l .fine{color:var(--ink3);font-size:15px;margin-top:18px}
+.v1g .shot{margin-top:0}.fenwrap{border-radius:var(--rc);overflow:hidden;background:#111;box-shadow:var(--sh)}.fenwrap video{box-shadow:none!important;border-radius:0!important}
+.fenbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#2a2723;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2)}.fenbar i{width:11px;height:11px;border-radius:50%;background:#5b564f}.fenbar i:nth-child(1){background:#ff6b5f}.fenbar i:nth-child(2){background:#f5bf4f}.fenbar i:nth-child(3){background:#5bc866}.fenbar img{width:20px;height:20px;margin-left:8px;object-fit:contain}
+@media(max-width:900px){.v1g{grid-template-columns:minmax(0,1fr);gap:32px}.v1ic{width:96px;height:96px}}
 </style>
 </head>
 <body>
 
 <header class="nav"><div class="wrap">
-  <a class="logo" href="#haut" aria-label="Oui Studio, haut de page">Oui<span>Studio</span></a>
+  <a class="logo" href="#haut" aria-label="Oui Studio, haut de page"><img class="logoic" src="img/icone-app.png" width="28" height="28" alt="">Oui<span>Studio</span></a>
   <nav class="liens" aria-label="Sections"><a href="#prerequis">Ce qu'il te faut</a><a href="#films">Ses vidéos</a><a href="#contenu">Ce qu'il y a dedans</a><a href="#faq">Questions</a></nav>
   <a class="btn sm" href="#prix" data-cta>Obtenir Oui Studio</a>
 </div></header>
 
 <main id="haut">
 
-<section class="hero"><div class="wrap">
-  <div class="top">
-    <h1><span>Tu décris l'idée.</span><span class="l">Il fabrique la vidéo.</span></h1>
-    <div class="side">
-      <p class="sub">Ton agent écrit, anime, met le son et te rend une vidéo verticale prête à poster.</p>
-      <div class="cta">
-        <a class="btn" href="#prix" data-cta>Obtenir Oui Studio</a>
-        <span class="prix"><s data-ancien>197 €</s><b data-val>97 €</b><small>offre de lancement</small></span>
-      </div>
-    </div>
-  </div>
-  <figure class="shot">
-    <video id="demo" muted loop playsinline preload="metadata" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la galerie de styles, la limite Claude, puis une vidéo fabriquée étape par étape"></video>
+<section class="hero"><div class="wrap"><div class="v1g"><div class="v1l"><div class="v1id"><img class="v1ic" src="img/icone-app.png" width="124" height="124" alt="L'icône d'Oui Studio"><div><h1>Oui Studio</h1><p class="v1tag">Le logiciel qui fabrique tes vidéos.</p></div></div><div class="v1btns"><a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><a class="btn ghost" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg> Obtenir pour Mac</a></div><p class="fine"><span data-val>49 €</span> une fois, et tu branches ton abonnement Claude <svg class="clg" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></p></div><figure class="shot"><div class="fenwrap"><div class="fenbar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="">Oui Studio</div>
+    <video id="demo" muted loop playsinline preload="metadata" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la galerie de styles, la limite Claude, puis une vidéo fabriquée étape par étape"></video></div>
     <figcaption class="demo-bas">
       <div class="demo-btns">
         <button class="btn-l zoomb" type="button" data-zoom><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Agrandir</button>
         <button class="btn-l" id="pause" type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
       </div>
     </figcaption>
-  </figure>
-</div></section>
+  </figure></div></div></section>
 
 <section class="sec" id="video" style="padding-bottom:0"><div class="wrap">
   <div class="tete"><h2>Regarde comment <span class="l">ça marche.</span></h2></div>
@@ -395,7 +394,6 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
       <div class="os">
         <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg><span>Windows <span class="l">10 ou 11</span></span></div>
         <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg><span>macOS <span class="l">13 ou plus</span></span></div>
-        <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M161.22,209.74a4,4,0,0,1-3.31,6.26H98.1a4,4,0,0,1-3.31-6.26,40,40,0,0,1,66.43,0Zm68.93,3.37a8.29,8.29,0,0,1-6.43,2.89H184.56a4,4,0,0,1-3.76-2.65,56,56,0,0,0-105.59,0A4,4,0,0,1,71.45,216H32.23a8.2,8.2,0,0,1-6.42-2.93A8,8,0,0,1,25.75,203c.06-.07,7.64-9.78,15.12-28.72C47.77,156.8,56,127.64,56,88a72,72,0,0,1,144,0c0,39.64,8.23,68.8,15.13,86.28,7.48,18.94,15.06,28.65,15.13,28.74A8,8,0,0,1,230.15,213.11ZM88,100a12,12,0,1,0,12-12A12,12,0,0,0,88,100Zm79.16,32.42a8,8,0,0,0-10.73-3.58L128,143.06,99.58,128.84a8,8,0,0,0-7.15,14.32l32,16a8,8,0,0,0,7.15,0l32-16A8,8,0,0,0,167.16,132.42ZM168,100a12,12,0,1,0-12,12A12,12,0,0,0,168,100Z"/></svg><span>Linux <span class="l">Ubuntu 22.04 ou plus</span></span></div>
       </div>
     </div>
   </div>
@@ -413,15 +411,15 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
     <div class="t t-atelier rv">
       <h3>L'atelier d'origine</h3>
       <ul class="chiffres">
-        <li><b>545</b><span>fichiers de composition vidéo, des scènes réellement animées</span></li>
-        <li><b>150</b><span>dossiers où ces compositions sont rangées</span></li>
-        <li><b>269</b><span>scripts d'outils : son, alignement des mots, vérification image par image</span></li>
-        <li><b><small>plus de</small>2&nbsp;100</b><span>sons pour les bruitages et les ambiances</span></li>
-        <li><b>38</b><span>musiques pour habiller les films</span></li>
+        <li><b>27</b><span>modèles de scènes animées, prêts à l'emploi</span></li>
+        <li><b>41</b><span>styles visuels au choix, avec leur aperçu</span></li>
+        <li><b>57</b><span>scripts d'outils : son, alignement des mots, vérification image par image</span></li>
+        <li><b><small>plus de</small>1&nbsp;500</b><span>sons pour les bruitages et les ambiances, téléchargés à l'installation</span></li>
+        <li><b>36</b><span>musiques libres de droits, téléchargées à l'installation</span></li>
       </ul>
     </div>
     <div class="t t-agents rv">
-      <div><img src="img/agent.webp" width="760" height="760" loading="lazy" decoding="async" alt="L'agent du studio, un petit robot vert laqué qui lève les bras"><h3>Un agent qui dirige 7&nbsp;sous‑agents.</h3></div>
+      <div><img src="img/agent.webp" width="760" height="760" loading="lazy" decoding="async" alt="L'agent du studio, un petit robot vert laqué qui lève les bras"><h3>Un agent qui dirige 10&nbsp;sous‑agents.</h3></div>
       <ul class="sous">
         <li><b>Créatif</b></li>
         <li><b>Critique</b></li>
@@ -430,11 +428,14 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
         <li><b>Rendu</b></li>
         <li><b>Son</b></li>
         <li><b>Écoute</b></li>
+        <li><b>Plume</b></li>
+        <li><b>Scripte</b></li>
+        <li><b>Analyse</b></li>
       </ul>
     </div>
-    <div class="t t-skills rv"><span class="n">29</span><h3>skills de métier</h3><p>Hooks viraux, sous-titres animés, typographie, direction artistique, publicités.</p></div>
+    <div class="t t-skills rv"><span class="n">31</span><h3>skills de métier</h3><p>Hooks viraux, sous-titres animés, typographie, direction artistique, publicités.</p></div>
     <div class="t t-son rv">
-      <span class="n">8</span>
+      <span class="n">14</span>
       <div><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M56,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM88,24a8,8,0,0,0-8,8V224a8,8,0,0,0,16,0V32A8,8,0,0,0,88,24Zm40,32a8,8,0,0,0-8,8V192a8,8,0,0,0,16,0V64A8,8,0,0,0,128,56Zm40,32a8,8,0,0,0-8,8v64a8,8,0,0,0,16,0V96A8,8,0,0,0,168,88Zm40-16a8,8,0,0,0-8,8v96a8,8,0,0,0,16,0V80A8,8,0,0,0,208,72Z"/></svg></span><h3>outils d'analyse</h3><p>Ils vérifient le niveau sonore, la synchro sur les mots, le cadrage et les images noires ou figées. Effets et musiques gratuits sont téléchargés pour toi.</p></div>
     </div>
     <div class="t t-regles rv"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg></span><h3>Les règles d'une vidéo qui marche</h3><p>Façonnées par des retours réels.</p>
@@ -449,7 +450,7 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   <h2 class="rv">Trois gestes, <span class="l">et la vidéo est prête.</span></h2>
   <div class="gestes">
     <ol>
-      <li class="rv"><b aria-hidden="true">1</b><div><h3>Installe</h3><p>Tu décompresses le kit et tu double-cliques. Tout se met en place tout seul, tu te connectes à Claude une seule fois.</p></div></li>
+      <li class="rv"><b aria-hidden="true">1</b><div><h3>Installe</h3><p>Tu télécharges Oui Studio et tu l'ouvres. L'installation est guidée (5 à 20 minutes), tu te connectes à Claude une seule fois.</p></div></li>
       <li class="rv"><b aria-hidden="true">2</b><div><h3>Décris</h3><p>Une idée, un lien de site ou quelques consignes, écrites ou dictées. Ton agent te propose la vidéo.</p></div></li>
       <li class="rv"><b aria-hidden="true">3</b><div><h3>Valide</h3><p>Tu lances quand la proposition te va, tu suis chaque étape, puis tu télécharges la vidéo.</p></div></li>
     </ol>
@@ -463,15 +464,14 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 <section class="sec" id="prix" style="padding-top:96px"><div class="wrap">
   <div class="offre rv">
     <img class="bot" src="img/agent.webp" width="760" height="760" loading="lazy" decoding="async" alt="">
-    <span class="pill">Offre de lancement</span>
     <h2>Un seul paiement. <span class="l">Tout est dedans.</span></h2>
-    <p class="montant"><s data-ancien>197 €</s><b data-val>97 €</b></p>
+    <p class="montant"><b data-val>49 €</b></p>
     <p class="u">Paiement unique.</p>
     <a class="btn" href="#prix" data-cta>Obtenir Oui Studio</a>
-    <p class="fin">Le prix passera à 197 € à la fin de l'offre.</p>
+    <p class="fin">Tu branches ton propre abonnement Claude (Pro ou plus). <svg class="clg" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></p>
     <ul class="inclus">
-      <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>L'agent, ses 7 sous-agents et l'interface</li>
-      <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>29 skills de métier et 8 outils d'analyse</li>
+      <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>L'agent, ses 10 sous-agents et l'interface</li>
+      <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>31 skills de métier et 14 outils d'analyse</li>
       <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Sons, musiques et voix gratuite</li>
       <li><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Les mises à jour, en un clic</li>
     </ul>
@@ -489,9 +489,13 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   </dl>
 </div></section>
 
+<section class="sec auteur" id="auteur" style="padding-top:0"><div class="wrap">
+  <div class="qui rv"><img src="/oui-avatar.png" width="72" height="72" loading="lazy" decoding="async" alt="Oui Dreams"><p><b>Oui Studio est fait par Oui Dreams.</b> Une question ? Écris à <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a> ou sur Instagram <a href="https://www.instagram.com/oui.dreams" target="_blank" rel="noopener">@oui.dreams</a>.</p></div>
+</div></section>
+
 </main>
 
-<footer><div class="wrap"><span><b>Oui Dreams</b> · Oui Studio</span><div class="liens"><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div></div></footer>
+<footer><div class="wrap"><span><b>Oui Dreams</b> · Oui Studio</span><div class="liens"><a href="mailto:contact@ouidreams.fr">Contact</a><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div></div></footer>
 
 <dialog id="loupe" aria-label="Interface du studio agrandie">
   <div class="defile"><video id="demoGrand" muted loop playsinline preload="none" width="1440" height="876" aria-label="Démonstration du studio, en grand"></video></div>
@@ -509,7 +513,7 @@ var FILMS=[
   {fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
 ];
 /* Prix et lien de paiement : à remplir ici. Lien vide = les boutons mènent à la section prix. */
-var CONFIG={prix:"97 €",ancien:"197 €",lien:"https://buy.stripe.com/00w00iesPeHe84M2nHgIo0d",video:"presentation.mp4",affiche:"presentation.webp"};
+var CONFIG={prix:"49 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",video:"presentation.mp4",affiche:"presentation.webp"};
 (function(){
   var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   d.querySelectorAll("[data-val]").forEach(function(e){e.textContent=CONFIG.prix});
