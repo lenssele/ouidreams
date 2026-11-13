@@ -98,10 +98,9 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .zoomb{display:none}
 .shot::after{content:"";position:absolute;left:8%;right:8%;bottom:-40px;height:120px;background:radial-gradient(closest-side,rgba(161,209,147,.10),transparent);z-index:-1;pointer-events:none}
 
-/* présentation vidéo (affichée seulement si le fichier existe) */
-#video{display:none}
-#video.on{display:block}
-#video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--rc);box-shadow:var(--sh);background:var(--deep)}
+/* présentation vidéo du héros (affichée seulement si CONFIG.video est déclaré et que le fichier existe) */
+.pres video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--rc);box-shadow:var(--sh);background:var(--deep)}
+[hidden]{display:none!important}
 
 /* trois gestes */
 .gestes{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center;margin-top:72px}
@@ -127,6 +126,46 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .son[aria-pressed="true"]:hover{background:var(--g2)}
 .son[aria-pressed="true"] .on{display:block}.son[aria-pressed="true"] .off{display:none}
 .legende{margin-top:40px;font-size:15px;color:var(--ink3)}
+.rang.c6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.cat+.cat{margin-top:56px}
+.cat-h{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px 32px;margin-bottom:24px}
+.cat-h h3{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.035em;line-height:1.05}
+.cat-h p{margin-top:8px;font-size:15.5px;color:var(--ink3)}
+.cat-pro{padding:40px;border-radius:var(--rc);background:radial-gradient(60% 70% at 100% 0%,rgba(161,209,147,.12),transparent 70%),var(--deep);box-shadow:inset 0 0 0 1px var(--gline)}
+.vente{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:16px;color:var(--ink2)}
+.vente b{font-size:clamp(28px,2.8vw,36px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--g)}
+.vnote{margin-top:24px;font-size:14px;color:var(--ink3)}
+
+/* tu demandes, il fabrique */
+.fab{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:56px;align-items:center}
+.fab .shot{margin-top:0}
+.etapes{list-style:none;display:grid;gap:4px;counter-reset:e}
+.etapes li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:14px;padding:12px 0;align-items:start}
+.etapes li+li{border-top:1px solid var(--line)}
+.etapes .chk{width:24px;height:24px;color:var(--g)}
+.etapes b{display:block;font-size:17px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.etapes span{display:block;margin-top:2px;font-size:15px;line-height:1.45;color:var(--ink2)}
+
+/* frise de prix */
+.frise{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:8px;width:100%;margin-top:40px}
+.fc{position:relative;padding:18px 16px 16px;border-radius:16px;background:rgba(241,236,228,.04);box-shadow:inset 0 0 0 1px var(--line)}
+.fc.on{background:var(--gsoft);box-shadow:inset 0 0 0 1.5px var(--g)}
+.fl{display:block;font-size:13.5px;font-weight:600;color:var(--ink3)}
+.fc.on .fl{color:var(--g)}
+.fnow{position:absolute;top:-11px;left:14px;display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--g);color:var(--gink);font:700 12px/1 var(--f);font-style:normal}
+.fc b{display:block;margin-top:10px;font-size:clamp(32px,3.2vw,42px);font-weight:800;letter-spacing:-.055em;line-height:1;color:var(--ink);white-space:nowrap}
+.fc.fcd b{font-size:clamp(17px,1.6vw,20px);font-weight:700;letter-spacing:0;word-spacing:.08em;line-height:1.1;margin-top:18px;font-variant-numeric:tabular-nums}
+.fc small{display:block;margin-top:8px;font-size:13px;color:var(--ink2)}
+
+/* barre d'achat fixe, visible seulement entre le héros et la section prix */
+.barre{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(27,25,23,.92);-webkit-backdrop-filter:saturate(1.3) blur(16px);backdrop-filter:saturate(1.3) blur(16px);box-shadow:0 -1px 0 var(--line);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateY(110%);visibility:hidden;transition:transform .4s var(--ease),visibility 0s .4s}
+.barre.on{transform:none;visibility:visible;transition:transform .4s var(--ease),visibility 0s}
+.barre .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.barre p{display:flex;flex-wrap:wrap;gap:2px .3em;font-size:14.5px;line-height:1.35;color:var(--ink2)}
+.barre p b{color:var(--ink);font-weight:700}
+.barre p span:not([hidden])+span::before{content:"· "}
+@media(max-width:560px){.barre p span:not([hidden])+span::before{content:none}}
+footer{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))!important}
 
 /* l'atelier d'origine */
 .chiffres{display:grid;grid-template-columns:1fr 1fr;gap:18px 48px;list-style:none;padding:32px 0 0;box-shadow:inset 0 1px 0 var(--line)}
@@ -281,6 +320,10 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   .rang{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 calc(-1*var(--gut));padding:0 var(--gut) 8px;scrollbar-width:none}
   .rang::-webkit-scrollbar{display:none}
   .rang li{flex:none;width:30%;scroll-snap-align:start}
+  .fab{grid-template-columns:minmax(0,1fr);gap:40px}
+  .cat-pro{padding:32px 0}
+  .cat-pro .cat-h,.cat-pro .vnote{padding:0 32px}
+  .cat-pro .rang{margin:0;padding:0 32px 8px}
   .t-son{grid-template-columns:minmax(0,1fr);gap:24px}
   .pre{grid-template-columns:minmax(0,1fr)}
   .pre .claude{box-shadow:inset 0 -1px 0 var(--line)}
@@ -316,6 +359,12 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
   
   .t-maj{align-items:flex-start;flex-direction:column;gap:16px}
   .rang li{width:62%;scroll-snap-align:center}
+  .rang.c6 li{width:46%}
+  .cat-pro{padding:28px 0}
+  .cat-pro .cat-h,.cat-pro .vnote{padding:0 20px}
+  .cat-pro .rang{padding:0 20px 8px}
+  .cat-h{margin-bottom:20px}
+  .cat+.cat{margin-top:40px}
   .chiffres{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:28px}
   .t-atelier{padding:32px 24px}
   .t .reprise{font-size:16.5px}
@@ -361,7 +410,7 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 .pdate{margin-top:14px;font-size:13px;color:var(--ink3)}
 @media(max-width:767px){.pcartes{grid-template-columns:minmax(0,1fr)}.pn{gap:26px}.preuve{padding-top:40px}}
 .prixh{padding:72px 0 8px}
-.pcard{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);border-radius:28px;background:linear-gradient(160deg,#262420,#161412);box-shadow:inset 0 0 0 1px var(--line),0 60px 120px -60px rgba(0,0,0,.95);overflow:hidden}
+.pcard{position:relative;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);border-radius:28px;background:linear-gradient(160deg,#262420,#161412);box-shadow:inset 0 0 0 1px var(--line),0 60px 120px -60px rgba(0,0,0,.95);overflow:hidden}
 .pgl{position:absolute;left:-12%;top:-45%;width:75%;height:130%;background:radial-gradient(closest-side,rgba(161,209,147,.17),transparent);pointer-events:none}
 .pl{position:relative;padding:48px 48px 44px;display:flex;flex-direction:column;align-items:flex-start}
 .ptag{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:600;color:var(--ink2)}.ptag img{width:44px;height:44px;border-radius:12px}
@@ -372,6 +421,7 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 .pr h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-bottom:24px}
 .pinc{list-style:none;display:grid;gap:18px}.pinc li{display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.35;color:var(--ink)}.pinc .chk{width:24px;height:24px;flex:none;color:var(--g);margin-top:1px}
 @media(max-width:860px){.pcard{grid-template-columns:minmax(0,1fr)}.pl{padding:32px 26px 30px}.pr{padding:30px 26px;border-left:0;border-top:1px solid var(--line)}.pinc li{font-size:17px}.prixh{padding-top:48px}}
+@media(max-width:560px){.frise{grid-template-columns:minmax(0,1fr);gap:14px}.fc{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:center;padding:16px}.fc b,.fc.fcd b{grid-column:2;grid-row:1/3;margin:0;text-align:right}.fc small{margin-top:2px}.fc.fcd b{font-size:18px}.barre .wrap{gap:12px;min-height:68px}.barre p{flex-direction:column;font-size:13.5px}.barre .btn{flex:none}}
 .qs2{display:grid;gap:12px}.qs2>details{padding:0!important;border:0!important}
 .qd{border-radius:18px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .25s}.qd:hover{box-shadow:inset 0 0 0 1px rgba(241,236,228,.2)}.qd[open]{box-shadow:inset 0 0 0 1px var(--gline)}
 .qd summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-size:19px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
@@ -395,17 +445,17 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 <header class="nav"><div class="wrap">
   <a class="logo" href="#haut" aria-label="Oui Studio, par Oui Dreams, haut de page"><span class="by">by</span><img class="logowm" src="img/logo-by.png" width="151" height="34" alt="Oui Dreams"></a>
   <nav class="liens" aria-label="Sections"><a href="#films">Ses vidéos</a><a href="#contenu">Ce qu'il y a dedans</a><a href="#prerequis">Ce qu'il te faut</a><a href="#faq">Questions</a></nav>
-  <a class="btn sm" href="#prix" data-cta>Obtenir Oui Studio</a>
+  <a class="btn sm" href="#prix" data-cta>Obtenir pour Windows</a>
 </div></header>
 
 <main id="haut">
 
-<section class="hero"><div class="wrap"><div class="v1g"><div class="v1l"><div class="v1id"><img class="v1ic" src="img/icone-app.png" width="124" height="124" alt="L'icône d'Oui Studio"><div><h1>Oui Studio</h1><p class="v1tag">Décris ton idée. Ton agent de motion design fabrique tes vidéos.</p></div></div><div class="v1btns"><a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg> Mac : bientôt</span></div><p class="v1sub"><b>Texte, animation, sons, voix</b> : une vidéo prête à poster sur TikTok, Reels et Shorts.</p></div><div class="v1r"><figure class="shot"><div class="fenwrap"><div class="fenbar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="">Oui Studio</div>
+<section class="hero"><div class="wrap"><div class="v1g"><div class="v1l"><div class="v1id"><img class="v1ic" src="img/icone-app.png" width="124" height="124" alt="L'icône d'Oui Studio"><div><h1>Oui Studio</h1><p class="v1tag">Décris ton idée. Ton agent de motion design fabrique tes vidéos.</p></div></div><div class="v1btns"><a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg> Mac : bientôt</span></div><p class="v1sub"><b>Texte, animation, sons, voix</b> : une vidéo prête à poster sur TikTok, Reels et Shorts.</p></div><div class="v1r"><figure class="pres" id="video" hidden><video id="vid" controls playsinline preload="none" width="1280" height="720" aria-label="Présentation d'Oui Studio en vidéo"></video></figure><figure class="shot" id="heroDemo" data-demo><div class="fenwrap"><div class="fenbar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="">Oui Studio</div>
     <video id="demo" muted loop playsinline preload="metadata" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la galerie de styles, la limite Claude, puis une vidéo fabriquée étape par étape"></video></div>
     <figcaption class="demo-bas">
       <div class="demo-btns">
         <button class="btn-l zoomb" type="button" data-zoom><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Agrandir</button>
-        <button class="btn-l" id="pause" type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
+        <button class="btn-l" data-pause type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
       </div>
     </figcaption>
   </figure></div></div></div></section>
@@ -414,11 +464,41 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 
 <section class="sec" id="films"><div class="wrap">
   <div class="tete rv"><h2>Ce qu'il <span class="l">fabrique.</span></h2></div>
-  <ul class="rang" id="rang" aria-label="Démos fabriquées par l'agent"></ul>
+  <div class="cat rv">
+    <div class="cat-h"><div><h3>Vidéos pour ton contenu</h3><p>TikTok, Reels et Shorts. Des films du compte Oui Dreams.</p></div></div>
+    <ul class="rang c6" id="rang-contenu" aria-label="Vidéos de contenu fabriquées par l'agent"></ul>
+  </div>
+  <div class="cat cat-pro rv">
+    <div class="cat-h"><div><h3>Vidéos pour les entreprises</h3><p>Des publicités faites à partir du lien d'un site.</p></div><p class="vente"><span class="pill">À vendre</span><b>397 €</b><span>la vidéo aux entreprises</span></p></div>
+    <ul class="rang" id="rang-pro" aria-label="Publicités fabriquées par l'agent pour des entreprises"></ul>
+    <p class="vnote">Prix de vente indicatif : c'est toi qui fixes ton tarif.</p>
+  </div>
   <template id="tpl-son"><span class="off"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L73.55,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V175.09l42.08,46.29a8,8,0,1,0,11.84-10.76ZM32,96H72v64H32ZM144,207.64,88,164.09V95.89l56,61.6Zm42-63.77a24,24,0,0,0,0-31.72,8,8,0,1,1,12-10.57,40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.59Zm-80.16-76a8,8,0,0,1,1.4-11.23l39.85-31A8,8,0,0,1,160,32v74.83a8,8,0,0,1-16,0V48.36l-26.94,21A8,8,0,0,1,105.84,67.91ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span><span class="on"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span></template>
 </div></section>
 
-<section class="prixh" id="prix"><div class="wrap"><div class="pcard rv"><div class="pgl" aria-hidden="true"></div><div class="pl"><div class="ptag"><img src="img/icone-app.png" width="44" height="44" alt=""><span>Oui Studio pour Windows</span></div><p class="pmont"><b data-val>49 €</b><span>une fois</span></p><a class="btn pbtn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><p class="pnote">Branche ton propre abonnement Claude (Pro ou plus) <svg class="clg" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></p><p class="pmac">Mac : bientôt</p></div><div class="pr"><h3>Tout est dedans</h3><ul class="pinc"><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Le logiciel Oui Studio et son installateur Windows</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ton agent et ses 10 sous-agents</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>41 styles au choix</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Des sons, des musiques et une voix gratuite</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Les mises à jour en un clic</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ta clé de licence personnelle</span></li></ul></div></div></div></section>
+<section class="sec" id="fabrique"><div class="wrap">
+  <div class="tete rv"><h2>Tu demandes. <span class="l">Il fabrique.</span></h2><p>Tu écris ou tu dictes ta demande. Ton agent enchaîne les étapes et tu les suis en direct.</p></div>
+  <div class="fab rv">
+    <figure class="shot" data-demo><div class="fenwrap"><div class="fenbar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="">Oui Studio</div>
+      <video muted loop playsinline preload="none" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la proposition de l'agent, puis une vidéo fabriquée étape par étape"></video></div>
+      <figcaption class="demo-bas"><div class="demo-btns">
+        <button class="btn-l zoomb" type="button" data-zoom><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Agrandir</button>
+        <button class="btn-l" data-pause type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
+      </div></figcaption>
+    </figure>
+    <ol class="etapes" aria-label="Ce que fait ton agent">
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Recherche</b><span>Pour une pub, il lit d'abord le site de l'entreprise.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Script</b><span>L'accroche et le texte, relus par son critique.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Voix</b><span>Ta voix ElevenLabs ou la voix gratuite, si tu en veux une.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Sous-titres</b><span>Mot par mot, calés sur la voix.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Scènes</b><span>Les animations, à ta charte.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Son</b><span>Bruitages et musique, sous la voix.</span></div></li>
+      <li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><div><b>Rendu</b><span>La vidéo verticale, vérifiée avant de te la rendre.</span></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="prixh" id="prix"><div class="wrap"><div class="pcard rv"><div class="pgl" aria-hidden="true"></div><div class="pl"><div class="ptag"><img src="img/icone-app.png" width="44" height="44" alt=""><span>Oui Studio pour Windows</span></div><ol class="frise" aria-label="Prix de lancement puis prix final"><li class="fc on" data-lance><em class="fnow">Maintenant</em><span class="fl">Lancement</span><b data-val>49 €</b><small>paiement unique</small></li><li class="fc fcd" data-lance><span class="fl">Plus que</span><b data-compte>15 j 00 h 00 m</b><small>avant le prix final</small></li><li class="fc" data-final-case><span class="fl">Prix final</span><b data-final>97 €</b><small data-quand>dans 15 jours</small></li></ol><a class="btn pbtn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><p class="pnote">Branche ton propre abonnement Claude (Pro ou plus) <svg class="clg" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></p><p class="pmac">Mac : bientôt</p></div><div class="pr"><h3>Tout est dedans</h3><ul class="pinc"><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Le logiciel Oui Studio et son installateur Windows</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ton agent et ses 10 sous-agents</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>41 styles au choix</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Des sons, des musiques et une voix gratuite</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Les mises à jour en un clic</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ta clé de licence personnelle</span></li></ul></div></div></div></section>
 
 <section class="sec" id="fonctionnement"><div class="wrap">
   <h2 class="rv">Trois gestes, <span class="l">et la vidéo est prête.</span></h2>
@@ -509,6 +589,8 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 
 </main>
 
+<aside class="barre" id="barre" aria-label="Obtenir Oui Studio"><div class="wrap"><p><span data-lance>Avant le prix final · plus que <b data-court>15 j</b></span><span><b data-val>49 €</b> paiement unique</span></p><a class="btn sm" href="#prix" data-cta>Obtenir pour Windows</a></div></aside>
+
 <footer><div class="wrap"><span><b>Oui Dreams</b> · Oui Studio</span><div class="liens"><a href="mailto:contact@ouidreams.fr">Contact</a><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div></div></footer>
 
 <dialog id="loupe" aria-label="Interface du studio agrandie">
@@ -518,68 +600,121 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 
 <script>
 /* Films de la section « Ce qu'il fabrique ». Ajouter ou changer un film = modifier une ligne.
-   fichier : vidéo MP4 verticale (720x1280 conseillé), affiche : image WebP de la même taille. */
+   cat : "contenu" (TikTok, Reels, Shorts) ou "pro" (entreprises). son:true = le fichier a une piste son (bouton son affiché).
+   fichier : MP4 vertical, affiche : WebP de la même taille. Contenu : boucles muettes 540x960 tirées des films Oui Dreams. */
 var FILMS=[
-  {fichier:"v/arrangeuse.mp4",affiche:"v/arrangeuse.webp",titre:"Démo boutique",duree:"25 s"},
-  {fichier:"v/apolline.mp4",affiche:"v/apolline.webp",titre:"Démo motifs",duree:"24 s"},
-  {fichier:"v/parebrise.mp4",affiche:"v/parebrise.webp",titre:"Démo pare-brise",duree:"14 s"},
-  {fichier:"v/clearglass.mp4",affiche:"v/clearglass.webp",titre:"Promo pare-brise",duree:"20 s"},
-  {fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
+  {cat:"contenu",fichier:"v/ombre-du-monstre.mp4",affiche:"v/ombre-du-monstre.webp",titre:"L'ombre du monstre",duree:"Film de 10 s"},
+  {cat:"contenu",fichier:"v/remonte-la-file.mp4",affiche:"v/remonte-la-file.webp",titre:"Remonte la file",duree:"Extrait, film de 30 s"},
+  {cat:"contenu",fichier:"v/cage-ouverte.mp4",affiche:"v/cage-ouverte.webp",titre:"La cage ouverte",duree:"Extrait, film de 21 s"},
+  {cat:"contenu",fichier:"v/spectateur.mp4",affiche:"v/spectateur.webp",titre:"Le spectateur",duree:"Extrait, film de 18 s"},
+  {cat:"contenu",fichier:"v/dominos.mp4",affiche:"v/dominos.webp",titre:"Les dominos",duree:"Film de 9 s"},
+  {cat:"contenu",fichier:"v/lanterne.mp4",affiche:"v/lanterne.webp",titre:"La lanterne",duree:"Extrait, film de 21 s"},
+  {cat:"pro",son:true,fichier:"v/arrangeuse.mp4",affiche:"v/arrangeuse.webp",titre:"Démo boutique",duree:"25 s"},
+  {cat:"pro",son:true,fichier:"v/apolline.mp4",affiche:"v/apolline.webp",titre:"Démo motifs",duree:"24 s"},
+  {cat:"pro",son:true,fichier:"v/parebrise.mp4",affiche:"v/parebrise.webp",titre:"Démo pare-brise",duree:"14 s"},
+  {cat:"pro",son:true,fichier:"v/clearglass.mp4",affiche:"v/clearglass.webp",titre:"Promo pare-brise",duree:"20 s"},
+  {cat:"pro",son:true,fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
 ];
-/* Prix et lien de paiement : à remplir ici. Lien vide = les boutons mènent à la section prix. */
-var CONFIG={prix:"49 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",video:"",affiche:""};
+/* Prix, lien de paiement et présentation : à remplir ici. Lien vide = les boutons mènent à la section prix.
+   COMPTE À REBOURS DU PRIX DE LANCEMENT :
+   - gel:true (tant que la page n'est pas publiée) : affiche toujours « 15 j 00 h 00 m », rien ne tourne.
+   - À LA PUBLICATION, pour dégeler : gel:false et fin = date de fin en ISO avec le fuseau, par exemple
+     fin:"2026-12-01T23:59:00+01:00" (publication + 15 jours). Le compte à rebours tourne alors vers cette date.
+     À zéro, la page affiche le prix final (prixFinal) et masque la case lancement et le compte à rebours.
+     Crée AVANT cette date un lien Stripe à 97 € et mets-le dans lienFinal : sinon les boutons garderaient le lien à 49 €.
+   - gel:false avec fin vide ou invalide = comme gel:true (sécurité).
+   PRÉSENTATION DU HÉROS : video = chemin du MP4 final (ex. "presentation.mp4"), affiche = son image WebP.
+   Vide = le héros montre la démo du studio. Ne pas y mettre l'ancien presentation.mp4 (vieux diaporama de formation). */
+var CONFIG={prix:"49 €",prixFinal:"97 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",lienFinal:"",gel:true,fin:"",video:"",affiche:""};
 (function(){
-  var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  d.querySelectorAll("[data-val]").forEach(function(e){e.textContent=CONFIG.prix});
-  d.querySelectorAll("[data-ancien]").forEach(function(e){e.textContent=CONFIG.ancien});
-  if(CONFIG.lien)d.querySelectorAll("[data-cta]").forEach(function(a){a.href=CONFIG.lien;a.target="_blank";a.rel="noopener"});
-  /* présentation de Hugo : la section n'apparaît que si le fichier existe */
-  if(CONFIG.video)fetch(CONFIG.video,{method:"HEAD"}).then(function(r){if(r.ok&&/video/.test(r.headers.get("content-type")||"")){var v=d.getElementById("vid");if(CONFIG.affiche)v.poster=CONFIG.affiche;v.src=CONFIG.video;d.getElementById("video").classList.add("on")}}).catch(function(){});
-  var IO="IntersectionObserver" in window;
-
-  /* films : muets en boucle seulement à l'écran ; un geste active ou coupe le son, un seul film sonore à la fois */
-  var rang=d.getElementById("rang"),icones=d.getElementById("tpl-son").innerHTML,clips=[];
-  function etat(v,son){v._b.setAttribute("aria-pressed",son?"true":"false");v._b.setAttribute("aria-label",(son?"Couper le son : ":"Activer le son : ")+v._t)}
+  var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,IO="IntersectionObserver" in window;
+  function tous(s,f){d.querySelectorAll(s).forEach(f)}
   function joue(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+
+  /* prix : lancement puis prix final */
+  var J=864e5,finT=Date.parse(CONFIG.fin),gele=CONFIG.gel||isNaN(finT),lien=CONFIG.lien,tic;
+  function deux(n){return(n<10?"0":"")+n}
+  function liens(){if(lien)tous("[data-cta]",function(a){a.href=lien;a.target="_blank";a.rel="noopener"})}
+  function prix(){
+    var reste=gele?15*J:finT-Date.now();
+    if(reste<=0){
+      tous("[data-lance]",function(e){e.hidden=true});
+      tous("[data-final-case]",function(e){e.classList.add("on")});
+      tous("[data-quand]",function(e){e.textContent="paiement unique"});
+      tous("[data-val]",function(e){e.textContent=CONFIG.prixFinal});
+      if(CONFIG.lienFinal)lien=CONFIG.lienFinal;
+      return false;
+    }
+    var j=Math.floor(reste/J),h=Math.floor(reste%J/36e5),m=Math.floor(reste%36e5/6e4),jr=Math.ceil(reste/J);
+    tous("[data-val]",function(e){e.textContent=CONFIG.prix});
+    tous("[data-compte]",function(e){e.textContent=j+" j "+deux(h)+" h "+deux(m)+" m"});
+    tous("[data-court]",function(e){e.textContent=j?j+" j":h+" h "+deux(m)+" m"});
+    tous("[data-quand]",function(e){e.textContent="dans "+jr+(jr>1?" jours":" jour")});
+    return true;
+  }
+  tous("[data-final]",function(e){e.textContent=CONFIG.prixFinal});
+  if(prix()&&!gele)tic=setInterval(function(){if(!prix()){clearInterval(tic);liens()}},3e4);
+  liens();
+
+  /* barre d'achat : visible quand les boutons du héros et la section prix sont hors de l'écran */
+  var barre=d.getElementById("barre"),vu=[true,false];
+  if(IO)[d.querySelector(".v1btns"),d.getElementById("prix")].forEach(function(e,i){new IntersectionObserver(function(l){vu[i]=l[l.length-1].isIntersecting;barre.classList.toggle("on",!vu[0]&&!vu[1])}).observe(e)});
+
+  /* films : muets en boucle seulement à l'écran, chargés un par un ; un geste active ou coupe le son, un seul film sonore à la fois */
+  var icones=d.getElementById("tpl-son").innerHTML,clips=[],file=[],occupe=false;
+  function etat(v,son){if(!v._b)return;v._b.setAttribute("aria-pressed",son?"true":"false");v._b.setAttribute("aria-label",(son?"Couper le son : ":"Activer le son : ")+v._t)}
   function geste(v){
+    if(!v._son){if(v.paused)joue(v);else v.pause();return}
     var son=v.muted||v.paused;
     clips.forEach(function(o){if(o!==v&&!o.muted){o.muted=true;etat(o,false);if(reduce)o.pause()}});
     if(son){v.muted=false;joue(v)}else{v.muted=true;if(reduce)v.pause()}
     etat(v,son);
   }
+  /* file de chargement : une vidéo à la fois tant qu'elle n'a pas démarré (2,5 s au plus chacune) */
+  function pousse(){
+    if(occupe)return;var v=file.shift();if(!v)return;
+    if(!v._vu){pousse();return}
+    occupe=true;var fait=false,fin=function(){if(fait)return;fait=true;v._pret=true;occupe=false;pousse()};
+    v.addEventListener("playing",fin,{once:true});setTimeout(fin,2500);joue(v);
+  }
   FILMS.forEach(function(f){
-    var li=d.createElement("li"),fig=d.createElement("figure"),v=d.createElement("video"),cap=d.createElement("figcaption"),txt=d.createElement("span"),b=d.createElement("b"),sm=d.createElement("small"),bt=d.createElement("button");
+    var li=d.createElement("li"),fig=d.createElement("figure"),v=d.createElement("video"),cap=d.createElement("figcaption"),txt=d.createElement("span"),b=d.createElement("b"),sm=d.createElement("small");
     v.muted=true;v.loop=true;v.playsInline=true;v.preload="none";v.poster=f.affiche;v.src=f.fichier;v.width=720;v.height=1280;
     v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("aria-label","Film : "+f.titre);
-    b.textContent=f.titre;sm.textContent=f.duree;txt.appendChild(b);txt.appendChild(sm);
-    bt.type="button";bt.className="son";bt.innerHTML=icones;
-    v._b=bt;v._t=f.titre;etat(v,false);
-    v.addEventListener("click",function(){geste(v)});bt.addEventListener("click",function(){geste(v)});
-    cap.appendChild(txt);cap.appendChild(bt);fig.appendChild(v);fig.appendChild(cap);li.appendChild(fig);rang.appendChild(li);clips.push(v);
+    b.textContent=f.titre;sm.textContent=f.duree;txt.appendChild(b);txt.appendChild(sm);cap.appendChild(txt);
+    v._t=f.titre;v._son=!!f.son;
+    if(f.son){var bt=d.createElement("button");bt.type="button";bt.className="son";bt.innerHTML=icones;v._b=bt;etat(v,false);bt.addEventListener("click",function(){geste(v)});cap.appendChild(bt)}
+    v.addEventListener("click",function(){geste(v)});
+    fig.appendChild(v);fig.appendChild(cap);li.appendChild(fig);d.getElementById(f.cat==="pro"?"rang-pro":"rang-contenu").appendChild(li);clips.push(v);
   });
   if(!reduce&&IO){
-    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var v=x.target;if(x.isIntersecting)joue(v);else{v.pause();if(!v.muted){v.muted=true;etat(v,false)}}})},{threshold:.4});
+    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var v=x.target;v._vu=x.isIntersecting;if(x.isIntersecting){if(v._pret)joue(v);else{file.push(v);pousse()}}else{v.pause();if(!v.muted){v.muted=true;etat(v,false)}}})},{threshold:.5});
     clips.forEach(function(v){vo.observe(v)});
   }
 
-  /* le studio filmé : muet, en boucle, seulement à l'écran ; bouton pause ; mouvement réduit = affiche fixe et lecture au bouton */
-  var demo=d.getElementById("demo"),pb=d.getElementById("pause"),tel=matchMedia("(max-width:767px)").matches,stop=reduce;
-  demo.poster=tel?"v/studio-tel.webp":"v/studio.webp";demo.src=tel?"v/studio-tel.mp4":"v/studio.mp4";
-  function majPause(){var arr=demo.paused;pb.setAttribute("aria-pressed",arr?"true":"false");pb.setAttribute("aria-label",arr?"Lire la démonstration":"Mettre la démonstration en pause");pb.querySelector(".lib").textContent=arr?"Lecture":"Pause"}
-  demo.addEventListener("play",majPause);demo.addEventListener("pause",majPause);majPause();
-  pb.addEventListener("click",function(){if(demo.paused){stop=false;joue(demo)}else{stop=true;demo.pause()}});
-  if(!reduce&&IO)new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&!stop)joue(demo);else if(!x.isIntersecting)demo.pause()})},{threshold:.25}).observe(demo);
-  /* agrandir (téléphone) : la version ordinateur, en grand */
-  var dlg=d.getElementById("loupe"),grand=d.getElementById("demoGrand");
-  d.querySelector("[data-zoom]").addEventListener("click",function(){if(!dlg.showModal)return;demo.pause();if(!grand.src)grand.src="v/studio.mp4";grand.poster="v/studio.webp";dlg.showModal();if(!reduce)joue(grand)});
+  /* le studio filmé (héros + « Tu demandes. Il fabrique. ») : muet, en boucle, seulement à l'écran ; bouton pause ; mouvement réduit = affiche fixe et lecture au bouton */
+  var tel=matchMedia("(max-width:767px)").matches,dlg=d.getElementById("loupe"),grand=d.getElementById("demoGrand"),courant=null;
+  tous("[data-demo]",function(fig){
+    var v=fig.querySelector("video"),pb=fig.querySelector("[data-pause]"),st={stop:reduce};
+    v.poster=tel?"v/studio-tel.webp":"v/studio.webp";v.src=tel?"v/studio-tel.mp4":"v/studio.mp4";
+    function maj(){var arr=v.paused;pb.setAttribute("aria-pressed",arr?"true":"false");pb.setAttribute("aria-label",arr?"Lire la démonstration":"Mettre la démonstration en pause");pb.querySelector(".lib").textContent=arr?"Lecture":"Pause"}
+    v.addEventListener("play",maj);v.addEventListener("pause",maj);maj();
+    pb.addEventListener("click",function(){if(v.paused){st.stop=false;joue(v)}else{st.stop=true;v.pause()}});
+    if(!reduce&&IO)new IntersectionObserver(function(l){l.forEach(function(x){if(fig.hidden)return;if(x.isIntersecting&&!st.stop)joue(v);else if(!x.isIntersecting)v.pause()})},{threshold:.25}).observe(v);
+    /* agrandir (téléphone) : la version ordinateur, en grand */
+    fig.querySelector("[data-zoom]").addEventListener("click",function(){if(!dlg.showModal)return;v.pause();courant={v:v,st:st};if(!grand.src)grand.src="v/studio.mp4";grand.poster="v/studio.webp";dlg.showModal();if(!reduce)joue(grand)});
+  });
   d.querySelector("[data-fermer]").addEventListener("click",function(){dlg.close()});
-  dlg.addEventListener("close",function(){grand.pause();if(!stop&&!reduce)joue(demo)});
+  dlg.addEventListener("close",function(){grand.pause();if(courant&&!courant.st.stop&&!reduce)joue(courant.v)});
   dlg.addEventListener("click",function(e){if(e.target===dlg||e.target.classList.contains("defile"))dlg.close()});
+
+  /* présentation du héros : remplace la démo seulement si CONFIG.video est déclaré et que le fichier existe */
+  if(CONFIG.video)fetch(CONFIG.video,{method:"HEAD"}).then(function(r){if(!r.ok||!/video/.test(r.headers.get("content-type")||""))return;var v=d.getElementById("vid"),hd=d.getElementById("heroDemo"),dv=hd.querySelector("video");if(CONFIG.affiche)v.poster=CONFIG.affiche;v.src=CONFIG.video;d.getElementById("video").hidden=false;hd.hidden=true;dv.pause();dv.removeAttribute("src");dv.load()}).catch(function(){});
 
   if(reduce||!IO)return;
   d.documentElement.classList.add("js");
   var io=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -10% 0px"});
-  d.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+  tous(".rv",function(e){io.observe(e)});
 })();
 </script>
 </body>
