@@ -136,6 +136,34 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .vente b{font-size:clamp(28px,2.8vw,36px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--g)}
 .vnote{margin-top:24px;font-size:14px;color:var(--ink3)}
 
+
+/* mur de vidéos (à la MotionLab) : rangées inclinées qui défilent, vidéos muettes lues seulement à l'écran */
+#films{overflow-x:clip}
+.mur{position:relative;margin:28px calc(50% - 50vw) 0;padding:34px 0 40px;overflow:hidden;perspective:1700px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.mur-in{display:grid;gap:18px;transform:rotateX(9deg) rotateZ(-3deg) scale(1.04);transform-origin:50% 40%}
+.piste{display:flex;gap:18px;width:max-content;list-style:none;animation:defile 80s linear infinite}
+.piste.r{animation-direction:reverse;animation-duration:95s}
+.mur:hover .piste,.mur:focus-within .piste{animation-play-state:paused}
+@keyframes defile{to{transform:translateX(-33.3333%)}}
+.carte{position:relative;flex:none;width:clamp(150px,15vw,200px);aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#0b0a09;box-shadow:var(--sh),inset 0 0 0 1px var(--line);cursor:pointer}
+.carte video{display:block;width:100%;height:100%;object-fit:cover}
+.carte .nom{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font-size:13px;font-weight:650;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none}
+.carte .son{position:absolute;top:8px;right:8px;width:34px;height:34px}.carte .son svg{width:16px;height:16px}
+.mur-titre{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px 32px}
+.mur-titre h3{font-size:clamp(26px,2.8vw,38px);letter-spacing:-.04em;line-height:1.05}
+.mur-titre p{margin-top:8px;font-size:16px;color:var(--ink2)}
+.bloc+.bloc{margin-top:96px}
+.vues h3{font-size:clamp(32px,4.6vw,60px);letter-spacing:-.05em;line-height:1.02;max-width:20ch}.vues h3 em{font-style:normal;color:var(--g)}
+.vues p.src{margin-top:14px;font-size:14px;color:var(--ink3)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px;list-style:none}
+.stat{padding:22px 22px 20px;border-radius:20px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line)}
+.stat svg{width:26px;height:26px;color:var(--g);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stat b{display:block;margin-top:16px;font-size:clamp(34px,3.6vw,50px);font-weight:800;letter-spacing:-.055em;line-height:1;color:var(--ink)}
+.stat span{display:block;margin-top:8px;font-size:14.5px;color:var(--ink2)}
+.stat.vedette{background:var(--gsoft);box-shadow:inset 0 0 0 1.5px var(--g)}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.carte{width:140px}.mur-in{transform:rotateX(7deg) rotateZ(-3deg)}}
+@media(prefers-reduced-motion:reduce){.piste{animation:none;overflow-x:auto;width:auto;padding:0 20px}.mur{-webkit-mask-image:none;mask-image:none}.mur-in{transform:none}}
+
 /* tu demandes, il fabrique */
 .fab{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:56px;align-items:center}
 .fab .shot{margin-top:0}
@@ -151,7 +179,8 @@ h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
 .fc{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 18px 20px;border-radius:18px;background:rgba(241,236,228,.04);box-shadow:inset 0 0 0 1px var(--line)}
 .fc.on{background:var(--gsoft);box-shadow:inset 0 0 0 1.5px var(--g)}
 .fl{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink3)}
-.fc.on .fl{color:var(--g)}.fl i{width:7px;height:7px;border-radius:50%;background:var(--g);flex:none}
+.fc.on .fl{color:var(--g);animation:clign 1.6s ease-in-out infinite}.fl i{width:7px;height:7px;border-radius:50%;background:var(--g);flex:none}
+@keyframes clign{0%,100%{opacity:1}50%{opacity:.35}}@media(prefers-reduced-motion:reduce){.fc.on .fl{animation:none}}
 .fc b{display:block;margin-top:12px;font-size:clamp(44px,5vw,64px);font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--ink);white-space:nowrap}
 .fc:not(.on) b{font-size:clamp(32px,3.6vw,44px);color:var(--ink2)}
 .fc small{display:block;margin-top:12px;font-size:14px;line-height:1.35;color:var(--ink2)}.fc small span{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
@@ -465,15 +494,22 @@ footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 <section class="preuve" id="preuve" aria-label="Qui est derrière Oui Studio"><div class="wrap"><p class="pk">Oui Studio créé par <b>Oui Dreams</b></p><div class="pcartes"><a class="pc" href="https://www.instagram.com/oui.dreams" target="_blank" rel="noopener"><div class="pid"><span class="av"><img src="img/pp-instagram.webp" width="52" height="52" alt="" loading="lazy"><i class="stk ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="#fff"/></svg></i></span><div><b>@oui.dreams <svg class="cert" viewBox="0 0 24 24" role="img" aria-label="Compte Instagram certifié"><path fill="#0095f6" d="M12 1.5l2.4 1.7 2.9-.2 1.2 2.7 2.6 1.4-.4 2.9L22.3 12l-1.6 2.4.4 2.9-2.6 1.4-1.2 2.7-2.9-.2L12 22.5l-2.4-1.7-2.9.2-1.2-2.7-2.6-1.4.4-2.9L1.7 12l1.6-2.4-.4-2.9 2.6-1.4 1.2-2.7 2.9.2z"/><path d="M8 12.3l2.6 2.6 5.6-5.6" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><span>Instagram</span></div></div><div class="pn"><div><strong>101 830</strong><small>abonnés</small></div></div></a><a class="pc" href="https://www.tiktok.com/@ouidreams" target="_blank" rel="noopener"><div class="pid"><span class="av"><img src="img/pp-instagram.webp" width="52" height="52" alt="" loading="lazy"><i class="stk tt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></i></span><div><b>@ouidreams</b><span>TikTok</span></div></div><div class="pn"><div><strong>357 500</strong><small>abonnés</small></div><div><strong>3,9 M</strong><small>J'aime</small></div></div></a></div></div></section>
 
 <section class="sec" id="films"><div class="wrap">
-  <div class="tete rv"><h2>Ce qu'il <span class="l">fabrique.</span></h2></div>
-  <div class="cat rv">
-    <div class="cat-h"><div><h3>Vidéos pour ton contenu</h3><p>TikTok, Reels et Shorts. Des films du compte Oui Dreams.</p></div></div>
-    <ul class="rang c6" id="rang-contenu" aria-label="Vidéos de contenu fabriquées par l'agent"></ul>
-  </div>
-  <div class="cat cat-pro rv">
-    <div class="cat-h"><div><h3>Vidéos pour les entreprises</h3><p>Des publicités faites à partir du lien d'un site.</p></div><p class="vente"><span class="pill">À vendre</span><b>397 €</b><span>la vidéo aux entreprises</span></p></div>
-    <ul class="rang" id="rang-pro" aria-label="Publicités fabriquées par l'agent pour des entreprises"></ul>
+  <div class="bloc">
+    <div class="mur-titre rv"><div><h3>Des vidéos pour les entreprises</h3><p>Des publicités faites à partir du lien d'un site. Touche une vidéo pour le son.</p></div><p class="vente"><span class="pill">À vendre</span><b>397 €</b><span>la vidéo aux entreprises</span></p></div>
+    <div class="mur rv" aria-label="Publicités fabriquées par l'agent pour des entreprises"><div class="mur-in"><ul class="piste" id="piste-pro1"></ul><ul class="piste r" id="piste-pro2"></ul></div></div>
     <p class="vnote">Prix de vente indicatif : c'est toi qui fixes ton tarif.</p>
+  </div>
+  <div class="bloc vues">
+    <div class="rv"><h3>10,1 M de vues en 28 jours, <em>avec des vidéos faites comme ça.</em></h3>
+    <p class="src">Statistiques TikTok du compte @ouidreams, du 15 octobre au 11 novembre.</p></div>
+    <ul class="stats rv">
+      <li class="stat vedette"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b>10,1 M</b><span>vues des publications</span></li>
+      <li class="stat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><b>584,8 K</b><span>j'aime</span></li>
+      <li class="stat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><b>3,9 K</b><span>commentaires</span></li>
+      <li class="stat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg><b>50,4 K</b><span>partages</span></li>
+    </ul>
+    <div class="mur-titre rv" style="margin-top:44px"><div><h3>Des vidéos pour ton contenu</h3><p>TikTok, Reels et Shorts. Des films du compte Oui Dreams.</p></div></div>
+    <div class="mur rv" aria-label="Vidéos de contenu fabriquées par l'agent"><div class="mur-in"><ul class="piste" id="piste-contenu"></ul></div></div>
   </div>
   <template id="tpl-son"><span class="off"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L73.55,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V175.09l42.08,46.29a8,8,0,1,0,11.84-10.76ZM32,96H72v64H32ZM144,207.64,88,164.09V95.89l56,61.6Zm42-63.77a24,24,0,0,0,0-31.72,8,8,0,1,1,12-10.57,40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.59Zm-80.16-76a8,8,0,0,1,1.4-11.23l39.85-31A8,8,0,0,1,160,32v74.83a8,8,0,0,1-16,0V48.36l-26.94,21A8,8,0,0,1,105.84,67.91ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span><span class="on"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span></template>
 </div></section>
@@ -611,6 +647,14 @@ var FILMS=[
   {cat:"contenu",fichier:"v/spectateur.mp4",affiche:"v/spectateur.webp",titre:"Le spectateur",duree:"Extrait, film de 18 s"},
   {cat:"contenu",fichier:"v/dominos.mp4",affiche:"v/dominos.webp",titre:"Les dominos",duree:"Film de 9 s"},
   {cat:"contenu",fichier:"v/lanterne.mp4",affiche:"v/lanterne.webp",titre:"La lanterne",duree:"Extrait, film de 21 s"},
+  {cat:"pro",son:true,fichier:"v/spash.mp4",affiche:"v/spash.webp",titre:"Spash"},
+  {cat:"pro",son:true,fichier:"v/amphibee.mp4",affiche:"v/amphibee.webp",titre:"AmphiBee"},
+  {cat:"pro",son:true,fichier:"v/patiscoach.mp4",affiche:"v/patiscoach.webp",titre:"Patiscoach"},
+  {cat:"pro",son:true,fichier:"v/ecole-couture.mp4",affiche:"v/ecole-couture.webp",titre:"École de couture"},
+  {cat:"pro",son:true,fichier:"v/fee-du-tri.mp4",affiche:"v/fee-du-tri.webp",titre:"La fée du tri"},
+  {cat:"pro",son:true,fichier:"v/bypauline.mp4",affiche:"v/bypauline.webp",titre:"By Pauline"},
+  {cat:"pro",son:true,fichier:"v/revision-infirmiere.mp4",affiche:"v/revision-infirmiere.webp",titre:"Révision infirmière"},
+  {cat:"pro",son:true,fichier:"v/vistoria.mp4",affiche:"v/vistoria.webp",titre:"Vistoria"},
   {cat:"pro",son:true,fichier:"v/arrangeuse.mp4",affiche:"v/arrangeuse.webp",titre:"Démo boutique",duree:"25 s"},
   {cat:"pro",son:true,fichier:"v/apolline.mp4",affiche:"v/apolline.webp",titre:"Démo motifs",duree:"24 s"},
   {cat:"pro",son:true,fichier:"v/parebrise.mp4",affiche:"v/parebrise.webp",titre:"Démo pare-brise",duree:"14 s"},
@@ -673,25 +717,25 @@ var CONFIG={prix:"49 €",prixFinal:"97 €",lien:"https://buy.stripe.com/9B67sK
     if(son){v.muted=false;joue(v)}else{v.muted=true;if(reduce)v.pause()}
     etat(v,son);
   }
-  /* file de chargement : une vidéo à la fois tant qu'elle n'a pas démarré (2,5 s au plus chacune) */
-  function pousse(){
-    if(occupe)return;var v=file.shift();if(!v)return;
-    if(!v._vu){pousse();return}
-    occupe=true;var fait=false,fin=function(){if(fait)return;fait=true;v._pret=true;occupe=false;pousse()};
-    v.addEventListener("playing",fin,{once:true});setTimeout(fin,2500);joue(v);
+  /* mur : 3 copies de chaque rangée pour un défilement sans coupure ; 6 vidéos jouent au plus en même temps */
+  var enLecture=[];
+  function demarre(v){if(enLecture.indexOf(v)<0)enLecture.push(v);while(enLecture.length>6){var o=enLecture.shift();o.pause()}joue(v)}
+  function carte(f,copie){
+    var li=d.createElement("li"),v=d.createElement("video"),nom=d.createElement("span");
+    li.className="carte";v.muted=true;v.loop=true;v.playsInline=true;v.preload="none";v.poster=f.affiche;v.src=f.fichier;v.width=540;v.height=960;
+    v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("aria-label","Film : "+f.titre);v._t=f.titre;v._son=!!f.son&&!copie;
+    nom.className="nom";nom.textContent=f.titre;li.appendChild(v);li.appendChild(nom);
+    if(copie)li.setAttribute("aria-hidden","true");
+    else if(f.son){var bt=d.createElement("button");bt.type="button";bt.className="son";bt.innerHTML=icones;v._b=bt;etat(v,false);bt.addEventListener("click",function(e){e.stopPropagation();geste(v)});li.appendChild(bt)}
+    li.addEventListener("click",function(){geste(v)});
+    clips.push(v);return li;
   }
-  FILMS.forEach(function(f){
-    var li=d.createElement("li"),fig=d.createElement("figure"),v=d.createElement("video"),cap=d.createElement("figcaption"),txt=d.createElement("span"),b=d.createElement("b"),sm=d.createElement("small");
-    v.muted=true;v.loop=true;v.playsInline=true;v.preload="none";v.poster=f.affiche;v.src=f.fichier;v.width=720;v.height=1280;
-    v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("aria-label","Film : "+f.titre);
-    b.textContent=f.titre;sm.textContent=f.duree;txt.appendChild(b);txt.appendChild(sm);cap.appendChild(txt);
-    v._t=f.titre;v._son=!!f.son;
-    if(f.son){var bt=d.createElement("button");bt.type="button";bt.className="son";bt.innerHTML=icones;v._b=bt;etat(v,false);bt.addEventListener("click",function(){geste(v)});cap.appendChild(bt)}
-    v.addEventListener("click",function(){geste(v)});
-    fig.appendChild(v);fig.appendChild(cap);li.appendChild(fig);d.getElementById(f.cat==="pro"?"rang-pro":"rang-contenu").appendChild(li);clips.push(v);
-  });
+  function piste(id,liste){var ul=d.getElementById(id);for(var k=0;k<3;k++)liste.forEach(function(f){ul.appendChild(carte(f,k>0))})}
+  var pro=FILMS.filter(function(f){return f.cat==="pro"}),mid=Math.ceil(pro.length/2);
+  piste("piste-pro1",pro.slice(0,mid));piste("piste-pro2",pro.slice(mid));
+  piste("piste-contenu",FILMS.filter(function(f){return f.cat!=="pro"}));
   if(!reduce&&IO){
-    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var v=x.target;v._vu=x.isIntersecting;if(x.isIntersecting){if(v._pret)joue(v);else{file.push(v);pousse()}}else{v.pause();if(!v.muted){v.muted=true;etat(v,false)}}})},{threshold:.5});
+    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var v=x.target;if(x.isIntersecting)demarre(v);else{v.pause();var i=enLecture.indexOf(v);if(i>=0)enLecture.splice(i,1);if(!v.muted){v.muted=true;etat(v,false)}}})},{threshold:.6});
     clips.forEach(function(v){vo.observe(v)});
   }
 
