@@ -364,7 +364,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
 .vignette{display:none}
 .signe{align-items:center}.signe img{width:72px;height:72px;object-fit:cover}.signe b{font-size:18px}.signe span{display:block;line-height:1.35}
 .equipe{text-align:center}.equipe img{width:min(70%,240px);margin:0 auto;border-radius:50%;filter:drop-shadow(0 20px 50px rgba(120,210,100,.28))}
-.equipe .chef{margin-top:18px;font-size:19px;font-weight:700;letter-spacing:-.02em}
+.equipe .nb{display:inline-flex;margin-top:20px;padding:9px 20px;border-radius:999px;background:var(--g);color:var(--gink);font-size:15px;font-weight:700}
 .puces{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
 .puces li{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border-radius:999px;background:rgba(21,19,17,.9);box-shadow:inset 0 0 0 1px var(--line2);font-size:13.5px;font-weight:600}
 .puces li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--g)}
@@ -377,6 +377,18 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   .vignette img{width:100%;height:auto}
   body.barre-on .menu .btn{display:none}
 }
+
+/* citation « Pourquoi ce logiciel » */
+.cite{position:relative;max-width:920px;margin:0 auto;padding:60px 56px 48px;border-radius:32px;overflow:hidden;background:radial-gradient(70% 90% at 0% 0%,rgba(120,200,100,.18),transparent 70%),linear-gradient(180deg,#1a1815,#121110);box-shadow:var(--sh)}
+.cite:before{content:"\201C";position:absolute;left:36px;top:-14px;font:800 220px/1 var(--f);color:var(--g);opacity:.2;pointer-events:none}
+.cite .tag{position:relative}
+.cite blockquote{position:relative}
+.cite blockquote p{font-size:clamp(24px,3.1vw,40px);font-weight:700;letter-spacing:-.035em;line-height:1.2}
+.cite blockquote span{color:var(--g)}.cite blockquote b{color:var(--ink)}
+.cite .signe{position:relative;margin-top:40px;display:flex;align-items:center;gap:20px}
+.cite .signe img{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--g)}
+.cite .signe b{font-size:20px}
+@media(max-width:560px){.cite{padding:48px 24px 32px;border-radius:26px}.cite:before{left:18px;font-size:170px}.cite .signe img{width:80px;height:80px}}
 </style>
 </head>
 <body>
@@ -428,7 +440,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
 <!-- 2. MUR : CONTENU -->
 <section id="videos" style="padding-bottom:100px">
   <div class="wrap cen rv"><span class="tag"><i></i>Fait avec Oui Studio</span><h2>Des vidéos qui arrêtent <span class="l2">le scroll.</span></h2>
-  <p class="lede">Les plus vues du compte @ouidreams, faites avec ce système.</p></div>
+  <p class="lede">Faites avec ce système.</p></div>
   <div class="mur" aria-label="Les vidéos les plus vues du compte @ouidreams"><div class="mur-in"><ul class="rang" data-rang="contenu-1" data-sens="1"></ul><ul class="rang" data-rang="contenu-2" data-sens="-1"></ul></div></div>
   <p class="legende wrap">Vues relevées sur TikTok le 13 novembre. Certaines reprennent l'idée d'un autre créateur, refaite dans le style Oui Dreams.</p>
 </section>
@@ -442,7 +454,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <div class="gros">10,1 M</div>
     <p class="gros-l">de vues sur TikTok en 28 jours,<br>avec des vidéos faites comme ça.</p>
     <div class="ligne"><a class="compteur" href="https://www.tiktok.com/@ouidreams" target="_blank" rel="noopener"><img src="img/pp-instagram.webp" width="30" height="30" alt=""><span>Compte <b>@ouidreams</b></span></a><a class="vignette" href="img/tiktok-stats.webp" target="_blank" rel="noopener" aria-label="Voir la capture de l'analytique TikTok en grand"><img src="img/tiktok-stats.webp" width="640" height="1010" loading="lazy" alt="Analytique TikTok du compte @ouidreams"></a></div>
-    <p class="src">Capture réelle de l'analytique TikTok du compte, sans retouche.</p>
+    
   </div>
   <div class="captures rv">
     <figure class="capture"><img src="img/tiktok-stats.webp" width="640" height="1010" loading="lazy" alt="Analytique TikTok du compte @ouidreams : vues de publication, vues du profil, j'aime, commentaires, partages et courbe des vues"></figure>
@@ -495,21 +507,13 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   
 </div></section>
 
-<!-- 6. POURQUOI JE L'AI CONSTRUIT -->
-<section><div class="wrap moi">
-  <div class="rv">
+<!-- 6. POURQUOI JE L'AI CONSTRUIT : une seule citation -->
+<section><div class="wrap">
+  <figure class="cite rv">
     <span class="tag"><i></i>Pourquoi ce logiciel</span>
-    <p class="citation">«&nbsp;Je ne voulais pas faire une bonne vidéo. <span>Je voulais en faire de bonnes tous les jours.&nbsp;»</span></p>
-    <p class="t">Alors j'ai construit un agent qui écrit, anime, sonorise et vérifie mes vidéos. <b>Oui Studio, c'est lui</b>, installé sur ton ordinateur.</p>
-    <div class="signe"><img src="img/hugo.webp" width="72" height="72" alt="Hugo Lancel" loading="lazy"><div><b>Hugo Lancel</b><span>Créateur d'Oui Dreams</span><span>Fondateur d'Oui Studio</span></div></div>
-  </div>
-  <div class="ecran rv">
-    <div class="fenetre">
-      <div class="tb" aria-hidden="true"><img src="img/icone-app.png" width="18" height="18" alt=""><span>Oui Studio</span></div>
-      <img src="img/discussion.webp" width="1060" height="880" loading="lazy" alt="La discussion avec l'agent dans Oui Studio : il propose une vidéo, tu la lances d'un clic">
-    </div>
-    
-  </div>
+    <blockquote><p>Je ne voulais pas faire une bonne vidéo. <span>Je voulais en faire de bonnes tous les jours.</span> Alors j'ai construit un agent qui écrit, anime, sonorise et vérifie mes vidéos. <b>Oui Studio, c'est lui</b>, installé sur ton ordinateur.</p></blockquote>
+    <figcaption class="signe"><img src="img/hugo.webp" width="96" height="96" alt="Hugo Lancel" loading="lazy"><div><b>Hugo Lancel</b><span>Créateur d'Oui Dreams</span><span>Fondateur d'Oui Studio</span></div></figcaption>
+  </figure>
 </div></section>
 
 <div class="sep"></div>
@@ -545,7 +549,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   <div class="rv"><span class="tag"><i></i>Ce qu'il y a dedans</span><h2>Un agent <span class="l2">déjà équipé.</span></h2>
   <p class="lede">Tout ce qu'il faut pour fabriquer, installé avec le logiciel.</p></div>
   <div class="dedans">
-    <div class="equipe rv"><img src="img/agent.webp" width="240" height="240" alt="L'agent d'Oui Studio" loading="lazy"><p class="chef">1 agent, 10 sous-agents</p><ul class="puces"><li>Créatif</li><li>Critique</li><li>Spectateur</li><li>Recherche</li><li>Rendu</li><li>Son</li><li>Écoute</li><li>Plume</li><li>Scripte</li><li>Analyse</li></ul></div>
+    <div class="equipe rv"><img src="img/agent.webp" width="240" height="240" alt="L'agent d'Oui Studio" loading="lazy"><p class="nb">1 agent, 10 sous-agents</p></div>
     <ul class="fiche rv">
       <li><b>27</b><span>modèles de scènes animées</span></li>
       <li><b>41</b><span>styles visuels, avec aperçu</span></li>
