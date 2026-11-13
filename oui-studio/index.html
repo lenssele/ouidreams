@@ -389,6 +389,23 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
 .cite .signe img{width:96px;height:96px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--g)}
 .cite .signe b{font-size:20px}
 @media(max-width:560px){.cite{padding:48px 24px 32px;border-radius:26px}.cite:before{left:18px;font-size:170px}.cite .signe img{width:80px;height:80px}}
+
+/* téléphone : cartes « Pour ton compte » et « Pour une entreprise » sans vides (mise en page naturelle, plus de positions fixes) */
+@media(max-width:860px){
+  .usage,.usage.pro{min-height:0;padding:30px 22px 0}
+  .usage p{max-width:none}
+  .eventail{position:relative;left:auto;bottom:auto;transform:none;width:300px;height:232px;margin:20px auto -36px}
+  .eventail .tel{width:124px}.eventail .tel:nth-child(2){left:86px;width:128px}
+  .usage.pro{display:grid;grid-template-columns:minmax(0,1fr) 112px;column-gap:14px;align-content:start}
+  .usage.pro>.k{grid-column:1/-1;grid-row:1}
+  .usage.pro>h3{grid-column:1/-1;grid-row:2}
+  .usage.pro>p:not(.note){grid-column:1/-1;grid-row:3}
+  .usage.pro>.lien-site{position:static;grid-column:1/-1;grid-row:4;margin-top:18px;height:46px}
+  .usage.pro>.fleche{position:static;grid-column:1/-1;grid-row:5;justify-self:end;margin:8px 52px 0 0}
+  .usage.pro>.ticket{position:static;grid-column:1;grid-row:6;margin-top:10px;align-self:start}
+  .usage.pro>.note{position:static;grid-column:1;grid-row:7;max-width:none;margin:10px 0 24px}
+  .usage.pro>.pub-tel{position:relative;right:auto;bottom:auto;grid-column:2;grid-row:6 / span 2;align-self:end;width:112px;margin:0 0 -48px;transform:rotate(6deg)}
+}
 </style>
 </head>
 <body>
@@ -484,7 +501,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
         <div class="lien-site" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>https://le-site-de-ton-client.fr</span><b>Envoyer</b></div>
         <svg class="fleche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
         <div class="tel pub-tel" aria-hidden="true"><video muted loop playsinline preload="none" poster="v/vistoria.webp" data-src="v/vistoria.mp4"></video></div>
-        <div class="ticket"><div class="tl"><b>Tu la vends à l'entreprise</b>prix de vente indicatif, par vidéo</div><div class="tr">397&nbsp;€</div></div>
+        <div class="ticket"><div class="tl"><b>Tu la vends</b>prix indicatif, par vidéo</div><div class="tr">397&nbsp;€</div></div>
         <p class="note">Tu fixes ton tarif. Aucun revenu n'est garanti.</p>
       </article>
     </div>
