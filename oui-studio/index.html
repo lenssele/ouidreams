@@ -356,6 +356,27 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   .besoin div{width:100%;padding:12px 4px}.besoin div+div{box-shadow:inset 0 1px 0 var(--line)}
   .barre{padding:6px 6px 6px 16px;gap:10px}.barre p{font-size:12.5px}.barre .pl{display:none}.barre p b{font-size:14px}.barre .btn{padding:0 14px;font-size:14px}
 }
+
+/* retouches du 13/11 : abonnement Claude, vignette de preuve, signature, équipe fixe, barre unique */
+.claude-note{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px auto 0;max-width:520px;font-size:15px;line-height:1.4;color:var(--ink2);text-align:left}
+.claude-note svg{flex:none;width:22px;height:22px}.claude-note b{color:var(--ink)}
+.ligne{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px}.ligne .compteur{margin-top:0}
+.vignette{display:none}
+.signe{align-items:center}.signe img{width:72px;height:72px;object-fit:cover}.signe b{font-size:18px}.signe span{display:block;line-height:1.35}
+.equipe{text-align:center}.equipe img{width:min(70%,240px);margin:0 auto;border-radius:50%;filter:drop-shadow(0 20px 50px rgba(120,210,100,.28))}
+.equipe .chef{margin-top:18px;font-size:19px;font-weight:700;letter-spacing:-.02em}
+.puces{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.puces li{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border-radius:999px;background:rgba(21,19,17,.9);box-shadow:inset 0 0 0 1px var(--line2);font-size:13.5px;font-weight:600}
+.puces li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--g)}
+.usage.pro{min-height:590px}
+@media(max-width:560px){.usage.pro{min-height:600px}}
+@media(max-width:860px){
+  .captures{display:none}
+  .ligne{flex-wrap:nowrap;justify-content:space-between}
+  .vignette{display:block;flex:none;width:64px;border-radius:12px;overflow:hidden;box-shadow:0 0 0 3px #0a0a0a,0 0 0 4px rgba(244,239,231,.18);transform:rotate(3deg)}
+  .vignette img{width:100%;height:auto}
+  body.barre-on .menu .btn{display:none}
+}
 </style>
 </head>
 <body>
@@ -380,6 +401,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208 136h-80a8 8 0 0 0-8 8v57.45a8 8 0 0 0 6.57 7.88l80 14.54A8 8 0 0 0 216 216v-72a8 8 0 0 0-8-8ZM96 136H32a8 8 0 0 0-8 8v40a8 8 0 0 0 6.57 7.87l64 11.64A8 8 0 0 0 104 195.64V144a8 8 0 0 0-8-8Zm117.13-102.14a8 8 0 0 0-6.56-1.73l-80 14.55A8 8 0 0 0 120 54.55V112a8 8 0 0 0 8 8h80a8 8 0 0 0 8-8V40a8 8 0 0 0-2.87-6.14ZM101.13 54.22a8 8 0 0 0-6.56-1.73l-64 11.64A8 8 0 0 0 24 72v40a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8V60.36a8 8 0 0 0-2.87-6.14Z"/></svg>Obtenir pour Windows</a>
     <span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M223.3 169.59a8 8 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13 71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57 125 125 0 0 0 17.82-24.6c7-12.83 6.12-14.83 5.09-17.24ZM128 40a32 32 0 0 1 32-32 8 8 0 0 1 0 16 16 16 0 0 0-16 16 8 8 0 0 1-16 0Z"/></svg>Mac : bientôt</span>
   </div>
+  <p class="claude-note"><svg viewBox="0 0 24 24" fill="#d97757" aria-hidden="true"><g id="clx"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2"/></g><use href="#clx" transform="rotate(45 12 12)"/><use href="#clx" transform="rotate(90 12 12)"/><use href="#clx" transform="rotate(135 12 12)"/><use href="#clx" transform="rotate(180 12 12)"/><use href="#clx" transform="rotate(225 12 12)"/><use href="#clx" transform="rotate(270 12 12)"/><use href="#clx" transform="rotate(315 12 12)"/></svg><span><b>Branche ton abonnement Claude</b> (Pro ou plus) : c'est lui qui fait travailler ton agent.</span></p>
 
   <div class="scene">
     <div class="fenetre">
@@ -419,7 +441,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <span class="tag"><i></i>La preuve</span>
     <div class="gros">10,1 M</div>
     <p class="gros-l">de vues sur TikTok en 28 jours,<br>avec des vidéos faites comme ça.</p>
-    <a class="compteur" href="https://www.tiktok.com/@ouidreams" target="_blank" rel="noopener"><img src="img/pp-instagram.webp" width="30" height="30" alt=""><span>Compte <b>@ouidreams</b></span></a>
+    <div class="ligne"><a class="compteur" href="https://www.tiktok.com/@ouidreams" target="_blank" rel="noopener"><img src="img/pp-instagram.webp" width="30" height="30" alt=""><span>Compte <b>@ouidreams</b></span></a><a class="vignette" href="img/tiktok-stats.webp" target="_blank" rel="noopener" aria-label="Voir la capture de l'analytique TikTok en grand"><img src="img/tiktok-stats.webp" width="640" height="1010" loading="lazy" alt="Analytique TikTok du compte @ouidreams"></a></div>
     <p class="src">Capture réelle de l'analytique TikTok du compte, sans retouche.</p>
   </div>
   <div class="captures rv">
@@ -443,14 +465,14 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
           <div class="tel"><img src="v/c-le-bord.webp" width="540" height="960" alt="" loading="lazy"></div>
         </div>
       </article>
-      <article class="usage rv">
+      <article class="usage pro rv">
         <span class="k">Pour une entreprise</span>
-        <h3>Des pubs à partir d'un lien</h3>
+        <h3>Des pubs à vendre 397&nbsp;€ à l'entreprise</h3>
         <p>Tu colles le lien de son site. Il lit l'offre, reprend le logo et les couleurs, et fabrique la pub.</p>
         <div class="lien-site" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>https://le-site-de-ton-client.fr</span><b>Envoyer</b></div>
         <svg class="fleche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
         <div class="tel pub-tel" aria-hidden="true"><video muted loop playsinline preload="none" poster="v/vistoria.webp" data-src="v/vistoria.mp4"></video></div>
-        <div class="ticket"><div class="tl"><b>Prix de vente indicatif</b>par vidéo, facturée par toi</div><div class="tr">397&nbsp;€</div></div>
+        <div class="ticket"><div class="tl"><b>Tu la vends à l'entreprise</b>prix de vente indicatif, par vidéo</div><div class="tr">397&nbsp;€</div></div>
         <p class="note">Tu fixes ton tarif. Aucun revenu n'est garanti.</p>
       </article>
     </div>
@@ -470,7 +492,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <li><h3>Bientôt</h3><p>Tout le monde s'y met. Se faire voir devient plus dur.</p></li>
     <li><h3>Ensuite</h3><p>Seules les vidéos les mieux faites passent encore.</p></li>
   </ol>
-  <p class="chute rv">Le plus simple pour se faire une place, <em>c'est d'arriver avant les autres.</em></p>
+  
 </div></section>
 
 <!-- 6. POURQUOI JE L'AI CONSTRUIT -->
@@ -479,7 +501,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <span class="tag"><i></i>Pourquoi ce logiciel</span>
     <p class="citation">«&nbsp;Je ne voulais pas faire une bonne vidéo. <span>Je voulais en faire de bonnes tous les jours.&nbsp;»</span></p>
     <p class="t">Alors j'ai construit un agent qui écrit, anime, sonorise et vérifie mes vidéos. <b>Oui Studio, c'est lui</b>, installé sur ton ordinateur.</p>
-    <div class="signe"><img src="img/pp-instagram.webp" width="52" height="52" alt="" loading="lazy"><div><b>Le créateur d'@oui.dreams</b><span>Fondateur d'Oui Studio</span></div></div>
+    <div class="signe"><img src="img/hugo.webp" width="72" height="72" alt="Hugo Lancel" loading="lazy"><div><b>Hugo Lancel</b><span>Créateur d'Oui Dreams</span><span>Fondateur d'Oui Studio</span></div></div>
   </div>
   <div class="ecran rv">
     <div class="fenetre">
@@ -516,19 +538,6 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   </div>
 </div></section>
 
-<!-- 8. TROIS ÉTAPES -->
-<section id="etapes" style="padding-top:40px"><div class="wrap">
-  <div class="cen rv"><h2>Trois étapes. <span class="l2">Zéro montage.</span></h2></div>
-  <ol class="etapes rv">
-    <li><div class="vis" aria-hidden="true"><div class="mini-fen"><div class="tb"><img src="img/icone-app.png" width="14" height="14" alt="">Installation</div><div class="co"><div class="barre-p"><i></i></div><div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Oui Studio est prêt</div></div></div></div>
-      <span class="num">01</span><h3>Installe</h3><p>Un installateur Windows guidé. Tu connectes Claude une seule fois.</p></li>
-    <li><div class="vis" aria-hidden="true"><div class="saisie"><p>Une vidéo sur pourquoi on remet tout au lendemain</p><div><i class="c">Style</i><i>Envoyer →</i></div></div></div>
-      <span class="num">02</span><h3>Décris</h3><p>Une idée, ou le lien d'un site. Tu valides sa proposition avant le lancement.</p></li>
-    <li><div class="vis" aria-hidden="true"><div class="sortie"><div class="tel"><img src="v/c-snooze.webp" width="540" height="960" alt="" loading="lazy"></div><div class="fichier"><b>video.mp4</b>1080×1920<span>● prête à poster</span></div></div></div>
-      <span class="num">03</span><h3>Récupère</h3><p>Script, voix, scènes, sons, vérifications : la vidéo sort finie.</p></li>
-  </ol>
-</div></section>
-
 <div class="sep"></div>
 
 <!-- 9. CE QU'IL Y A DEDANS -->
@@ -536,13 +545,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   <div class="rv"><span class="tag"><i></i>Ce qu'il y a dedans</span><h2>Un agent <span class="l2">déjà équipé.</span></h2>
   <p class="lede">Tout ce qu'il faut pour fabriquer, installé avec le logiciel.</p></div>
   <div class="dedans">
-    <div class="orbite rv" aria-label="Un agent qui dirige 10 sous-agents : Créatif, Critique, Spectateur, Recherche, Rendu, Son, Écoute, Plume, Scripte, Analyse">
-      <div class="robot-v"><video muted loop playsinline preload="none" poster="v/agent.webp" data-src="v/agent.mp4" aria-hidden="true"></video></div>
-      <div class="tour" aria-hidden="true">
-        <span style="--a:-90deg"><i>Créatif</i></span><span style="--a:-54deg"><i>Critique</i></span><span style="--a:-18deg"><i>Spectateur</i></span><span style="--a:18deg"><i>Recherche</i></span><span style="--a:54deg"><i>Rendu</i></span><span style="--a:90deg"><i>Son</i></span><span style="--a:126deg"><i>Écoute</i></span><span style="--a:162deg"><i>Plume</i></span><span style="--a:198deg"><i>Scripte</i></span><span style="--a:234deg"><i>Analyse</i></span>
-      </div>
-      <span class="chef" aria-hidden="true">1 agent, 10 sous-agents</span>
-    </div>
+    <div class="equipe rv"><img src="img/agent.webp" width="240" height="240" alt="L'agent d'Oui Studio" loading="lazy"><p class="chef">1 agent, 10 sous-agents</p><ul class="puces"><li>Créatif</li><li>Critique</li><li>Spectateur</li><li>Recherche</li><li>Rendu</li><li>Son</li><li>Écoute</li><li>Plume</li><li>Scripte</li><li>Analyse</li></ul></div>
     <ul class="fiche rv">
       <li><b>27</b><span>modèles de scènes animées</span></li>
       <li><b>41</b><span>styles visuels, avec aperçu</span></li>
@@ -583,17 +586,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   </div>
 </div></section>
 
-<!-- 11. RÉCAP -->
-<section style="padding-top:20px"><div class="wrap"><div class="recap rv">
-  <h2>Descendu direct <span class="l2">tout en bas ?</span></h2>
-  <ul>
-    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Un logiciel Windows qui fabrique des vidéos verticales animées</li>
-    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Du contenu pour ton compte, ou des pubs à partir d'un lien</li>
-    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Script, voix, animation, sons et contrôle qualité</li>
-    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>Un paiement unique, un accès immédiat</li>
-  </ul>
-  <div><a class="btn" href="#prix" data-cta>Obtenir pour Windows <small data-val>49 €</small></a></div>
-</div></div></section>
+
 
 <!-- 12. QUESTIONS -->
 <section id="faq"><div class="wrap faq">
@@ -691,7 +684,7 @@ var PRO=[
 
   /* barre d'achat : visible dès que le bouton du haut est passé, cachée sur la carte de prix */
   var barre=d.getElementById("barre"),vu=[true,false];
-  if(IO)[d.querySelector(".hero .plus"),d.querySelector(".pcarte")].forEach(function(e,i){new IntersectionObserver(function(l){var x=l[l.length-1];vu[i]=i?x.isIntersecting:(x.isIntersecting||x.boundingClientRect.top>0);barre.classList.toggle("on",!vu[0]&&!vu[1])}).observe(e)});
+  if(IO)[d.querySelector(".hero .plus"),d.querySelector(".pcarte")].forEach(function(e,i){new IntersectionObserver(function(l){var x=l[l.length-1];vu[i]=i?x.isIntersecting:(x.isIntersecting||x.boundingClientRect.top>0);barre.classList.toggle("on",!vu[0]&&!vu[1]);d.body.classList.toggle("barre-on",!vu[0]&&!vu[1])}).observe(e)});
 
   /* emplacements prévus : présentation et 2e capture */
   if(CONFIG.video){var pv=d.getElementById("vpres");pv.dataset.src=CONFIG.video;if(CONFIG.affiche)pv.poster=CONFIG.affiche;d.getElementById("pres").hidden=false}
