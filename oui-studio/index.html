@@ -3,565 +3,583 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Oui Studio : une idée, une vidéo animée, prête à poster</title>
-<meta name="description" content="Oui Studio est un logiciel pour Windows : tu décris ton idée, ton agent écrit, anime, sonorise et vérifie une vidéo verticale prête à poster sur TikTok, Reels et Shorts.">
-<meta property="og:title" content="Oui Studio : une idée, une vidéo animée, prête à poster">
-<meta property="og:description" content="Tu décris ton idée, ton agent fabrique la vidéo. Rien à filmer, rien à monter.">
+<title>Oui Studio : ton studio de motion design</title>
+<meta name="description" content="Tu décris l'idée, ton agent écrit, anime, met le son et te rend une vidéo verticale prête à poster. Windows et Mac.">
+<meta property="og:title" content="Oui Studio : ton studio de motion design">
+<meta property="og:description" content="Tu décris l'idée, ton agent fabrique la vidéo.">
 <meta property="og:image" content="https://ouidreams.fr/og.png">
-<meta name="theme-color" content="#161412">
+<meta name="theme-color" content="#1b1917">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="v/studio.webp" media="(min-width:768px)">
+<link rel="preload" as="image" href="v/studio-tel.webp" media="(max-width:767px)">
 <style>
+/* Oui Studio. Même maison que ouidreams.fr : noir chaud, un seul vert pâle, Geist en contrastes 800 / 300.
+   Système : grille de 8 px ; rayons : conteneurs 20, images 14, éléments interactifs en pastille. */
 @font-face{font-family:Geist;src:url(/fonts/Geist-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
   color-scheme:dark;
-  --bg:#161412;--deep:#100e0d;--card:#1f1c19;--card2:#27231f;
-  --ink:#f3eee6;--ink2:#c2bbb0;--ink3:#8f887e;
-  --line:rgba(243,238,230,.10);--line2:rgba(243,238,230,.18);
-  --g:#a1d193;--g2:#bde3b0;--gink:#10200c;--gsoft:rgba(161,209,147,.11);--gline:rgba(161,209,147,.38);
+  --bg:#1b1917;--deep:#141210;--raise:#22201d;
+  --ink:#f1ece4;--ink2:#bdb6ac;--ink3:#979087;
+  --line:rgba(241,236,228,.10);
+  --g:#a1d193;--g2:#b9e0ad;--gink:#10200c;--gsoft:rgba(161,209,147,.12);--gline:rgba(161,209,147,.32);
+  --rc:20px;--ri:14px;
+  --sh:0 1px 0 rgba(241,236,228,.06) inset,0 0 0 1px rgba(241,236,228,.08),0 40px 80px -32px rgba(10,8,6,.85),0 16px 32px -24px rgba(10,8,6,.7);
   --f:Geist,ui-sans-serif,-apple-system,"Segoe UI",Arial,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-  --sh:0 0 0 1px rgba(243,238,230,.08),0 30px 60px -28px rgba(0,0,0,.8);
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --sec:136px;--gut:32px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--f);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img,video,svg{display:block;max-width:100%}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--f);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:8px}
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 24px}
-section{padding:104px 0}
-h1,h2,h3{font-weight:800;letter-spacing:-.04em;line-height:1.05}
-h2{font-size:clamp(30px,4.2vw,50px);max-width:18ch}
-h2 em,h1 em{font-style:normal;color:var(--g)}
-.lede{margin-top:16px;max-width:52ch;color:var(--ink2);font-size:clamp(16px,1.5vw,19px)}
-.cen{text-align:center}.cen h2,.cen .lede{margin-left:auto;margin-right:auto}
-.eyebrow{display:inline-block;margin-bottom:16px;font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--g)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:var(--g);color:var(--gink);font-weight:700;font-size:17px;transition:transform .2s var(--ease),background-color .2s}
-.btn:hover{background:var(--g2);transform:translateY(-1px)}.btn:active{transform:scale(.98)}
-.btn small{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:rgba(16,32,12,.14);font-size:15px;font-weight:700}
-.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line2)}.btn.ghost:hover{background:rgba(243,238,230,.06)}
-.btn.off{opacity:.5;pointer-events:none}
-.btn.sm{height:44px;padding:0 20px;font-size:15px}
+img{display:block;max-width:100%;height:auto}
+svg{display:block;flex:none}
+ul{list-style:none}
+::selection{background:var(--g);color:var(--gink)}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.wrap{width:100%;max-width:calc(1200px + 2*var(--gut));margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-weight:800;letter-spacing:-.045em;line-height:1;text-wrap:balance}
+.l{font-weight:300;letter-spacing:-.04em;color:var(--ink2)}
+p{color:var(--ink2);text-wrap:pretty}
+h2{font-size:clamp(40px,5vw,72px)}
+h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
+.sec{padding:var(--sec) 0}
 
-/* barre du haut et menu */
-.top{background:var(--deep);box-shadow:inset 0 -1px 0 var(--line);text-align:center;padding:10px 16px;font-size:14px;color:var(--ink2)}
-.top b{color:var(--ink)}.top .pl{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline);color:var(--g);font-weight:600;font-variant-numeric:tabular-nums}
-nav.menu{position:sticky;top:0;z-index:30;background:rgba(22,20,18,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 -1px 0 var(--line)}
-nav.menu .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.logo{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--ink2)}.logo img{height:30px;width:auto}
-.liens{display:flex;gap:28px;font-size:15px;color:var(--ink2)}.liens a:hover{color:var(--ink)}
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;font:650 16px/1 var(--f);letter-spacing:-.01em;white-space:nowrap;cursor:pointer;border:0;background:var(--g);color:var(--gink);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 12px 32px -16px rgba(161,209,147,.5);transition:transform .3s var(--ease),background-color .2s,box-shadow .3s var(--ease)}
+.btn svg{width:18px;height:18px;transition:transform .3s var(--ease)}
+.btn:hover{background:var(--g2);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 16px 40px -16px rgba(161,209,147,.6)}
+.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(0) scale(.98);transition-duration:.08s}
+.btn:focus-visible{outline-offset:4px}
+.btn.sm{height:44px;padding:0 20px;font-size:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 
-/* haut de page */
-.hero{padding:64px 0 24px;text-align:center;position:relative}
-.logos{display:inline-flex;gap:8px;margin-bottom:24px;padding:6px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.logos i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--card2)}.logos svg{width:18px;height:18px}
-h1{font-size:clamp(40px,6.4vw,76px);max-width:14ch;margin:0 auto;letter-spacing:-.05em}
-.hero .lede{margin:22px auto 0;font-size:clamp(17px,1.7vw,20px)}
-.demo{position:relative;width:min(100%,860px);margin:44px auto 0}
-.cadre{position:relative;border-radius:22px;overflow:hidden;background:#0c0a09;box-shadow:var(--sh)}
-.cadre video{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
-.cadre .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#2a2622;font-size:13px;color:var(--ink3)}
-.cadre .bar i{width:10px;height:10px;border-radius:50%;background:#5a554d}
-.pause{position:absolute;right:10px;top:5px;display:inline-flex;align-items:center;gap:8px;height:26px;padding:0 12px;border-radius:999px;background:rgba(16,14,12,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:12.5px;color:var(--ink)}
-.tel{position:absolute;width:118px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:var(--sh);background:#0c0a09}.tel img{width:100%;height:100%;object-fit:cover}
-.tel.a{left:-120px;top:20px;transform:rotate(-7deg)}.tel.b{left:-76px;bottom:-34px;transform:rotate(4deg);width:104px}
-.tel.c{right:-120px;top:48px;transform:rotate(7deg)}.tel.d{right:-72px;bottom:-30px;transform:rotate(-4deg);width:104px}
-.cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:44px}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(27,25,23,.8);-webkit-backdrop-filter:saturate(1.3) blur(16px);backdrop-filter:saturate(1.3) blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:32px;height:64px}
+.logo{display:inline-flex;align-items:center;height:44px;font-weight:800;font-size:19px;letter-spacing:-.045em;border-radius:999px}
+.logo span{font-weight:300;color:var(--ink2);margin-left:.22em}
+.logo{transition:opacity .2s}.logo:hover{opacity:.8}.logo:active{opacity:.65}
+.nav .liens{display:flex;gap:4px;margin-left:auto}
+.nav .liens a{display:inline-flex;align-items:center;height:44px;padding:0 14px;border-radius:999px;font-size:14.5px;font-weight:500;color:var(--ink2);transition:color .2s,background-color .2s}
+.nav .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
+.nav .liens a:active{background:rgba(241,236,228,.1)}
 
-/* frise de prix */
-.frise{list-style:none;display:grid;grid-template-columns:minmax(0,1.3fr) auto minmax(0,1fr);gap:12px;align-items:stretch;width:min(100%,560px);margin:34px auto 0}
-.fc{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 16px 20px;border-radius:18px;background:rgba(243,238,230,.04);box-shadow:inset 0 0 0 1px var(--line)}
-.fc.on{background:var(--gsoft);box-shadow:inset 0 0 0 1.5px var(--g)}
-.fl{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--ink3)}
-.fc.on .fl{color:var(--g);animation:clign 1.6s ease-in-out infinite}.fl i{width:7px;height:7px;border-radius:50%;background:var(--g)}
-@keyframes clign{0%,100%{opacity:1}50%{opacity:.35}}
-.fc b{display:block;margin-top:10px;font-size:clamp(42px,5vw,60px);font-weight:800;letter-spacing:-.06em;line-height:1;white-space:nowrap}
-.fc:not(.on) b{font-size:clamp(30px,3.4vw,40px);color:var(--ink2)}
-.fc small{display:block;margin-top:10px;font-size:14px;line-height:1.35;color:var(--ink2)}.fc small span{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
-.fremise{position:absolute;top:-12px;right:14px;display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--g);color:var(--gink);font:700 12.5px/1 var(--f);font-style:normal}
-.farr{align-self:center;width:22px;height:22px;color:var(--ink3)}
-.plus{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin-top:18px;font-size:14.5px;color:var(--ink2)}.plus span{display:inline-flex;align-items:center;gap:8px}.plus svg{width:18px;height:18px;color:var(--g)}
+/* héro */
+.hero{position:relative;padding:64px 0 0}
+.hero::before{content:"";position:absolute;inset:-64px 0 auto;height:820px;background:radial-gradient(60% 70% at 50% 0%,rgba(255,236,210,.075),transparent 70%);pointer-events:none}
+.hero .top{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:end}
+.hero h1{font-size:clamp(44px,5.3vw,76px);line-height:.98;letter-spacing:-.05em}
+.hero h1 span{display:block}
+.hero .side{padding-bottom:6px}
+.hero .sub{font-size:19px;line-height:1.5;max-width:30ch}
+.cta{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;margin-top:24px}
+.prix{display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap}
+.prix b{font-size:28px;font-weight:800;letter-spacing:-.045em;color:var(--ink)}
+.prix s{font-size:17px;color:var(--ink3);text-decoration-thickness:1.5px}
+.prix small{font-size:13.5px;font-weight:600;color:var(--g)}
+.shot{position:relative;margin-top:56px}
+.shot:focus-visible{outline-offset:6px}
+.shot video{display:block;width:100%;height:auto;aspect-ratio:1440/876;border-radius:var(--rc);box-shadow:var(--sh);background:#161412;object-fit:cover}
+.demo-bas{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.demo-bas p{font-size:15px;line-height:1.5;color:var(--ink2);max-width:72ch}
+.demo-btns{display:flex;gap:8px;flex:none}
+.btn-l{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border:0;border-radius:999px;background:rgba(241,236,228,.06);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);font:600 14.5px/1 var(--f);cursor:pointer;white-space:nowrap;transition:background-color .2s,transform .2s var(--ease)}
+.btn-l svg{width:18px;height:18px;color:var(--g)}
+.btn-l:hover{background:rgba(241,236,228,.12)}
+.btn-l:active{transform:scale(.96)}
+.btn-l .i-lec{display:none}
+.btn-l[aria-pressed="true"] .i-lec{display:block}.btn-l[aria-pressed="true"] .i-pau{display:none}
+.zoomb{display:none}
+.shot::after{content:"";position:absolute;left:8%;right:8%;bottom:-40px;height:120px;background:radial-gradient(closest-side,rgba(161,209,147,.10),transparent);z-index:-1;pointer-events:none}
 
-/* cartes de chiffres */
-.chiffres{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:56px}
-.chiffres li{padding:22px 22px 20px;border-radius:20px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);text-align:left}
-.chiffres svg{width:24px;height:24px;color:var(--g);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.chiffres b{display:block;margin-top:14px;font-size:clamp(32px,3.4vw,44px);font-weight:800;letter-spacing:-.05em;line-height:1}
-.chiffres span{display:block;margin-top:6px;font-size:14.5px;color:var(--ink2)}
-.src{margin-top:14px;font-size:13px;color:var(--ink3)}
+/* présentation vidéo (affichée seulement si le fichier existe) */
+#video{display:none}
+#video.on{display:block}
+#video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--rc);box-shadow:var(--sh);background:var(--deep)}
 
-/* mur de vidéos */
-.mur{position:relative;margin:36px calc(50% - 50vw) 0;padding:30px 0 36px;overflow:hidden;perspective:1600px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.mur-in{display:grid;gap:16px;transform:rotateX(8deg) rotateZ(-3deg) scale(1.04)}
-.piste{display:flex;gap:16px;width:max-content;list-style:none;animation:defile 90s linear infinite}
-.piste.r{animation-direction:reverse;animation-duration:105s}
-.mur:hover .piste{animation-play-state:paused}
-@keyframes defile{to{transform:translateX(-33.3333%)}}
-.carte{position:relative;flex:none;width:clamp(124px,14vw,190px);aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#0c0a09;box-shadow:var(--sh)}
-.carte video{display:block;width:100%;height:100%;object-fit:cover}
-.carte .vues{position:absolute;right:8px;bottom:8px;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:999px;background:rgba(16,14,12,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:13px;font-weight:700;color:#fff}
-.carte .vues svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.carte .nom{position:absolute;left:0;right:0;bottom:0;padding:24px 10px 10px;font-size:12.5px;font-weight:650;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none}
-.legende{margin-top:6px;font-size:13px;color:var(--ink3)}
+/* trois gestes */
+.gestes{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center;margin-top:72px}
+.gestes ol{list-style:none;display:grid;gap:48px}
+.gestes li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px}
+.gestes li b{font-size:56px;font-weight:200;letter-spacing:-.06em;line-height:.85;color:var(--g)}
+.gestes li p{margin-top:8px;max-width:42ch}
+.duo{display:grid;grid-template-columns:minmax(0,1.98fr) minmax(0,1fr);gap:16px;align-items:start}
+.duo img{width:100%;border-radius:var(--ri);box-shadow:var(--sh)}
 
-/* preuve */
-.preuve{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
-.mini{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.mini li{padding:16px 18px;border-radius:16px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.mini b{display:block;font-size:26px;font-weight:800;letter-spacing:-.04em;line-height:1}.mini span{display:block;margin-top:4px;font-size:13.5px;color:var(--ink2)}
-.comptes{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14.5px;color:var(--ink2)}.comptes span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}.comptes b{color:var(--ink)}
-.capture{justify-self:center;width:min(100%,330px);border-radius:28px;overflow:hidden;box-shadow:var(--sh);background:#1c1c1e}.capture img{width:100%;height:auto}
+/* ce qu'il fabrique */
+.rang{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.rang video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:var(--ri);background:#0b0a09;box-shadow:var(--sh);cursor:pointer}
+.rang figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.rang figcaption b{display:block;font-size:15px;font-weight:650;letter-spacing:-.01em;color:var(--ink)}
+.rang figcaption small{display:block;font-size:14px;color:var(--ink3)}
+.son{flex:none;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:999px;background:rgba(241,236,228,.06);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s,transform .2s var(--ease)}
+.son svg{width:20px;height:20px}
+.son .on{display:none}
+.son:hover{background:rgba(241,236,228,.12)}
+.son:active{transform:scale(.92)}
+.son[aria-pressed="true"]{background:var(--g);color:var(--gink);box-shadow:none}
+.son[aria-pressed="true"]:hover{background:var(--g2)}
+.son[aria-pressed="true"] .on{display:block}.son[aria-pressed="true"] .off{display:none}
+.legende{margin-top:40px;font-size:15px;color:var(--ink3)}
 
-/* ruée */
-.rush{background:var(--deep)}
-.temps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:44px}
-.temps li{position:relative;padding:26px 24px;border-radius:20px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.temps li.ici{background:var(--gsoft);box-shadow:inset 0 0 0 1.5px var(--g)}
-.temps h3{font-size:22px;letter-spacing:-.03em}.temps p{margin-top:10px;font-size:15.5px;color:var(--ink2)}
-.temps .tag{position:absolute;top:-12px;left:22px;height:24px;padding:0 10px;display:inline-flex;align-items:center;border-radius:999px;background:var(--g);color:var(--gink);font-size:12.5px;font-weight:700}
-.perdent{list-style:none;display:grid;gap:12px;margin-top:40px;max-width:720px}
-.perdent li{display:flex;gap:14px;align-items:flex-start;color:var(--ink2);font-size:17px}.perdent li:before{content:"✕";flex:none;color:var(--ink3);font-weight:700}
-.fin{margin-top:28px;font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.02em}
+/* l'atelier d'origine */
+.chiffres{display:grid;grid-template-columns:1fr 1fr;gap:18px 48px;list-style:none;padding:32px 0 0;box-shadow:inset 0 1px 0 var(--line)}
+.chiffres li{font-size:clamp(19px,1.7vw,22px);line-height:1.4;color:var(--ink2)}
+.chiffres b{font-size:inherit;font-weight:700;color:var(--g);margin-right:.35em}
+.chiffres b small{font:inherit;font-weight:600;margin-right:.3em}
+.t-atelier{grid-column:1/-1;padding:56px;background:var(--deep)}
+.t-atelier h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.04em;line-height:1.05}
+.t-atelier .intro{margin-top:12px;font-size:17px;max-width:60ch}
+.t-atelier .chiffres{margin-top:40px}
+.t .reprise{margin-top:40px;font-size:17px;line-height:1.55;color:var(--ink);max-width:78ch}
+.reprise b{color:var(--g);font-weight:650}
 
-/* fondateur */
-.moi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:44px;align-items:start;max-width:900px}
-.moi img{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:var(--sh)}
-.moi p{margin-top:16px;color:var(--ink2);font-size:18px;max-width:58ch}.moi p b{color:var(--ink)}
+/* agrandir l'interface */
+dialog{margin:auto;max-width:none;max-height:none;width:100vw;height:100dvh;border:0;padding:0;background:rgba(12,11,10,.96);color:var(--ink)}
+dialog::backdrop{background:rgba(12,11,10,.8)}
+dialog .defile{width:100%;height:100%;overflow:auto;display:grid;place-items:center;padding:72px 16px 24px;overscroll-behavior:contain}
+dialog video{display:block;width:min(1600px,100%);height:auto;border-radius:var(--ri)}
+dialog .fermer{position:fixed;top:12px;right:12px;display:grid;place-items:center;width:48px;height:48px;border-radius:999px;background:rgba(241,236,228,.12);color:var(--ink);border:0;cursor:pointer;transition:background-color .2s}
+dialog .fermer:hover{background:rgba(241,236,228,.2)}
+dialog .fermer svg{width:22px;height:22px}
 
-/* comparaison */
-.vs{margin-top:44px;border-radius:22px;overflow:hidden;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.vs .l{display:grid;grid-template-columns:1fr 1fr}.vs .l+.l{box-shadow:inset 0 1px 0 var(--line)}
-.vs .l>*{padding:18px 24px;font-size:16px}
-.vs .l>:first-child{color:var(--ink3)}.vs .l>:last-child{color:var(--ink);box-shadow:inset 1px 0 0 var(--line);background:rgba(161,209,147,.05)}
-.vs .h>*{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.vs .h>:last-child{color:var(--g)}
+/* bento */
+.tete{max-width:760px;margin-bottom:56px}
+.tete p{margin-top:24px;font-size:19px;max-width:48ch}
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.t{position:relative;overflow:hidden;border-radius:var(--rc);padding:40px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line)}
+.t p{margin-top:12px;font-size:16px;max-width:44ch}
+.n{display:block;font-size:clamp(88px,9vw,136px);font-weight:800;letter-spacing:-.07em;line-height:.8;margin-bottom:24px;font-variant-numeric:tabular-nums}
+.ico{display:grid;place-items:center;width:52px;height:52px;border-radius:999px;background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline);color:var(--g);margin-bottom:24px}
+.ico svg{width:26px;height:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink);background:rgba(241,236,228,.06);box-shadow:inset 0 0 0 1px var(--line)}
+.chips.m span{font-family:var(--mono);font-size:13.5px;color:var(--g);background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline)}
 
-/* deux usages */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
-.duo article{padding:30px;border-radius:22px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.duo h3{font-size:24px;letter-spacing:-.03em}.duo p{margin-top:10px;color:var(--ink2);font-size:16px}
-.vente{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:8px 16px;border-radius:999px;background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline);font-size:15px;color:var(--ink2)}.vente b{font-size:24px;letter-spacing:-.04em;color:var(--g);line-height:1}
-.note{margin-top:10px;font-size:13px;color:var(--ink3)}
+.t-skills{grid-column:span 5;background:linear-gradient(160deg,rgba(161,209,147,.22),rgba(161,209,147,.06) 60%,rgba(161,209,147,.03));box-shadow:inset 0 0 0 1px var(--gline)}
+.t-skills .n{color:var(--g)}
+.t-skills p{color:#c9d6c2}
+.t-agents{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;align-items:center;background:radial-gradient(50% 80% at 18% 40%,rgba(47,179,106,.16),transparent 70%),var(--raise)}
+.t-agents img{width:100%;max-width:220px;margin:0 0 16px;-webkit-mask-image:radial-gradient(closest-side,#000 70%,transparent);mask-image:radial-gradient(closest-side,#000 70%,transparent)}
+.t-agents h3{font-size:clamp(28px,2.8vw,36px);letter-spacing:-.04em;line-height:1.05}
+.sous{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.sous li{padding:10px 18px;border-radius:999px;background:rgba(161,209,147,.10);box-shadow:inset 0 0 0 1px rgba(161,209,147,.28)}
+.sous b{font-size:17px;font-weight:700;letter-spacing:-.02em;color:var(--g)}
+.t-regles{grid-column:span 7}
+.t-voix{grid-column:span 5}
+.t-son{grid-column:span 7;display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:center;background:var(--deep)}
+.t-son .n{margin:0;color:var(--ink)}
+.t-son .ico{margin-bottom:16px}
+.t-maj .ico{margin:0}
+.t-maj p{margin-top:4px}
+.t-maj{grid-column:1/-1;display:flex;align-items:center;gap:24px;padding-top:32px;padding-bottom:32px;background:linear-gradient(200deg,rgba(161,209,147,.10),transparent 60%),var(--raise)}
 
-/* étapes */
-.etapes{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
-.etapes li{padding:28px;border-radius:22px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column}
-.etapes .n{font-size:14px;font-weight:700;color:var(--g)}
-.etapes h3{margin-top:12px;font-size:24px;letter-spacing:-.03em}.etapes p{margin-top:8px;color:var(--ink2);font-size:15.5px;flex:1}
-.etapes code{display:block;margin-top:20px;padding:12px 14px;border-radius:12px;background:var(--deep);box-shadow:inset 0 0 0 1px var(--line);font:500 13.5px/1.4 ui-monospace,Consolas,monospace;color:var(--g2);word-break:break-word}
-
-/* dossier */
-.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
-.bento article{padding:28px;border-radius:22px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.bento .k{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--g)}
-.bento h3{margin-top:12px;font-size:21px;letter-spacing:-.03em;line-height:1.15}.bento p{margin-top:10px;color:var(--ink2);font-size:15.5px}
-.nombres{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
-.nombres li{padding:20px;border-radius:18px;background:var(--card2);box-shadow:inset 0 0 0 1px var(--line)}
-.nombres b{display:block;font-size:36px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--g)}.nombres span{display:block;margin-top:6px;font-size:14px;color:var(--ink2)}
+/* ce qu'il te faut */
+.pre{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);border-radius:var(--rc);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--raise)}
+.pre>div{padding:56px}
+.pre .claude{background:linear-gradient(150deg,rgba(161,209,147,.16),rgba(161,209,147,.04) 70%);box-shadow:inset -1px 0 0 var(--line)}
+.lab{display:flex;align-items:center;gap:16px;font-size:17px;font-weight:600;color:var(--ink)}
+.lab .ico{margin:0}
+.gros{margin-top:40px;color:var(--ink);font-size:clamp(48px,5.6vw,84px);font-weight:800;letter-spacing:-.055em;line-height:.92}
+.gros .l{display:block}
+.offres{margin-top:32px}
+.offres li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:16px 0}
+.offres li+li{border-top:1px solid var(--line)}
+.offres b{display:block;font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.offres small{display:block;margin-top:2px;font-size:15px;color:var(--ink2)}
+.offres .nb{text-align:right}
+.offres strong{display:block;font-size:clamp(26px,2.6vw,34px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--g);white-space:nowrap}
+.offres .nb span{display:block;margin-top:4px;font-size:14px;color:var(--ink2)}
+.gratuit{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:16px;border-top:1px solid var(--line);font-size:15.5px;color:var(--ink3)}
+.gratuit svg{width:20px;height:20px}
+.gratuit s{text-decoration-thickness:1.5px;color:var(--ink2)}
+.pre .note{margin-top:24px;font-size:15.5px;max-width:40ch}
+.os{display:grid;gap:16px;margin-top:40px}
+.os div{display:flex;align-items:center;gap:16px;font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.035em;line-height:1.1}
+.os svg{width:36px;height:36px;color:var(--ink)}
+.os .l{font-weight:300}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.specs b{display:block;color:var(--ink);font-size:clamp(48px,4.6vw,68px);font-weight:800;letter-spacing:-.06em;line-height:.9}
+.specs span{display:block;margin-top:8px;font-size:15px;color:var(--ink2);line-height:1.4}
+.net{color:var(--ink);display:flex;align-items:center;gap:12px;margin-top:40px;font-size:17px;font-weight:600}
+.net svg{width:24px;height:24px;color:var(--g)}
 
 /* prix */
-.prix{background:var(--deep)}
-.pcard{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);margin-top:44px;border-radius:28px;overflow:hidden;background:var(--card);box-shadow:var(--sh)}
-.pcard .l{padding:44px}.pcard .r{padding:44px;background:rgba(255,255,255,.02);box-shadow:inset 1px 0 0 var(--line)}
-.pcard h3{font-size:20px;letter-spacing:-.02em;font-weight:700;display:flex;align-items:center;gap:12px}.pcard h3 img{width:40px;height:40px}
-.pcard .frise{margin:30px 0 0;width:100%}
-.pcard .btn{margin-top:28px;width:100%}
-.pcard .r h4{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);margin-bottom:22px}
-.inclus{list-style:none;display:grid;gap:16px}.inclus li{display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.35}.inclus svg{flex:none;width:22px;height:22px;color:var(--g);margin-top:1px}
-.encore{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
-.encore article{padding:26px 28px;border-radius:20px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.encore h3{font-size:20px;letter-spacing:-.02em}.encore p{margin-top:8px;color:var(--ink2);font-size:15.5px}
-.rassure{margin-top:20px;color:var(--ink2);font-size:16px}
+.offre{position:relative;text-align:center;padding:48px 0 72px;border-radius:var(--rc);background:radial-gradient(60% 55% at 50% 0%,rgba(47,179,106,.18),transparent 70%),var(--deep);box-shadow:inset 0 0 0 1px var(--line)}
+.offre .bot{display:block;width:200px;margin:0 auto 8px;filter:drop-shadow(0 24px 24px rgba(8,6,4,.5))}
+.pill{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline);color:var(--g);font-size:14px;font-weight:650}
+.offre .pill{margin-top:16px}
+.offre h2{margin-top:24px;font-size:clamp(36px,4.4vw,60px)}
+.montant{color:var(--ink);display:flex;align-items:baseline;justify-content:center;gap:20px;margin-top:40px}
+.montant s{font-size:clamp(24px,2.6vw,36px);font-weight:500;color:var(--ink3);text-decoration-thickness:2px}
+.montant b{font-size:clamp(96px,12vw,168px);font-weight:800;letter-spacing:-.07em;line-height:.8}
+.offre .u{margin-top:24px;font-size:17px}
+.offre .btn{margin-top:32px;height:64px;padding:0 36px;font-size:17px}
+.offre .fin{margin-top:16px;font-size:14.5px;color:var(--ink3)}
+.inclus{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:880px;margin:56px auto 0;padding:0 24px}
+.inclus li{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(241,236,228,.05);box-shadow:inset 0 0 0 1px var(--line);font-size:15px;color:var(--ink);text-align:left}
+.inclus svg{width:20px;height:20px;color:var(--g)}
 
-/* récap, faq, appel final */
-.recap ul{list-style:none;display:grid;gap:14px;margin-top:28px;max-width:640px}.recap li{display:flex;gap:12px;font-size:18px}.recap svg{flex:none;width:22px;height:22px;color:var(--g);margin-top:3px}
-.qs{display:grid;gap:10px;margin-top:40px;max-width:820px}
-.qd{border-radius:16px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
-.qd summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-size:17px;font-weight:600;cursor:pointer;list-style:none}
-.qd summary::-webkit-details-marker{display:none}.qd summary:after{content:"+";font-size:24px;font-weight:300;color:var(--g);transition:transform .25s var(--ease)}
-.qd[open] summary:after{transform:rotate(45deg)}.qa{padding:0 24px 22px;color:var(--ink2);font-size:16px}.qa a{color:var(--g);text-decoration:underline;text-underline-offset:3px}
-.final{text-align:center;background:radial-gradient(60% 80% at 50% 0%,rgba(161,209,147,.12),transparent 70%)}
-.final h2{margin:0 auto}.final .lede{margin-left:auto;margin-right:auto}
-footer{padding:44px 0 calc(110px + env(safe-area-inset-bottom,0px));box-shadow:inset 0 1px 0 var(--line);color:var(--ink3);font-size:14px}
-footer .wrap{display:grid;gap:14px}footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}.fliens{display:flex;gap:20px;flex-wrap:wrap}
+/* questions */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
 
-/* barre d'achat fixe */
-.barre{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(22,20,18,.94);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 -1px 0 var(--line);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateY(110%);visibility:hidden;transition:transform .4s var(--ease),visibility 0s .4s}
-.barre.on{transform:none;visibility:visible;transition:transform .4s var(--ease),visibility 0s}
-.barre .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
-.barre p{font-size:14.5px;color:var(--ink2);line-height:1.35}.barre p b{color:var(--ink)}
+.qs>div{padding:28px 0}
+.qs>div:first-child{padding-top:8px}
+.qs>div+div{border-top:1px solid var(--line)}
+.qs dt{font-size:19px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.qs dd{margin-top:8px;font-size:17px;color:var(--ink2);max-width:62ch}
 
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.rv.vu,.nojs .rv{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.piste{animation:none;overflow-x:auto;width:auto;padding:0 20px}.mur{-webkit-mask-image:none;mask-image:none}.mur-in{transform:none}.fc.on .fl{animation:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px));color:var(--ink3);font-size:14.5px;box-shadow:inset 0 1px 0 var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+footer b{color:var(--ink2);font-weight:650}
+footer .liens{display:flex;gap:4px;margin-left:auto}
+footer .liens a{display:inline-flex;align-items:center;height:44px;padding:0 12px;border-radius:999px;transition:color .2s,background-color .2s}
+footer .liens a:hover{color:var(--ink);background:rgba(241,236,228,.06)}
 
-@media(max-width:1180px){.tel{display:none}}
-@media(max-width:860px){
-  section{padding:72px 0}
-  .liens{display:none}
-  .preuve,.pcard,.duo,.encore,.etapes,.bento,.temps{grid-template-columns:minmax(0,1fr)}
-  .pcard .l,.pcard .r{padding:30px 24px}.pcard .r{box-shadow:inset 0 1px 0 var(--line)}
-  .chiffres{grid-template-columns:minmax(0,1fr);gap:10px}.chiffres li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px}.chiffres b{margin:0;order:3;font-size:30px}.chiffres span{margin:0}
-  .nombres{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .moi{grid-template-columns:minmax(0,1fr);gap:20px}
-  .carte{width:128px}.mur-in{transform:rotateX(6deg) rotateZ(-2deg) scale(1.02)}
-  .vs .l>*{padding:14px 16px;font-size:14.5px}
+/* mouvement : entrée des sections ; les films ne jouent qu'à l'écran. */
+@media (prefers-reduced-motion:no-preference){
+  .hero .top>*,.shot{animation:up 1s var(--ease) both}
+  .hero .side{animation-delay:.08s}
+  .shot{animation-delay:.16s;animation-duration:1.2s}
+  @keyframes up{from{opacity:0;transform:translateY(24px)}}
+  .js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform 1s var(--ease)}
+  .js .rv.in{opacity:1;transform:none}
 }
-@media(max-width:560px){
-  .wrap{padding:0 18px}
-  .hero{padding-top:44px}.cta .btn{width:100%}
-  .frise{grid-template-columns:minmax(0,1fr);gap:10px}.farr{justify-self:center;transform:rotate(90deg)}
-  .barre p{font-size:13px}.barre .btn{flex:none;height:42px;padding:0 16px;font-size:15px}
-  .top{font-size:13px}.top .pl{display:block;margin:6px auto 0;width:max-content}
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
-.hero{text-align:left}
+/* tablette */
+@media (min-width:1024px){
+  .t-atelier{grid-column:span 7;padding:40px}
+  .t-atelier .chiffres{grid-template-columns:minmax(0,1fr)}
+  .t-agents{grid-column:span 5;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+  .t-regles,.t-voix,.t-maj{grid-column:span 4}
+  .t-maj{display:block;padding-top:40px;padding-bottom:40px}
+  .t-maj .ico{margin-bottom:16px}
+}
+@media (max-width:1100px){
+  :root{--sec:112px}
+  .t{padding:32px}
+  .pre>div{padding:48px 40px}
+  .hero .top{grid-template-columns:minmax(0,1fr);gap:24px}
+  .hero .sub{max-width:44ch}
+}
+@media (max-width:1023px){
+  .nav .liens{display:none}
+  .nav .btn{margin-left:auto}
+  .gestes{grid-template-columns:minmax(0,1fr);gap:56px}
+  .t-skills,.t-regles,.t-voix,.t-son{grid-column:span 6}
+  .t-atelier{padding:40px}
+  .t-agents{grid-template-columns:minmax(0,1fr);gap:32px}
+  .t-agents img{max-width:180px}
+  .rang{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 calc(-1*var(--gut));padding:0 var(--gut) 8px;scrollbar-width:none}
+  .rang::-webkit-scrollbar{display:none}
+  .rang li{flex:none;width:30%;scroll-snap-align:start}
+  .t-son{grid-template-columns:minmax(0,1fr);gap:24px}
+  .pre{grid-template-columns:minmax(0,1fr)}
+  .pre .claude{box-shadow:inset 0 -1px 0 var(--line)}
+  .faq{grid-template-columns:minmax(0,1fr);gap:40px}
+}
+/* téléphone */
+@media (max-width:767px){
+  :root{--sec:88px;--gut:20px}
+  body{font-size:16.5px}
+  .logo{font-size:18px}
+  .hero{padding-top:40px}
+  .hero h1{font-size:clamp(38px,10.4vw,56px)}
+  .hero .sub{font-size:17.5px}
+  .cta .btn{flex:1 1 auto}
+  .cta{gap:16px}
+  .shot{margin-top:28px}
+  .shot video{aspect-ratio:780/538;border-radius:var(--ri)}
+  .demo-bas{flex-direction:column;align-items:stretch;gap:12px;margin-top:12px}
+  .demo-bas p{font-size:14px}
+  .demo-btns .btn-l{height:44px;font-size:14px}
+  .zoomb{display:inline-flex}
+  .demo-btns .btn-l{flex:1;justify-content:center}
+  .gestes{margin-top:48px}
+  .gestes ol{gap:32px}
+  .gestes li{grid-template-columns:48px minmax(0,1fr)}
+  .gestes li b{font-size:44px}
+  .tete{margin-bottom:40px}
+  .tete p{font-size:17.5px}
+  .bento{gap:12px}
+  .t{padding:28px 24px}
+  .t-skills,.t-agents,.t-regles,.t-voix,.t-son,.t-maj{grid-column:1/-1}
+  .t-agents img{max-width:150px}
+  
+  .t-maj{align-items:flex-start;flex-direction:column;gap:16px}
+  .rang li{width:62%;scroll-snap-align:center}
+  .chiffres{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:28px}
+  .t-atelier{padding:32px 24px}
+  .t .reprise{font-size:16.5px}
+  dialog .defile{place-items:start;padding:72px 12px 24px}
+  dialog video{width:1100px;max-width:none}
+  .duo{gap:10px}
+  .n{font-size:88px;margin-bottom:16px}
+  .pre>div{padding:32px 20px}
+  .gros{margin-top:32px}
+  .offres strong{font-size:26px}
+  .offre{padding:32px 0 48px}
+  .offre .bot{width:150px}
+  .offre h2{padding:0 16px}
+  .montant{gap:12px}
+  .offre .btn{width:calc(100% - 48px);max-width:400px}
+  .inclus{margin-top:40px;flex-direction:column;align-items:stretch;gap:12px;padding:0 24px}
+  .inclus li{background:none;box-shadow:none;padding:0;min-height:0;align-items:flex-start;gap:12px}
+  .inclus svg{margin-top:1px}
+  .qs dt{font-size:18px}
+  .qs dd{font-size:16.5px}
+  footer .liens{margin-left:-12px}
+}
+.qui{display:flex;align-items:center;gap:20px;max-width:640px}.qui img{width:72px;height:72px;border-radius:50%;flex:none;object-fit:cover}.qui p{color:var(--ink2);font-size:17px;line-height:1.5}.qui b{color:var(--ink);font-weight:700}.qui a{color:var(--g);text-decoration:underline;text-underline-offset:3px}
+.logo{display:inline-flex;align-items:center;gap:10px}.logo .by{font-size:17px;font-weight:400;color:var(--ink2);letter-spacing:0}.logowm{height:34px;width:auto;display:block}@media(max-width:767px){.logowm{height:22px}.logo .by{font-size:14px}.logo{gap:7px}}.logoic{width:28px;height:28px;border-radius:7px;flex:none}.clg{display:inline-block;width:17px;height:17px;vertical-align:-3px;margin-left:4px;fill:#d97757}
 .v1g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center}
-.v1id{display:flex;align-items:center;gap:22px}.v1ic{width:124px;height:124px;flex:none;object-fit:contain;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
-.hero h1{font-size:clamp(36px,4.4vw,60px);max-width:none;margin:0;letter-spacing:-.05em;line-height:1;white-space:nowrap}
-.v1tag{margin-top:8px;font-size:17px;color:var(--ink2);font-weight:400;letter-spacing:0}
-.hero .lede{margin:26px 0 0;font-size:clamp(16px,1.5vw,18px)}
-.hero .cta{justify-content:flex-start;margin-top:30px}
-.hero .cta .btn svg{width:22px;height:22px}
-.v1r .cadre{width:100%}
-.hero .frise,.hero .plus,.hero .chiffres,.hero .src{margin-left:auto;margin-right:auto}
-.hero .plus{justify-content:center}.hero .src{text-align:center}
-@media(max-width:900px){.v1g{grid-template-columns:minmax(0,1fr);gap:32px}.v1ic{width:96px;height:96px}.hero .cta{justify-content:flex-start}}
+.v1id{display:flex;align-items:center;gap:22px}.v1ic{width:124px;height:124px;flex:none;object-fit:contain}
+.v1g h1{font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.05em;font-weight:800}.v1tag{margin-top:8px;font-size:17px;color:var(--ink2);font-weight:400;letter-spacing:0}
+.v1btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.v1btns .btn{display:inline-flex;align-items:center;gap:10px}.v1btns .btn svg{width:22px;height:22px;flex:none}
+.btn.ghost{background:var(--raise);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.v1et{list-style:none;display:grid;gap:10px;margin-top:28px;color:var(--ink2);font-size:16px}.v1et li{display:flex;align-items:center;gap:12px}.v1et b{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--gsoft);box-shadow:inset 0 0 0 1px var(--gline);color:var(--g2);font-size:13px;font-weight:700}.v1et [data-val]{color:var(--ink);font-weight:700}
+.v1g .shot{margin-top:0}.fenwrap{border-radius:var(--rc);overflow:hidden;background:#111;box-shadow:var(--sh)}.fenwrap video{box-shadow:none!important;border-radius:0!important}
+.fenbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#2a2723;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2)}.fenbar i{width:11px;height:11px;border-radius:50%;background:#5b564f}.fenbar i:nth-child(1){background:#ff6b5f}.fenbar i:nth-child(2){background:#f5bf4f}.fenbar i:nth-child(3){background:#5bc866}.fenbar img{width:20px;height:20px;margin-left:8px;object-fit:contain}
+@media(max-width:900px){.v1g{grid-template-columns:minmax(0,1fr);gap:32px}.v1ic{width:96px;height:96px}}
+.av{position:relative;flex:none;width:52px;height:52px}.av>img{width:52px;height:52px;border-radius:50%;object-fit:cover}.stk{position:absolute;right:-6px;bottom:-4px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 3px var(--raise)}.stk svg{width:13px;height:13px}.stk.ig{background:linear-gradient(135deg,#f9ce34,#ee2a7b 55%,#6228d7)}.stk.tt{background:#000}
+.v1sub{margin-top:20px;font-size:17px;line-height:1.5;color:var(--ink2);max-width:40ch}
+.v1g .v1btns{margin-top:26px}.btn.ghost.off{opacity:.55;pointer-events:none}
+.preuve{padding:56px 0 8px}.pk{font-size:clamp(20px,2.4vw,28px);line-height:1.35;letter-spacing:-.02em;color:var(--ink2);max-width:34ch}.pk b{color:var(--ink);font-weight:700}
+.pcartes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.pc{display:grid;gap:22px;padding:24px;border-radius:20px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}.pc:hover{box-shadow:inset 0 0 0 1px var(--gline)}
+.pid{display:flex;align-items:center;gap:14px}.pid img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none}.pid b{display:flex;align-items:center;gap:6px;font-size:19px;font-weight:700;letter-spacing:-.02em}.pid span{display:block;margin-top:2px;font-size:14px;color:var(--ink3)}
+.cert{width:19px;height:19px;flex:none}
+.pn{display:flex;gap:34px}.pn strong{display:block;font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--ink)}.pn small{display:block;margin-top:6px;font-size:14px;color:var(--ink2)}
+.pdate{margin-top:14px;font-size:13px;color:var(--ink3)}
+@media(max-width:767px){.pcartes{grid-template-columns:minmax(0,1fr)}.pn{gap:26px}.preuve{padding-top:40px}}
+.prixh{padding:72px 0 8px}
+.pcard{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);border-radius:28px;background:linear-gradient(160deg,#262420,#161412);box-shadow:inset 0 0 0 1px var(--line),0 60px 120px -60px rgba(0,0,0,.95);overflow:hidden}
+.pgl{position:absolute;left:-12%;top:-45%;width:75%;height:130%;background:radial-gradient(closest-side,rgba(161,209,147,.17),transparent);pointer-events:none}
+.pl{position:relative;padding:48px 48px 44px;display:flex;flex-direction:column;align-items:flex-start}
+.ptag{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:600;color:var(--ink2)}.ptag img{width:44px;height:44px;border-radius:12px}
+.pmont{display:flex;align-items:baseline;gap:14px;margin-top:34px}.pmont b{font-size:clamp(76px,9vw,116px);font-weight:800;letter-spacing:-.07em;line-height:.88;color:var(--ink)}.pmont span{font-size:21px;color:var(--ink2)}
+.pbtn{margin-top:32px;height:60px;padding:0 32px;font-size:17px;display:inline-flex;align-items:center;gap:10px}.pbtn svg{width:22px;height:22px;flex:none}
+.pnote{margin-top:20px;font-size:15px;color:var(--ink2)}.pmac{margin-top:6px;font-size:14px;color:var(--ink3)}
+.pr{position:relative;padding:48px;border-left:1px solid var(--line);background:rgba(255,255,255,.018)}
+.pr h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-bottom:24px}
+.pinc{list-style:none;display:grid;gap:18px}.pinc li{display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.35;color:var(--ink)}.pinc .chk{width:24px;height:24px;flex:none;color:var(--g);margin-top:1px}
+@media(max-width:860px){.pcard{grid-template-columns:minmax(0,1fr)}.pl{padding:32px 26px 30px}.pr{padding:30px 26px;border-left:0;border-top:1px solid var(--line)}.pinc li{font-size:17px}.prixh{padding-top:48px}}
+.qs2{display:grid;gap:12px}.qs2>details{padding:0!important;border:0!important}
+.qd{border-radius:18px;background:var(--raise);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .25s}.qd:hover{box-shadow:inset 0 0 0 1px rgba(241,236,228,.2)}.qd[open]{box-shadow:inset 0 0 0 1px var(--gline)}
+.qd summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-size:19px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.qd summary::-webkit-details-marker{display:none}.qd summary::after{content:"+";flex:none;font-size:30px;font-weight:300;line-height:1;color:var(--g);transition:transform .25s var(--ease)}.qd[open] summary::after{transform:rotate(45deg)}
+.qd summary:focus-visible{outline:2px solid var(--g);outline-offset:-2px;border-radius:18px}
+.qa{padding:0 26px 24px;max-width:64ch;font-size:17px;line-height:1.55;color:var(--ink2)}
+.pre .claude.cl2{background:none;box-shadow:inset -1px 0 0 var(--line);position:relative}
+.cl2 .clh{display:flex;align-items:center;gap:18px}.cl2 .clm{display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:#1b1917;box-shadow:inset 0 0 0 1px var(--line)}.cl2 .clsp{width:36px;height:36px;fill:#d97757}
+.cl2 .clw{display:block;font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:clamp(36px,4vw,50px);font-weight:500;letter-spacing:-.02em;line-height:1;color:var(--ink)}.cl2 .clh small{display:block;margin-top:8px;font-size:15px;color:var(--ink2)}
+.cl2 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px}
+.cl2 .plan{padding:20px 18px 18px;border-radius:16px;background:rgba(241,236,228,.045);box-shadow:inset 0 0 0 1px var(--line)}
+.cl2 .pn{display:block;font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:26px;font-weight:500;color:var(--ink)}
+.cl2 .pp{margin-top:14px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.cl2 .pp b{font-family:"Tiempos Headline",ui-serif,Georgia,"Times New Roman",serif;font-size:36px;font-weight:500;letter-spacing:-.02em;color:var(--ink)}.cl2 .pp i{font-style:normal;font-size:13px;color:var(--ink3)}
+.cl2 .pv{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;line-height:1.35;color:var(--ink2)}.cl2 .pv strong{display:block;font-size:22px;font-weight:700;letter-spacing:-.02em;color:#e58a67}
+.cl2 .gr{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:15px;color:var(--ink3)}.cl2 .gr svg{width:20px;height:20px}
+@media(max-width:767px){.cl2 .plans{grid-template-columns:minmax(0,1fr)}.cl2 .plan{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:16px}.cl2 .pn{grid-row:span 2}.cl2 .pp{margin-top:0}.cl2 .pv{margin:8px 0 0;padding:8px 0 0}}
 </style>
 </head>
 <body>
 
-<div class="top"><b>Prix de lancement : <span data-val>49 €</span></b> · passe à <span data-final>97 €</span> <span data-quand>dans 15 jours</span><span class="pl" data-lance>plus que <span data-compte>15 j 00 h 00 m</span></span></div>
-
-<nav class="menu" aria-label="Sections"><div class="wrap">
-  <a class="logo" href="#haut" aria-label="Oui Studio, par Oui Dreams"><span>by</span><img src="img/logo-by.png" width="151" height="34" alt="Oui Dreams"></a>
-  <div class="liens"><a href="#demo">La démo</a><a href="#chiffres">Les chiffres</a><a href="#dossier">Le dossier</a><a href="#prix">Le prix</a></div>
-  <a class="btn sm" href="#prix" data-cta>Obtenir · <span data-val>49 €</span></a>
-</div></nav>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#haut" aria-label="Oui Studio, par Oui Dreams, haut de page"><span class="by">by</span><img class="logowm" src="img/logo-by.png" width="151" height="34" alt="Oui Dreams"></a>
+  <nav class="liens" aria-label="Sections"><a href="#films">Ses vidéos</a><a href="#contenu">Ce qu'il y a dedans</a><a href="#prerequis">Ce qu'il te faut</a><a href="#faq">Questions</a></nav>
+  <a class="btn sm" href="#prix" data-cta>Obtenir Oui Studio</a>
+</div></header>
 
 <main id="haut">
 
-<!-- 1. HAUT DE PAGE -->
-<section class="hero" id="demo"><div class="wrap">
-  <div class="v1g">
-    <div class="v1l">
-      <div class="v1id"><img class="v1ic" src="img/icone-app.png" width="124" height="124" alt="L'icône d'Oui Studio"><div><h1>Oui Studio</h1><p class="v1tag">Le logiciel qui fabrique tes vidéos.</p></div></div>
-      <p class="lede">Décris ton idée à ton agent de motion design, ou colle le lien d'un site. Il écrit, anime, sonorise et vérifie : une vidéo prête à poster sur TikTok, Reels et Shorts.</p>
-      <div class="cta">
-        <a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false" style="width:22px;height:22px"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows <small data-val>49 €</small></a>
-        <span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false" style="width:22px;height:22px"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Z"/></svg> Mac : bientôt</span>
+<section class="hero"><div class="wrap"><div class="v1g"><div class="v1l"><div class="v1id"><img class="v1ic" src="img/icone-app.png" width="124" height="124" alt="L'icône d'Oui Studio"><div><h1>Oui Studio</h1><p class="v1tag">Décris ton idée. Ton agent de motion design fabrique tes vidéos.</p></div></div><div class="v1btns"><a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg> Mac : bientôt</span></div><p class="v1sub"><b>Texte, animation, sons, voix</b> : une vidéo prête à poster sur TikTok, Reels et Shorts.</p></div><div class="v1r"><figure class="shot"><div class="fenwrap"><div class="fenbar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="">Oui Studio</div>
+    <video id="demo" muted loop playsinline preload="metadata" width="1440" height="876" aria-label="Démonstration du vrai studio : une demande, la galerie de styles, la limite Claude, puis une vidéo fabriquée étape par étape"></video></div>
+    <figcaption class="demo-bas">
+      <div class="demo-btns">
+        <button class="btn-l zoomb" type="button" data-zoom><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"/></svg>Agrandir</button>
+        <button class="btn-l" id="pause" type="button" aria-pressed="false" aria-label="Mettre la démonstration en pause"><span class="i-pau"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></svg></span><span class="i-lec"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg></span><span class="lib">Pause</span></button>
       </div>
-    </div>
-    <div class="v1r">
-      <div class="cadre">
-        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><img src="img/icone-app.png" alt="" width="18" height="18" style="margin-left:8px"><span>Oui Studio</span></div>
-        <video id="vdemo" muted loop playsinline preload="metadata" poster="v/studio.webp" width="1280" height="800" aria-label="Démonstration d'Oui Studio : une idée écrite, la vidéo fabriquée"></video>
-        <button class="pause" id="pause" type="button" aria-pressed="false">Pause</button>
-      </div>
-    </div>
-  </div>
-  <ol class="frise" aria-label="Prix actuel puis prix final">
-    <li class="fc on" data-lance><em class="fremise">−<span data-remise>48</span>&nbsp;€</em><span class="fl"><i></i>Maintenant</span><b data-val>49 €</b><small>plus que <span data-compte>15 j 00 h 00 m</span></small></li>
-    <li style="display:contents"><svg class="farr" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-lance><path d="M96 48l80 80-80 80"/></svg></li>
-    <li class="fc" data-final-case><span class="fl">Prix final</span><b data-final>97 €</b><small data-quand>dans 15 jours</small></li>
-  </ol>
-  <p class="plus"><span><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z"/></svg>Accès immédiat</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>Paiement unique</span></p>
+    </figcaption>
+  </figure></div></div></div></section>
 
-  <ul class="chiffres" id="chiffres">
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b>10,1 M</b><span>vues en 28 jours sur TikTok</span></li>
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><b>584,8 K</b><span>j'aime</span></li>
-    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg><b>50,4 K</b><span>partages</span></li>
-  </ul>
-  <p class="src">Statistiques du compte TikTok @ouidreams, du 15 octobre au 11 novembre.</p>
+<section class="preuve" id="preuve" aria-label="Qui est derrière Oui Studio"><div class="wrap"><p class="pk">Oui Studio créé par <b>Oui Dreams</b></p><div class="pcartes"><a class="pc" href="https://www.instagram.com/oui.dreams" target="_blank" rel="noopener"><div class="pid"><span class="av"><img src="img/pp-instagram.webp" width="52" height="52" alt="" loading="lazy"><i class="stk ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="#fff"/></svg></i></span><div><b>@oui.dreams <svg class="cert" viewBox="0 0 24 24" role="img" aria-label="Compte Instagram certifié"><path fill="#0095f6" d="M12 1.5l2.4 1.7 2.9-.2 1.2 2.7 2.6 1.4-.4 2.9L22.3 12l-1.6 2.4.4 2.9-2.6 1.4-1.2 2.7-2.9-.2L12 22.5l-2.4-1.7-2.9.2-1.2-2.7-2.6-1.4.4-2.9L1.7 12l1.6-2.4-.4-2.9 2.6-1.4 1.2-2.7 2.9.2z"/><path d="M8 12.3l2.6 2.6 5.6-5.6" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><span>Instagram</span></div></div><div class="pn"><div><strong>101 830</strong><small>abonnés</small></div></div></a><a class="pc" href="https://www.tiktok.com/@ouidreams" target="_blank" rel="noopener"><div class="pid"><span class="av"><img src="img/pp-instagram.webp" width="52" height="52" alt="" loading="lazy"><i class="stk tt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></i></span><div><b>@ouidreams</b><span>TikTok</span></div></div><div class="pn"><div><strong>357 500</strong><small>abonnés</small></div><div><strong>3,9 M</strong><small>J'aime</small></div></div></a></div></div></section>
+
+<section class="sec" id="films"><div class="wrap">
+  <div class="tete rv"><h2>Ce qu'il <span class="l">fabrique.</span></h2></div>
+  <ul class="rang" id="rang" aria-label="Démos fabriquées par l'agent"></ul>
+  <template id="tpl-son"><span class="off"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L73.55,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V175.09l42.08,46.29a8,8,0,1,0,11.84-10.76ZM32,96H72v64H32ZM144,207.64,88,164.09V95.89l56,61.6Zm42-63.77a24,24,0,0,0,0-31.72,8,8,0,1,1,12-10.57,40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.59Zm-80.16-76a8,8,0,0,1,1.4-11.23l39.85-31A8,8,0,0,1,160,32v74.83a8,8,0,0,1-16,0V48.36l-26.94,21A8,8,0,0,1,105.84,67.91ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span><span class="on"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg></span></template>
 </div></section>
 
-<!-- 2. MUR : CONTENU -->
-<section id="demo-voir" style="padding-top:40px"><div class="wrap cen rv">
-  <h2>Des vidéos qui arrêtent <em>le scroll.</em></h2>
-  <p class="lede">Les plus vues du compte @ouidreams, faites avec le même système.</p>
-</div>
-<div class="mur" aria-label="Vidéos de contenu les plus vues"><div class="mur-in"><ul class="piste" id="piste-contenu"></ul></div></div>
-<div class="wrap cen"><p class="legende">Vues relevées sur TikTok le 13 novembre 2026. Extraits muets.</p></div>
-</section>
+<section class="prixh" id="prix"><div class="wrap"><div class="pcard rv"><div class="pgl" aria-hidden="true"></div><div class="pl"><div class="ptag"><img src="img/icone-app.png" width="44" height="44" alt=""><span>Oui Studio pour Windows</span></div><p class="pmont"><b data-val>49 €</b><span>une fois</span></p><a class="btn pbtn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg> Obtenir pour Windows</a><p class="pnote">Branche ton propre abonnement Claude (Pro ou plus) <svg class="clg" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></p><p class="pmac">Mac : bientôt</p></div><div class="pr"><h3>Tout est dedans</h3><ul class="pinc"><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Le logiciel Oui Studio et son installateur Windows</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ton agent et ses 10 sous-agents</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>41 styles au choix</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Des sons, des musiques et une voix gratuite</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Les mises à jour en un clic</span></li><li><svg class="chk" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Ta clé de licence personnelle</span></li></ul></div></div></div></section>
 
-<!-- 3. PREUVE -->
-<section><div class="wrap preuve">
-  <div class="rv">
-    <span class="eyebrow">La preuve</span>
-    <h2>10,1 M de vues en 28 jours, <em>avec des vidéos faites comme ça.</em></h2>
-    <p class="lede">Des vidéos faites chaque jour avec ce système : pas de monteur, pas de caméra.</p>
-    <ul class="mini">
-      <li><b>10,1 M</b><span>vues des publications</span></li>
-      <li><b>140,7 K</b><span>vues du profil</span></li>
-      <li><b>584,8 K</b><span>j'aime</span></li>
-      <li><b>3,9 K</b><span>commentaires</span></li>
-    </ul>
-    <div class="comptes"><span>Instagram <b>101 830</b> abonnés</span><span>TikTok <b>357 500</b> abonnés</span></div>
-  </div>
-  <figure class="capture rv"><img src="img/tiktok-stats.webp" width="640" height="1010" alt="Capture de l'analytique TikTok du compte @ouidreams : 10,1 M de vues de publication entre le 15 octobre et le 11 novembre" loading="lazy"></figure>
-</div></section>
-
-<!-- 4. DEUX USAGES + MUR : ENTREPRISES -->
-<section id="usages"><div class="wrap">
-  <div class="cen rv"><h2>Deux façons <em>de t'en servir.</em></h2></div>
+<section class="sec" id="fonctionnement"><div class="wrap">
+  <h2 class="rv">Trois gestes, <span class="l">et la vidéo est prête.</span></h2>
+  <div class="gestes">
+    <ol>
+      <li class="rv"><b aria-hidden="true">1</b><div><h3>Installe</h3><p>Tu télécharges Oui Studio et tu l'ouvres. L'installation est guidée (5 à 20 minutes), tu te connectes à Claude une seule fois.</p></div></li>
+      <li class="rv"><b aria-hidden="true">2</b><div><h3>Décris</h3><p>Une idée, un lien de site ou quelques consignes, écrites ou dictées. Ton agent te propose la vidéo.</p></div></li>
+      <li class="rv"><b aria-hidden="true">3</b><div><h3>Valide</h3><p>Tu lances quand la proposition te va, tu suis chaque étape, puis tu télécharges la vidéo.</p></div></li>
+    </ol>
   <div class="duo rv">
-    <article><h3>Du contenu pour ton compte</h3><p>Tu donnes une idée. L'agent écrit le texte, anime les scènes, ajoute la voix et les sons. Pour TikTok, Reels et Shorts.</p></article>
-    <article><h3>Des pubs pour les entreprises</h3><p>Tu colles le lien d'un site. L'agent lit l'offre, reprend les couleurs et le logo, et fabrique la pub.</p>
-      <p class="vente"><b>397 €</b> la vidéo, prix de vente indicatif</p><p class="note">Tu fixes ton tarif. Aucun revenu n'est garanti.</p></article>
+    <img class="a" src="img/discussion.webp" width="1060" height="880" loading="lazy" decoding="async" alt="La discussion : ta demande, puis la proposition de vidéo de ton agent avec le bouton Lancer la vidéo">
+    <img class="b" src="img/videos.webp" width="540" height="952" loading="lazy" decoding="async" alt="Le panneau Mes vidéos : la vidéo terminée, prête à télécharger">
   </div>
-</div>
-<div class="mur" aria-label="Pubs fabriquées pour des entreprises"><div class="mur-in"><ul class="piste" id="piste-pro1"></ul><ul class="piste r" id="piste-pro2"></ul></div></div>
-</section>
-
-<!-- 5. LA RUÉE -->
-<section class="rush"><div class="wrap">
-  <div class="rv"><h2>La ruée vers l'or <em>des vidéos animées.</em></h2>
-  <p class="lede">Chaque plateforme récompense ceux qui arrivent tôt. Presque personne ne sait encore que c'est possible.</p></div>
-  <ol class="temps rv">
-    <li class="ici"><span class="tag">Tu es ici</span><h3>Maintenant</h3><p>Presque personne ne publie de vraies vidéos animées. Une portée énorme pour ceux qui s'y mettent.</p></li>
-    <li><h3>Bientôt</h3><p>Tout le monde publie des vidéos animées par IA. La portée devient plus dure.</p></li>
-    <li><h3>Ensuite</h3><p>Seules les vidéos les mieux faites sont vues. Les victoires faciles ont disparu.</p></li>
-  </ol>
-  <ul class="perdent rv">
-    <li>Ils montent à la main pendant des heures, et publient deux fois par semaine quand d'autres publient chaque jour.</li>
-    <li>Ils publient des vidéos qui sentent l'IA bâclée, et se demandent pourquoi personne ne regarde.</li>
-    <li>Ils attendent d'avoir « tout compris ».</li>
-  </ul>
-  <p class="fin rv">D'ici là, le fil est plein.</p>
-</div></section>
-
-<!-- 6. LE FONDATEUR -->
-<section><div class="wrap">
-  <div class="moi rv">
-    <img src="img/pp-instagram.webp" width="120" height="120" alt="Oui Dreams" loading="lazy">
-    <div><h2>Alors j'ai construit <em>un studio.</em></h2>
-    <p>Salut, je suis le créateur d'<b>@oui.dreams</b>. Je ne voulais pas faire une bonne vidéo. Je voulais en faire de bonnes tous les jours.</p>
-    <p>J'ai donc construit un agent qui écrit, anime, sonorise et vérifie mes vidéos. En 28 jours, mon compte TikTok a fait <b>10,1 M de vues</b>.</p>
-    <p>La plupart des gens montent encore à la main, ou publient ce que l'IA leur donne sans retouche. Oui Studio, c'est cet agent, installé sur ton ordinateur, avec ses contrôles.</p></div>
   </div>
 </div></section>
 
-<!-- 7. COMPARAISON -->
-<section class="rush"><div class="wrap">
-  <div class="rv"><h2>Faire une vidéo, c'est facile. <em>Percer, non.</em></h2>
-  <p class="lede">Une IA seule peut te faire une vidéo. Mais une vidéo n'est pas un système.</p></div>
-  <div class="vs rv" role="table" aria-label="Une IA seule contre Oui Studio">
-    <div class="l h" role="row"><div role="columnheader">Une IA toute seule</div><div role="columnheader">Avec Oui Studio</div></div>
-    <div class="l" role="row"><div role="cell">Une accroche au hasard</div><div role="cell">8 accroches écrites, la meilleure gardée</div></div>
-    <div class="l" role="row"><div role="cell">Un texte qui va trop vite</div><div role="cell">Un script fait pour retenir : phrases mesurées, relances</div></div>
-    <div class="l" role="row"><div role="cell">Voix et sons décalés</div><div role="cell">Voix calée mot à mot, effets placés à 45 ms près</div></div>
-    <div class="l" role="row"><div role="cell">Un son trop fort ou saturé</div><div role="cell">Niveau mesuré, sans saturation</div></div>
-    <div class="l" role="row"><div role="cell">Tu découvres les erreurs à la fin</div><div role="cell">Contrôle qualité automatique avant toi</div></div>
-  </div>
-</div></section>
-
-<!-- 8. TROIS ÉTAPES -->
-<section><div class="wrap">
-  <div class="rv"><h2>Trois étapes. <em>Zéro montage.</em></h2></div>
-  <ol class="etapes rv">
-    <li><span class="n">01</span><h3>Installe Oui Studio</h3><p>Un installateur Windows, guidé, de 5 à 20 minutes. Tu te connectes à Claude une seule fois.</p><code>✓ Oui Studio prêt</code></li>
-    <li><span class="n">02</span><h3>Donne ton idée</h3><p>Une phrase, ou le lien d'un site pour une pub. Tu valides la proposition avant le lancement.</p><code>pourquoi on procrastine</code></li>
-    <li><span class="n">03</span><h3>Récupère la vidéo</h3><p>Script, voix, scènes animées, sons, vérifications. La vidéo sort prête à publier.</p><code>→ video.mp4 · 1080×1920 · prête</code></li>
-  </ol>
-</div></section>
-
-<!-- 9. DEDANS -->
-<section class="rush" id="dossier"><div class="wrap">
-  <div class="rv"><h2>Tout est <em>dans le logiciel.</em></h2>
-  <p class="lede">Un agent déjà équipé, installé sur ton ordinateur.</p></div>
-  <div class="bento rv">
-    <article><span class="k">Le format</span><h3>Vertical, 1080×1920, 60 images par seconde</h3><p>Prêt à poster sur TikTok, Reels et Shorts. Sous-titres, sons et voix compris.</p></article>
-    <article><span class="k">L'écriture</span><h3>Des scripts faits pour retenir</h3><p>Des phrases mesurées, des questions ouvertes, un retournement toutes les 12 à 15 secondes sur les vidéos d'une minute.</p></article>
-    <article><span class="k">La voix</span><h3>Une voix qui sonne juste</h3><p>Une voix gratuite incluse, ou ElevenLabs avec ta propre clé. Calée sur les mots.</p></article>
-    <article><span class="k">Le style</span><h3>41 styles au choix</h3><p>Tu choisis l'allure de ta vidéo avec un aperçu, ou tu donnes ta charte : couleurs, logo, polices.</p></article>
-    <article><span class="k">La qualité</span><h3>Il vérifie avant toi</h3><p>Niveau sonore, images, synchronisation des effets et de la voix : mesurés avant la livraison.</p></article>
-    <article><span class="k">Bonus</span><h3>Mises à jour en un clic</h3><p>Le studio s'améliore : tu mets à jour d'un bouton, sans rien réinstaller.</p></article>
-  </div>
-  <ul class="nombres rv">
-    <li><b>27</b><span>modèles de scènes animées</span></li>
-    <li><b>57</b><span>scripts d'outils</span></li>
-    <li><b>1 500+</b><span>sons et bruitages</span></li>
-    <li><b>36</b><span>musiques libres de droits</span></li>
-  </ul>
-</div></section>
-
-<!-- 10. PRIX -->
-<section class="prix" id="prix"><div class="wrap">
-  <div class="rv"><h2>Un prix. <em>Tout est dedans.</em></h2>
-  <p class="lede">Tu paies une fois, Oui Studio est à toi. Pas d'abonnement à nous.</p></div>
-  <div class="pcard rv">
-    <div class="l">
-      <h3><img src="img/icone-app.png" width="40" height="40" alt="">Oui Studio pour Windows</h3>
-      <ol class="frise" aria-label="Prix actuel puis prix final">
-        <li class="fc on" data-lance><em class="fremise">−<span data-remise>48</span>&nbsp;€</em><span class="fl"><i></i>Maintenant</span><b data-val>49 €</b><small>plus que <span data-compte>15 j 00 h 00 m</span></small></li>
-        <li style="display:contents"><svg class="farr" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-lance><path d="M96 48l80 80-80 80"/></svg></li>
-        <li class="fc" data-final-case><span class="fl">Prix final</span><b data-final>97 €</b><small data-quand>dans 15 jours</small></li>
-      </ol>
-      <a class="btn" href="#prix" data-cta>Obtenir pour Windows</a>
-      <p class="plus"><span><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z"/></svg>Accès immédiat</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>Paiement unique</span></p>
+<section class="sec" id="contenu"><div class="wrap">
+  <div class="tete rv"><h2>Un agent <span class="l">déjà équipé.</span></h2></div>
+  <div class="bento">
+    <div class="t t-atelier rv">
+      <h3>L'atelier d'origine</h3>
+      <ul class="chiffres">
+        <li><b>27</b><span>modèles de scènes animées, prêts à l'emploi</span></li>
+        <li><b>41</b><span>styles visuels au choix, avec leur aperçu</span></li>
+        <li><b>57</b><span>scripts d'outils : son, alignement des mots, vérification image par image</span></li>
+        <li><b><small>plus de</small>1&nbsp;500</b><span>sons pour les bruitages et les ambiances, téléchargés à l'installation</span></li>
+        <li><b>36</b><span>musiques libres de droits, téléchargées à l'installation</span></li>
+      </ul>
     </div>
-    <div class="r">
-      <h4>Tout est dedans</h4>
-      <ul class="inclus" id="inclus"></ul>
+    <div class="t t-agents rv">
+      <div><img src="img/agent.webp" width="760" height="760" loading="lazy" decoding="async" alt="L'agent du studio, un petit robot vert laqué qui lève les bras"><h3>Un agent qui dirige 10&nbsp;sous‑agents.</h3></div>
+      <ul class="sous">
+        <li><b>Créatif</b></li>
+        <li><b>Critique</b></li>
+        <li><b>Spectateur</b></li>
+        <li><b>Recherche</b></li>
+        <li><b>Rendu</b></li>
+        <li><b>Son</b></li>
+        <li><b>Écoute</b></li>
+        <li><b>Plume</b></li>
+        <li><b>Scripte</b></li>
+        <li><b>Analyse</b></li>
+      </ul>
+    </div>
+    <div class="t t-skills rv"><span class="n">31</span><h3>skills de métier</h3><p>Hooks viraux, sous-titres animés, typographie, direction artistique, publicités.</p></div>
+    <div class="t t-son rv">
+      <span class="n">14</span>
+      <div><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M56,96v64a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0ZM88,24a8,8,0,0,0-8,8V224a8,8,0,0,0,16,0V32A8,8,0,0,0,88,24Zm40,32a8,8,0,0,0-8,8V192a8,8,0,0,0,16,0V64A8,8,0,0,0,128,56Zm40,32a8,8,0,0,0-8,8v64a8,8,0,0,0,16,0V96A8,8,0,0,0,168,88Zm40-16a8,8,0,0,0-8,8v96a8,8,0,0,0,16,0V80A8,8,0,0,0,208,72Z"/></svg></span><h3>outils d'analyse</h3><p>Ils vérifient le niveau sonore, la synchro sur les mots, le cadrage et les images noires ou figées. Effets et musiques gratuits sont téléchargés pour toi.</p></div>
+    </div>
+    <div class="t t-regles rv"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg></span><h3>Les règles d'une vidéo qui marche</h3><p>Façonnées par des retours réels.</p>
+      <div class="chips"><span>Hook obligatoire</span><span>Cadrage Instagram et TikTok</span><span>Script viral</span><span>Écriture avec le critique</span><span>Livraison propre</span></div></div>
+    <div class="t t-voix rv"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></span><h3>Une voix qui joue</h3><p>Avec ta voix ElevenLabs, ton agent écrit les intonations. Sans abonnement, une voix gratuite est incluse.</p>
+      <div class="chips m"><span>[curious]</span><span>[short pause]</span><span>[excited]</span></div></div>
+    <div class="t t-maj rv"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"/></svg></span><div><h3>À jour en un clic</h3><p>Chaque amélioration arrive avec le bouton Mettre à jour.</p></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="prerequis"><div class="wrap">
+  <div class="tete rv"><h2>Ce qu'il <span class="l">te faut.</span></h2></div>
+  <div class="pre rv">
+    <div class="claude cl2"><div class="clh"><span class="clm"><svg class="clsp" viewBox="0 0 24 24" role="img" aria-label="Claude"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(0 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(30 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(60 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(120 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(150 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(180 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(210 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(240 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(270 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(300 12 12)"/><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2" transform="rotate(330 12 12)"/></svg></span><div><b class="clw">Claude</b><small>Ton agent travaille avec ton propre abonnement.</small></div></div><div class="plans" role="list"><div class="plan" role="listitem"><span class="pn">Pro</span><p class="pp"><b>20 $</b><i>par mois</i></p><p class="pv"><strong>2 à 3</strong>vidéos par jour</p></div><div class="plan" role="listitem"><span class="pn">Max</span><p class="pp"><b>100 $</b><i>par mois</i></p><p class="pv"><strong>plus de 10</strong>vidéos par jour</p></div><div class="plan" role="listitem"><span class="pn">Max</span><p class="pp"><b>200 $</b><i>par mois</i></p><p class="pv"><strong>plus de 20</strong>vidéos par jour</p></div></div><p class="gr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Le plan gratuit ne suffit pas.</p></div>
+    <div>
+      <p class="lab"><span class="ico"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232,168h-8V72a24,24,0,0,0-24-24H56A24,24,0,0,0,32,72v96H24a8,8,0,0,0-8,8v16a24,24,0,0,0,24,24H216a24,24,0,0,0,24-24V176A8,8,0,0,0,232,168ZM48,72a8,8,0,0,1,8-8H200a8,8,0,0,1,8,8v96H48ZM224,192a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8v-8H224ZM152,88a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h32A8,8,0,0,1,152,88Z"/></svg></span>Un ordinateur</p>
+      <div class="os">
+        <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M208,136H128a8,8,0,0,0-8,8v57.45a8,8,0,0,0,6.57,7.88l80,14.54A7.61,7.61,0,0,0,208,224a8,8,0,0,0,8-8V144A8,8,0,0,0,208,136Zm-8,70.41-64-11.63V152h64ZM96,136H32a8,8,0,0,0-8,8v40a8,8,0,0,0,6.57,7.87l64,11.64a8.54,8.54,0,0,0,1.43.13,8,8,0,0,0,8-8V144A8,8,0,0,0,96,136Zm-8,50.05-48-8.73V152H88ZM213.13,33.86a8,8,0,0,0-6.56-1.73l-80,14.55A8,8,0,0,0,120,54.55V112a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V40A8,8,0,0,0,213.13,33.86ZM200,104H136V61.22l64-11.63ZM101.13,54.22a8,8,0,0,0-6.56-1.73l-64,11.64A8,8,0,0,0,24,72v40a8,8,0,0,0,8,8H96a8,8,0,0,0,8-8V60.36A8,8,0,0,0,101.13,54.22ZM88,104H40V78.68L88,70Z"/></svg><span>Windows <span class="l">10 ou 11</span></span></div>
+        <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M223.3,169.59a8.07,8.07,0,0,0-2.8-3.4C203.53,154.53,200,134.64,200,120c0-17.67,13.47-33.06,21.5-40.67a8,8,0,0,0,0-11.62C208.82,55.74,187.82,48,168,48a72.2,72.2,0,0,0-40,12.13,71.56,71.56,0,0,0-90.71,9.09A74.63,74.63,0,0,0,16,123.4a127.06,127.06,0,0,0,40.14,89.73A39.8,39.8,0,0,0,83.59,224h87.68a39.84,39.84,0,0,0,29.12-12.57,125,125,0,0,0,17.82-24.6C225.23,174,224.33,172,223.3,169.59Zm-34.63,30.94a23.76,23.76,0,0,1-17.4,7.47H83.59a23.82,23.82,0,0,1-16.44-6.51A111.14,111.14,0,0,1,32,123,58.5,58.5,0,0,1,48.65,80.47,54.81,54.81,0,0,1,88,64h.78A55.45,55.45,0,0,1,123,76.28a8,8,0,0,0,10,0A55.44,55.44,0,0,1,168,64a70.64,70.64,0,0,1,36,10.35c-13,14.52-20,30.47-20,45.65,0,23.77,7.64,42.73,22.18,55.3A105.82,105.82,0,0,1,188.67,200.53ZM128.23,30A40,40,0,0,1,167,0h1a8,8,0,0,1,0,16h-1a24,24,0,0,0-23.24,18,8,8,0,1,1-15.5-4Z"/></svg><span>macOS <span class="l">bientôt</span></span></div>
+      </div>
     </div>
   </div>
-  <div class="encore rv">
-    <article><h3>Un abonnement Claude</h3><p>Pro ou plus, à ta charge : c'est l'IA qui fait travailler ton agent. Tu ne l'as pas ? L'installation te guide.</p></article>
-    <article><h3>Un ordinateur Windows</h3><p>Windows 10 ou 11, 8 Go de mémoire minimum (16 Go conseillés). Mac : bientôt.</p></article>
-  </div>
 </div></section>
 
-<!-- 11. RÉCAP + FAQ -->
-<section class="recap"><div class="wrap">
-  <div class="rv"><h2>Descendu direct <em>tout en bas ?</em></h2>
-  <ul id="recap"></ul>
-  <p style="margin-top:32px"><a class="btn" href="#prix" data-cta>Obtenir pour Windows <small data-val>49 €</small></a></p></div>
-</div></section>
-
-<section id="faq" style="padding-top:24px"><div class="wrap">
-  <div class="rv"><h2>Des questions ? <em>Les réponses.</em></h2><p class="lede">Tout ce qu'on nous demande avant d'acheter.</p></div>
-  <div class="qs rv">
+<section class="sec" id="faq"><div class="wrap faq">
+  <h2 class="rv">Questions.</h2>
+  <div class="qs qs2 rv">
     <details class="qd"><summary>Faut-il savoir coder ?</summary><div class="qa">Non. Tu écris ce que tu veux, ton agent s'occupe du reste.</div></details>
     <details class="qd"><summary>Combien de temps prend une vidéo ?</summary><div class="qa">Environ 1 h 15 pour une première vidéo. Tu peux faire autre chose pendant ce temps.</div></details>
     <details class="qd"><summary>Quelles vidéos peut-il faire ?</summary><div class="qa">Des vidéos de motion design verticales, pour Reels, TikTok et Shorts : des idées pour ton compte, ou des publicités à partir du lien d'un site.</div></details>
     <details class="qd"><summary>Les vidéos m'appartiennent ?</summary><div class="qa">Oui. Tu peux les publier et les vendre, selon les licences des sons, musiques et polices que tu y mets.</div></details>
     <details class="qd"><summary>Y a-t-il d'autres frais ?</summary><div class="qa">Ton abonnement Claude. La voix ElevenLabs est facultative : une voix gratuite est incluse.</div></details>
-    <details class="qd"><summary>Et si la vidéo ne me plaît pas ?</summary><div class="qa">Tu valides la proposition avant le lancement, et tu peux demander une correction ou relancer.</div></details>
-    <details class="qd"><summary>Ce sera à mes couleurs, avec mon logo ?</summary><div class="qa">Oui. Donne ton lien ou ton logo, ton agent reprend ta charte.</div></details>
-    <details class="qd"><summary>Je n'ai pas de compte Claude.</summary><div class="qa">Claude est l'IA qui fait travailler ton agent. Tu crées le compte en quelques minutes, et l'installation te guide.</div></details>
-    <details class="qd"><summary>Mon ordinateur est-il assez puissant ?</summary><div class="qa">Windows 10 ou 11, 8 Go de mémoire minimum (16 Go conseillés). Sur un portable, compte plus de temps.</div></details>
-    <details class="qd"><summary>J'aurai les mêmes résultats que toi ?</summary><div class="qa">Ce sont les chiffres de mon compte TikTok, pas une promesse. Tes résultats dépendent de ton sujet, de ton audience et de ta régularité.</div></details>
-    <details class="qd"><summary>Qui m'aide si je bloque ?</summary><div class="qa">Écris à <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a>.</div></details>
-    <details class="qd"><summary>Je suis sur Mac.</summary><div class="qa">Le Mac arrive bientôt.</div></details>
-  </div>
+  <details class="qd"><summary>Et si la vidéo ne me plaît pas ?</summary><div class="qa">Tu valides la proposition avant le lancement, et tu peux demander une correction ou relancer.</div></details><details class="qd"><summary>Ce sera à mes couleurs, avec mon logo ?</summary><div class="qa">Oui. Donne ton lien ou ton logo, ton agent reprend ta charte.</div></details><details class="qd"><summary>Je n'ai pas de compte Claude.</summary><div class="qa">Claude est l'IA qui fait travailler ton agent. Tu crées le compte en quelques minutes, et l'installation te guide.</div></details><details class="qd"><summary>Mon ordinateur est-il assez puissant ?</summary><div class="qa">Windows 10 ou 11, 8 Go de mémoire minimum (16 Go conseillés). Sur un portable, compte plus de temps.</div></details><details class="qd"><summary>Qui m'aide si je bloque ?</summary><div class="qa">Écris à <a href="mailto:contact@ouidreams.fr" style="color:var(--g);text-decoration:underline;text-underline-offset:3px">contact@ouidreams.fr</a>.</div></details><details class="qd"><summary>Je suis sur Mac.</summary><div class="qa">Le Mac arrive bientôt.</div></details></div>
 </div></section>
 
-<section class="final"><div class="wrap">
-  <h2>Ta première vidéo <em>peut sortir ce soir.</em></h2>
-  <p class="lede">Ça coûte moins cher qu'un resto : tu paies une fois, et Oui Studio est à toi.</p>
-  <p style="margin-top:32px"><a class="btn" href="#prix" data-cta>Obtenir pour Windows <small data-val>49 €</small></a></p>
+
+
+<section class="sec auteur" id="auteur" style="padding-top:0"><div class="wrap">
+  <div class="qui rv"><img src="img/pp-instagram.webp" width="72" height="72" loading="lazy" decoding="async" alt="Oui Dreams"><p><b>Oui Studio est fait par Oui Dreams.</b> Une question ? Écris à <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a> ou sur Instagram <a href="https://www.instagram.com/oui.dreams" target="_blank" rel="noopener">@oui.dreams</a>.</p></div>
 </div></section>
 
 </main>
 
-<aside class="barre" id="barre" aria-label="Obtenir Oui Studio"><div class="wrap"><p><span data-lance>Avant le prix final · <b>plus que <span data-court>15 j</span></b> · </span><b><span data-val>49 €</span></b> paiement unique</p><a class="btn sm" href="#prix" data-cta>Obtenir</a></div></aside>
+<footer><div class="wrap"><span><b>Oui Dreams</b> · Oui Studio</span><div class="liens"><a href="mailto:contact@ouidreams.fr">Contact</a><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div></div></footer>
 
-<footer><div class="wrap">
-  <p><b style="color:var(--ink)">Oui Studio, par Oui Dreams.</b> <a href="mailto:contact@ouidreams.fr">contact@ouidreams.fr</a> · <a href="https://www.instagram.com/oui.dreams" target="_blank" rel="noopener">@oui.dreams</a></p>
-  <p>Les résultats varient. Les chiffres de cette page sont ceux du compte TikTok @ouidreams (statistiques du 15 octobre au 11 novembre), pas une promesse. Le prix de 397 € est un prix de vente indicatif.</p>
-  <div class="fliens"><a href="/cgv.html">Conditions de vente</a><a href="/confidentialite.html">Confidentialité</a></div>
-</div></footer>
+<dialog id="loupe" aria-label="Interface du studio agrandie">
+  <div class="defile"><video id="demoGrand" muted loop playsinline preload="none" width="1440" height="876" aria-label="Démonstration du studio, en grand"></video></div>
+  <button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+</dialog>
 
 <script>
-/* ============ RÉGLAGES (à modifier ici) ============
-   prix : prix de lancement affiché ; prixFinal : prix après la période de lancement ; lien : lien de paiement du prix de lancement ; lienFinal : lien de paiement au prix final.
-   gel:true = le compte à rebours reste à 15 jours (page pas encore lancée).
-   POUR LANCER LE COMPTE À REBOURS : gel:false, fin:"2026-12-01T00:00:00+01:00" (date de fin du prix de lancement), lienFinal:"https://buy.stripe.com/…" (lien à 97 €).
-   À la fin de la date, la page affiche seulement le prix final et utilise lienFinal.
-   video : vidéo de présentation en haut de page (laisser vide = démo du studio). */
-var CONFIG={prix:"49 €",prixFinal:"97 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",lienFinal:"",gel:true,fin:"",video:"",affiche:""};
-
+/* Films de la section « Ce qu'il fabrique ». Ajouter ou changer un film = modifier une ligne.
+   fichier : vidéo MP4 verticale (720x1280 conseillé), affiche : image WebP de la même taille. */
 var FILMS=[
-  {cat:"contenu",fichier:"v/c-perfectionniste.mp4",affiche:"v/c-perfectionniste.webp",titre:"Le perfectionniste",vues:"2,5 M"},
-  {cat:"contenu",fichier:"v/c-meilleurs-amis.mp4",affiche:"v/c-meilleurs-amis.webp",titre:"10 meilleurs amis",vues:"1,2 M"},
-  {cat:"contenu",fichier:"v/c-bois-de-l-eau.mp4",affiche:"v/c-bois-de-l-eau.webp",titre:"Boire de l'eau",vues:"1 M"},
-  {cat:"contenu",fichier:"v/c-sept-gestes.mp4",affiche:"v/c-sept-gestes.webp",titre:"Sept gestes",vues:"961 K"},
-  {cat:"contenu",fichier:"v/c-le-bord.mp4",affiche:"v/c-le-bord.webp",titre:"Le bord monte",vues:"539,1 K"},
-  {cat:"contenu",fichier:"v/c-ascenseur.mp4",affiche:"v/c-ascenseur.webp",titre:"L'ascenseur",vues:"435,5 K"},
-  {cat:"contenu",fichier:"v/c-villa.mp4",affiche:"v/c-villa.webp",titre:"La villa",vues:"430,6 K"},
-  {cat:"contenu",fichier:"v/c-snooze.mp4",affiche:"v/c-snooze.webp",titre:"Snooze",vues:"172,3 K"},
-  {cat:"contenu",fichier:"v/c-strategie.mp4",affiche:"v/c-strategie.webp",titre:"La stratégie",vues:"150,3 K"},
-  {cat:"contenu",fichier:"v/c-gps.mp4",affiche:"v/c-gps.webp",titre:"Le GPS",vues:"122,6 K"},
-  {cat:"pro",fichier:"v/spash.mp4",affiche:"v/spash.webp",titre:"Spash"},
-  {cat:"pro",fichier:"v/amphibee.mp4",affiche:"v/amphibee.webp",titre:"AmphiBee"},
-  {cat:"pro",fichier:"v/patiscoach.mp4",affiche:"v/patiscoach.webp",titre:"Patiscoach"},
-  {cat:"pro",fichier:"v/ecole-couture.mp4",affiche:"v/ecole-couture.webp",titre:"École de couture"},
-  {cat:"pro",fichier:"v/fee-du-tri.mp4",affiche:"v/fee-du-tri.webp",titre:"La fée du tri"},
-  {cat:"pro",fichier:"v/bypauline.mp4",affiche:"v/bypauline.webp",titre:"By Pauline"},
-  {cat:"pro",fichier:"v/revision-infirmiere.mp4",affiche:"v/revision-infirmiere.webp",titre:"Révision infirmière"},
-  {cat:"pro",fichier:"v/vistoria.mp4",affiche:"v/vistoria.webp",titre:"Vistoria"},
-  {cat:"pro",fichier:"v/arrangeuse.mp4",affiche:"v/arrangeuse.webp",titre:"Démo boutique"},
-  {cat:"pro",fichier:"v/apolline.mp4",affiche:"v/apolline.webp",titre:"Démo motifs"},
-  {cat:"pro",fichier:"v/parebrise.mp4",affiche:"v/parebrise.webp",titre:"Démo pare-brise"},
-  {cat:"pro",fichier:"v/clearglass.mp4",affiche:"v/clearglass.webp",titre:"Promo pare-brise"},
-  {cat:"pro",fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce"}
+  {fichier:"v/arrangeuse.mp4",affiche:"v/arrangeuse.webp",titre:"Démo boutique",duree:"25 s"},
+  {fichier:"v/apolline.mp4",affiche:"v/apolline.webp",titre:"Démo motifs",duree:"24 s"},
+  {fichier:"v/parebrise.mp4",affiche:"v/parebrise.webp",titre:"Démo pare-brise",duree:"14 s"},
+  {fichier:"v/clearglass.mp4",affiche:"v/clearglass.webp",titre:"Promo pare-brise",duree:"20 s"},
+  {fichier:"v/orvaleurs.mp4",affiche:"v/orvaleurs.webp",titre:"Promo d'un commerce",duree:"22 s"}
 ];
-var INCLUS=["Le logiciel Oui Studio et son installateur Windows","Ton agent et ses 10 sous-agents","41 styles au choix, avec aperçu","Des sons, des musiques et une voix gratuite","Les mises à jour en un clic","Ta clé de licence personnelle"];
-var RECAP=["Le logiciel complet : script, voix, animation, sons, vérifications","Du contenu pour ton compte, ou des pubs à partir du lien d'un site","41 styles, ou ta propre charte","Les mises à jour en un clic","Un paiement unique, un accès immédiat"];
-
+/* Prix et lien de paiement : à remplir ici. Lien vide = les boutons mènent à la section prix. */
+var CONFIG={prix:"49 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",video:"",affiche:""};
 (function(){
-  var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,IO="IntersectionObserver" in window;
-  function tous(s,f){d.querySelectorAll(s).forEach(f)}
+  var d=document,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  d.querySelectorAll("[data-val]").forEach(function(e){e.textContent=CONFIG.prix});
+  d.querySelectorAll("[data-ancien]").forEach(function(e){e.textContent=CONFIG.ancien});
+  if(CONFIG.lien)d.querySelectorAll("[data-cta]").forEach(function(a){a.href=CONFIG.lien;a.target="_blank";a.rel="noopener"});
+  /* présentation de Hugo : la section n'apparaît que si le fichier existe */
+  if(CONFIG.video)fetch(CONFIG.video,{method:"HEAD"}).then(function(r){if(r.ok&&/video/.test(r.headers.get("content-type")||"")){var v=d.getElementById("vid");if(CONFIG.affiche)v.poster=CONFIG.affiche;v.src=CONFIG.video;d.getElementById("video").classList.add("on")}}).catch(function(){});
+  var IO="IntersectionObserver" in window;
+
+  /* films : muets en boucle seulement à l'écran ; un geste active ou coupe le son, un seul film sonore à la fois */
+  var rang=d.getElementById("rang"),icones=d.getElementById("tpl-son").innerHTML,clips=[];
+  function etat(v,son){v._b.setAttribute("aria-pressed",son?"true":"false");v._b.setAttribute("aria-label",(son?"Couper le son : ":"Activer le son : ")+v._t)}
   function joue(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
-  var CHK='<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>';
-  d.getElementById("inclus").innerHTML=INCLUS.map(function(t){return "<li>"+CHK+"<span>"+t+"</span></li>"}).join("");
-  d.getElementById("recap").innerHTML=RECAP.map(function(t){return "<li>"+CHK+"<span>"+t+"</span></li>"}).join("");
-
-  /* apparition douce */
-  if(IO&&!reduce){var ro=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add("vu");ro.unobserve(x.target)}})},{threshold:.08});tous(".rv",function(e){ro.observe(e)})}else d.documentElement.classList.add("nojs");
-
-  /* prix : lancement puis prix final */
-  var J=864e5,finT=Date.parse(CONFIG.fin),gele=CONFIG.gel||isNaN(finT),lien=CONFIG.lien,tic;
-  function deux(n){return(n<10?"0":"")+n}
-  function liens(){if(lien)tous("[data-cta]",function(a){a.href=lien;a.target="_blank";a.rel="noopener"})}
-  function prix(){
-    var reste=gele?15*J:finT-Date.now();
-    if(reste<=0){
-      tous("[data-lance]",function(e){e.hidden=true});
-      tous("[data-final-case]",function(e){e.classList.add("on")});
-      tous("[data-quand]",function(e){e.textContent="dès maintenant"});
-      tous("[data-val]",function(e){e.textContent=CONFIG.prixFinal});
-      if(CONFIG.lienFinal)lien=CONFIG.lienFinal;
-      return false;
-    }
-    var j=Math.floor(reste/J),h=Math.floor(reste%J/36e5),m=Math.floor(reste%36e5/6e4),jr=Math.ceil(reste/J);
-    tous("[data-val]",function(e){e.textContent=CONFIG.prix});
-    tous("[data-compte]",function(e){e.textContent=j+" j "+deux(h)+" h "+deux(m)+" m"});
-    tous("[data-court]",function(e){e.textContent=j?j+" j":h+" h "+deux(m)+" m"});
-    tous("[data-quand]",function(e){e.textContent="dans "+jr+(jr>1?" jours":" jour")});
-    return true;
+  function geste(v){
+    var son=v.muted||v.paused;
+    clips.forEach(function(o){if(o!==v&&!o.muted){o.muted=true;etat(o,false);if(reduce)o.pause()}});
+    if(son){v.muted=false;joue(v)}else{v.muted=true;if(reduce)v.pause()}
+    etat(v,son);
   }
-  tous("[data-final]",function(e){e.textContent=CONFIG.prixFinal});
-  tous("[data-remise]",function(e){e.textContent=parseInt(CONFIG.prixFinal)-parseInt(CONFIG.prix)});
-  if(prix()&&!gele)tic=setInterval(function(){if(!prix()){clearInterval(tic);liens()}},3e4);
-  liens();
-
-  /* barre d'achat : visible quand les boutons du haut de page et la section prix sont hors de l'écran */
-  var barre=d.getElementById("barre"),vu=[true,false];
-  if(IO)[d.querySelector(".hero .cta"),d.getElementById("prix")].forEach(function(e,i){new IntersectionObserver(function(l){vu[i]=l[l.length-1].isIntersecting;barre.classList.toggle("on",!vu[0]&&!vu[1])}).observe(e)});
-
-  /* démo du studio (haut de page) : muette, en boucle, seulement à l'écran */
-  var v=d.getElementById("vdemo"),pb=d.getElementById("pause"),tel=matchMedia("(max-width:767px)").matches,arret=reduce;
-  v.src=CONFIG.video||(tel?"v/studio-tel.mp4":"v/studio.mp4");if(CONFIG.affiche)v.poster=CONFIG.affiche;
-  function maj(){var p=v.paused;pb.textContent=p?"Lecture":"Pause";pb.setAttribute("aria-pressed",p?"true":"false")}
-  v.addEventListener("play",maj);v.addEventListener("pause",maj);maj();
-  pb.addEventListener("click",function(){if(v.paused){arret=false;joue(v)}else{arret=true;v.pause()}});
-  if(IO&&!reduce)new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&!arret)joue(v);else if(!x.isIntersecting)v.pause()})},{threshold:.25}).observe(v);
-
-  /* murs de vidéos : 3 copies de chaque rangée pour un défilement sans coupure ; 6 vidéos jouent au plus en même temps */
-  var OEIL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',clips=[],enLecture=[];
-  function demarre(x){if(enLecture.indexOf(x)<0)enLecture.push(x);while(enLecture.length>6){enLecture.shift().pause()}joue(x)}
-  function carte(f,copie){
-    var li=d.createElement("li"),x=d.createElement("video");li.className="carte";
-    x.muted=true;x.loop=true;x.playsInline=true;x.preload="none";x.poster=f.affiche;x.src=f.fichier;x.width=540;x.height=960;
-    x.setAttribute("muted","");x.setAttribute("playsinline","");x.setAttribute("aria-label","Vidéo : "+f.titre);
-    li.appendChild(x);
-    if(f.vues){var b=d.createElement("span");b.className="vues";b.innerHTML=OEIL+f.vues;li.appendChild(b)}else{var n=d.createElement("span");n.className="nom";n.textContent=f.titre;li.appendChild(n)}
-    if(copie)li.setAttribute("aria-hidden","true");
-    li.addEventListener("click",function(){if(x.paused)demarre(x);else x.pause()});
-    clips.push(x);return li;
-  }
-  function piste(id,liste){var ul=d.getElementById(id);for(var k=0;k<3;k++)liste.forEach(function(f){ul.appendChild(carte(f,k>0))})}
-  var pro=FILMS.filter(function(f){return f.cat==="pro"}),mid=Math.ceil(pro.length/2);
-  piste("piste-contenu",FILMS.filter(function(f){return f.cat!=="pro"}));
-  piste("piste-pro1",pro.slice(0,mid));piste("piste-pro2",pro.slice(mid));
+  FILMS.forEach(function(f){
+    var li=d.createElement("li"),fig=d.createElement("figure"),v=d.createElement("video"),cap=d.createElement("figcaption"),txt=d.createElement("span"),b=d.createElement("b"),sm=d.createElement("small"),bt=d.createElement("button");
+    v.muted=true;v.loop=true;v.playsInline=true;v.preload="none";v.poster=f.affiche;v.src=f.fichier;v.width=720;v.height=1280;
+    v.setAttribute("muted","");v.setAttribute("playsinline","");v.setAttribute("aria-label","Film : "+f.titre);
+    b.textContent=f.titre;sm.textContent=f.duree;txt.appendChild(b);txt.appendChild(sm);
+    bt.type="button";bt.className="son";bt.innerHTML=icones;
+    v._b=bt;v._t=f.titre;etat(v,false);
+    v.addEventListener("click",function(){geste(v)});bt.addEventListener("click",function(){geste(v)});
+    cap.appendChild(txt);cap.appendChild(bt);fig.appendChild(v);fig.appendChild(cap);li.appendChild(fig);rang.appendChild(li);clips.push(v);
+  });
   if(!reduce&&IO){
-    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var e=x.target;if(x.isIntersecting)demarre(e);else{e.pause();var i=enLecture.indexOf(e);if(i>=0)enLecture.splice(i,1)}})},{threshold:.6});
-    clips.forEach(function(e){vo.observe(e)});
+    var vo=new IntersectionObserver(function(l){l.forEach(function(x){var v=x.target;if(x.isIntersecting)joue(v);else{v.pause();if(!v.muted){v.muted=true;etat(v,false)}}})},{threshold:.4});
+    clips.forEach(function(v){vo.observe(v)});
   }
+
+  /* le studio filmé : muet, en boucle, seulement à l'écran ; bouton pause ; mouvement réduit = affiche fixe et lecture au bouton */
+  var demo=d.getElementById("demo"),pb=d.getElementById("pause"),tel=matchMedia("(max-width:767px)").matches,stop=reduce;
+  demo.poster=tel?"v/studio-tel.webp":"v/studio.webp";demo.src=tel?"v/studio-tel.mp4":"v/studio.mp4";
+  function majPause(){var arr=demo.paused;pb.setAttribute("aria-pressed",arr?"true":"false");pb.setAttribute("aria-label",arr?"Lire la démonstration":"Mettre la démonstration en pause");pb.querySelector(".lib").textContent=arr?"Lecture":"Pause"}
+  demo.addEventListener("play",majPause);demo.addEventListener("pause",majPause);majPause();
+  pb.addEventListener("click",function(){if(demo.paused){stop=false;joue(demo)}else{stop=true;demo.pause()}});
+  if(!reduce&&IO)new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&!stop)joue(demo);else if(!x.isIntersecting)demo.pause()})},{threshold:.25}).observe(demo);
+  /* agrandir (téléphone) : la version ordinateur, en grand */
+  var dlg=d.getElementById("loupe"),grand=d.getElementById("demoGrand");
+  d.querySelector("[data-zoom]").addEventListener("click",function(){if(!dlg.showModal)return;demo.pause();if(!grand.src)grand.src="v/studio.mp4";grand.poster="v/studio.webp";dlg.showModal();if(!reduce)joue(grand)});
+  d.querySelector("[data-fermer]").addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("close",function(){grand.pause();if(!stop&&!reduce)joue(demo)});
+  dlg.addEventListener("click",function(e){if(e.target===dlg||e.target.classList.contains("defile"))dlg.close()});
+
+  if(reduce||!IO)return;
+  d.documentElement.classList.add("js");
+  var io=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -10% 0px"});
+  d.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
 })();
 </script>
 </body>
