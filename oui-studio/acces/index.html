@@ -395,7 +395,7 @@ footer b{color:var(--ink2);font-weight:600}
 <header class="nav"><div class="wrap">
   <a class="brand" href="#haut" aria-label="Oui Studio, ton accès, haut de page">Oui Studio <span>ACCÈS</span></a>
   <nav class="tabs" aria-label="Sections"><a href="#etapes">Les étapes</a><a href="#jour">Ton premier jour</a><a href="#aide">Si ça coince</a></nav>
-  <a class="prog" href="#etapes" aria-label="Avancement de l'installation"><svg viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="9"/><circle class="fg" id="ring" cx="11" cy="11" r="9"/></svg><span><b id="navDone">0</b>/5<span class="lg"> étapes</span></span></a>
+  <a class="prog" href="#etapes" aria-label="Avancement de l'installation"><svg viewBox="0 0 22 22" aria-hidden="true"><circle class="bg" cx="11" cy="11" r="9"/><circle class="fg" id="ring" cx="11" cy="11" r="9"/></svg><span><b id="navDone">0</b>/3<span class="lg"> étapes</span></span></a>
 </div></header>
 
 <main id="haut">
@@ -408,7 +408,7 @@ footer b{color:var(--ink2);font-weight:600}
     <div class="keybox" id="keyBox" hidden><p class="kl">Ta clé de licence</p><div class="cmd"><code id="keyCode"></code><button class="cp" type="button">Copier</button></div><p class="kn" id="keyNote"></p></div>
     <div class="telcarte" id="telCarte" hidden><b>Tu es sur téléphone ?</b><p>Oui Studio s'installe sur un <b>ordinateur</b> Windows. Envoie-toi ce lien sur ton ordinateur et ouvre-le là-bas : tu retrouves cette page et le téléchargement, rien n'est perdu.</p><div class="telbtns"><button class="btn main" id="telEnvoi" type="button">Envoyer le lien à mon ordinateur</button><button class="btn ghost" id="telCopie" type="button">Copier le lien</button></div><p class="telmsg" id="telMsg" role="status"></p></div>
     <div class="actions">
-      <a class="btn main" href="#etapes">Commencer : les 5 étapes <span aria-hidden="true">↓</span></a>
+      <a class="btn main" href="#etapes">Commencer : les 3 étapes <span aria-hidden="true">↓</span></a>
     </div>
   </div>
   <aside class="hour edge" aria-label="Ce qui t'attend">
@@ -416,7 +416,7 @@ footer b{color:var(--ink2);font-weight:600}
     <p class="t">L'heure qui vient</p>
     <h2>Trois temps.</h2>
     <ol>
-      <li><span>01</span><div><b>Tu lances l'installation</b><small>Un double-clic : tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
+      <li><span>01</span><div><b>Tu lances l'installation</b><small>Depuis le Microsoft Store : tout s'installe tout seul, tu te connectes à Claude une fois.</small></div><em>5 à 20 min</em></li>
       <li><span>02</span><div><b>Ton agent est là</b><small>Ton studio s'ouvre dans sa propre fenêtre, prêt à travailler, et se règle en discutant avec toi.</small></div><em>tout de suite</em></li>
       <li><span>03</span><div><b>Sa première vidéo</b><small>Une idée, un lien de site, et il fabrique avec toutes ses passes de qualité.</small></div><em>≈ 1 h 15*</em></li>
     </ol>
@@ -438,10 +438,10 @@ footer b{color:var(--ink2);font-weight:600}
 <section class="sec" id="etapes"><div class="wrap split">
   <div class="sh">
     <span class="no">01 — L'installation</span>
-    <h2>Cinq étapes, <span class="thin">à cocher.</h2>
+    <h2>Trois étapes, <span class="thin">à cocher.</h2>
     <p class="osnow"><span class="win"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Étapes pour Windows</b></span></p>
     <p>Ouvre chaque étape, fais-la, coche-la. Cette page se souvient de où tu en es sur cet appareil.</p>
-    <div class="bar" aria-hidden="true"><div class="tr"><i id="barFill"></i></div><span><b id="barDone">0</b> / 5</span></div>
+    <div class="bar" aria-hidden="true"><div class="tr"><i id="barFill"></i></div><span><b id="barDone">0</b> / 3</span></div>
     <p class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
     <button class="reset" id="reset" type="button" hidden>Tout décocher</button>
     <div class="vslot" id="vslot" hidden><video id="vInstall" controls playsinline preload="metadata" aria-label="Vidéo d'installation"></video><p>La vidéo d'installation, pas à pas.</p></div>
@@ -472,17 +472,14 @@ footer b{color:var(--ink2);font-weight:600}
       </div>
     </li>
 
-    <li class="st" data-i="2">
+        <li class="st" data-i="2">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 2 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Lance l'installation</b><small>Un seul double-clic, la première fois. Tout le reste se fait tout seul.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Ouvre-le et connecte-toi</b><small>La première fois seulement.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b2">
-        <p class="win">Clique sur <b>Ouvrir</b> dans le Microsoft Store, ou ouvre <b>Oui Studio</b> depuis le menu Démarrer. Le studio s'ouvre dans sa propre fenêtre.</p><p class="mac">Dans le dossier du kit, double-clique sur <b>Demarrer.command</b>. macOS le bloque la toute première fois, c'est normal : voici les 3 clics, une seule fois.</p>
-        <ol class="macsteps mac"><li>Clique sur <b>Terminé</b> dans la fenêtre « Apple n'a pas pu confirmer… ».</li><li>Ouvre <b>Réglages Système</b> &gt; <b>Confidentialité et sécurité</b>, descends jusqu'à « Demarrer.command a été bloqué » et clique sur <b>Ouvrir quand même</b>.</li><li>Confirme avec ton mot de passe ou Touch ID, puis clique sur <b>Ouvrir</b>.</li></ol>
-        <p class="win">Au premier lancement, le studio installe ses outils (Claude Code, les sons, les musiques et les contrôles qualité) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Laisse la fenêtre ouverte.</p><figure class="pic win sm"><img src="img/demarrage.webp" alt="L'écran de démarrage, la toute première fois." loading="lazy" decoding="async"><figcaption>L'écran de démarrage, la toute première fois.</figcaption></figure>
-        <p class="mac">Une fenêtre noire s'ouvre et t'explique chaque étape. Elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Une fois ton studio ouvert, tu peux la fermer : il tourne en arrière-plan. À la fin, ton studio s'ouvre et l'icône « Oui Studio » se pose sur ton Bureau.</p>
-        
+        <p>Clique sur <b>Ouvrir</b> (ou ouvre <b>Oui Studio</b> depuis le menu Démarrer). La première fois, il s'installe tout seul : compte <b>5 à 20 minutes</b>.</p><figure class="pic win sm"><img src="img/demarrage.webp" alt="L'écran de démarrage, la toute première fois." loading="lazy" decoding="async"><figcaption>L'écran de démarrage, la toute première fois.</figcaption></figure>
+        <p>Quand ton navigateur s'ouvre, connecte-toi avec ton compte Claude (abonnement payant). Le studio te demande ensuite ta <b>clé de licence</b> : copie celle du haut de cette page, colle-la et valide.</p><figure class="pic win sm"><img src="img/cle-licence.webp" alt="Colle ta clé dans le champ, puis clique sur « Valider »." loading="lazy" decoding="async"><figcaption>Colle ta clé dans le champ, puis clique sur « Valider ».</figcaption></figure>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
@@ -490,45 +487,11 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="3">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 3 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b3"><span class="n">03</span><span class="tt"><b>Connecte ton compte Claude<span class="win"> et entre ta clé</span></b><small>Une seule fois.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b3"><span class="n">03</span><span class="tt"><b>Décris ta vidéo</b><small>Ton agent la fabrique.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b3">
-        <p>Pendant l'installation, ton navigateur s'ouvre : connecte-toi avec le compte Claude de ton abonnement et accepte. Reviens à la fenêtre du studio : elle continue toute seule.</p>
-        <p class="win">Le studio te demande ensuite ta <b>clé de licence</b> : c'est celle affichée <b>en haut de cette page</b>. Copie-la, colle-la dans le studio, et valide.</p><figure class="pic win sm"><img src="img/cle-licence.webp" alt="Colle ta clé dans le champ, puis clique sur « Valider »." loading="lazy" decoding="async"><figcaption>Colle ta clé dans le champ, puis clique sur « Valider ».</figcaption></figure>
-        <p class="mac">Ta <b>clé de licence</b> est déjà dans le kit que tu as téléchargé : rien à saisir.</p>
-        <p>Tu ne fais cette connexion qu'une fois. Ton mot de passe n'est jamais lu ni gardé par le kit. Si elle se perd un jour, le studio l'affiche en rouge en haut de la page et te dit comment la refaire (Paramètres &gt; Compte).</p>
-        <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
-      </div>
-    </li>
-
-    <li class="st" data-i="4">
-      <div class="sth">
-        <button class="ck" type="button" aria-pressed="false" aria-label="Étape 4 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b4"><span class="n">04</span><span class="tt"><b>Ton studio s'ouvre</b><small>Parle à ton agent : il se règle en discutant.</small></span><i class="chev" aria-hidden="true"></i></button>
-      </div>
-      <div class="stb" id="b4">
-        <p>Quand l'installation est finie, ton studio s'ouvre dans sa propre fenêtre. <b>À gauche</b> : ton agent, ce qu'il dit et ses étapes de fabrication ; en bas, tes limites Claude, la voix utilisée (un clic pour en changer) et les Paramètres. <b>Au milieu</b> : la discussion avec ton agent. <b>À droite</b> : tes vidéos, avec une carte « Contrôle qualité » sous chacune.</p>
-        <p><b>Au début, un message vert « Installation en cours » peut s'afficher</b> : les sons, les musiques et les outils de contrôle s'installent en arrière-plan (quelques minutes). Attends qu'il disparaisse avant ta première vidéo, sinon elle n'aura ni la musique ni le contrôle qualité.</p>
-        <p>Demande une vidéo avec tes mots : une idée, le lien d'un site, des consignes. Ton agent te <b>propose</b> la vidéo, et c'est toi qui cliques sur <b>« Lancer la vidéo »</b> : il ne lance jamais rien tout seul. Sous la zone de saisie : le trombone (images et liens de référence), le micro (pour dicter), <b>Style</b> (facultatif : l'allure de tes vidéos) et Envoyer.</p>
-        <p>Les <b>Paramètres</b> (en bas à gauche) : Apparence, Voix (ElevenLabs, facultatif), Agent (mode économe), Compte (connexion à Claude, version, mise à jour, clé de licence) et Aide. Le bouton <b>globe</b>, juste à gauche du « ? », change la langue du studio : français ou anglais.</p>
-        <div class="cmd url mac"><code>http://127.0.0.1:4321</code><button class="cp" type="button">Copier</button></div>
-        <p class="note mac">Si la fenêtre ne s'ouvre pas toute seule, copie cette adresse dans ton navigateur.</p>
-        <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
-      </div>
-    </li>
-
-    <li class="st" data-i="5">
-      <div class="sth">
-        <button class="ck" type="button" aria-pressed="false" aria-label="Étape 5 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Ouvre Oui Studio depuis le menu Démarrer.</small><small class="mac">Double-clique sur l'icône « Oui Studio » du Bureau.</small></span><i class="chev" aria-hidden="true"></i></button>
-      </div>
-      <div class="stb" id="b5">
-        <p class="win">Pour retrouver ton agent : ouvre <b>Oui Studio</b> depuis le menu Démarrer. Si un jour quelque chose ne démarre plus, réinstalle-le depuis le Microsoft Store : tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
-        <p class="mac">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si elle n'est pas là</b> : double-clique sur <b>Demarrer.command</b> dans le dossier du kit.</p>
-        <p class="win">Les fois suivantes, c'est rapide : il ne réinstalle rien. Si tu fermes la fenêtre, une vidéo en cours continue de se fabriquer en arrière-plan : elle se rattache à la prochaine ouverture.</p>
-        <p class="mac">Les fois suivantes, c'est rapide : il ne réinstalle rien. Pour l'arrêter : <b>Arreter.command</b>, dans le dossier du kit.</p>
-        <p><b>Mises à jour :</b> elles sont automatiques. Quand une nouvelle version sort, un bouton <b>« Mettre à jour »</b> apparaît en haut à gauche de ton studio, à côté du numéro de version : un clic, et le studio se met à jour puis redémarre. Tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
-        <p class="mac">Sur ton téléphone (même Wi-Fi) : double-clique <b>Demarrer-telephone.command</b>, le lien s'affiche dans la fenêtre.</p>
+        <p>Écris ton idée ou colle le lien d'un site. Ton agent te propose la vidéo, et c'est toi qui cliques sur <b>« Lancer la vidéo »</b>.</p>
+        <p>Au début, un message vert « Installation en cours » peut s'afficher : attends qu'il disparaisse avant ta première vidéo.</p>
         <div class="next"><button class="btn ghost" type="button" data-done>C'est fait</button></div>
       </div>
     </li>
@@ -701,7 +664,7 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
   function setOS(v){os=v;root.setAttribute("data-os",v);d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.setAttribute("aria-selected",t.dataset.os===v?"true":"false")})}
   setOS(os);
   d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.addEventListener("click",function(){setOS(t.dataset.os);S.os=t.dataset.os;save();
-    /* tout change : animation des étapes, puis la page descend directement aux 5 étapes à cocher */
+    /* tout change : animation des étapes, puis la page descend directement aux étapes à cocher */
     var lst=d.getElementById("list"),on=d.querySelector(".osnow"),calme=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
     if(!calme){[lst,on].forEach(function(e){if(e){e.classList.remove("swap");void e.offsetWidth;e.classList.add("swap")}});setTimeout(function(){[lst,on].forEach(function(e){if(e)e.classList.remove("swap")})},1000)}
     var cible=d.getElementById("etapes");if(cible)cible.scrollIntoView({behavior:calme?"auto":"smooth",block:"start"})})});
