@@ -11,14 +11,27 @@ const FORCE = process.argv.includes("--force");
 const win = process.platform === "win32";
 const npx = win ? "npx.cmd" : "npx", npm = win ? "npm.cmd" : "npm";
 const etape = (t) => console.log(`\n== ${t}`);
-// Sous Windows on lance npm avec le Node qui exécute ce script, sans passer par cmd.exe ni par un .cmd :
-// dans l'appli du Microsoft Store (dossier WindowsApps), cmd.exe répondait « Accès refusé ».
-const NPMCLI = path.join(path.dirname(process.execPath), "node_modules", "npm", "bin", "npm-cli.js");
+// Dans l'appli du Microsoft Store, Node est dans WindowsApps : les scripts d'installation de npm (« cmd.exe /c node install.js »)
+// y reçoivent « Accès refusé ». On copie donc Node + npm dans le dossier du studio (.node) et on s'en sert pour tout.
+let NODE = process.execPath, ENVPATH = process.env.PATH || "";
+if (win && /[\/]WindowsApps[\/]/i.test(process.execPath)) {
+  const src = path.dirname(process.execPath), dst = path.join(ROOT, ".node");
+  try {
+    if (!fs.existsSync(path.join(dst, "node.exe")) || !fs.existsSync(path.join(dst, "node_modules", "npm", "bin", "npm-cli.js"))) {
+      fs.mkdirSync(dst, { recursive: true });
+      for (const f of ["node.exe", "npm", "npm.cmd", "npx", "npx.cmd"]) if (fs.existsSync(path.join(src, f))) fs.copyFileSync(path.join(src, f), path.join(dst, f));
+      fs.cpSync(path.join(src, "node_modules", "npm"), path.join(dst, "node_modules", "npm"), { recursive: true });
+    }
+    NODE = path.join(dst, "node.exe"); ENVPATH = dst + ";" + ENVPATH;
+  } catch (e) { console.error("Copie de Node impossible : " + e.message); }
+}
+const NPMCLI = path.join(path.dirname(NODE), "node_modules", "npm", "bin", "npm-cli.js");
 const REMOTION = path.join(ROOT, "node_modules", "@remotion", "cli", "remotion-cli.js");
 const sh = (cmd, args) => {
-  if (cmd === npm && fs.existsSync(NPMCLI)) return spawnSync(process.execPath, [NPMCLI, ...args], { cwd: ROOT, stdio: "inherit" });
-  if (cmd === npx && args[0] === "remotion" && fs.existsSync(REMOTION)) return spawnSync(process.execPath, [REMOTION, ...args.slice(1)], { cwd: ROOT, stdio: "inherit" });
-  return spawnSync(cmd, args, { cwd: ROOT, stdio: "inherit", shell: win });
+  const o = { cwd: ROOT, stdio: "inherit", env: { ...process.env, PATH: ENVPATH } };
+  if (cmd === npm && fs.existsSync(NPMCLI)) return spawnSync(NODE, [NPMCLI, ...args], o);
+  if (cmd === npx && args[0] === "remotion" && fs.existsSync(REMOTION)) return spawnSync(NODE, [REMOTION, ...args.slice(1)], o);
+  return spawnSync(cmd, args, { ...o, shell: win });
 };
 
 const [maj] = process.versions.node.split(".").map(Number);
