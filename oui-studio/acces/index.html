@@ -388,6 +388,7 @@ footer b{color:var(--ink2);font-weight:600}
 }
 .keybox{margin:22px 0 4px;max-width:560px}.keybox .kl{font:600 12.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}.keybox .cmd code{font-size:17px;letter-spacing:.02em}.keybox .kn{color:var(--ink3);font-size:14px;margin-top:8px}
 .pic{margin:14px 0 8px}.pic img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 0 0 1px var(--line2),0 24px 50px -30px rgba(0,0,0,.85)}.pic figcaption{margin-top:9px;font-size:14px;line-height:1.4;color:var(--ink3)}.pic.sm{max-width:520px}.pic.xs{max-width:360px}
+.mac,.osbig,.osq,.osnote{display:none!important}
 </style>
 
 <header class="nav"><div class="wrap">
@@ -402,10 +403,10 @@ footer b{color:var(--ink2);font-weight:600}
   <div>
     <p class="kick">Ton accès · Oui Studio</p>
     <h1><b>C'est fait.</b><span class="thin">Ton studio est prêt.</span></h1>
-    <p class="lede">Merci pour ta confiance. Tu télécharges Oui Studio, tu l'installes, et <b>ton agent est prêt</b>. Garde cette page ouverte : elle te suit étape par étape, et ta clé de licence est juste en dessous.</p>
+    <p class="lede">Merci pour ta confiance. Tu installes Oui Studio depuis le Microsoft Store, et <b>ton agent est prêt</b>. Garde cette page ouverte : elle te suit étape par étape, et ta clé de licence est juste en dessous.</p>
     <div class="keybox" id="keyBox" hidden><p class="kl">Ta clé de licence</p><div class="cmd"><code id="keyCode"></code><button class="cp" type="button">Copier</button></div><p class="kn" id="keyNote"></p></div>
-    <div class="telcarte" id="telCarte" hidden><b>Tu es sur téléphone ?</b><p>Oui Studio s'installe sur un <b>ordinateur</b> (Windows ou Mac). Envoie-toi ce lien sur ton ordinateur et ouvre-le là-bas : tu retrouves cette page et le téléchargement, rien n'est perdu.</p><div class="telbtns"><button class="btn main" id="telEnvoi" type="button">Envoyer le lien à mon ordinateur</button><button class="btn ghost" id="telCopie" type="button">Copier le lien</button></div><p class="telmsg" id="telMsg" role="status"></p></div>
-    <p class="osq">1. Choisis l'ordinateur sur lequel tu vas l'installer</p><div class="osbig" role="tablist" aria-label="Ton ordinateur"><button type="button" role="tab" data-os="win" aria-selected="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Windows</b><small>Windows 10 ou 11 (64 bits)</small><em>Sélectionné</em></button><button type="button" role="tab" data-os="mac" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Mac</b><small>macOS 13 ou plus récent</small><em>Sélectionné</em></button></div><p class="osnote">Toute la page s'adapte : tu ne vois que les étapes de ton ordinateur.</p><div class="actions">
+    <div class="telcarte" id="telCarte" hidden><b>Tu es sur téléphone ?</b><p>Oui Studio s'installe sur un <b>ordinateur</b> Windows. Envoie-toi ce lien sur ton ordinateur et ouvre-le là-bas : tu retrouves cette page et le téléchargement, rien n'est perdu.</p><div class="telbtns"><button class="btn main" id="telEnvoi" type="button">Envoyer le lien à mon ordinateur</button><button class="btn ghost" id="telCopie" type="button">Copier le lien</button></div><p class="telmsg" id="telMsg" role="status"></p></div>
+    <div class="actions">
       <a class="btn main" href="#etapes">Commencer : les 5 étapes <span aria-hidden="true">↓</span></a>
     </div>
   </div>
@@ -427,7 +428,7 @@ footer b{color:var(--ink2);font-weight:600}
 <!-- 1. télécharger -->
 <section class="sec" id="avant" style="padding-bottom:0"><div class="wrap"><div class="sh" style="position:static;margin-bottom:18px"><span class="no">Avant de commencer</span><h2 style="font-size:clamp(26px,3vw,36px)">Ce qu'il <span class="thin">te faut.</span></h2></div><dl class="need">
       <dt>Abonnement</dt><dd><b>Un abonnement Claude payant</b> (Pro ou plus) : c'est lui qui fait tourner ton agent. Le plan gratuit ne suffit pas.</dd>
-      <dt>Ordinateur</dt><dd>Un PC sous Windows 10 ou 11 (64 bits), ou un Mac sous macOS 13 ou plus récent.</dd>
+      <dt>Ordinateur</dt><dd>Un PC sous Windows 10 ou 11 (64 bits).</dd>
       <dt>Machine</dt><dd>8 Go de mémoire minimum (16 Go conseillés pour le rendu vidéo), environ 5 Go d'espace libre, une connexion internet.</dd>
       <dt>Licence</dt><dd>Ta clé de licence personnelle : elle est affichée <b>en haut de cette page</b>.</dd>
     </dl></div></section>
@@ -437,7 +438,7 @@ footer b{color:var(--ink2);font-weight:600}
   <div class="sh">
     <span class="no">01 — L'installation</span>
     <h2>Cinq étapes, <span class="thin">à cocher.</h2>
-    <p class="osnow"><span class="win"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Étapes pour Windows</b></span><span class="mac"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><b>Étapes pour Mac</b></span><a href="#haut">Changer d'ordinateur</a></p>
+    <p class="osnow"><span class="win"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l8-1.1V11H3zM12 4.4L21 3v8h-9zM3 12.5h8v6.5l-8-1.1zM12 12.5h9V21l-9-1.3z"/></svg><b>Étapes pour Windows</b></span></p>
     <p>Ouvre chaque étape, fais-la, coche-la. Cette page se souvient de où tu en es sur cet appareil.</p>
     <div class="bar" aria-hidden="true"><div class="tr"><i id="barFill"></i></div><span><b id="barDone">0</b> / 5</span></div>
     <p class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
@@ -449,14 +450,14 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="1">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 1 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b class="win">Télécharge Oui Studio</b><b class="mac">Télécharge et décompresse le kit</b><small class="win">Un seul fichier à ouvrir.</small><small class="mac">Un fichier, puis un dossier dans ton dossier personnel.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b1"><span class="n">01</span><span class="tt"><b class="win">Installe Oui Studio depuis le Microsoft Store</b><small class="win">Un clic, Windows fait le reste.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b1">
         <div class="dl edge spot">
-      <div class="file win"><div class="zip" aria-hidden="true"></div><div class="nm"><b>Oui Studio Setup.exe</b><small><span>≈ 260 Mo</span><span>Pour Windows 10 ou 11 (64 bits)</span></small></div></div>
+      <div class="file win"><div class="zip" aria-hidden="true"></div><div class="nm"><b>Oui Studio</b><small><span>Microsoft Store</span><span>Pour Windows 10 ou 11 (64 bits)</span></small></div></div>
       <div class="row win">
-        <a class="btn main" id="dlBtnWin" href="#kit" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Télécharger pour Windows</a>
-        <p class="pend" id="dlPendWin">Le lien de téléchargement s'affiche ici.</p>
+        <a class="btn main" id="dlBtnWin" href="https://apps.microsoft.com/detail/9NGHRK4VHBQD" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Installer depuis le Microsoft Store</a>
+        <p class="pend" id="dlPendWin">La fiche s'ouvre dans le Microsoft Store : clique sur « Obtenir ».</p>
       </div>
       <div class="file mac"><div class="zip" aria-hidden="true"></div><div class="nm"><b>oui-studio.zip</b><small><span>version 1.8</span><span>≈ 31 Mo</span><span>Pour Mac</span></small></div></div>
       <div class="row mac">
@@ -464,9 +465,9 @@ footer b{color:var(--ink2);font-weight:600}
         <p class="pend" id="dlPend">Le lien de téléchargement s'affiche ici.</p>
       </div>
     </div>
-        <p class="win">Quand le fichier est là, il est dans ton dossier <b>Téléchargements</b>.</p><figure class="pic win sm"><img src="img/fichier.webp" alt="Le fichier téléchargé : « Oui Studio Setup.exe »." loading="lazy" decoding="async"><figcaption>Le fichier téléchargé : « Oui Studio Setup.exe ».</figcaption></figure>
+        <p class="win">Dans la fenêtre du Microsoft Store, clique sur <b>Obtenir</b>. Quand le bouton devient <b>Ouvrir</b>, c'est installé.</p>
         <p class="mac">Quand le fichier est là : double-clique sur <b>oui-studio.zip</b>, un dossier « oui-studio » apparaît. Glisse-le dans ton <b>dossier personnel</b> (pas dans iCloud Drive).</p>
-        <div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
+        <p class="note win">Le Microsoft Store ne marche pas chez toi ? Écris-nous : on te donne une autre façon de l'installer.</p><div class="next"><button class="btn ghost" type="button" data-done>C'est fait, étape suivante <span aria-hidden="true">→</span></button></div>
       </div>
     </li>
 
@@ -476,7 +477,7 @@ footer b{color:var(--ink2);font-weight:600}
         <button class="tg" type="button" aria-expanded="true" aria-controls="b2"><span class="n">02</span><span class="tt"><b>Lance l'installation</b><small>Un seul double-clic, la première fois. Tout le reste se fait tout seul.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b2">
-        <p class="win">Double-clique sur <b>Oui Studio Setup.exe</b>.</p><p class="win"><b>Windows peut afficher « Windows a protégé votre ordinateur ».</b> C'est normal : Oui Studio est récent et Windows ne le connaît pas encore. Clique sur <b>Informations complémentaires</b>.</p><figure class="pic win sm"><img src="img/smartscreen-1.webp" alt="Clique sur « Informations complémentaires »." loading="lazy" decoding="async"><figcaption>Clique sur « Informations complémentaires ».</figcaption></figure><p class="win">Puis clique sur <b>Exécuter quand même</b>.</p><figure class="pic win sm"><img src="img/smartscreen-2.webp" alt="Le bouton « Exécuter quand même » apparaît : clique dessus." loading="lazy" decoding="async"><figcaption>Le bouton « Exécuter quand même » apparaît : clique dessus.</figcaption></figure><p class="win">L'installation se fait en une seule étape, sans droits administrateur.</p><figure class="pic win xs"><img src="img/installation.webp" alt="La fenêtre d'installation : laisse-la finir." loading="lazy" decoding="async"><figcaption>La fenêtre d'installation : laisse-la finir.</figcaption></figure><p class="win">L'icône « Oui Studio » se pose sur ton <b>Bureau</b> et le studio s'ouvre dans sa propre fenêtre.</p><figure class="pic win xs"><img src="img/icone-bureau.webp" alt="L'icône « Oui Studio » sur ton Bureau." loading="lazy" decoding="async"><figcaption>L'icône « Oui Studio » sur ton Bureau.</figcaption></figure><p class="mac">Dans le dossier du kit, double-clique sur <b>Demarrer.command</b>. macOS le bloque la toute première fois, c'est normal : voici les 3 clics, une seule fois.</p>
+        <p class="win">Clique sur <b>Ouvrir</b> dans le Microsoft Store, ou ouvre <b>Oui Studio</b> depuis le menu Démarrer. Le studio s'ouvre dans sa propre fenêtre.</p><p class="mac">Dans le dossier du kit, double-clique sur <b>Demarrer.command</b>. macOS le bloque la toute première fois, c'est normal : voici les 3 clics, une seule fois.</p>
         <ol class="macsteps mac"><li>Clique sur <b>Terminé</b> dans la fenêtre « Apple n'a pas pu confirmer… ».</li><li>Ouvre <b>Réglages Système</b> &gt; <b>Confidentialité et sécurité</b>, descends jusqu'à « Demarrer.command a été bloqué » et clique sur <b>Ouvrir quand même</b>.</li><li>Confirme avec ton mot de passe ou Touch ID, puis clique sur <b>Ouvrir</b>.</li></ol>
         <p class="win">Au premier lancement, le studio installe ses outils (Claude Code, les sons, les musiques et les contrôles qualité) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Laisse la fenêtre ouverte.</p><figure class="pic win sm"><img src="img/demarrage.webp" alt="L'écran de démarrage, la toute première fois." loading="lazy" decoding="async"><figcaption>L'écran de démarrage, la toute première fois.</figcaption></figure>
         <p class="mac">Une fenêtre noire s'ouvre et t'explique chaque étape. Elle installe ce qu'il faut (Node.js et l'application Claude si besoin, puis le kit) : compte <b>5 à 20 minutes</b>, surtout du téléchargement. Une fois ton studio ouvert, tu peux la fermer : il tourne en arrière-plan. À la fin, ton studio s'ouvre et l'icône « Oui Studio » se pose sur ton Bureau.</p>
@@ -518,10 +519,10 @@ footer b{color:var(--ink2);font-weight:600}
     <li class="st" data-i="5">
       <div class="sth">
         <button class="ck" type="button" aria-pressed="false" aria-label="Étape 5 faite"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span></button>
-        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Double-clique sur l'icône du Bureau.</small><small class="mac">Double-clique sur l'icône « Oui Studio » du Bureau.</small></span><i class="chev" aria-hidden="true"></i></button>
+        <button class="tg" type="button" aria-expanded="true" aria-controls="b5"><span class="n">05</span><span class="tt"><b>Chaque jour, le même geste</b><small class="win">Ouvre Oui Studio depuis le menu Démarrer.</small><small class="mac">Double-clique sur l'icône « Oui Studio » du Bureau.</small></span><i class="chev" aria-hidden="true"></i></button>
       </div>
       <div class="stb" id="b5">
-        <p class="win">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, ou ouvre-le depuis le menu Démarrer. Si un jour quelque chose ne démarre plus, relance l'installateur par-dessus : tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
+        <p class="win">Pour retrouver ton agent : ouvre <b>Oui Studio</b> depuis le menu Démarrer. Si un jour quelque chose ne démarre plus, réinstalle-le depuis le Microsoft Store : tes vidéos, ton agent et tes réglages ne sont jamais touchés.</p>
         <p class="mac">Pour retrouver ton agent : double-clique sur l'icône <b>Oui Studio</b> de ton Bureau, créée à la fin de l'installation. <b>Seulement si elle n'est pas là</b> : double-clique sur <b>Demarrer.command</b> dans le dossier du kit.</p>
         <p class="win">Les fois suivantes, c'est rapide : il ne réinstalle rien. Si tu fermes la fenêtre, une vidéo en cours continue de se fabriquer en arrière-plan : elle se rattache à la prochaine ouverture.</p>
         <p class="mac">Les fois suivantes, c'est rapide : il ne réinstalle rien. Pour l'arrêter : <b>Arreter.command</b>, dans le dossier du kit.</p>
@@ -577,7 +578,7 @@ footer b{color:var(--ink2);font-weight:600}
         <div class="cmd"><code>echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; ~/.zshrc</code><button class="cp" type="button">Copier</button></div>
         <div class="cmd"><code>source ~/.zshrc</code><button class="cp" type="button">Copier</button></div>
       </div></details>
-      <details class="win"><summary>Windows affiche « Windows a protégé votre ordinateur »<i aria-hidden="true"></i></summary><div class="ans"><p>Clique sur <b>Informations complémentaires</b>, puis sur <b>Exécuter quand même</b>. Oui Studio est récent : Windows ne le connaît pas encore.</p></div></details>
+      
       <details><summary>La clé de licence est refusée<i aria-hidden="true"></i></summary><div class="ans"><p>Vérifie qu'elle est copiée en entier (OUI-XXXX-XXXX-XXXX), sans espace autour. Si le studio parle d'un « accès retiré », écris-nous.</p></div></details>
       <details><summary>L'installation renvoie une page HTML ou une erreur 403<i aria-hidden="true"></i></summary><div class="ans"><p>Réseau filtré (entreprise, école, VPN) : essaie depuis une autre connexion.</p></div></details>
       <details><summary>La connexion à Claude échoue ou le navigateur ne s'ouvre pas<i aria-hidden="true"></i></summary><div class="ans"><p class="win">Le studio affiche une alerte rouge « Session Claude Code à reconnecter » : clique sur « Voir comment reconnecter » et suis les étapes. Vérifie aussi que ton abonnement est bien actif (le plan gratuit ne marche pas).</p><div class="mac">
@@ -589,7 +590,7 @@ footer b{color:var(--ink2);font-weight:600}
         <p>Clic droit sur le fichier &gt; Ouvrir &gt; Ouvrir. Ou, dans le Terminal du dossier du kit :</p>
         <div class="cmd"><code>chmod +x Demarrer.command</code><button class="cp" type="button">Copier</button></div>
       </div></details>
-      <details><summary>L'interface ne s'ouvre pas, ou « port déjà pris »<i aria-hidden="true"></i></summary><div class="ans"><p class="win">Ferme complètement Oui Studio (clic droit sur son icône dans la barre des tâches, puis Quitter), puis rouvre-le. Toujours rien : relance l'installateur par-dessus.</p><div class="mac">
+      <details><summary>L'interface ne s'ouvre pas, ou « port déjà pris »<i aria-hidden="true"></i></summary><div class="ans"><p class="win">Ferme complètement Oui Studio (clic droit sur son icône dans la barre des tâches, puis Quitter), puis rouvre-le. Toujours rien : réinstalle Oui Studio depuis le Microsoft Store.</p><div class="mac">
         <p>Elle tourne peut-être déjà : ouvre <code class="i">http://127.0.0.1:4321</code>. Sinon, dans le dossier du kit :</p>
         <div class="cmd"><code>node interface/serveur.mjs --port 4322</code><button class="cp" type="button">Copier</button></div>
         <p>puis ouvre <code class="i">http://127.0.0.1:4322</code>.</p>
@@ -647,7 +648,7 @@ footer b{color:var(--ink2);font-weight:600}
       <h3>Les mises à jour</h3>
       <div class="maj" id="maj" hidden></div>
       <p>Elles sont <b style="color:var(--ink)">automatiques</b>. Quand une nouvelle version sort, un bouton <b style="color:var(--ink)">« Mettre à jour »</b> apparaît en haut à gauche de ton studio : un clic, il télécharge, remplace les fichiers du kit et redémarre dès que ton agent est au repos. Tes vidéos, ton agent, tes réglages, tes images de référence et tes sons ne sont jamais touchés. Au prochain lancement, une version en attente s'installe d'elle-même.</p>
-      <p>Si ton studio ne se met pas à jour, ferme-le, rouvre-le, ou retélécharge-le depuis cette page.</p>
+      <p>Si ton studio ne se met pas à jour, ferme-le, rouvre-le, ou réinstalle-le depuis le Microsoft Store.</p>
     </div>
   </div>
 </div></section>
@@ -695,7 +696,7 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
   if(CONFIG.videoInstall){d.getElementById("vInstall").src=CONFIG.videoInstall;d.getElementById("vslot").hidden=false}
 
   /* Windows / Mac : un seul choix pour toute la page */
-  var pf=(navigator.platform||"")+" "+(navigator.userAgent||""),os=S.os==="mac"||S.os==="win"?S.os:(/Mac|iPhone|iPad/.test(pf)?"mac":"win");
+  var os="win";
   function setOS(v){os=v;root.setAttribute("data-os",v);d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.setAttribute("aria-selected",t.dataset.os===v?"true":"false")})}
   setOS(os);
   d.querySelectorAll(".os [data-os],.osbig [data-os]").forEach(function(t){t.addEventListener("click",function(){setOS(t.dataset.os);S.os=t.dataset.os;save();
@@ -710,10 +711,10 @@ var CONFIG={kitUrl:"",api:"https://agents-hostinger.tail8e8b06.ts.net/oui-studio
     var qs=new URLSearchParams(location.search),t=qs.get("t"),s=qs.get("s"),q=null;
     if(t&&/^[A-Za-z0-9]{32}$/.test(t))q="t="+encodeURIComponent(t);else if(s&&/^cs_(live|test)_[A-Za-z0-9]{10,200}$/.test(s))q="s="+encodeURIComponent(s);
     var bw=d.getElementById("dlBtnWin"),pw=d.getElementById("dlPendWin"),box=d.getElementById("keyBox"),code=d.getElementById("keyCode"),note=d.getElementById("keyNote");
-    if(!q){if(pw)pw.textContent="Ouvre cette page depuis ton lien personnel, reçu après ton achat. Un souci : écris-nous.";return}
+    if(!q){return}
     function pret(j){
       var m=/[?&]t=([A-Za-z0-9]{32})/.exec(j.telechargement||""),tk=t||(m&&m[1]);
-      if(tk&&bw){bw.href=CONFIG.api+"/telecharger-windows?t="+encodeURIComponent(tk)+"&go=1";bw.setAttribute("download","Oui Studio Setup.exe");bw.removeAttribute("aria-disabled");pw.textContent="Ton installateur est prêt : clique sur « Télécharger pour Windows »."}
+      
       if(j.cle&&box){code.textContent=j.cle;note.textContent="Garde-la : tu en auras besoin si tu réinstalles. Elle reste affichée sur cette page, ouverte depuis ton lien personnel.";box.hidden=false}
     }
     function essai(n){
