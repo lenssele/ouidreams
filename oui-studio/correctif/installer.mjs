@@ -14,7 +14,7 @@ const etape = (t) => console.log(`\n== ${t}`);
 // Dans l'appli du Microsoft Store, Node est dans WindowsApps : les scripts d'installation de npm (« cmd.exe /c node install.js »)
 // y reçoivent « Accès refusé ». On copie donc Node + npm dans le dossier du studio (.node) et on s'en sert pour tout.
 let NODE = process.execPath, ENVPATH = process.env.PATH || "";
-if (win && /[\/]WindowsApps[\/]/i.test(process.execPath)) {
+if (win && /[\\/]WindowsApps[\\/]/i.test(process.execPath)) {
   const src = path.dirname(process.execPath), dst = path.join(ROOT, ".node");
   try {
     if (!fs.existsSync(path.join(dst, "node.exe")) || !fs.existsSync(path.join(dst, "node_modules", "npm", "bin", "npm-cli.js"))) {
