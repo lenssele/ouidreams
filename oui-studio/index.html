@@ -79,7 +79,7 @@ h2 .l2,h1 .l2{display:block;background:linear-gradient(100deg,var(--g2),var(--g)
 .slogan{margin-top:12px;font-size:clamp(20px,2.1vw,26px);font-weight:560;letter-spacing:-.02em;color:var(--ink)}
 .hero .lede{margin:14px auto 0;max-width:44ch}
 .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
-.scene{position:relative;width:min(100%,1000px);margin:54px auto 0}
+.scene{position:relative;width:min(100%,1000px);margin:84px auto 0}
 .scene:before{content:"";position:absolute;left:-12%;right:-12%;top:-34px;height:300px;border-radius:50%;border-top:1.5px solid rgba(161,209,147,.5);box-shadow:0 -30px 80px -20px rgba(130,205,112,.35);-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);pointer-events:none}
 .fenetre{position:relative;z-index:2;border-radius:18px;overflow:hidden;background:#0b0a09;box-shadow:0 0 0 1px rgba(244,239,231,.12),0 60px 120px -40px rgba(0,0,0,1),0 0 90px -30px var(--glow)}
 .fenetre .tb{display:flex;align-items:center;gap:9px;height:38px;padding:0 6px 0 14px;background:#1b1916;box-shadow:inset 0 -1px 0 var(--line);font-size:12.5px;color:var(--ink2)}
@@ -97,7 +97,7 @@ h2 .l2,h1 .l2{display:block;background:linear-gradient(100deg,var(--g2),var(--g)
 @keyframes flotte{50%{translate:0 -10px}}
 
 /* frise de prix */
-.frise{list-style:none;display:flex;align-items:center;justify-content:center;gap:14px;margin:72px auto 0}
+.frise{list-style:none;display:flex;align-items:center;justify-content:center;gap:14px;margin:40px auto 0}
 .fc{position:relative;display:flex;flex-direction:column;align-items:center;min-width:190px;padding:20px 22px 18px;border-radius:var(--r2);background:var(--glass);box-shadow:inset 0 0 0 1px var(--line)}
 .fc.on{min-width:230px;padding:24px 28px 20px;background:linear-gradient(180deg,rgba(161,209,147,.16),rgba(161,209,147,.05));box-shadow:inset 0 0 0 1.5px var(--g),0 0 0 0 var(--glow);animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{50%{box-shadow:inset 0 0 0 1.5px var(--g2),0 0 34px 2px var(--glow)}}
@@ -416,6 +416,7 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   .usage.pro>.note{position:static;grid-column:1;grid-row:7;max-width:none;margin:10px 0 24px}
   .usage.pro>.pub-tel{position:relative;right:auto;bottom:auto;grid-column:2;grid-row:6 / span 2;align-self:end;width:112px;margin:0 0 -48px;transform:rotate(6deg)}
 }
+.macf{max-width:460px;margin:18px auto 0;text-align:left}.macf label{display:block;font-size:14.5px;color:var(--ink2);margin-bottom:10px}.macf div{display:flex;gap:8px}.macf input{flex:1;min-width:0;padding:0 16px;height:48px;border-radius:999px;border:0;background:rgba(244,239,231,.06);color:var(--ink);font:inherit;box-shadow:inset 0 0 0 1px var(--line2)}.macf input:focus{outline:2px solid var(--g)}.macm{margin-top:10px;font-size:14px;color:var(--g);min-height:1em}.macm.err{color:#e8a08f}@media(max-width:520px){.macf div{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -438,11 +439,20 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   <p class="lede">Décris ton idée ou colle le lien d'un site : ton agent écrit, anime, sonorise et vérifie une vidéo prête à poster.</p>
   <div class="cta">
     <a class="btn" href="#prix" data-cta><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208 136h-80a8 8 0 0 0-8 8v57.45a8 8 0 0 0 6.57 7.88l80 14.54A8 8 0 0 0 216 216v-72a8 8 0 0 0-8-8ZM96 136H32a8 8 0 0 0-8 8v40a8 8 0 0 0 6.57 7.87l64 11.64A8 8 0 0 0 104 195.64V144a8 8 0 0 0-8-8Zm117.13-102.14a8 8 0 0 0-6.56-1.73l-80 14.55A8 8 0 0 0 120 54.55V112a8 8 0 0 0 8 8h80a8 8 0 0 0 8-8V40a8 8 0 0 0-2.87-6.14ZM101.13 54.22a8 8 0 0 0-6.56-1.73l-64 11.64A8 8 0 0 0 24 72v40a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8V60.36a8 8 0 0 0-2.87-6.14Z"/></svg>Obtenir pour Windows</a>
-    <span class="btn ghost off" aria-disabled="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M223.3 169.59a8 8 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13 71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57 125 125 0 0 0 17.82-24.6c7-12.83 6.12-14.83 5.09-17.24ZM128 40a32 32 0 0 1 32-32 8 8 0 0 1 0 16 16 16 0 0 0-16 16 8 8 0 0 1-16 0Z"/></svg>Mac : bientôt</span>
+    <button class="btn ghost" id="macBtn" type="button" aria-expanded="false" aria-controls="macForm"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M223.3 169.59a8 8 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13 71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57 125 125 0 0 0 17.82-24.6c7-12.83 6.12-14.83 5.09-17.24ZM128 40a32 32 0 0 1 32-32 8 8 0 0 1 0 16 16 16 0 0 0-16 16 8 8 0 0 1-16 0Z"/></svg>Mac : me prévenir</button>
+
   </div>
+  <form class="macf" id="macForm" hidden><label for="macEmail">Ton e-mail : on te prévient dès que la version Mac sort.</label><div><input id="macEmail" type="email" inputmode="email" autocomplete="email" placeholder="ton@email.fr" required maxlength="254"><button class="btn" type="submit">Me prévenir</button></div><p class="macm" id="macMsg" role="status"></p></form>
   <p class="claude-note"><svg viewBox="0 0 24 24" fill="#d97757" aria-hidden="true"><g id="clx"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2"/></g><use href="#clx" transform="rotate(45 12 12)"/><use href="#clx" transform="rotate(90 12 12)"/><use href="#clx" transform="rotate(135 12 12)"/><use href="#clx" transform="rotate(180 12 12)"/><use href="#clx" transform="rotate(225 12 12)"/><use href="#clx" transform="rotate(270 12 12)"/><use href="#clx" transform="rotate(315 12 12)"/></svg><span><b>Branche ton abonnement Claude</b> (Pro ou plus) : c'est lui qui fait travailler ton agent.</span></p>
 
   <div class="pub" id="pub" style="--aff:url(v/pub.webp)"><div class="halo" aria-hidden="true"></div><div class="fenetre"><video id="vpub" playsinline preload="none" poster="v/pub.webp" width="1920" height="1080" aria-label="La pub d'Oui Studio : une phrase, une vidéo"></video><button class="lire" id="lirepub" type="button" aria-label="Lire la vidéo"><i><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240 128a15.74 15.74 0 0 1-7.6 13.51L88.32 229.65a16 16 0 0 1-16.2.3A15.86 15.86 0 0 1 64 216.13V39.87a15.86 15.86 0 0 1 8.12-13.82 16 16 0 0 1 16.2.3l144.08 88.14A15.74 15.74 0 0 1 240 128Z"/></svg></i></button></div></div>
+
+  <ol class="frise" aria-label="Prix actuel puis prix final">
+    <li class="fc on" data-lance><em class="remise">−<span data-remise>48</span>&nbsp;€</em><span class="fl"><i></i>Maintenant</span><b data-val>49 €</b><small>plus que <span data-compte>15 j 00 h 00 m</span></small></li>
+    <li data-lance aria-hidden="true"><svg class="farr" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M96 48l80 80-80 80"/></svg></li>
+    <li class="fc" data-final-case><span class="fl">Prix final</span><b data-final>97 €</b><small data-quand>dans 15 jours</small></li>
+  </ol>
+  <p class="plus"><span><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M215.79 118.17a8 8 0 0 0-5-5.66L153.18 90.9l14.66-73.33a8 8 0 0 0-13.69-7l-112 120a8 8 0 0 0 3 13l57.63 21.61-14.62 73.25a8 8 0 0 0 13.69 7l112-120a8 8 0 0 0 1.94-7.26Z"/></svg>Accès immédiat</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18.18 8c5.1 0 5.1 8 0 8-5.1 0-7.14-8-12.74-8-4.58 0-4.58 8 0 8 5.6 0 7.64-8 12.74-8z"/></svg>Paiement unique</span></p>
 
   <div class="scene">
     <div class="fenetre">
@@ -454,13 +464,6 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
     <div class="tel c flotte" aria-hidden="true"><video muted loop playsinline preload="none" poster="v/spash.webp" data-src="v/spash.mp4"></video></div>
     <div class="tel d flotte" aria-hidden="true"><img src="v/fee-du-tri.webp" alt="" width="540" height="960" loading="lazy"></div>
   </div>
-
-  <ol class="frise" aria-label="Prix actuel puis prix final">
-    <li class="fc on" data-lance><em class="remise">−<span data-remise>48</span>&nbsp;€</em><span class="fl"><i></i>Maintenant</span><b data-val>49 €</b><small>plus que <span data-compte>15 j 00 h 00 m</span></small></li>
-    <li data-lance aria-hidden="true"><svg class="farr" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M96 48l80 80-80 80"/></svg></li>
-    <li class="fc" data-final-case><span class="fl">Prix final</span><b data-final>97 €</b><small data-quand>dans 15 jours</small></li>
-  </ol>
-  <p class="plus"><span><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M215.79 118.17a8 8 0 0 0-5-5.66L153.18 90.9l14.66-73.33a8 8 0 0 0-13.69-7l-112 120a8 8 0 0 0 3 13l57.63 21.61-14.62 73.25a8 8 0 0 0 13.69 7l112-120a8 8 0 0 0 1.94-7.26Z"/></svg>Accès immédiat</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18.18 8c5.1 0 5.1 8 0 8-5.1 0-7.14-8-12.74-8-4.58 0-4.58 8 0 8 5.6 0 7.64-8 12.74-8z"/></svg>Paiement unique</span></p>
 </div></section>
 
 <!-- 2. MUR : CONTENU -->
@@ -778,6 +781,7 @@ var PRO=[
   tous("video[data-src]",function(v){vo.observe(v)});
   d.addEventListener("visibilitychange",function(){if(d.hidden)lues.slice().forEach(stop)});
 })();
+;(function(){var bt=document.getElementById("macBtn"),f=document.getElementById("macForm");if(!bt||!f)return;var em=document.getElementById("macEmail"),ms=document.getElementById("macMsg");bt.addEventListener("click",function(){f.hidden=!f.hidden;bt.setAttribute("aria-expanded",String(!f.hidden));if(!f.hidden)em.focus()});f.addEventListener("submit",function(e){e.preventDefault();ms.className="macm";ms.textContent="…";fetch("https://agents-hostinger.tail8e8b06.ts.net/oui-studio/mac",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:em.value})}).then(function(r){if(!r.ok)throw 0;ms.textContent="C'est noté : tu seras prévenu dès la sortie sur Mac.";em.value=""}).catch(function(){ms.className="macm err";ms.textContent="Ça n'a pas marché : vérifie ton e-mail et réessaie."})})})();
 </script>
 </body>
 </html>
