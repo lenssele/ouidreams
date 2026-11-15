@@ -664,10 +664,11 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
    prix : prix de lancement ; prixFinal : prix après le lancement.
    lien : lien de paiement au prix de lancement ; lienFinal : lien de paiement au prix final.
    gel:true = le compte à rebours reste figé à 15 j 00 h 00 m.
-   COMMENT DÉGELER : gel:false, fin:"2026-12-01T00:00:00+01:00" (fin du prix de lancement), lienFinal:"https://buy.stripe.com/…" (lien à 97 €).
+   AUTO (16/11) : debut = instant ou le chrono se degele tout seul (gel:true avant, decompte apres) ; fin = fin du prix de lancement.
+   COMMENT DÉGELER A LA MAIN : gel:false, fin:"2026-12-01T00:00:00+01:00" (fin du prix de lancement), lienFinal:"https://buy.stripe.com/…" (lien à 97 €).
    À la date de fin : la case 49 € disparaît, il reste 97 € et lienFinal remplace lien.
    capture2 : 2e capture des statistiques (ex. "img/stats-2.webp") ; vide = masquée. */
-var CONFIG={prix:"49 €",prixFinal:"97 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",lienFinal:"https://buy.stripe.com/00w00iesPeHe84M2nHgIo0d",gel:true,fin:"",video:"",affiche:"",capture2:""};
+var CONFIG={prix:"49 €",prixFinal:"97 €",lien:"https://buy.stripe.com/9B67sKesP6aI84Md2lgIo0f",lienFinal:"https://buy.stripe.com/00w00iesPeHe84M2nHgIo0d",gel:true,debut:"2026-11-17T17:00:00+01:00",fin:"2026-12-02T17:00:00+01:00",video:"",affiche:"",capture2:""};
 
 var CONTENU=[
   ["c-perfectionniste","Le perfectionniste","2,5 M"],["c-meilleurs-amis","10 meilleurs amis","1,2 M"],["c-bois-de-l-eau","Boire de l'eau","1 M"],
@@ -689,11 +690,12 @@ var PRO=[
   else d.documentElement.classList.add("sansjs");
 
   /* prix : lancement puis prix final */
-  var J=864e5,finT=Date.parse(CONFIG.fin),gele=CONFIG.gel||isNaN(finT),lien=CONFIG.lien,tic;
+  var J=864e5,finT=Date.parse(CONFIG.fin),debutT=Date.parse(CONFIG.debut),lien=CONFIG.lien,tic;
+  function gele(){return isNaN(finT)||(CONFIG.gel&&!(debutT<=Date.now()))} /* 16/11 : le chrono reste fige jusqu'a CONFIG.debut (17/11 17 h), puis decompte jusqu'a CONFIG.fin (2/12 17 h) */
   function deux(n){return(n<10?"0":"")+n}
   function liens(){if(lien)tous("[data-cta]",function(a){a.href=lien;a.target="_blank";a.rel="noopener"})}
   function prix(){
-    var reste=gele?15*J:finT-Date.now();
+    var reste=gele()?15*J:finT-Date.now();
     if(reste<=0){
       tous("[data-lance]",function(e){e.hidden=true});
       tous("[data-apres]",function(e){e.hidden=false});
@@ -712,7 +714,7 @@ var PRO=[
   }
   tous("[data-final]",function(e){e.textContent=CONFIG.prixFinal});
   tous("[data-remise]",function(e){e.textContent=parseInt(CONFIG.prixFinal)-parseInt(CONFIG.prix)});
-  if(prix()&&!gele)tic=setInterval(function(){if(!prix()){clearInterval(tic);liens()}},3e4);
+  if(prix()&&!isNaN(finT))tic=setInterval(function(){if(!prix()){clearInterval(tic);liens()}},3e4);
   liens();
 
   /* barre d'achat : visible dès que le bouton du haut est passé, cachée sur la carte de prix */
