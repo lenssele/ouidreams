@@ -788,6 +788,11 @@ v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.
   else tous("[data-rang]",function(ul){ul.scrollLeft=0});
 
   /* vidéos : chargées seulement à l'écran, 6 lues en même temps au plus, rien en mouvement réduit */
+  /* 16/11 : dans le navigateur intégré de TikTok (lien en bio), une vidéo qui démarre seule s'ouvre en plein écran et gêne le défilement :
+     là-bas, aucune lecture automatique ; la vidéo ne se lance qu'au toucher, et reste dans la page. */
+  var TT=/TikTok|musical_ly|Bytedance|trill_|ttwebview/i.test(navigator.userAgent);
+  tous("video",function(v){v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","");v.setAttribute("x5-playsinline","");v.setAttribute("x5-video-player-fullscreen","false");v.setAttribute("disablepictureinpicture","")});
+  if(TT){tous("video[data-src]",function(v){v.removeAttribute("loop");v.addEventListener("click",function(){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(v.paused){var r=v.play();if(r&&r.catch)r.catch(function(){})}else v.pause()})});return}
   if(reduce||!IO)return;
   var lues=[];
   function joue(v){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(lues.indexOf(v)<0)lues.push(v);while(lues.length>6)lues.shift().pause();var p=v.play();if(p&&p.catch)p.catch(function(){})}
