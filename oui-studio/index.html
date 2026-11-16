@@ -804,7 +804,7 @@ v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.
       var src=v.dataset.src||"";if(!/\.mp4$/.test(src))return;
       var im=d.createElement("img");im.className=(v.className?v.className+" ":"")+"va";im.alt=v.getAttribute("aria-label")||"";im.width=v.width;im.height=v.height;im.decoding="async";
       if(v.style.cssText)im.style.cssText=v.style.cssText;if(v.getAttribute("style"))im.setAttribute("style",v.getAttribute("style"));
-      im.src=v.poster||"";im.dataset.anim=src.replace(/\.mp4$/,".anim.webp?v=2");
+      im.src=v.poster||"";im.dataset.anim=src.replace(/\.mp4$/,".anim.webp?v=3");
       v.parentNode.replaceChild(im,v);imgs.push(im)});
     if(IO){var io=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&x.target.dataset.anim){x.target.src=x.target.dataset.anim;delete x.target.dataset.anim}})},{rootMargin:"200px 0px"});imgs.forEach(function(im){io.observe(im)})}
     else imgs.forEach(function(im){im.src=im.dataset.anim});
