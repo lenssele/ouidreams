@@ -791,8 +791,15 @@ v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.
   /* 16/11 : dans le navigateur intégré de TikTok (lien en bio), une vidéo qui démarre seule s'ouvre en plein écran et gêne le défilement :
      là-bas, aucune lecture automatique ; la vidéo ne se lance qu'au toucher, et reste dans la page. */
   var TT=/TikTok|musical_ly|Bytedance|trill_|ttwebview/i.test(navigator.userAgent);
-  tous("video",function(v){v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","");v.setAttribute("x5-playsinline","");v.setAttribute("x5-video-player-fullscreen","false");v.setAttribute("disablepictureinpicture","")});
-  if(TT){tous("video[data-src]",function(v){v.removeAttribute("loop");v.addEventListener("click",function(){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(v.paused){var r=v.play();if(r&&r.catch)r.catch(function(){})}else v.pause()})});return}
+  if(TT){
+    /* TikTok : aucune lecture sans un vrai toucher (un défilement n'en est pas un) ; au toucher, le lecteur natif de TikTok prend la vidéo (pas de lecture « dans la page », qui se figeait). */
+    var okT=0,opl=HTMLMediaElement.prototype.play;
+    d.addEventListener("click",function(){okT=Date.now()},true);
+    HTMLMediaElement.prototype.play=function(){if(Date.now()-okT>1500){this.pause&&this.pause();return Promise.resolve()}return opl.apply(this,arguments)};
+    tous("video",function(v){v.removeAttribute("playsinline");v.removeAttribute("webkit-playsinline");v.removeAttribute("loop");v.removeAttribute("autoplay");v.pause&&v.pause()});
+    tous("video[data-src]",function(v){v.addEventListener("click",function(){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(v.paused){var r=v.play();if(r&&r.catch)r.catch(function(){})}else v.pause()})});
+    return}
+  tous("video",function(v){v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","")});
   if(reduce||!IO)return;
   var lues=[];
   function joue(v){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(lues.indexOf(v)<0)lues.push(v);while(lues.length>6)lues.shift().pause();var p=v.play();if(p&&p.catch)p.catch(function(){})}
