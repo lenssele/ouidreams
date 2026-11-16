@@ -701,7 +701,11 @@ var PRO=[
   var J=864e5,finT=Date.parse(CONFIG.fin),debutT=Date.parse(CONFIG.debut),lien=CONFIG.lien,tic;
   function gele(){return isNaN(finT)||(CONFIG.gel&&!(debutT<=Date.now()))} /* 16/11 : le chrono reste fige jusqu'a CONFIG.debut (16/11 17 h), puis decompte jusqu'a CONFIG.fin (1/12 17 h) */
   function deux(n){return(n<10?"0":"")+n}
-  function liens(){if(lien)tous("[data-cta]",function(a){a.href=lien;a.target="_blank";a.rel="noopener"})}
+  /* 16/11 : d'où vient le visiteur (?src=… dans le lien, sinon le site d'origine) ; la source suit jusqu'au paiement Stripe (client_reference_id) et alimente la page Oui Studio de Lyciara */
+  var SRC=(function(){try{var q=new URLSearchParams(location.search).get("src"),k="os_src",v=q||localStorage.getItem(k)||"";if(!v){var h=(document.referrer?new URL(document.referrer).hostname:"").replace(/^www\./,"");v=!h?"direct":/instagram/.test(h)?"instagram":/tiktok/.test(h)?"tiktok":/(^|\.)(t\.co|twitter|x)\./.test(h+".")?"x":/youtube|youtu\.be/.test(h)?"youtube":/linkedin|lnkd/.test(h)?"linkedin":/facebook|fb\./.test(h)?"facebook":/google/.test(h)?"google":/ouidreams/.test(h)?"site":h}
+v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.setItem(k,v);return v}catch(e){return"direct"}})();
+  try{if(!sessionStorage.getItem("os_vu")){sessionStorage.setItem("os_vu","1");fetch("https://agents-hostinger.tail8e8b06.ts.net/oui-studio/visite",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({src:SRC}),keepalive:true}).catch(function(){})}}catch(e){}
+  function liens(){if(lien)tous("[data-cta]",function(a){a.href=lien+(lien.indexOf("?")<0?"?":"&")+"client_reference_id="+encodeURIComponent(SRC);a.target="_blank";a.rel="noopener"})}
   function prix(){
     var reste=gele()?15*J:finT-Date.now();
     if(reste<=0){
