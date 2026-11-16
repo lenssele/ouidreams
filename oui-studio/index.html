@@ -426,6 +426,8 @@ footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
   .usage.pro>.pub-tel{position:relative;right:auto;bottom:auto;grid-column:2;grid-row:6 / span 2;align-self:end;width:112px;margin:0 0 -48px;transform:rotate(6deg)}
 }
 .macf{max-width:460px;margin:18px auto 0;text-align:left}.macf label{display:block;font-size:14.5px;color:var(--ink2);margin-bottom:10px}.macf div{display:flex;gap:8px}.macf input{flex:1;min-width:0;padding:0 16px;height:48px;border-radius:999px;border:0;background:rgba(244,239,231,.06);color:var(--ink);font:inherit;box-shadow:inset 0 0 0 1px var(--line2)}.macf input:focus{outline:2px solid var(--g)}.macm{margin-top:10px;font-size:14px;color:var(--g);min-height:1em}.macm.err{color:#e8a08f}@media(max-width:520px){.macf div{flex-direction:column}}
+video:not(#vpub),.va{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.va{width:100%;height:100%;object-fit:cover;background:#0b0a09}.fenetre .va{height:auto;aspect-ratio:1440/876}
 </style>
 </head>
 <body>
@@ -790,14 +792,20 @@ v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.
   /* vidéos : chargées seulement à l'écran, 6 lues en même temps au plus, rien en mouvement réduit */
   /* 16/11 : dans le navigateur intégré de TikTok (lien en bio), une vidéo qui démarre seule s'ouvre en plein écran et gêne le défilement :
      là-bas, aucune lecture automatique ; la vidéo ne se lance qu'au toucher, et reste dans la page. */
+  /* 16/11 (Hugo) : toutes les vidéos sauf celle du haut (bouton lecture) jouent seules, sans son, et ne sont pas touchables (CSS pointer-events).
+     Dans le navigateur de TikTok, un <video> s'ouvre en plein écran : on le remplace par une image animée (v/<nom>.anim.webp), qui bouge sans pouvoir s'ouvrir. */
   var TT=/TikTok|musical_ly|Bytedance|trill_|ttwebview/i.test(navigator.userAgent);
   if(TT){
-    /* TikTok : aucune lecture sans un vrai toucher (un défilement n'en est pas un) ; au toucher, le lecteur natif de TikTok prend la vidéo (pas de lecture « dans la page », qui se figeait). */
-    var okT=0,opl=HTMLMediaElement.prototype.play;
-    d.addEventListener("click",function(){okT=Date.now()},true);
-    HTMLMediaElement.prototype.play=function(){if(Date.now()-okT>1500){this.pause&&this.pause();return Promise.resolve()}return opl.apply(this,arguments)};
-    tous("video",function(v){v.removeAttribute("playsinline");v.removeAttribute("webkit-playsinline");v.removeAttribute("loop");v.removeAttribute("autoplay");v.pause&&v.pause()});
-    tous("video[data-src]",function(v){v.addEventListener("click",function(){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(v.paused){var r=v.play();if(r&&r.catch)r.catch(function(){})}else v.pause()})});
+    var imgs=[];
+    tous("video",function(v){
+      if(v.id==="vpub")return;
+      var src=v.dataset.src||"";if(!/\.mp4$/.test(src))return;
+      var im=d.createElement("img");im.className=(v.className?v.className+" ":"")+"va";im.alt=v.getAttribute("aria-label")||"";im.width=v.width;im.height=v.height;im.decoding="async";
+      if(v.style.cssText)im.style.cssText=v.style.cssText;if(v.getAttribute("style"))im.setAttribute("style",v.getAttribute("style"));
+      im.src=v.poster||"";im.dataset.anim=src.replace(/\.mp4$/,".anim.webp");
+      v.parentNode.replaceChild(im,v);imgs.push(im)});
+    if(IO){var io=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting&&x.target.dataset.anim){x.target.src=x.target.dataset.anim;delete x.target.dataset.anim}})},{rootMargin:"200px 0px"});imgs.forEach(function(im){io.observe(im)})}
+    else imgs.forEach(function(im){im.src=im.dataset.anim});
     return}
   tous("video",function(v){v.setAttribute("playsinline","");v.setAttribute("webkit-playsinline","")});
   if(reduce||!IO)return;
