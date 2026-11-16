@@ -430,10 +430,6 @@ video:not(#vpub),.va{pointer-events:none;-webkit-touch-callout:none;-webkit-user
 .va{width:100%;height:100%;object-fit:cover;background:#0b0a09}.fenetre .va{height:auto;aspect-ratio:1440/876}
 /* 16/11 : le masque du mur découpe tout ce qui dépasse de sa boîte ; avec l inclinaison 3D, le haut et le bas des cartes étaient rognés (téléphone) : on agrandit la boîte sans changer la mise en page */
 .mur{padding:72px 0;margin-top:-16px;margin-bottom:-72px}
-.lienf{display:none}@media(max-width:767px){.lienf{display:block}}
-.lienf .lienl{font-size:15px;line-height:1.5;color:var(--ink2);margin:0 0 12px}.lienf .lienl b{color:var(--ink)}
-.macf .lienc{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45;color:var(--ink2);margin:12px 0 0}.macf .lienc input{flex:none;width:20px;min-width:20px;height:20px;margin-top:1px;padding:0;border-radius:5px;accent-color:var(--g)}
-.lienf2{margin:26px auto 0}
 </style>
 </head>
 <body>
@@ -459,7 +455,6 @@ video:not(#vpub),.va{pointer-events:none;-webkit-touch-callout:none;-webkit-user
     <button class="btn ghost" id="macBtn" type="button" aria-expanded="false" aria-controls="macForm"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M223.3 169.59a8 8 0 0 0-2.8-3.4C203.53 154.53 200 134.64 200 120c0-17.67 13.47-33.06 21.5-40.67a8 8 0 0 0 0-11.62C208.82 55.74 187.82 48 168 48a72.2 72.2 0 0 0-40 12.13 71.56 71.56 0 0 0-90.71 9.09A74.63 74.63 0 0 0 16 123.4a127.06 127.06 0 0 0 40.14 89.73A39.8 39.8 0 0 0 83.59 224h87.68a39.84 39.84 0 0 0 29.12-12.57 125 125 0 0 0 17.82-24.6c7-12.83 6.12-14.83 5.09-17.24ZM128 40a32 32 0 0 1 32-32 8 8 0 0 1 0 16 16 16 0 0 0-16 16 8 8 0 0 1-16 0Z"/></svg>Mac : me prévenir</button>
 
   </div>
-  <form class="macf lienf" data-lien><p class="lienl"><b>Sur téléphone ?</b> Oui Studio s'installe sur un PC Windows : reçois le lien par e-mail pour l'ouvrir plus tard sur ton PC.</p><div><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="ton@email.fr" required maxlength="254" aria-label="Ton e-mail"><button class="btn" type="submit">Recevoir le lien</button></div><label class="lienc"><input type="checkbox" name="ok" required><span>J'accepte de recevoir ce lien par e-mail, puis un seul rappel demain.</span></label><p class="macm" role="status"></p></form>
   <form class="macf" id="macForm" hidden><label for="macEmail">Ton e-mail : on te prévient dès que la version Mac sort.</label><div><input id="macEmail" type="email" inputmode="email" autocomplete="email" placeholder="ton@email.fr" required maxlength="254"><button class="btn" type="submit">Me prévenir</button></div><p class="macm" id="macMsg" role="status"></p></form>
   <p class="claude-note"><svg viewBox="0 0 24 24" fill="#d97757" aria-hidden="true"><g id="clx"><rect x="10.8" y="1.4" width="2.4" height="8.4" rx="1.2"/></g><use href="#clx" transform="rotate(45 12 12)"/><use href="#clx" transform="rotate(90 12 12)"/><use href="#clx" transform="rotate(135 12 12)"/><use href="#clx" transform="rotate(180 12 12)"/><use href="#clx" transform="rotate(225 12 12)"/><use href="#clx" transform="rotate(270 12 12)"/><use href="#clx" transform="rotate(315 12 12)"/></svg><span><b>Branche ton abonnement Claude</b> (Pro ou plus) : c'est lui qui fait travailler ton agent.</span></p>
 
@@ -629,7 +624,6 @@ video:not(#vpub),.va{pointer-events:none;-webkit-touch-callout:none;-webkit-user
     <a class="btn" href="#prix" data-cta id="cta-prix">Obtenir pour Windows</a>
     <p class="plus"><span><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M215.79 118.17a8 8 0 0 0-5-5.66L153.18 90.9l14.66-73.33a8 8 0 0 0-13.69-7l-112 120a8 8 0 0 0 3 13l57.63 21.61-14.62 73.25a8 8 0 0 0 13.69 7l112-120a8 8 0 0 0 1.94-7.26Z"/></svg>Accès immédiat</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18.18 8c5.1 0 5.1 8 0 8-5.1 0-7.14-8-12.74-8-4.58 0-4.58 8 0 8 5.6 0 7.64-8 12.74-8z"/></svg>Paiement unique</span></p>
   </div>
-  <form class="macf lienf lienf2" data-lien><p class="lienl"><b>Sur téléphone ?</b> Oui Studio s'installe sur un PC Windows : reçois le lien par e-mail pour l'ouvrir plus tard sur ton PC.</p><div><input type="email" name="email" inputmode="email" autocomplete="email" placeholder="ton@email.fr" required maxlength="254" aria-label="Ton e-mail"><button class="btn" type="submit">Recevoir le lien</button></div><label class="lienc"><input type="checkbox" name="ok" required><span>J'accepte de recevoir ce lien par e-mail, puis un seul rappel demain.</span></label><p class="macm" role="status"></p></form>
   <div class="besoin rv">
     <h3>Ce qu'il te faut en plus</h3>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg><span><b>Un abonnement Claude</b>Pro ou plus, à ta charge</span></div>
@@ -825,7 +819,6 @@ v=v.toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40)||"direct";localStorage.
   d.addEventListener("visibilitychange",function(){if(d.hidden)lues.slice().forEach(stop)});
 })();
 ;(function(){var bt=document.getElementById("macBtn"),f=document.getElementById("macForm");if(!bt||!f)return;var em=document.getElementById("macEmail"),ms=document.getElementById("macMsg");bt.addEventListener("click",function(){f.hidden=!f.hidden;bt.setAttribute("aria-expanded",String(!f.hidden));if(!f.hidden)em.focus()});f.addEventListener("submit",function(e){e.preventDefault();ms.className="macm";ms.textContent="…";fetch("https://agents-hostinger.tail8e8b06.ts.net/oui-studio/mac",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:em.value})}).then(function(r){if(!r.ok)throw 0;ms.textContent="C'est noté : tu seras prévenu dès la sortie sur Mac.";em.value=""}).catch(function(){ms.className="macm err";ms.textContent="Ça n'a pas marché : vérifie ton e-mail et réessaie."})})})();
-;(function(){var fs=document.querySelectorAll("form[data-lien]");if(!fs.length)return;Array.prototype.forEach.call(fs,function(f){var em=f.querySelector("input[type=email]"),ok=f.querySelector("input[type=checkbox]"),ms=f.querySelector(".macm");f.addEventListener("submit",function(e){e.preventDefault();ms.className="macm";ms.textContent="…";var src="direct";try{src=localStorage.getItem("os_src")||"direct"}catch(x){}fetch("https://agents-hostinger.tail8e8b06.ts.net/oui-studio/lien",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:em.value,consent:!!ok.checked,src:src})}).then(function(r){if(!r.ok)throw 0;ms.textContent="C'est envoyé : regarde ta boîte mail (et tes courriers indésirables).";em.value=""}).catch(function(){ms.className="macm err";ms.textContent="Ça n'a pas marché : vérifie ton e-mail et réessaie."})})})})();
 </script>
 </body>
 </html>
